@@ -150,17 +150,17 @@ table th{
 
 
 header{
-	-webkit-box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
-	box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
-	border-top-color:#d7d7d7;
+	-webkit-box-shadow:3px 2px 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:3px 2px 4px 4px rgba(0, 0, 0, 0.1);
+	box-shadow:3px 2px 4px 4px rgba(0, 0, 0, 0.1);
+	border-color:#d7d7d7;
 	
 	background:#f3f3f3;
 	/* the filter causes an overflow problem on IE9 http://stackoverflow.com/questions/3619383/internet-explorer-css-property-filter-ignores-overflowvisible
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f1f1f1');*/
 	background:-webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#f1f1f1));
-	background:-moz-linear-gradient(top,  #f6f6f6,  #f1f1f1);
-	background:-o-linear-gradient(top,  #f6f6f6,  #f1f1f1);
+	background:-moz-linear-gradient(left,  #f6f6f6,  #f1f1f1);
+	background:-o-linear-gradient(left,  #f6f6f6,  #f1f1f1);
 	height : 80px;
 }
 #logo, #logo a{
@@ -338,9 +338,10 @@ nav ul li ul li a span{
 /*----------------------------------------------------------------------*/
 
 #content{
-	-webkit-box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
-	box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 3px 2px 4px 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:3px 2px 4px 4px rgba(0, 0, 0, 0.1);
+	box-shadow:3px 2px 4px 4px rgba(0, 0, 0, 0.1);
+	
 	background-color:#eeeeee;
 	background-image:url(images/paper_01.png);
 	border-color:#ededed;
