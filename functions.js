@@ -19,6 +19,12 @@ function addMail() {
 			alert("Email est incorrect !")
 		}
 }
+
+function toto(){
+	return null;
+}
+
+
 $(document).ready(function(){	
 	$('#submitbutton').click(addMail);
 });
