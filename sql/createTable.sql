@@ -16,10 +16,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `TAG`
+-- Table structure for table `MYTODO_TAG`
 --
 
-CREATE TABLE `TAG` (
+CREATE TABLE `MYTODO_TAG` (
   `uuid` char(23) NOT NULL,
   `title` varchar(10) NOT NULL,
   `dateCreated` date NOT NULL,
@@ -30,17 +30,17 @@ CREATE TABLE `TAG` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `TAG`
+-- Dumping data for table `MYTODO_TAG`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `TASK`
+-- Table structure for table `MYTODO_TASK`
 --
 
-CREATE TABLE `TASK` (
+CREATE TABLE `MYTODO_TASK` (
   `uuid` char(23) NOT NULL,
   `dateCreated` date NOT NULL,
   `dateCompleted` date DEFAULT NULL,
@@ -55,17 +55,17 @@ CREATE TABLE `TASK` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `TASK`
+-- Dumping data for table `MYTODO_TASK`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `USER`
+-- Table structure for table `MYTODO_USER`
 --
 
-CREATE TABLE `USER` (
+CREATE TABLE `MYTODO_USER` (
   `uuid` char(23) NOT NULL,
   `pwd` char(32) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE `USER` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `USER`
+-- Dumping data for table `MYTODO_USER`
 --
 
 
@@ -87,13 +87,13 @@ CREATE TABLE `USER` (
 --
 
 --
--- Constraints for table `TAG`
+-- Constraints for table `MYTODO_TAG`
 --
-ALTER TABLE `TAG`
-  ADD CONSTRAINT `TAG_ibfk_1` FOREIGN KEY (`user`) REFERENCES `USER` (`uuid`);
+ALTER TABLE `MYTODO_TAG`
+  ADD CONSTRAINT `MYTODO_TAG_ibfk_1` FOREIGN KEY (`user`) REFERENCES `MYTODO_USER` (`uuid`);
 
 --
--- Constraints for table `TASK`
+-- Constraints for table `MYTODO_TASK`
 --
-ALTER TABLE `TASK`
-  ADD CONSTRAINT `TASK_ibfk_1` FOREIGN KEY (`tag`) REFERENCES `TAG` (`uuid`);
+ALTER TABLE `MYTODO_TASK`
+  ADD CONSTRAINT `MYTODO_TASK_ibfk_1` FOREIGN KEY (`tag`) REFERENCES `MYTODO_TAG` (`uuid`);
