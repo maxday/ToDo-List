@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	
+	<title>White Label - a full featured Admin Skin</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="revaxarts.com">
+	
+	
+	<!-- Google Font and style definitions -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- include the skins (change to dark if you like) -->
+	<link rel="stylesheet" href="css/light/theme.css" id="themestyle">
+	<!-- <link rel="stylesheet" href="css/dark/theme.css" id="themestyle"> -->
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+	
+	<!-- Apple iOS and Android stuff -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	
+	<!-- Apple iOS and Android stuff - don't remove! -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+	
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+	
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
+	
+	<!-- some basic functions -->
+	<script src="js/functions.js"></script>
+		
+	<!-- all Third Party Plugins and Whitelabel Plugins -->
+	<script src="js/plugins.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="js/calendar.js"></script>
+	<script src="js/flot.js"></script>
+	<script src="js/elfinder.js"></script>
+	<script src="js/datatables.js"></script>
+	<script src="js/wl_Alert.js"></script>
+	<script src="js/wl_Autocomplete.js"></script>
+	<script src="js/wl_Breadcrumb.js"></script>
+	<script src="js/wl_Calendar.js"></script>
+	<script src="js/wl_Chart.js"></script>
+	<script src="js/wl_Color.js"></script>
+	<script src="js/wl_Date.js"></script>
+	<script src="js/wl_Editor.js"></script>
+	<script src="js/wl_File.js"></script>
+	<script src="js/wl_Dialog.js"></script>
+	<script src="js/wl_Fileexplorer.js"></script>
+	<script src="js/wl_Form.js"></script>
+	<script src="js/wl_Gallery.js"></script>
+	<script src="js/wl_Multiselect.js"></script>
+	<script src="js/wl_Number.js"></script>
+	<script src="js/wl_Password.js"></script>
+	<script src="js/wl_Slider.js"></script>
+	<script src="js/wl_Store.js"></script>
+	<script src="js/wl_Time.js"></script>
+	<script src="js/wl_Valid.js"></script>
+	<script src="js/wl_Widget.js"></script>
+	
+	<!-- configuration to overwrite settings -->
+	<script src="js/config.js"></script>
+		
+	<!-- the script which handles all the access to plugins etc... -->
+	<script src="js/script.js"></script>
+	
+	
+</head>
+<body>
+				<div id="pageoptions">
+			<ul>
+				<li><a href="login.html">Logout</a></li>
+				<li><a href="#" id="wl_config">Configuration</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+			<div>
+						<h3>Place for some configs</h3>
+						<p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p>
+			</div>
+		</div>
+
+			<header>
+		<div id="logo">
+			<a href="dashboard.html">Logo Here</a>
+		</div>
+		<div id="header">
+			<ul id="headernav">
+				<li><ul>
+					<li><a href="icons.html">Icons</a><span>300+</span></li>
+					<li><a href="#">Submenu</a><span>4</span>
+						<ul>
+							<li><a href="#">Just</a></li>
+							<li><a href="#">another</a></li>
+							<li><a href="#">Dropdown</a></li>
+							<li><a href="#">Menu</a></li>
+						</ul>
+					</li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="wizard.html">Wizard</a><span>Bonus</span></li>
+					<li><a href="#">Errorpage</a><span>new</span>
+						<ul>
+							<li><a href="error-403.html">403</a></li>
+							<li><a href="error-404.html">404</a></li>
+							<li><a href="error-405.html">405</a></li>
+							<li><a href="error-500.html">500</a></li>
+							<li><a href="error-503.html">503</a></li>
+						</ul>
+					</li>
+				</ul></li>
+			</ul>
+			<div id="searchbox">
+				<form id="searchform" autocomplete="off">
+					<input type="search" name="query" id="search" placeholder="Search">
+				</form>
+			</div>
+			<ul id="searchboxresult">
+			</ul>
+		</div>
+	</header>
+
+				<nav>
+			<ul id="nav">
+				<li class="i_house"><a href="dashboard.html"><span>Dashboard</span></a></li>
+				<li class="i_book"><a><span>Documentation</span></a>
+					<ul>
+						<li><a href="doc-alert.html"><span>Alert Boxes</span></a></li>
+						<li><a href="doc-breadcrumb.html"><span>Breadcrumb</span></a></li>
+						<li><a href="doc-calendar.html"><span>Calendar</span></a></li>
+						<li><a href="doc-charts.html"><span>Charts</span></a></li>
+						<li><a href="doc-dialog.html"><span>Dialog</span></a></li>
+						<li><a href="doc-editor.html"><span>Editor</span></a></li>
+						<li><a href="doc-file.html"><span>File</span></a></li>
+						<li><a href="doc-fileexplorer.html"><span>Fileexplorer</span></a></li>
+						<li><a href="doc-form.html"><span>Form</span></a></li>
+						<li><a href="doc-gallery.html"><span>Gallery</span></a></li>
+						<li><a href="doc-inputfields.html"><span>Inputfields</span></a></li>
+						<li><a href="doc-slider.html"><span>Slider</span></a></li>
+						<li><a href="doc-store.html"><span>Store</span></a></li>
+						<li><a href="doc-widget.html"><span>Widget</span></a></li>
+					</ul>
+				</li>
+				<li class="i_create_write"><a href="form.html"><span>Form</span></a></li>
+				<li class="i_graph"><a href="charts.html"><span>Charts</span></a></li>
+				<li class="i_images"><a href="gallery.html"><span>Gallery</span></a></li>
+				<li class="i_blocks_images"><a href="widgets.html"><span>Widgets</span></a></li>
+				<li class="i_breadcrumb"><a href="breadcrumb.html"><span>Breadcrumb</span></a></li>
+				<li class="i_file_cabinet"><a href="fileexplorer.html"><span>Fileexplorer</span></a></li>
+				<li class="i_calendar_day"><a href="calendar.html"><span>Calendar</span></a></li>
+				<li class="i_speech_bubbles_2"><a href="dialogs_and_buttons.html"><span>Dialogs &amp; Buttons</span></a></li>
+				<li class="i_table"><a href="datatable.html"><span>Table</span></a></li>
+				<li class="i_typo"><a href="typo.html"><span>Typo</span></a></li>
+				<li class="i_grid"><a href="grid.html"><span>Grid</span></a></li>
+			</ul>
+		</nav>
+		
+			
+		<section id="content">
+			
+			<div class="g12">
+				
+			<h1 id="numbers">Number <span title="current version: 1.0">v 1.0</span></h1>
+			<p>Converts an input field into a rich featured numbers-only field</p>
+			<p>If you define decimals = 2:</p>
+			<ul>
+			<li>type '123' => converts it to '123.00'</li>
+			<li>type '123.456' => converts it to '123.47'</li>
+			<li>type '123,000' => converts it to '123.00'</li>
+			</ul>
+			<ul>
+			<li>Hold down the shift key to multiple steps by 10</li>
+			</ul>
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>step</th><td>1</td><td>integer</td>
+			<td>defines the steps used on a mousewheel action</td><td>1.0</td><td>only for mousewheel</td>
+			</tr>
+			<tr><th>decimals</th><td>0</td><td>integer</td>
+			<td>number of decmials that are displayed</td><td>1.0</td>
+			</tr>
+			<tr><th>start</th><td>0</td><td>integer</td>
+			<td>defines the starting value on a mousewheel action</td><td>1.0</td><td>only for mousewheel</td>
+			</tr>
+			<tr><th>min</th><td>null</td><td>number</td>
+			<td>define a minimum</td><td>1.0</td>
+			</tr>
+			<tr><th>max</th><td>null</td><td>number</td>
+			<td>define a maximum</td><td>1.0</td>
+			</tr>
+			<tr><th>mousewheel</th><td>true</td><td>true | false</td>
+			<td>use mousewheel feature</td><td>1.0</td>
+			</tr>
+			<tr><th>onChange</th><td>function(){}</td><td>function(value)</td>
+			<td>callback if the value has changed. value is the current value</td><td>1.0</td>
+			</tr>
+			<tr><th>onError</th><td>function(){}</td><td>function(value)</td>
+			<td>callback if no valid value (no number) is entered. value is the current value</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<h3>Usage</h3>
+<pre>$(selector).wl_Number([options]);</pre>
+	
+	
+			<h3>Markup</h3>
+<pre>
+&lt;input type="number" class="integer"&gt; //for integers
+&lt;input type="number" class="decimal"&gt; //for decimals</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<section><label for="input">Integer Field</label>
+						<div><input type="number" class="integer" name="integer"></div>
+					</section>
+					<section><label for="input">Decimal Field</label>
+						<div><input type="number" class="decimal" name="decimal"></div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+			
+			
+			<hr>
+			
+			
+			<h1 id="date">Date <span title="current version: 1.0">v 1.0</span></h1>
+			<p>Converts an input field into a rich featured date field. Uses the <a href="">jQuery datepicker</a></p>
+			<ul>
+				<li>use mousewheel to scroll thru dates</li>
+				<li>hold down shift to scroll thru month</li>
+			</ul>
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>mousewheel</th><td>true</td><td>true | false</td>
+			<td>use mousewheel feature</td><td>1.0</td>
+			</tr>
+			<tr><th>value</th><td>null</td><td>'now', 'today', 'yesterday', 'tomorrow' | +n | -n</td>
+			<td>sets the value for the element. 'now', 'today' gets converted in the current date, 'yesterday' and 'tomorrow' adds or substract a day and +n|-n is for an offset time in days (e.g. value= -30 displayes the date one month ago)</td><td>1.0</td><td>don't use the normal 'value' attribute for this placeholders, use data-value instead!</td>
+			</tr>
+			</tbody>
+			</table>
+			<p>Check out the <a href="http://jqueryui.com/demos/datepicker/">jQuery datepicker options</a> for the other options</p>
+			
+			<h3>Methods</h3>
+			
+			<p>Check out the <a href="http://jqueryui.com/demos/datepicker/">jQuery datepicker methods</a></p>
+			
+			<h3>Usage</h3>
+<pre>$(selector).wl_Date([options]);</pre>
+	
+	
+			<h3>Markup</h3>
+<pre>
+&lt;input type="text" class="date"&gt;
+&lt;div class="date"&gt&lt;/div&gt; //for inline datefield</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<section><label for="input">Normal Date</label>
+						<div><input type="text" class="date" name="normal_date"></div>
+					</section>
+					<section><label for="input">Inline Date</label>
+						<div><div class="date" name="inline_date"></div></div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+			<hr>
+			
+			
+			<h1 id="time">Time <span title="current version: 1.1">v 1.1</span></h1>
+			<p>Converts an input field into a rich featured time field.</p>
+			<p>You can type a valid time (e.g. 10:30) or following:</p>
+			<ul>
+				<li>type '1' => converts it to 01:00</li>
+				<li>type '12' => converts it to 12:00</li>
+				<li>type '123' => converts it to 12:30</li>
+				<li>type '1234' => converts it to 12:34</li>
+			</ul>
+			<p>If you use 12h timeformat 23:00 gets converted to 11:00pm</p>
+			<ul>
+				<li>use mousewheel to scroll thru minutes</li>
+				<li>Hold down the shift key to scroll thru hours</li>
+			</ul>
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>step</th><td>5</td><td>integer</td>
+			<td>defines the steps used on a mousewheel action</td><td>1.0</td><td>only for mousewheel</td>
+			</tr>
+			<tr><th>timeformat</th><td>24</td><td>12 | 24</td>
+			<td>defines the used timeformat</td><td>1.0</td><td>The form will always submit a 24h timeformat</td>
+			</tr>
+			<tr><th>value</th><td>null</td><td>'now' | +n | -n</td>
+			<td>sets the value for the element. 'now' gets converted in the current time +n|-n is for an offset time in minutes (e.g. value= -60 displayes the time one hour ago)</td><td>1.0</td><td>don't use the normal 'value' attribute for this placeholders, use data-value instead!</td>
+			</tr>
+			<tr><th>roundtime</th><td>true</td><td>true | false</td>
+			<td>round the time to the next "nice" step (e.g. 00:08 => 00:15 => 00:30)</td><td>1.0</td><td>only for mousewheel</td>
+			</tr>
+			<tr><th>connect</th><td>null</td><td>id of a datefield</td>
+			<td>connects the time to a datefield</td><td>1.0</td><td>effects the date field when reaching a new date</td>
+			</tr>
+			<tr><th>mousewheel</th><td>true</td><td>true | false</td>
+			<td>use mousewheel feature</td><td>1.0</td>
+			</tr>
+			<tr><th>onDateChange</th><td>function(){}</td><td>function(offset)</td>
+			<td>callback if the date has changed. offset can be +1 or -1</td><td>1.0</td><td>only for mousewheel</td>
+			</tr>
+			<tr><th>onHourChange</th><td>function(){}</td><td>function(offset)</td>
+			<td>callback if the hour has changed. offset can be +1 or -1</td><td>1.0</td><td>only for mousewheel</td>
+			</tr>
+			<tr><th>onChange</th><td>function(){}</td><td>function(value)</td>
+			<td>callback if the value has changed. value is the current value (format hh:mm)</td><td>1.0</td>
+			</tr>
+			<tr><th>onError</th><td>function(){}</td><td>function(value)</td>
+			<td>callback if no valid value is entered. value is the current value</td><td>1.0</td><td>the field gets the value of '00:00'</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<h3>Usage</h3>
+<pre>$(selector).wl_Time([options]);</pre>
+	
+	
+			<h3>Markup</h3>
+<pre>
+&lt;input type="text" class="time"&gt;</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<section><label for="input">24 Timeformat Field</label>
+						<div><input type="text" class="time" name="time_24" value="14:12"></div>
+					</section>
+					<section><label for="input">12 Timeformat Field</label>
+						<div><input type="text" class="time" data-timeformat="12" name="time_12" value="14:12"></div>
+					</section>
+					<section><label for="datetime">Connected to Date</label>
+						<div><input id="datetime" name="datetime" type="text" class="date"><input type="text" class="time" data-connect="datetime">
+						</div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+			<hr>
+			
+			
+			<h1 id="multiselect">Multiselect <span title="current version: 1.3">v 1.3</span></h1>
+			<p>Converts an multi select dropdown field into a Combo box</p>
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>height</th><td>200</td><td>integer</td>
+			<td>defines the height of the field in pixel</td><td>1.0</td>
+			</tr>
+			<tr><th>items</th><td>[]</td><td>Array with item objects</td>
+			<td>defines additional items to add for the list.
+			<pre>
+[{
+  name:'Item Name',
+  value:'item_value'
+},{
+  name:'Item Name 2',
+  value:'item_value_2'
+}]			</pre></td><td>1.0</td><td>Elements will get append to the native options</td>
+			</tr>
+			<tr><th>selected</th><td>[]</td><td>String | Array</td>
+			<td>defines values which are selected on initialisation. More values must be defined in an array
+			<pre>
+['item_value','item_value_2']</pre></td><td>1.0</td><td>Doesn't affect the native selected options</td>
+			</tr>
+			<tr><th>showUsed</th><td>false</td><td>true | false</td>
+			<td>remove used elements from the list (hide them). Used elements get a 'used' class in any case</td><td>1.0</td>
+			</tr>
+			<tr><th>searchfield</th><td>true</td><td>true | false</td>
+			<td>adds a searchfield to the option pool which search for values and names</td><td>1.3</td>
+			</tr>
+			<tr><th>onAdd</th><td>function(){}</td><td>function(values)</td>
+			<td>callback if an item is added to the list. values is an array with added values</td><td>1.0</td
+			></tr>
+			<tr><th>onRemove</th><td>function(){}</td><td>function(values)</td>
+			<td>callback if an item is remove from the list. values is an array with removed values</td><td>1.0</td>
+			</tr>
+			<tr><th>onSelect</th><td>function(){}</td><td>function(values)</td>
+			<td>callback if an item get selected. values is an array with the selected values</td><td>1.0</td>
+			</tr>
+			<tr><th>onUnselect</th><td>function(){}</td><td>function(values)</td>
+			<td>callback if an item get unselected. values is an array with the unselected values</td><td>1.0</td>
+			</tr>
+			<tr><th>onSort</th><td>function(){}</td><td>function(values)</td>
+			<td>callback if the list gets sorted. values is an array with all values in the new order</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>add</th><td>function(values,select=false){}</td><td>String|Array|Object, true | false</td>
+			<td>add items to the list. values can be a String (one item name=value), an Array (multiple items, name=value) and an object with different name and value pairs. If select is true item wil get selected too</td><td>1.0</td>
+			</tr>
+			<tr><th>remove</th><td>function(values){}</td><td>String|Array</td>
+			<td>remove the item with the specific value from the list. values can be a String or an Array</td><td>1.0</td>
+			</tr>
+			<tr><th>select</th><td>function(values){}</td><td>String|Array</td>
+			<td>select values. values can be a String or an Array</td><td>1.0</td>
+			</tr>
+			<tr><th>unselect</th><td>function(values){}</td><td>String|Array</td>
+			<td>unselect values. values can be a String or an Array</td><td>1.0</td>
+			</tr>
+			<tr><th>clear</th><td>function(){}</td><td></td>
+			<td>clears the selection</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Usage</h3>
+<pre>$(selector).wl_Multiselect([options]);</pre>
+
+			<h3>Calling Methods</h3>
+			<h4>Add Elements</h4>
+<pre>$(selector).wl_Multiselect('add','Entry'); // value is equal name
+$(selector).wl_Multiselect('add',['First Entry','Second Entry']); // value is equal name
+$(selector).wl_Multiselect('add',{'first': 'First Entry','second': 'Second Entry'});</pre>
+			<h4>Select/Unselect Elements</h4>
+<pre>$(selector).wl_Multiselect('[un]select','Entry');
+$(selector).wl_Multiselect('[un]select',['First Entry','Second Entry']);</pre>
+			<h4>Remove Elements</h4>
+<pre>$(selector).wl_Multiselect('remove','Entry');
+$(selector).wl_Multiselect('remove',['First Entry','Second Entry']);</pre>
+	
+	
+			<h3>Markup</h3>
+<pre>&lt;select multiple&gt;
+	&lt;option value="artichoke"&gt;Artichoke&lt;/option&gt;
+	&lt;option value="beans" selected&gt;Beans&lt;/option&gt;
+	&lt;option value="broccoli"&gt;Broccoli&lt;/option&gt;
+	...
+&lt;/select&gt;</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<section>
+						<label for="multiselect">Multiple Select<br><span>with optional searchfield</span></label>
+						<div>					
+							<select name="multiselect" id="multiselect" multiple>
+									<option value="artichoke">Artichoke</option>
+									<option value="beans" selected>Beans</option>
+									<option value="broccoli">Broccoli</option>
+									<option value="carrot">Carrot</option>
+									<option value="corn">Corn</option>
+									<option value="chicory">Chicory</option>
+									<option value="kohlrabi">Kohlrabi</option>
+									<option value="melon">Melon</option>
+									<option value="onion">Onion</option>
+									<option value="potato">Potato</option>
+									<option value="pumpkin">Pumpkin</option>
+									<option value="spinach">Spinach</option>
+									<option value="tomato">Tomato</option>
+							</select>
+						</div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+			<hr>
+			
+			
+			<h1 id="autocomlete">Autocomplete <span title="current version: 1.0">v 1.0</span></h1>
+			<p>Converts an input field into an autocomplete field using <a href="http://jqueryui.com/demos/autocomplete/">jQuery autocomplete</a></p>
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			
+
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>source</th><td>null</td><td>array, function</td>
+			<td>defines the source. function must return an array</td><td>1.0</td><td>This field is required!</td>
+			</tr>
+			<tr><td colspan="6">Check out <a href="http://jqueryui.com/demos/autocomplete/">jQuery autocomplete</a> for all options</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><td colspan="6">Check out <a href="http://jqueryui.com/demos/autocomplete/">jQuery autocomplete</a> for all methods</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Usage</h3>
+<pre>$(selector).wl_Autocomplete([options]);</pre>
+	
+	
+			<h3>Markup</h3>
+<pre>
+&lt;input type="text" class="autocomplete"&gt;
+&lt;input type="text" class="autocomplete" data-source="[abc,def,ghi,jkl,mno,pqr,stu,vwx,yz]"&gt;
+&lt;input type="text" class="autocomplete" data-source="myAutocompleteFunction"&gt;
+</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<section><label for="autocomplete_simple">Simple Autocomplete</label>
+						<div><input id="autocomplete" name="autocomplete_simple" type="text" class="autocomplete">
+						<br><span>the source is defined within the call <code>$(selector).wl_Autocomplete({source:[...,...]});</code></span>
+						</div>
+					</section>
+					<section><label for="autocomplete_inline">Autocomplete with inline data</label>
+						<div><input id="autocomplete_inline" name="autocomplete_inline" type="text" class="autocomplete" data-source="[abc,def,ghi,jkl,mno,pqr,stu,vwx,yz]">
+						<br><span>inline data with <code>data-source="[abc,def,ghi,jkl,mno,pqr,stu,vwx,yz]"</code></span>
+						</div>
+					</section>
+					<section><label for="autocomplete_function">Autocomplete with user function</label>
+						<div><input id="autocomplete_function" name="autocomplete_function" type="text" class="autocomplete" data-source="myAutocompleteFunction">
+						<br><span>source is a user function with <code>data-source="myAutocompleteFunction"</code>. Function must return an array</span>
+						</div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+			<hr>
+			
+			
+			<h1 id="valid">Valid <span title="current version: 1.0">v 1.0</span></h1>
+			<p>Converts an input field ready for valid inputs</p>
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>errorClass</th><td>'error'</td><td>string</td>
+			<td>the CSS class for an error field</td><td>1.0</td>
+			</tr>
+			<tr><th>instant</th><td>true</td><td>true | false</td>
+			<td>instant validation during typing. If false validation will triggert on blur</td><td>1.0</td>
+			</tr>
+			<tr><th>regex</th><td>/.*/</td><td>regular Expression</td>
+			<td>The used regular expression for validation</td><td>1.0</td>
+			</tr>
+			<tr><th>minLength</th><td>0</td><td>integer</td>
+			<td>minimum length before validation</td><td>1.0</td>
+			</tr>
+			<tr><th>onChange</th><td>function(){}</td><td>function(value)</td>
+			<td>callback if the value has changed. value is the current value</td><td>1.0</td>
+			</tr>
+			<tr><th>onError</th><td>function(){}</td><td>function(value)</td>
+			<td>callback if no valid value is entered. value is the current value</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<h3>Usage</h3>
+<pre>$(selector).wl_Valid([options]);
+$(selector).wl_Mail([options]); //shorthand for emails
+$(selector).wl_URL([options]); //shorthand for urls</pre>
+	
+	
+			<h3>Markup</h3>
+<pre>
+&lt;input type="text" data-regex="[regex]"&gt;
+&lt;input type="email"&gt; //for emails
+&lt;input type="url"&gt //for urls;</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<section><label for="regex_letter">Only Letters</label>
+						<div><input id="regex_letter" name="regex_letter" type="text" data-regex="^[a-zA-Z ]+$"><span>Regular Expression: <code>data-regex="^[a-zA-Z ]+$"</code></span></div>
+					</section>
+					<section><label for="regex_number">Only Numbers</label>
+						<div><input id="regex_number" name="regex_number" type="text" data-regex="^[0-9 ]+$"><span>Regular Expression: <code>data-regex="^[0-9 ]+$"</code></span></div>
+					</section>
+				</fieldset>
+				<fieldset>
+					<section><label for="email">Email</label>
+						<div><input id="email" name="email" type="email"></div>
+					</section>
+					<section><label for="url">Url</label>
+						<div><input id="url" name="url" type="url">
+						<br><span>Instant is off for URLs. Use <code>data-instant="true"</code> for instant validation</span>
+						</div>
+					</section>
+					<section>
+						<div><span>An empty field is valid too! Use the 'required' property if input is mandatory</span><br>
+							<button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+			<hr>
+			
+			
+			<h1 id="password">Password <span title="current version: 1.0">v 1.0</span></h1>
+			<p>Converts an input field into a rich featured password field with strengthmeter and confirmation.</p>
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>confirm</th><td>true</td><td>true | false</td>
+			<td>Shows a confirmation field</td><td>1.0</td>
+			</tr>
+			<tr><th>showStrength</th><td>true</td><td>true | false</td>
+			<td>Shows the strength of the password</td><td>1.0</td>
+			</tr>
+			<tr><th>words</th><td>['too short','bad','medium','good','very good','excellent']</td><td>Array</td>
+			<td>Words used in the strenght field. First is used if password is to short</td><td>1.0</td>
+			</tr>
+			<tr><th>minLength</th><td>3</td><td>integer</td>
+			<td>Defines the minimum length of a valid password. Use 0 to disable</td><td>1.0</td>
+			</tr>
+			<tr><th>text</th><td>[texts]</td><td>object</td>
+			<td>an object with all required texts</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<h3>Usage</h3>
+<pre>$(selector).wl_Password([options]);</pre>
+	
+	
+			<h3>Markup</h3>
+<pre>
+&lt;input type="password"&gt;</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<section><label for="password">password</label>
+						<div><input id="password" name="password" type="password">
+						</div>
+					</section>
+					<section><label for="password2">password without confirmation</label>
+						<div><input id="password2" name="password2" type="password" data-confirm="false">
+						</div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+			
+			<hr>
+			
+			
+			<h1 id="color">Color <span title="current version: 1.0">v 1.0</span></h1>
+			<p>Converts an input field into a colorpicker using <a href="http://abeautifulsite.net/blog/2011/02/jquery-minicolors-a-color-selector-for-input-controls/">jQuery miniColors</a></p>
+			
+			<ul>
+				<li>use mousewheel to scroll thru brightness</li>
+				<li>hold down shift to scroll thru saturation</li>
+				<li>hold down shift+alt to scroll thru hue</li>
+			</ul>
+			
+			<div class="alert warning">mousewheel in combination with keys are not working in all browsers properly</div>
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>mousewheel</th><td>true</td><td>true | false</td>
+			<td>use mousewheel feature</td><td>1.0</td>
+			</tr>
+			<tr><th>onChange</th><td>function(){}</td><td>function(hsb, rgb)</td>
+			<td>callback if the value has changed. hsb is an object and rgb is the color in hex value with leading '#'</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<h3>Usage</h3>
+<pre>$(selector).wl_Color([options]);</pre>
+	
+	
+			<h3>Markup</h3>
+<pre>
+&lt;input type="text" class="color"&gt;</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<section><label for="color">Colorpicker</label>
+						<div><input id="color" name="color" type="text" class="color">
+						</div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+			
+			</div>
+		</section><!-- end div #content -->
+		<footer>Copyright by revaxarts.com 2012</footer>
+</body>
+</html>

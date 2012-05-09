@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	
+	<title>White Label - a full featured Admin Skin</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="revaxarts.com">
+	
+	
+	<!-- Google Font and style definitions -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- include the skins (change to dark if you like) -->
+	<link rel="stylesheet" href="css/light/theme.css" id="themestyle">
+	<!-- <link rel="stylesheet" href="css/dark/theme.css" id="themestyle"> -->
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+	
+	<!-- Apple iOS and Android stuff -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	
+	<!-- Apple iOS and Android stuff - don't remove! -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+	
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+	
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
+	
+	<!-- some basic functions -->
+	<script src="js/functions.js"></script>
+		
+	<!-- all Third Party Plugins and Whitelabel Plugins -->
+	<script src="js/plugins.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="js/calendar.js"></script>
+	<script src="js/flot.js"></script>
+	<script src="js/elfinder.js"></script>
+	<script src="js/datatables.js"></script>
+	<script src="js/wl_Alert.js"></script>
+	<script src="js/wl_Autocomplete.js"></script>
+	<script src="js/wl_Breadcrumb.js"></script>
+	<script src="js/wl_Calendar.js"></script>
+	<script src="js/wl_Chart.js"></script>
+	<script src="js/wl_Color.js"></script>
+	<script src="js/wl_Date.js"></script>
+	<script src="js/wl_Editor.js"></script>
+	<script src="js/wl_File.js"></script>
+	<script src="js/wl_Dialog.js"></script>
+	<script src="js/wl_Fileexplorer.js"></script>
+	<script src="js/wl_Form.js"></script>
+	<script src="js/wl_Gallery.js"></script>
+	<script src="js/wl_Multiselect.js"></script>
+	<script src="js/wl_Number.js"></script>
+	<script src="js/wl_Password.js"></script>
+	<script src="js/wl_Slider.js"></script>
+	<script src="js/wl_Store.js"></script>
+	<script src="js/wl_Time.js"></script>
+	<script src="js/wl_Valid.js"></script>
+	<script src="js/wl_Widget.js"></script>
+	
+	<!-- configuration to overwrite settings -->
+	<script src="js/config.js"></script>
+		
+	<!-- the script which handles all the access to plugins etc... -->
+	<script src="js/script.js"></script>
+	
+	
+</head>
+<body>
+				<div id="pageoptions">
+			<ul>
+				<li><a href="login.html">Logout</a></li>
+				<li><a href="#" id="wl_config">Configuration</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+			<div>
+						<h3>Place for some configs</h3>
+						<p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p>
+			</div>
+		</div>
+
+			<header>
+		<div id="logo">
+			<a href="dashboard.html">Logo Here</a>
+		</div>
+		<div id="header">
+			<ul id="headernav">
+				<li><ul>
+					<li><a href="icons.html">Icons</a><span>300+</span></li>
+					<li><a href="#">Submenu</a><span>4</span>
+						<ul>
+							<li><a href="#">Just</a></li>
+							<li><a href="#">another</a></li>
+							<li><a href="#">Dropdown</a></li>
+							<li><a href="#">Menu</a></li>
+						</ul>
+					</li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="wizard.html">Wizard</a><span>Bonus</span></li>
+					<li><a href="#">Errorpage</a><span>new</span>
+						<ul>
+							<li><a href="error-403.html">403</a></li>
+							<li><a href="error-404.html">404</a></li>
+							<li><a href="error-405.html">405</a></li>
+							<li><a href="error-500.html">500</a></li>
+							<li><a href="error-503.html">503</a></li>
+						</ul>
+					</li>
+				</ul></li>
+			</ul>
+			<div id="searchbox">
+				<form id="searchform" autocomplete="off">
+					<input type="search" name="query" id="search" placeholder="Search">
+				</form>
+			</div>
+			<ul id="searchboxresult">
+			</ul>
+		</div>
+	</header>
+
+				<nav>
+			<ul id="nav">
+				<li class="i_house"><a href="dashboard.html"><span>Dashboard</span></a></li>
+				<li class="i_book"><a><span>Documentation</span></a>
+					<ul>
+						<li><a href="doc-alert.html"><span>Alert Boxes</span></a></li>
+						<li><a href="doc-breadcrumb.html"><span>Breadcrumb</span></a></li>
+						<li><a href="doc-calendar.html"><span>Calendar</span></a></li>
+						<li><a href="doc-charts.html"><span>Charts</span></a></li>
+						<li><a href="doc-dialog.html"><span>Dialog</span></a></li>
+						<li><a href="doc-editor.html"><span>Editor</span></a></li>
+						<li><a href="doc-file.html"><span>File</span></a></li>
+						<li><a href="doc-fileexplorer.html"><span>Fileexplorer</span></a></li>
+						<li><a href="doc-form.html"><span>Form</span></a></li>
+						<li><a href="doc-gallery.html"><span>Gallery</span></a></li>
+						<li><a href="doc-inputfields.html"><span>Inputfields</span></a></li>
+						<li><a href="doc-slider.html"><span>Slider</span></a></li>
+						<li><a href="doc-store.html"><span>Store</span></a></li>
+						<li><a href="doc-widget.html"><span>Widget</span></a></li>
+					</ul>
+				</li>
+				<li class="i_create_write"><a href="form.html"><span>Form</span></a></li>
+				<li class="i_graph"><a href="charts.html"><span>Charts</span></a></li>
+				<li class="i_images"><a href="gallery.html"><span>Gallery</span></a></li>
+				<li class="i_blocks_images"><a href="widgets.html"><span>Widgets</span></a></li>
+				<li class="i_breadcrumb"><a href="breadcrumb.html"><span>Breadcrumb</span></a></li>
+				<li class="i_file_cabinet"><a href="fileexplorer.html"><span>Fileexplorer</span></a></li>
+				<li class="i_calendar_day"><a href="calendar.html"><span>Calendar</span></a></li>
+				<li class="i_speech_bubbles_2"><a href="dialogs_and_buttons.html"><span>Dialogs &amp; Buttons</span></a></li>
+				<li class="i_table"><a href="datatable.html"><span>Table</span></a></li>
+				<li class="i_typo"><a href="typo.html"><span>Typo</span></a></li>
+				<li class="i_grid"><a href="grid.html"><span>Grid</span></a></li>
+			</ul>
+		</nav>
+		
+			
+		<section id="content">
+			
+			<div class="g12">
+				
+			<h1>Widget <span title="current version: 1.2">v 1.2</span></h1>
+			<p>Widgets are flexible, dragg-, sort-, and collapseable content boxes. Uses the <a href="doc-store.html">Store Plugin</a> to store positions</p>
+			
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+				<tr><th>collapsed</th><td>false</td><td>true | false</td>
+				<td>defines if the widget is collapsed</td><td>1.0</td><td>gets overwritten by data from the localStorage</td>
+				</tr>
+				<tr><th>load</th><td>null</td><td>String</td>
+				<td>loads 'String' in the content area</td><td>1.0</td>
+				</tr>
+				<tr><th>reload</th><td>false</td><td>integer</td>
+				<td>autoreloads the content if load is set. interger is time in seconds</td><td>1.0</td>
+				</tr>
+				<tr><th>removeContent</th><td>true</td><td>true | false</td>
+				<td>replace the content with the loading text while the content is loading</td><td>1.0</td>
+				</tr>
+				<tr><th>collapsible</th><td>true</td><td>true | false</td>
+				<td>widget can be collapsed and expand</td><td>1.2</td><td>was "collapseable" in 1.1</td>
+				</tr>
+				<tr><th>sortable</th><td>true</td><td>true | false</td>
+				<td>widget can be dragged around</td><td>1.1</td>
+				</tr>
+				<tr><th>text</th><td>texts</td><td>required texts</td>
+				<td>all required texts</td><td>1.0</td>
+				</tr>
+				<tr><th>onDrag</th><td>function(){}</td><td>function()</td>
+				<td>callback if the widget starts dragging</td><td>1.0</td>
+				</tr>
+				<tr><th>onDrop</th><td>function(){}</td><td>function()</td>
+				<td>callback if the widget is dropped</td><td>1.0</td>
+				</tr>
+				<tr><th>onExpand</th><td>function(){}</td><td>function()</td>
+				<td>callback if the widget gets expand</td><td>1.0</td>
+				</tr>
+				<tr><th>onCollapse</th><td>function(){}</td><td>function()</td>
+				<td>callback if the widget collapse</td><td>1.0</td>
+				</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>method name</th><th>default</th><th>arguments</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+				<tr><th>save</th><td></td><td></td>
+				<td>saves the current location and collapse status into the localStorage</td><td>1.0</td><td>uses wl_Store</td>
+				</tr>
+				<tr><th>set</th><td></td><td>key, value</td>
+				<td>sets the the option 'key' with the value 'value'</td><td>1.0</td>
+				</tr>
+			</tbody>
+			</table>
+			
+		
+			
+			<h3>Usage</h3>
+<pre>$(selector).wl_Widgets([options]);</pre>
+	
+			<h3>Calling Methods</h3>
+<pre>$(selector).wl_Widgets('method', [,arg [,arg]]);</pre>	
+
+	
+			<h3>Markup</h3>
+<pre>
+&lt;div class="widgets"&gt;
+	&lt;div class="widget" id="id_of_widget"&gt;
+		&lt;h3 class="handle"&gt;Heading&lt;/h3&gt;
+		&lt;div&gt;
+			[CONTENT]
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+			<div class="alert warning">All widgets must have a unique id or the storage wont work properly</div>
+
+			<h3>Example</h3>
+			
+			<p>There position get stored with <code>LocalStorage</code>. You can <a class="clearLocalStorage">clear the LocalStorage</a> to restore the defaults (requires page refresh)</p>
+			</div>
+			
+		
+			<div class="g6 widgets">
+				<div class="widget" id="widget_1" data-load="widget-content.php">
+					<h3 class="handle">AJAX Widget</h3>
+					<div>
+						This content get replaced
+					</div>
+				</div>
+				<div class="widget" id="widget_2">
+					<h3 class="handle">Another Widget</h3>
+					<div>
+						<h3>Just use HTML!</h3>
+						<p>Use any html you like!</p>
+					</div>
+				</div>
+			</div>
+			<div class="g6 widgets">
+				<div class="widget" id="widget_3" data-load="widget-content.php" data-reload="10" data-remove-content="false">
+					<h3 class="handle">AJAX Widget with autoreload</h3>
+					<div>
+						This content get replaced
+					</div>
+				</div>
+				<div class="widget" id="widget_4" data-collapsed="true">
+					<h3 class="handle">Collapsed by default</h3>
+					<div>
+						<img src="http://random.revaxarts.com/turntables/400x80.jpg">
+					</div>
+				</div>
+			</div>
+			
+			
+		</section><!-- end div #content -->
+		<footer>Copyright by revaxarts.com 2012</footer>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	
+	<title>White Label - a full featured Admin Skin</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="revaxarts.com">
+	
+	
+	<!-- Google Font and style definitions -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- include the skins (change to dark if you like) -->
+	<link rel="stylesheet" href="css/light/theme.css" id="themestyle">
+	<!-- <link rel="stylesheet" href="css/dark/theme.css" id="themestyle"> -->
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+	
+	<!-- Apple iOS and Android stuff -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	
+	<!-- Apple iOS and Android stuff - don't remove! -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+	
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+	
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
+	
+	<!-- some basic functions -->
+	<script src="js/functions.js"></script>
+		
+	<!-- all Third Party Plugins and Whitelabel Plugins -->
+	<script src="js/plugins.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="js/calendar.js"></script>
+	<script src="js/flot.js"></script>
+	<script src="js/elfinder.js"></script>
+	<script src="js/datatables.js"></script>
+	<script src="js/wl_Alert.js"></script>
+	<script src="js/wl_Autocomplete.js"></script>
+	<script src="js/wl_Breadcrumb.js"></script>
+	<script src="js/wl_Calendar.js"></script>
+	<script src="js/wl_Chart.js"></script>
+	<script src="js/wl_Color.js"></script>
+	<script src="js/wl_Date.js"></script>
+	<script src="js/wl_Editor.js"></script>
+	<script src="js/wl_File.js"></script>
+	<script src="js/wl_Dialog.js"></script>
+	<script src="js/wl_Fileexplorer.js"></script>
+	<script src="js/wl_Form.js"></script>
+	<script src="js/wl_Gallery.js"></script>
+	<script src="js/wl_Multiselect.js"></script>
+	<script src="js/wl_Number.js"></script>
+	<script src="js/wl_Password.js"></script>
+	<script src="js/wl_Slider.js"></script>
+	<script src="js/wl_Store.js"></script>
+	<script src="js/wl_Time.js"></script>
+	<script src="js/wl_Valid.js"></script>
+	<script src="js/wl_Widget.js"></script>
+	
+	<!-- configuration to overwrite settings -->
+	<script src="js/config.js"></script>
+		
+	<!-- the script which handles all the access to plugins etc... -->
+	<script src="js/script.js"></script>
+	
+	
+</head>
+<body>
+				<div id="pageoptions">
+			<ul>
+				<li><a href="login.html">Logout</a></li>
+				<li><a href="#" id="wl_config">Configuration</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+			<div>
+						<h3>Place for some configs</h3>
+						<p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p>
+			</div>
+		</div>
+
+			<header>
+		<div id="logo">
+			<a href="dashboard.html">Logo Here</a>
+		</div>
+		<div id="header">
+			<ul id="headernav">
+				<li><ul>
+					<li><a href="icons.html">Icons</a><span>300+</span></li>
+					<li><a href="#">Submenu</a><span>4</span>
+						<ul>
+							<li><a href="#">Just</a></li>
+							<li><a href="#">another</a></li>
+							<li><a href="#">Dropdown</a></li>
+							<li><a href="#">Menu</a></li>
+						</ul>
+					</li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="wizard.html">Wizard</a><span>Bonus</span></li>
+					<li><a href="#">Errorpage</a><span>new</span>
+						<ul>
+							<li><a href="error-403.html">403</a></li>
+							<li><a href="error-404.html">404</a></li>
+							<li><a href="error-405.html">405</a></li>
+							<li><a href="error-500.html">500</a></li>
+							<li><a href="error-503.html">503</a></li>
+						</ul>
+					</li>
+				</ul></li>
+			</ul>
+			<div id="searchbox">
+				<form id="searchform" autocomplete="off">
+					<input type="search" name="query" id="search" placeholder="Search">
+				</form>
+			</div>
+			<ul id="searchboxresult">
+			</ul>
+		</div>
+	</header>
+
+				<nav>
+			<ul id="nav">
+				<li class="i_house"><a href="dashboard.html"><span>Dashboard</span></a></li>
+				<li class="i_book"><a><span>Documentation</span></a>
+					<ul>
+						<li><a href="doc-alert.html"><span>Alert Boxes</span></a></li>
+						<li><a href="doc-breadcrumb.html"><span>Breadcrumb</span></a></li>
+						<li><a href="doc-calendar.html"><span>Calendar</span></a></li>
+						<li><a href="doc-charts.html"><span>Charts</span></a></li>
+						<li><a href="doc-dialog.html"><span>Dialog</span></a></li>
+						<li><a href="doc-editor.html"><span>Editor</span></a></li>
+						<li><a href="doc-file.html"><span>File</span></a></li>
+						<li><a href="doc-fileexplorer.html"><span>Fileexplorer</span></a></li>
+						<li><a href="doc-form.html"><span>Form</span></a></li>
+						<li><a href="doc-gallery.html"><span>Gallery</span></a></li>
+						<li><a href="doc-inputfields.html"><span>Inputfields</span></a></li>
+						<li><a href="doc-slider.html"><span>Slider</span></a></li>
+						<li><a href="doc-store.html"><span>Store</span></a></li>
+						<li><a href="doc-widget.html"><span>Widget</span></a></li>
+					</ul>
+				</li>
+				<li class="i_create_write"><a href="form.html"><span>Form</span></a></li>
+				<li class="i_graph"><a href="charts.html"><span>Charts</span></a></li>
+				<li class="i_images"><a href="gallery.html"><span>Gallery</span></a></li>
+				<li class="i_blocks_images"><a href="widgets.html"><span>Widgets</span></a></li>
+				<li class="i_breadcrumb"><a href="breadcrumb.html"><span>Breadcrumb</span></a></li>
+				<li class="i_file_cabinet"><a href="fileexplorer.html"><span>Fileexplorer</span></a></li>
+				<li class="i_calendar_day"><a href="calendar.html"><span>Calendar</span></a></li>
+				<li class="i_speech_bubbles_2"><a href="dialogs_and_buttons.html"><span>Dialogs &amp; Buttons</span></a></li>
+				<li class="i_table"><a href="datatable.html"><span>Table</span></a></li>
+				<li class="i_typo"><a href="typo.html"><span>Typo</span></a></li>
+				<li class="i_grid"><a href="grid.html"><span>Grid</span></a></li>
+			</ul>
+		</nav>
+		
+			
+		<section id="content">
+			
+			<div class="g12">
+				
+			<h1>Slider <span title="current version: 1.1.1">v 1.1.1</span></h1>
+			<p>Sliders which extend the jQuery UI Sliders with some nice functions</p>
+			
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<p>Check out the <a href="http://jqueryui.com/demos/slider/">jQuery slider options</a> for the standard options</p>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>value</th><td>null</td><td>number</td>
+			<td>sets a start value for a slider</td><td>1.0</td>
+			</tr>
+			<tr><th>values</th><td>null</td><td>array</td>
+			<td>sets a start values for a range slider</td><td>1.0</td>
+			</tr>
+			<tr><th>connect</th><td>null</td><td>id of the connected DOM element</td>
+			<td>parse the query string from the location and fill the form with the data</td><td>1.0</td><td>If no input field is connected the slider value will be used on form submit</td>
+			</tr>
+			<tr><th>tooltip</th><td>false</td><td>true | false</td>
+			<td>activates a tooltip on the handler(s)</td><td>1.1</td><td>uses the tipsy plugin</td>
+			</tr>
+			<tr><th>tooltipGravity</th><td>['s','w']</td><td>'n', 'e', 's', 'w'</td>
+			<td>The position of the hadler tooltip. tooltipGravity[0] is for horizontal sliders and tooltipGravity[1] is for vertical sliders</td><td>1.1</td><td>value can be a simple string (optional)</td>
+			</tr>
+			<tr><th>tooltipPattern</th><td>%n</td><td>String</td>
+			<td>The pattern for the tooltip '%n' gets replaced with the current value</td><td>1.1</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<p>Check out the <a href="http://jqueryui.com/demos/slider/">jQuery slider method</a> for the standard methods</p>
+			<table class="documentation">
+			<thead>
+			<tr><th>method name</th><th>arguments</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>value</th><td>number</td>
+			<td>sets the value of the slider.</td><td>1.0</td>
+			</tr>
+			<tr><th>values</th><td>number | array</td>
+			<td>sets the values of the slider. Could be a number or an array for range sliders</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Usage</h3>
+<pre>$(selector).wl_Slider([options]);</pre>
+	
+			<h3>Calling Methods</h3>
+<pre>$(selector).wl_Slider('method', [,arg [,arg]]);</pre>	
+<h5>Setting Values for Single Sliders</h5>
+<pre>$(selector).wl_Slider('value', value);</pre>	
+<h5>Setting Values for Range Sliders</h5>
+<pre>$(selector).wl_Slider('values', [value1, value2]); OR
+$(selector).wl_Slider('values', value1, value2);
+</pre>	
+
+	
+			<h3>Markup</h3>
+<pre>
+&lt;div class="slider"&gt;&lt;/div&gt;</pre>
+			<h3>Range Slider</h3>
+<pre>
+&lt;div class="slider" data-range="true|min|max"&gt;&lt;/div&gt;</pre>
+			<h3>Examples</h3>
+			
+			<form action="submit.php" method="post" autocomplete="off">
+				<fieldset>
+					<section><label>Slider<br><span>with optional tooltip</span></label>
+						<div><div class="slider" id="slider" data-value="50" data-tooltip="true" data-tooltip-pattern="My Tooltip (value: %n)" data-tooltip-gravity="s"></div></div>
+					</section>
+					<section><label>Slider with fixed min<br><span>with optional tooltip</span></label>
+						<div><div class="slider" id="slider_fixed_min" data-range="min" data-value="80" data-tooltip="true" data-tooltip-pattern="right ( %n )" data-tooltip-gravity="w"></div></div>
+					</section>
+					<section><label>Slider with fixed max<br><span>with optional tooltip</span></label>
+						<div><div class="slider" id="slider_fixed_max" data-range="max" data-value="20" data-tooltip="true" data-tooltip-pattern="left ( %n )" data-tooltip-gravity="e"></div></div>
+					</section>
+					<section><label>Slider with range<br><span>with optional tooltip</span></label>
+						<div><div class="slider" id="slider_range" data-range="true" data-values="[25,75]" data-tooltip="true"></div></div>
+					</section>
+					<section><label>Vertical Sliders</label>
+						<div>
+							<div>
+								<div id="slider_v_1" class="slider" data-orientation="vertical" data-max="10" data-value="5"></div>
+								<div id="slider_v_2" class="slider" data-orientation="vertical" data-range="min" data-max="10" data-value="8"></div>
+								<div id="slider_v_3" class="slider" data-orientation="vertical" data-range="max" data-max="10" data-value="2"></div>
+								<div id="slider_v_4" class="slider" data-orientation="vertical" data-range="true" data-values="[3,7]" data-max="10" data-tooltip="true" data-tooltip-pattern="Leave enough space for the tooltip! (value: %n)"></div>
+							</div>
+						</div>
+					</section>
+					<section><label>Slider with connected input field</label>
+						<div><div class="slider" data-connect="slider_connect" data-value="30"></div>
+						<input type="number" class="integer" id="slider_connect">
+						</div>
+					</section>
+					</fieldset>
+				<fieldset>
+				<label>How the mousewheel on range sliders works</label>
+				<section><label>mousewheel on the red area affects the first slider, the green area affects the second slider</label>
+						<div><div class="slider" id="slider_mousewheel" data-range="true" data-values="[25,75]"></div>
+						<span id="slider_mousewheel_left" style="background:#f0b7b7;height:35px;width:48.5%;float:left;margin-left:10px;text-align:center;color:#fff;overflow:hidden;">1st Slider Area</span>
+						<span id="slider_mousewheel_right" style="background:#b2e7b2;height:35px;width:48.5%;float:right;margin-right:10px;text-align:center;color:#fff;overflow:hidden;">2st Slider Area</span>
+						</div>
+				</section>
+				<section>
+					<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+				</section>
+				</fieldset>
+			</form>
+			
+			<form action="submit.php" method="post" autocomplete="off">
+					<fieldset>
+					<section><label>Slider with range</label>
+						<div><div class="slider" id="slider_range2" data-range="true" data-values="[25,75]"></div></div>
+					</section>
+				<section>
+					<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+				</section>
+					</fieldset>
+			</form>
+			
+			</div>
+		</section><!-- end div #content -->
+		<footer>Copyright by revaxarts.com 2012</footer>
+</body>
+</html>

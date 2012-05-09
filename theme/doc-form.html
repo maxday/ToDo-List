@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	
+	<title>White Label - a full featured Admin Skin</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="revaxarts.com">
+	
+	
+	<!-- Google Font and style definitions -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- include the skins (change to dark if you like) -->
+	<link rel="stylesheet" href="css/light/theme.css" id="themestyle">
+	<!-- <link rel="stylesheet" href="css/dark/theme.css" id="themestyle"> -->
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+	
+	<!-- Apple iOS and Android stuff -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	
+	<!-- Apple iOS and Android stuff - don't remove! -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+	
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+	
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
+	
+	<!-- some basic functions -->
+	<script src="js/functions.js"></script>
+		
+	<!-- all Third Party Plugins and Whitelabel Plugins -->
+	<script src="js/plugins.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="js/calendar.js"></script>
+	<script src="js/flot.js"></script>
+	<script src="js/elfinder.js"></script>
+	<script src="js/datatables.js"></script>
+	<script src="js/wl_Alert.js"></script>
+	<script src="js/wl_Autocomplete.js"></script>
+	<script src="js/wl_Breadcrumb.js"></script>
+	<script src="js/wl_Calendar.js"></script>
+	<script src="js/wl_Chart.js"></script>
+	<script src="js/wl_Color.js"></script>
+	<script src="js/wl_Date.js"></script>
+	<script src="js/wl_Editor.js"></script>
+	<script src="js/wl_File.js"></script>
+	<script src="js/wl_Dialog.js"></script>
+	<script src="js/wl_Fileexplorer.js"></script>
+	<script src="js/wl_Form.js"></script>
+	<script src="js/wl_Gallery.js"></script>
+	<script src="js/wl_Multiselect.js"></script>
+	<script src="js/wl_Number.js"></script>
+	<script src="js/wl_Password.js"></script>
+	<script src="js/wl_Slider.js"></script>
+	<script src="js/wl_Store.js"></script>
+	<script src="js/wl_Time.js"></script>
+	<script src="js/wl_Valid.js"></script>
+	<script src="js/wl_Widget.js"></script>
+	
+	<!-- configuration to overwrite settings -->
+	<script src="js/config.js"></script>
+		
+	<!-- the script which handles all the access to plugins etc... -->
+	<script src="js/script.js"></script>
+	
+	
+</head>
+<body>
+				<div id="pageoptions">
+			<ul>
+				<li><a href="login.html">Logout</a></li>
+				<li><a href="#" id="wl_config">Configuration</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+			<div>
+						<h3>Place for some configs</h3>
+						<p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p>
+			</div>
+		</div>
+
+			<header>
+		<div id="logo">
+			<a href="dashboard.html">Logo Here</a>
+		</div>
+		<div id="header">
+			<ul id="headernav">
+				<li><ul>
+					<li><a href="icons.html">Icons</a><span>300+</span></li>
+					<li><a href="#">Submenu</a><span>4</span>
+						<ul>
+							<li><a href="#">Just</a></li>
+							<li><a href="#">another</a></li>
+							<li><a href="#">Dropdown</a></li>
+							<li><a href="#">Menu</a></li>
+						</ul>
+					</li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="wizard.html">Wizard</a><span>Bonus</span></li>
+					<li><a href="#">Errorpage</a><span>new</span>
+						<ul>
+							<li><a href="error-403.html">403</a></li>
+							<li><a href="error-404.html">404</a></li>
+							<li><a href="error-405.html">405</a></li>
+							<li><a href="error-500.html">500</a></li>
+							<li><a href="error-503.html">503</a></li>
+						</ul>
+					</li>
+				</ul></li>
+			</ul>
+			<div id="searchbox">
+				<form id="searchform" autocomplete="off">
+					<input type="search" name="query" id="search" placeholder="Search">
+				</form>
+			</div>
+			<ul id="searchboxresult">
+			</ul>
+		</div>
+	</header>
+
+				<nav>
+			<ul id="nav">
+				<li class="i_house"><a href="dashboard.html"><span>Dashboard</span></a></li>
+				<li class="i_book"><a><span>Documentation</span></a>
+					<ul>
+						<li><a href="doc-alert.html"><span>Alert Boxes</span></a></li>
+						<li><a href="doc-breadcrumb.html"><span>Breadcrumb</span></a></li>
+						<li><a href="doc-calendar.html"><span>Calendar</span></a></li>
+						<li><a href="doc-charts.html"><span>Charts</span></a></li>
+						<li><a href="doc-dialog.html"><span>Dialog</span></a></li>
+						<li><a href="doc-editor.html"><span>Editor</span></a></li>
+						<li><a href="doc-file.html"><span>File</span></a></li>
+						<li><a href="doc-fileexplorer.html"><span>Fileexplorer</span></a></li>
+						<li><a href="doc-form.html"><span>Form</span></a></li>
+						<li><a href="doc-gallery.html"><span>Gallery</span></a></li>
+						<li><a href="doc-inputfields.html"><span>Inputfields</span></a></li>
+						<li><a href="doc-slider.html"><span>Slider</span></a></li>
+						<li><a href="doc-store.html"><span>Store</span></a></li>
+						<li><a href="doc-widget.html"><span>Widget</span></a></li>
+					</ul>
+				</li>
+				<li class="i_create_write"><a href="form.html"><span>Form</span></a></li>
+				<li class="i_graph"><a href="charts.html"><span>Charts</span></a></li>
+				<li class="i_images"><a href="gallery.html"><span>Gallery</span></a></li>
+				<li class="i_blocks_images"><a href="widgets.html"><span>Widgets</span></a></li>
+				<li class="i_breadcrumb"><a href="breadcrumb.html"><span>Breadcrumb</span></a></li>
+				<li class="i_file_cabinet"><a href="fileexplorer.html"><span>Fileexplorer</span></a></li>
+				<li class="i_calendar_day"><a href="calendar.html"><span>Calendar</span></a></li>
+				<li class="i_speech_bubbles_2"><a href="dialogs_and_buttons.html"><span>Dialogs &amp; Buttons</span></a></li>
+				<li class="i_table"><a href="datatable.html"><span>Table</span></a></li>
+				<li class="i_typo"><a href="typo.html"><span>Typo</span></a></li>
+				<li class="i_grid"><a href="grid.html"><span>Grid</span></a></li>
+			</ul>
+		</nav>
+		
+			
+		<section id="content">
+			
+			<div class="g12">
+				
+			<h1>Form <span title="current version: 1.3.5">v 1.3.5</span></h1>
+			<p>A Form which handles (almost) everything for you. Check out a full featured example <a href="form.html">here</a></p>
+			
+			
+			<h3>Options <span>read more about <a href="doc-inline-data-types.html">inline data attributes</a></span></h3>
+			<table class="documentation">
+			<thead>
+				<tr><th>option</th><th>default</th><th>possible values</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>submitbutton</th><td>'button.submit'</td><td>[jQuery Selector]</td>
+			<td>A jQuery selector which gets the submit action. Can be a jQuery object (>=1.2)</td><td>1.0</td>
+			</tr>
+			<tr><th>resetbutton</th><td>'button.reset'</td><td>[jQuery Selector]</td>
+			<td>A jQuery selector which gets the submit action. Can be a jQuery object (>=1.2)</td><td>1.0</td>
+			</tr>
+			<tr><th>method</th><td>'post'</td><td>'post' | 'get'</td>
+			<td>The method which will be used for sending the form</td><td>1.0</td><td>Will get overwritten by the form's method attribute</td>
+			</tr>
+			<tr><th>action</th><td>null</td><td>string</td>
+			<td>The reciver address on the server (e.q. submit.php).</td><td>1.0</td><td>Will get overwritten by the form's action attribute</td>
+			</tr>
+			<tr><th>ajax</th><td>true</td><td>true | false</td>
+			<td>send the form with an ajax request. requires for callback function. If set to false it uses native form submit</td><td>1.1</td>
+			</tr>
+			<tr><th>serialize</th><td>false</td><td>true | false</td>
+			<td>If set to false an object is sent to the server. If set to true it will send a serialised version of the data (key=value&amp;key2=value2)</td><td>1.0</td>
+			</tr>
+			<tr><th>status</th><td>true</td><td>true | false</td>
+			<td>Set a status message after the submit button</td><td>1.0</td>
+			</tr>
+			<tr><th>sent</th><td>false</td><td>true | false</td>
+			<td>is true after the form is sent</td><td>1.0</td>
+			</tr>
+			<tr><th>confirmSend</th><td>true</td><td>true | false</td>
+			<td>a confirmation box appear if set to true and option 'sent' is true</td><td>1.0</td>
+			</tr>
+			<tr><th>text</th><td>[texts]</td><td>object</td>
+			<td>an object with all required texts</td><td>1.0</td>
+			</tr>
+			<tr><th>parseQuery</th><td>true</td><td>true | false</td>
+			<td>parse the query string from the location and fill the form with the data</td><td>1.0</td><td>Fill the example form with <a href="doc-form.html?input=this+comes+from+the+address+bar!#input">something</a> or check out the full featured example <a id="formfiller" href="form.html?text_field=A+Text+Field&amp;text_tooltip=This+field+has+a+tooltip&amp;text_placeholder=placeholder+for+something&amp;multi_text_field_1=Multiple&amp;multi_text_field_2=Text&amp;multi_text_field_3=Field&amp;textarea=This+is+just+a+simple+texarea&amp;textarea_auto=This+is+a+textarea+which%0A.%0A.%0A.%0A.%0A.%0A.%0A.%0Agrows!&amp;textarea_wysiwyg=%3Ch1%3EA+WYSIWYG+Editor%3C%2Fh1%3E%3Cbr%3E%3Cimg+src%3D%22http%3A%2F%2Fimages.revaxarts-themes.com%2F400x200.jpg%22+title%3D%22%22+alt%3D%22%22%3E%3Cbr%3E%3Cbr%3EAnd+a+%3Ca+href%3D%22http%3A%2F%2Fgoogle.com%22%3Elink%3C%2Fa%3E&amp;integer=10&amp;decimal=6.50&amp;integer_minmax=20&amp;decimal_minmax=-12.50&amp;integer_steps=100&amp;decimal_steps=0.6400&amp;integer_start_from=1903&amp;integer_start_to=2003&amp;regex_letter=abc&amp;regex_number=123&amp;email=some%40example.com&amp;url=http%3A%2F%2Frevaxarts.com&amp;password=password&amp;color=%23bada55&amp;autocomplete=ActionScript&amp;autocomplete_inline=abc&amp;autocomplete_function=Lorem&amp;date=2011%2F02%2F05&amp;datetime=2011%2F02%2F05+20:15&amp;predefined_time=2011%2F02%2F05+16:12&amp;time_only_12=23:34&amp;time_only_24=20:34&amp;inline_date=2011%2F02%2F05&amp;slider=50&amp;slider_v_1=0&amp;slider_v_2=25&amp;slider_v_3=50&amp;slider_v_4=75&amp;slider_v_5=100&amp;slider_connect=99&amp;slider_range=[100,200]&amp;slider_range_from=250&amp;slider_range_to=700&amp;slider_callback=0&amp;apples_check=false&amp;bananas_check=true&amp;oranges_check=true&amp;radio=bananas_radio&amp;dropdown=Broccoli&amp;multiselect[]=beans&amp;multiselect[]=corn&amp;required_field=This+field+is+required&amp;required_field_msg=This+field+is+required+and+has+a+custom+error+message&amp;required_valid_field=OK&amp;required_foo_check=true&amp;required_bar_check=true&amp;required_radio=required_second_radio&amp;agreed=true">here</a></td>
+			</tr>
+			<tr><th>onRequireError</th><td>function(){}</td><td>function(element)</td>
+			<td>callback if an required field isn't set. element is the respective jQuery element (input, textarea,...)</td><td>1.0</td>
+			</tr>
+			<tr><th>onValidError</th><td>function(){}</td><td>function(element)</td>
+			<td>callback if an valid field isn't valid. element is the respective jQuery element (input, textarea,...)</td><td>1.0</td>
+			</tr>
+			<tr><th>onPasswordError</th><td>function(){}</td><td>function(element)</td>
+			<td>callback if an error occured on a password field. element is the respective jQuery element</td><td>1.0</td>
+			</tr>
+			<tr><th>onFileError</th><td>function(){}</td><td>function(element)</td>
+			<td>callback if an error occured on a file upload field. element is the respective jQuery element</td><td>1.1</td>
+			</tr>
+			<tr><th>onBeforePrepare</th><td>function(data){}</td><td>function(data)</td>
+			<td>function before the form will collect and prepare the data from the inputs. Form will not be sent if this returns false</td><td>1.2</td>
+			</tr>
+			<tr><th>onBeforeSubmit</th><td>function(data){}</td><td>function(data)</td>
+			<td>function to handle the data before the form will get send. Form will not be sent if this returns false. Can return a new data object which will be used for sending (>=1.2)</td><td>1.0</td>
+			</tr>
+			<tr><th>onReset</th><td>function(){}</td><td>function()</td>
+			<td>callback if form get resetted. can return false to prevent reset</td><td>1.2</td>
+			</tr>
+			<tr><th>onComplete</th><td>function(){}</td><td>function(textStatus, jqXHR)</td>
+			<td>callback if the form was sent. regeardless if successful or not</td><td>1.0</td>
+			</tr>
+			<tr><th>onError</th><td>function(){}</td><td>function(textStatus, error, jqXHR)</td>
+			<td>callback if the form was sent and an error occures.</td><td>1.0</td>
+			</tr>
+			<tr><th>onSuccess</th><td>function(){}</td><td>function(data, textStatus, jqXHR)</td>
+			<td>callback if the form was sent succesful. data holds the response from the server</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			
+			<h3>Methods</h3>
+			<table class="documentation">
+			<thead>
+			<tr><th>method name</th><th>default</th><th>arguments</th><th>description</th><th>since</th><th>info</th></tr>
+			</thead>
+			<tbody>
+			<tr><th>disable</th><td></td><td></td>
+			<td>disables the Form</td><td>1.0</td>
+			</tr>
+			<tr><th>enable</th><td></td><td></td>
+			<td>enables the Form</td><td>1.0</td>
+			</tr>
+			<tr><th>reset</th><td></td><td></td>
+			<td>resets the form</td><td>1.2</td>
+			</tr>
+			<tr><th>submit</th><td></td><td></td>
+			<td>submits the form</td><td>1.0</td>
+			</tr>
+			<tr><th>unserialize</th><td></td><td>querystring</td>
+			<td>unserialze the querystring and fills the form. Uses location.search if no querystring is set</td><td>1.0</td>
+			</tr>
+			<tr><th>set</th><td></td><td>key, value</td>
+			<td>sets the the option 'key' with the value 'value'</td><td>1.0</td>
+			</tr>
+			</tbody>
+			</table>
+			
+		
+			
+			<h3>Usage</h3>
+<pre>$(selector).wl_Form([options]);</pre>
+	
+			<h3>Calling Methods</h3>
+<pre>$(selector).wl_Form('method', [,arg [,arg]]);</pre>	
+
+	
+			<h3>Markup</h3>
+<pre>&lt;form action="submit.php" method="post"&gt;
+	&lt;fieldset&gt;
+		&lt;label&gt;Fieldset Label&lt;/label&gt;
+		&lt;section&gt;&lt;label for="input"&gt;Label&lt;/label&gt;
+			&lt;div&gt;&lt;input type="text" id="input" name="input" required&gt;&lt;/div&gt;
+		&lt;/section&gt;
+		...
+		&lt;section&gt;
+			&lt;div&gt;&lt;button&gt;Submit&lt;/button&gt;&lt;/div&gt;
+		&lt;/section&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+			<h3>Example</h3>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false">
+				<fieldset>
+					<label>Fieldset Label</label>
+					<section><label for="input">Label</label>
+						<div><input type="text" id="input" name="input" required title="This is a tooltip"></div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+
+			<div class="alert info">use autocomplete="off" on a form to prevent old data within input fields!</div>
+			</div>
+			
+			<h3>Native Submit</h3>
+<pre>&lt;form action="submit.php" method="post" data-ajax="false"&gt;
+	&lt;fieldset&gt;
+		&lt;label&gt;Native Submitting Form&lt;/label&gt;
+		&lt;section&gt;&lt;label for="input"&gt;Label&lt;/label&gt;
+			&lt;div&gt;&lt;input type="text" id="input" name="input" required&gt;&lt;/div&gt;
+		&lt;/section&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+			<p>or set the option within the call (instead of <code>data-ajax="false"</code>):</p>
+<pre>
+$('form').wl_Form({
+	ajax:false
+});
+</pre>
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false" data-ajax="false">
+				<fieldset>
+					<label>Native Submitting Form</label>
+					<section><label for="input">Label</label>
+						<div><input type="text" id="input" name="input" required></div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+		
+			<form action="submit.php" method="post" autocomplete="off" data-confirm-send="false" data-ajax="false">
+				<fieldset>
+					<label>Native Submitting Form</label>
+					<section><label for="integer">Integer</label>
+						<div><input id="integer" name="integer" type="number" class="integer">
+						</div>
+					</section>
+					<section><label for="regex_letter">Only Letters</label>
+						<div><input id="regex_letter" name="regex_letter" type="text" data-regex="^[a-zA-Z ]+$"></div>
+					</section>
+					<section><label for="datetime">Date Field with Time</label>
+						<div><input id="datetime" name="datetime" type="text" class="date"><input type="text" class="time" data-connect="datetime">
+						</div>
+					</section>
+					<section><label>Slider with connected input field</label>
+						<div><div class="slider" data-connect="slider_connect" data-value="30" data-range="min"></div>
+						<input type="number" class="integer" id="slider_connect">
+						</div>
+					</section>
+					<section>
+						<div><button class="reset">Reset</button><button class="submit">Submit</button></div>
+					</section>
+				</fieldset>
+			</form>
+		<div class="alert info">You can test <a href="form.html">the example form</a> with native submit by clicking the button above it!</div>
+		</section>
+		<footer>Copyright by revaxarts.com 2012</footer>
+</body>
+</html>

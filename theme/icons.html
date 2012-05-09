@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	
+	<title>White Label - a full featured Admin Skin</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="revaxarts.com">
+	
+	
+	<!-- Google Font and style definitions -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- include the skins (change to dark if you like) -->
+	<link rel="stylesheet" href="css/light/theme.css" id="themestyle">
+	<!-- <link rel="stylesheet" href="css/dark/theme.css" id="themestyle"> -->
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+	
+	<!-- Apple iOS and Android stuff -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	
+	<!-- Apple iOS and Android stuff - don't remove! -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+	
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+	
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
+	
+	<!-- some basic functions -->
+	<script src="js/functions.js"></script>
+		
+	<!-- all Third Party Plugins and Whitelabel Plugins -->
+	<script src="js/plugins.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="js/calendar.js"></script>
+	<script src="js/flot.js"></script>
+	<script src="js/elfinder.js"></script>
+	<script src="js/datatables.js"></script>
+	<script src="js/wl_Alert.js"></script>
+	<script src="js/wl_Autocomplete.js"></script>
+	<script src="js/wl_Breadcrumb.js"></script>
+	<script src="js/wl_Calendar.js"></script>
+	<script src="js/wl_Chart.js"></script>
+	<script src="js/wl_Color.js"></script>
+	<script src="js/wl_Date.js"></script>
+	<script src="js/wl_Editor.js"></script>
+	<script src="js/wl_File.js"></script>
+	<script src="js/wl_Dialog.js"></script>
+	<script src="js/wl_Fileexplorer.js"></script>
+	<script src="js/wl_Form.js"></script>
+	<script src="js/wl_Gallery.js"></script>
+	<script src="js/wl_Multiselect.js"></script>
+	<script src="js/wl_Number.js"></script>
+	<script src="js/wl_Password.js"></script>
+	<script src="js/wl_Slider.js"></script>
+	<script src="js/wl_Store.js"></script>
+	<script src="js/wl_Time.js"></script>
+	<script src="js/wl_Valid.js"></script>
+	<script src="js/wl_Widget.js"></script>
+	
+	<!-- configuration to overwrite settings -->
+	<script src="js/config.js"></script>
+		
+	<!-- the script which handles all the access to plugins etc... -->
+	<script src="js/script.js"></script>
+	
+	
+</head>
+<body>
+				<div id="pageoptions">
+			<ul>
+				<li><a href="login.html">Logout</a></li>
+				<li><a href="#" id="wl_config">Configuration</a></li>
+				<li><a href="#">Settings</a></li>
+			</ul>
+			<div>
+						<h3>Place for some configs</h3>
+						<p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores.</p>
+			</div>
+		</div>
+
+			<header>
+		<div id="logo">
+			<a href="dashboard.html">Logo Here</a>
+		</div>
+		<div id="header">
+			<ul id="headernav">
+				<li><ul>
+					<li><a href="icons.html">Icons</a><span>300+</span></li>
+					<li><a href="#">Submenu</a><span>4</span>
+						<ul>
+							<li><a href="#">Just</a></li>
+							<li><a href="#">another</a></li>
+							<li><a href="#">Dropdown</a></li>
+							<li><a href="#">Menu</a></li>
+						</ul>
+					</li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="wizard.html">Wizard</a><span>Bonus</span></li>
+					<li><a href="#">Errorpage</a><span>new</span>
+						<ul>
+							<li><a href="error-403.html">403</a></li>
+							<li><a href="error-404.html">404</a></li>
+							<li><a href="error-405.html">405</a></li>
+							<li><a href="error-500.html">500</a></li>
+							<li><a href="error-503.html">503</a></li>
+						</ul>
+					</li>
+				</ul></li>
+			</ul>
+			<div id="searchbox">
+				<form id="searchform" autocomplete="off">
+					<input type="search" name="query" id="search" placeholder="Search">
+				</form>
+			</div>
+			<ul id="searchboxresult">
+			</ul>
+		</div>
+	</header>
+
+				<nav>
+			<ul id="nav">
+				<li class="i_house"><a href="dashboard.html"><span>Dashboard</span></a></li>
+				<li class="i_book"><a><span>Documentation</span></a>
+					<ul>
+						<li><a href="doc-alert.html"><span>Alert Boxes</span></a></li>
+						<li><a href="doc-breadcrumb.html"><span>Breadcrumb</span></a></li>
+						<li><a href="doc-calendar.html"><span>Calendar</span></a></li>
+						<li><a href="doc-charts.html"><span>Charts</span></a></li>
+						<li><a href="doc-dialog.html"><span>Dialog</span></a></li>
+						<li><a href="doc-editor.html"><span>Editor</span></a></li>
+						<li><a href="doc-file.html"><span>File</span></a></li>
+						<li><a href="doc-fileexplorer.html"><span>Fileexplorer</span></a></li>
+						<li><a href="doc-form.html"><span>Form</span></a></li>
+						<li><a href="doc-gallery.html"><span>Gallery</span></a></li>
+						<li><a href="doc-inputfields.html"><span>Inputfields</span></a></li>
+						<li><a href="doc-slider.html"><span>Slider</span></a></li>
+						<li><a href="doc-store.html"><span>Store</span></a></li>
+						<li><a href="doc-widget.html"><span>Widget</span></a></li>
+					</ul>
+				</li>
+				<li class="i_create_write"><a href="form.html"><span>Form</span></a></li>
+				<li class="i_graph"><a href="charts.html"><span>Charts</span></a></li>
+				<li class="i_images"><a href="gallery.html"><span>Gallery</span></a></li>
+				<li class="i_blocks_images"><a href="widgets.html"><span>Widgets</span></a></li>
+				<li class="i_breadcrumb"><a href="breadcrumb.html"><span>Breadcrumb</span></a></li>
+				<li class="i_file_cabinet"><a href="fileexplorer.html"><span>Fileexplorer</span></a></li>
+				<li class="i_calendar_day"><a href="calendar.html"><span>Calendar</span></a></li>
+				<li class="i_speech_bubbles_2"><a href="dialogs_and_buttons.html"><span>Dialogs &amp; Buttons</span></a></li>
+				<li class="i_table"><a href="datatable.html"><span>Table</span></a></li>
+				<li class="i_typo"><a href="typo.html"><span>Typo</span></a></li>
+				<li class="i_grid"><a href="grid.html"><span>Grid</span></a></li>
+			</ul>
+		</nav>
+		
+			
+		<section id="content">
+			
+			
+			<div class="g12">
+			<h1>Icons</h1>
+			</div>
+			<div class="g12">
+				
+				<a class="btn i_abacus" title="i_abacus"></a>
+				<a class="btn i_access_denied" title="i_access_denied"></a>
+				<a class="btn i_address_book" title="i_address_book"></a>
+				<a class="btn i_admin_user" title="i_admin_user"></a>
+				<a class="btn i_admin_user_2" title="i_admin_user_2"></a>
+				<a class="btn i_airplane" title="i_airplane"></a>
+				<a class="btn i_alarm" title="i_alarm"></a>
+				<a class="btn i_alarm_2" title="i_alarm_2"></a>
+				<a class="btn i_alarm_clock" title="i_alarm_clock"></a>
+				<a class="btn i_alert" title="i_alert"></a>
+				<a class="btn i_android" title="i_android"></a>
+				<a class="btn i_application" title="i_application"></a>
+				<a class="btn i_archive" title="i_archive"></a>
+				<a class="btn i_arrow_down" title="i_arrow_down"></a>
+				<a class="btn i_arrow_down_left" title="i_arrow_down_left"></a>
+				<a class="btn i_arrow_down_right" title="i_arrow_down_right"></a>
+				<a class="btn i_arrow_left" title="i_arrow_left"></a>
+				<a class="btn i_arrow_right" title="i_arrow_right"></a>
+				<a class="btn i_arrow_up" title="i_arrow_up"></a>
+				<a class="btn i_arrow_up_left" title="i_arrow_up_left"></a>
+				<a class="btn i_arrow_up_right" title="i_arrow_up_right"></a>
+				<a class="btn i_bag" title="i_bag"></a>
+				<a class="btn i_balloons" title="i_balloons"></a>
+				<a class="btn i_bandaid" title="i_bandaid"></a>
+				<a class="btn i_battery" title="i_battery"></a>
+				<a class="btn i_battery_33" title="i_battery_33"></a>
+				<a class="btn i_battery_66" title="i_battery_66"></a>
+				<a class="btn i_battery_empty" title="i_battery_empty"></a>
+				<a class="btn i_battery_full" title="i_battery_full"></a>
+				<a class="btn i_bended_arrow_down" title="i_bended_arrow_down"></a>
+				<a class="btn i_bended_arrow_left" title="i_bended_arrow_left"></a>
+				<a class="btn i_bended_arrow_right" title="i_bended_arrow_right"></a>
+				<a class="btn i_bended_arrow_up" title="i_bended_arrow_up"></a>
+				<a class="btn i_big_brush" title="i_big_brush"></a>
+				<a class="btn i_blackberry" title="i_blackberry"></a>
+				<a class="btn i_blocks_images" title="i_blocks_images"></a>
+				<a class="btn i_blu-ray" title="i_blu-ray"></a>
+				<a class="btn i_bluetooth" title="i_bluetooth"></a>
+				<a class="btn i_bluetooth_2" title="i_bluetooth_2"></a>
+				<a class="btn i_book" title="i_book"></a>
+				<a class="btn i_book_large" title="i_book_large"></a>
+				<a class="btn i_books" title="i_books"></a>
+				<a class="btn i_breadcrumb" title="i_breadcrumb"></a>
+				<a class="btn i_brush" title="i_brush"></a>
+				<a class="btn i_buildings" title="i_buildings"></a>
+				<a class="btn i_bulls_eye" title="i_bulls_eye"></a>
+				<a class="btn i_calculator" title="i_calculator"></a>
+				<a class="btn i_calendar" title="i_calendar"></a>
+				<a class="btn i_calendar_day" title="i_calendar_day"></a>
+				<a class="btn i_camera" title="i_camera"></a>
+				<a class="btn i_camera_2" title="i_camera_2"></a>
+				<a class="btn i_car" title="i_car"></a>
+				<a class="btn i_cash_register" title="i_cash_register"></a>
+				<a class="btn i_cassette" title="i_cassette"></a>
+				<a class="btn i_cat" title="i_cat"></a>
+				<a class="btn i_cd" title="i_cd"></a>
+				<a class="btn i_chair" title="i_chair"></a>
+				<a class="btn i_chart" title="i_chart"></a>
+				<a class="btn i_chart_2" title="i_chart_2"></a>
+				<a class="btn i_chart_3" title="i_chart_3"></a>
+				<a class="btn i_chart_4" title="i_chart_4"></a>
+				<a class="btn i_chart_5" title="i_chart_5"></a>
+				<a class="btn i_chart_6" title="i_chart_6"></a>
+				<a class="btn i_chart_7" title="i_chart_7"></a>
+				<a class="btn i_chart_8" title="i_chart_8"></a>
+				<a class="btn i_chemical" title="i_chemical"></a>
+				<a class="btn i_chrome" title="i_chrome"></a>
+				<a class="btn i_clipboard" title="i_clipboard"></a>
+				<a class="btn i_clock" title="i_clock"></a>
+				<a class="btn i_cloud" title="i_cloud"></a>
+				<a class="btn i_cloud_download" title="i_cloud_download"></a>
+				<a class="btn i_cloud_upload" title="i_cloud_upload"></a>
+				<a class="btn i_cog" title="i_cog"></a>
+				<a class="btn i_cog_2" title="i_cog_2"></a>
+				<a class="btn i_cog_3" title="i_cog_3"></a>
+				<a class="btn i_cog_4" title="i_cog_4"></a>
+				<a class="btn i_collapse" title="i_collapse"></a>
+				<a class="btn i_companies" title="i_companies"></a>
+				<a class="btn i_compress" title="i_compress"></a>
+				<a class="btn i_copy" title="i_copy"></a>
+				<a class="btn i_coverflow" title="i_coverflow"></a>
+				<a class="btn i_create_write" title="i_create_write"></a>
+				<a class="btn i_cross" title="i_cross"></a>
+				<a class="btn i_cup" title="i_cup"></a>
+				<a class="btn i_cursor" title="i_cursor"></a>
+				<a class="btn i_delicious" title="i_delicious"></a>
+				<a class="btn i_desk" title="i_desk"></a>
+				<a class="btn i_digg" title="i_digg"></a>
+				<a class="btn i_digg_2" title="i_digg_2"></a>
+				<a class="btn i_document" title="i_document"></a>
+				<a class="btn i_document_add" title="i_document_add"></a>
+				<a class="btn i_document_delete" title="i_document_delete"></a>
+				<a class="btn i_documents" title="i_documents"></a>
+				<a class="btn i_download" title="i_download"></a>
+				<a class="btn i_download_to_computer" title="i_download_to_computer"></a>
+				<a class="btn i_dress" title="i_dress"></a>
+				<a class="btn i_dribbble" title="i_dribbble"></a>
+				<a class="btn i_dribbble_2" title="i_dribbble_2"></a>
+				<a class="btn i_dropbox" title="i_dropbox"></a>
+				<a class="btn i_drupal" title="i_drupal"></a>
+				<a class="btn i_duplicate" title="i_duplicate"></a>
+				<a class="btn i_dvd" title="i_dvd"></a>
+				<a class="btn i_eject" title="i_eject"></a>
+				<a class="btn i_electricty_input" title="i_electricty_input"></a>
+				<a class="btn i_electricty_plug" title="i_electricty_plug"></a>
+				<a class="btn i_empty" title="i_empty"></a>
+				<a class="btn i_excel_document" title="i_excel_document"></a>
+				<a class="btn i_excel_documents" title="i_excel_documents"></a>
+				<a class="btn i_exclamation" title="i_exclamation"></a>
+				<a class="btn i_exit" title="i_exit"></a>
+				<a class="btn i_expand" title="i_expand"></a>
+				<a class="btn i_expose" title="i_expose"></a>
+				<a class="btn i_expression_engine" title="i_expression_engine"></a>
+				<a class="btn i_eyedropper" title="i_eyedropper"></a>
+				<a class="btn i_facebook" title="i_facebook"></a>
+				<a class="btn i_facebook_like" title="i_facebook_like"></a>
+				<a class="btn i_fax" title="i_fax"></a>
+				<a class="btn i_female" title="i_female"></a>
+				<a class="btn i_female_contour" title="i_female_contour"></a>
+				<a class="btn i_file_cabinet" title="i_file_cabinet"></a>
+				<a class="btn i_film" title="i_film"></a>
+				<a class="btn i_film_2" title="i_film_2"></a>
+				<a class="btn i_filmcamera" title="i_filmcamera"></a>
+				<a class="btn i_finish_flag" title="i_finish_flag"></a>
+				<a class="btn i_firefox" title="i_firefox"></a>
+				<a class="btn i_flag" title="i_flag"></a>
+				<a class="btn i_flag_2" title="i_flag_2"></a>
+				<a class="btn i_folder" title="i_folder"></a>
+				<a class="btn i_folder_add" title="i_folder_add"></a>
+				<a class="btn i_folder_closed" title="i_folder_closed"></a>
+				<a class="btn i_folder_delete" title="i_folder_delete"></a>
+				<a class="btn i_folder_download" title="i_folder_download"></a>
+				<a class="btn i_folder_lock" title="i_folder_lock"></a>
+				<a class="btn i_folder_love" title="i_folder_love"></a>
+				<a class="btn i_folder_upload" title="i_folder_upload"></a>
+				<a class="btn i_footprint" title="i_footprint"></a>
+				<a class="btn i_forward" title="i_forward"></a>
+				<a class="btn i_fountain_pen" title="i_fountain_pen"></a>
+				<a class="btn i_frames" title="i_frames"></a>
+				<a class="btn i_fullscreen" title="i_fullscreen"></a>
+				<a class="btn i_globe" title="i_globe"></a>
+				<a class="btn i_globe_2" title="i_globe_2"></a>
+				<a class="btn i_google_buzz" title="i_google_buzz"></a>
+				<a class="btn i_google_maps" title="i_google_maps"></a>
+				<a class="btn i_graph" title="i_graph"></a>
+				<a class="btn i_grid" title="i_grid"></a>
+				<a class="btn i_hd" title="i_hd"></a>
+				<a class="btn i_hd_2" title="i_hd_2"></a>
+				<a class="btn i_hd_3" title="i_hd_3"></a>
+				<a class="btn i_headphones" title="i_headphones"></a>
+				<a class="btn i_help" title="i_help"></a>
+				<a class="btn i_house" title="i_house"></a>
+				<a class="btn i_house_2" title="i_house_2"></a>
+				<a class="btn i_ice_cream" title="i_ice_cream"></a>
+				<a class="btn i_ice_cream_2" title="i_ice_cream_2"></a>
+				<a class="btn i_ichat" title="i_ichat"></a>
+				<a class="btn i_imac" title="i_imac"></a>
+				<a class="btn i_image" title="i_image"></a>
+				<a class="btn i_image_2" title="i_image_2"></a>
+				<a class="btn i_images" title="i_images"></a>
+				<a class="btn i_images_2" title="i_images_2"></a>
+				<a class="btn i_inbox" title="i_inbox"></a>
+				<a class="btn i_incomming" title="i_incomming"></a>
+				<a class="btn i_information" title="i_information"></a>
+				<a class="btn i_ipad" title="i_ipad"></a>
+				<a class="btn i_iphone_3g" title="i_iphone_3g"></a>
+				<a class="btn i_iphone_4" title="i_iphone_4"></a>
+				<a class="btn i_ipod" title="i_ipod"></a>
+				<a class="btn i_ipod_nano" title="i_ipod_nano"></a>
+				<a class="btn i_joomla" title="i_joomla"></a>
+				<a class="btn i_key" title="i_key"></a>
+				<a class="btn i_key_2" title="i_key_2"></a>
+				<a class="btn i_ladys_purse" title="i_ladys_purse"></a>
+				<a class="btn i_lamp" title="i_lamp"></a>
+				<a class="btn i_laptop" title="i_laptop"></a>
+				<a class="btn i_lastfm" title="i_lastfm"></a>
+				<a class="btn i_lemonade_stand" title="i_lemonade_stand"></a>
+				<a class="btn i_light_bulb" title="i_light_bulb"></a>
+				<a class="btn i_link" title="i_link"></a>
+				<a class="btn i_link_2" title="i_link_2"></a>
+				<a class="btn i_linux" title="i_linux"></a>
+				<a class="btn i_list" title="i_list"></a>
+				<a class="btn i_list_image" title="i_list_image"></a>
+				<a class="btn i_list_images" title="i_list_images"></a>
+				<a class="btn i_loading_bar" title="i_loading_bar"></a>
+				<a class="btn i_locked" title="i_locked"></a>
+				<a class="btn i_locked_2" title="i_locked_2"></a>
+				<a class="btn i_macos" title="i_macos"></a>
+				<a class="btn i_magic_mouse" title="i_magic_mouse"></a>
+				<a class="btn i_magnifying_glass" title="i_magnifying_glass"></a>
+				<a class="btn i_mail" title="i_mail"></a>
+				<a class="btn i_male" title="i_male"></a>
+				<a class="btn i_male_contour" title="i_male_contour"></a>
+				<a class="btn i_map" title="i_map"></a>
+				<a class="btn i_marker" title="i_marker"></a>
+				<a class="btn i_maximize" title="i_maximize"></a>
+				<a class="btn i_medical_case" title="i_medical_case"></a>
+				<a class="btn i_megaphone" title="i_megaphone"></a>
+				<a class="btn i_microphone" title="i_microphone"></a>
+				<a class="btn i_mighty_mouse" title="i_mighty_mouse"></a>
+				<a class="btn i_minimize" title="i_minimize"></a>
+				<a class="btn i_minus" title="i_minus"></a>
+				<a class="btn i_mobile_phone" title="i_mobile_phone"></a>
+				<a class="btn i_mobypicture" title="i_mobypicture"></a>
+				<a class="btn i_money" title="i_money"></a>
+				<a class="btn i_money_2" title="i_money_2"></a>
+				<a class="btn i_monitor" title="i_monitor"></a>
+				<a class="btn i_mouse" title="i_mouse"></a>
+				<a class="btn i_myspace" title="i_myspace"></a>
+				<a class="btn i_next" title="i_next"></a>
+				<a class="btn i_note_book" title="i_note_book"></a>
+				<a class="btn i_outgoing" title="i_outgoing"></a>
+				<a class="btn i_pacman" title="i_pacman"></a>
+				<a class="btn i_pacman_ghost" title="i_pacman_ghost"></a>
+				<a class="btn i_paint_brush" title="i_paint_brush"></a>
+				<a class="btn i_pants" title="i_pants"></a>
+				<a class="btn i_paperclip" title="i_paperclip"></a>
+				<a class="btn i_paste" title="i_paste"></a>
+				<a class="btn i_pause" title="i_pause"></a>
+				<a class="btn i_paypal" title="i_paypal"></a>
+				<a class="btn i_paypal_2" title="i_paypal_2"></a>
+				<a class="btn i_paypal_3" title="i_paypal_3"></a>
+				<a class="btn i_pdf_document" title="i_pdf_document"></a>
+				<a class="btn i_pdf_documents" title="i_pdf_documents"></a>
+				<a class="btn i_pencil" title="i_pencil"></a>
+				<a class="btn i_phone" title="i_phone"></a>
+				<a class="btn i_phone_2" title="i_phone_2"></a>
+				<a class="btn i_phone_hook" title="i_phone_hook"></a>
+				<a class="btn i_piggy_bank" title="i_piggy_bank"></a>
+				<a class="btn i_plane_suitecase" title="i_plane_suitecase"></a>
+				<a class="btn i_play" title="i_play"></a>
+				<a class="btn i_plixi" title="i_plixi"></a>
+				<a class="btn i_plus" title="i_plus"></a>
+				<a class="btn i_post_card" title="i_post_card"></a>
+				<a class="btn i_power" title="i_power"></a>
+				<a class="btn i_powerpoint_document" title="i_powerpoint_document"></a>
+				<a class="btn i_powerpoint_documents" title="i_powerpoint_documents"></a>
+				<a class="btn i_presentation" title="i_presentation"></a>
+				<a class="btn i_prev" title="i_prev"></a>
+				<a class="btn i_preview" title="i_preview"></a>
+				<a class="btn i_price_tag" title="i_price_tag"></a>
+				<a class="btn i_price_tags" title="i_price_tags"></a>
+				<a class="btn i_printer" title="i_printer"></a>
+				<a class="btn i_question" title="i_question"></a>
+				<a class="btn i_radio" title="i_radio"></a>
+				<a class="btn i_record" title="i_record"></a>
+				<a class="btn i_recycle" title="i_recycle"></a>
+				<a class="btn i_refresh" title="i_refresh"></a>
+				<a class="btn i_refresh_2" title="i_refresh_2"></a>
+				<a class="btn i_refresh_3" title="i_refresh_3"></a>
+				<a class="btn i_refresh_4" title="i_refresh_4"></a>
+				<a class="btn i_repeat" title="i_repeat"></a>
+				<a class="btn i_rewind" title="i_rewind"></a>
+				<a class="btn i_robot" title="i_robot"></a>
+				<a class="btn i_rss" title="i_rss"></a>
+				<a class="btn i_ruler" title="i_ruler"></a>
+				<a class="btn i_ruler_2" title="i_ruler_2"></a>
+				<a class="btn i_running_man" title="i_running_man"></a>
+				<a class="btn i_safari" title="i_safari"></a>
+				<a class="btn i_scan_label" title="i_scan_label"></a>
+				<a class="btn i_scissors" title="i_scissors"></a>
+				<a class="btn i_sd" title="i_sd"></a>
+				<a class="btn i_sd_2" title="i_sd_2"></a>
+				<a class="btn i_sd_3" title="i_sd_3"></a>
+				<a class="btn i_settings" title="i_settings"></a>
+				<a class="btn i_settings_2" title="i_settings_2"></a>
+				<a class="btn i_shopping_bag" title="i_shopping_bag"></a>
+				<a class="btn i_shopping_basket" title="i_shopping_basket"></a>
+				<a class="btn i_shopping_basket_2" title="i_shopping_basket_2"></a>
+				<a class="btn i_shopping_cart" title="i_shopping_cart"></a>
+				<a class="btn i_shopping_cart_2" title="i_shopping_cart_2"></a>
+				<a class="btn i_shopping_cart_3" title="i_shopping_cart_3"></a>
+				<a class="btn i_shopping_cart_4" title="i_shopping_cart_4"></a>
+				<a class="btn i_shuffle" title="i_shuffle"></a>
+				<a class="btn i_sign_post" title="i_sign_post"></a>
+				<a class="btn i_skype" title="i_skype"></a>
+				<a class="btn i_sleeveless_shirt" title="i_sleeveless_shirt"></a>
+				<a class="btn i_socks" title="i_socks"></a>
+				<a class="btn i_sound" title="i_sound"></a>
+				<a class="btn i_speech_bubble" title="i_speech_bubble"></a>
+				<a class="btn i_speech_bubble_2" title="i_speech_bubble_2"></a>
+				<a class="btn i_speech_bubbles" title="i_speech_bubbles"></a>
+				<a class="btn i_speech_bubbles_2" title="i_speech_bubbles_2"></a>
+				<a class="btn i_sport_shirt" title="i_sport_shirt"></a>
+				<a class="btn i_stop" title="i_stop"></a>
+				<a class="btn i_stop_watch" title="i_stop_watch"></a>
+				<a class="btn i_strategy" title="i_strategy"></a>
+				<a class="btn i_strategy_2" title="i_strategy_2"></a>
+				<a class="btn i_stubleupon" title="i_stubleupon"></a>
+				<a class="btn i_suitecase" title="i_suitecase"></a>
+				<a class="btn i_sweater" title="i_sweater"></a>
+				<a class="btn i_t-shirt" title="i_t-shirt"></a>
+				<a class="btn i_table" title="i_table"></a>
+				<a class="btn i_tag" title="i_tag"></a>
+				<a class="btn i_tags" title="i_tags"></a>
+				<a class="btn i_television" title="i_television"></a>
+				<a class="btn i_tick" title="i_tick"></a>
+				<a class="btn i_timer" title="i_timer"></a>
+				<a class="btn i_trashcan" title="i_trashcan"></a>
+				<a class="btn i_trashcan_2" title="i_trashcan_2"></a>
+				<a class="btn i_travel_suitecase" title="i_travel_suitecase"></a>
+				<a class="btn i_tree" title="i_tree"></a>
+				<a class="btn i_triangle_double_down" title="i_triangle_double_down"></a>
+				<a class="btn i_triangle_double_left" title="i_triangle_double_left"></a>
+				<a class="btn i_triangle_double_right" title="i_triangle_double_right"></a>
+				<a class="btn i_triangle_double_up" title="i_triangle_double_up"></a>
+				<a class="btn i_triangle_down" title="i_triangle_down"></a>
+				<a class="btn i_triangle_down_left" title="i_triangle_down_left"></a>
+				<a class="btn i_triangle_down_right" title="i_triangle_down_right"></a>
+				<a class="btn i_triangle_left" title="i_triangle_left"></a>
+				<a class="btn i_triangle_left_right" title="i_triangle_left_right"></a>
+				<a class="btn i_triangle_right" title="i_triangle_right"></a>
+				<a class="btn i_triangle_up" title="i_triangle_up"></a>
+				<a class="btn i_triangle_up_down" title="i_triangle_up_down"></a>
+				<a class="btn i_triangle_up_left" title="i_triangle_up_left"></a>
+				<a class="btn i_triangle_up_right" title="i_triangle_up_right"></a>
+				<a class="btn i_trolly" title="i_trolly"></a>
+				<a class="btn i_truck" title="i_truck"></a>
+				<a class="btn i_tumbler" title="i_tumbler"></a>
+				<a class="btn i_twitter" title="i_twitter"></a>
+				<a class="btn i_twitter_2" title="i_twitter_2"></a>
+				<a class="btn i_typo" title="i_typo"></a>
+				<a class="btn i_umbrella" title="i_umbrella"></a>
+				<a class="btn i_under_construction" title="i_under_construction"></a>
+				<a class="btn i_unlocked" title="i_unlocked"></a>
+				<a class="btn i_upload" title="i_upload"></a>
+				<a class="btn i_user" title="i_user"></a>
+				<a class="btn i_user_2" title="i_user_2"></a>
+				<a class="btn i_user_comment" title="i_user_comment"></a>
+				<a class="btn i_users" title="i_users"></a>
+				<a class="btn i_users_2" title="i_users_2"></a>
+				<a class="btn i_v-card" title="i_v-card"></a>
+				<a class="btn i_v-card_2" title="i_v-card_2"></a>
+				<a class="btn i_vault" title="i_vault"></a>
+				<a class="btn i_vimeo" title="i_vimeo"></a>
+				<a class="btn i_vimeo_2" title="i_vimeo_2"></a>
+				<a class="btn i_walking_man" title="i_walking_man"></a>
+				<a class="btn i_wifi_signal" title="i_wifi_signal"></a>
+				<a class="btn i_wifi_signal_2" title="i_wifi_signal_2"></a>
+				<a class="btn i_windows" title="i_windows"></a>
+				<a class="btn i_winner_podium" title="i_winner_podium"></a>
+				<a class="btn i_wizard" title="i_wizard"></a>
+				<a class="btn i_word_document" title="i_word_document"></a>
+				<a class="btn i_word_documents" title="i_word_documents"></a>
+				<a class="btn i_wordpress" title="i_wordpress"></a>
+				<a class="btn i_wordpress_2" title="i_wordpress_2"></a>
+				<a class="btn i_youtube" title="i_youtube"></a>
+				<a class="btn i_youtube_2" title="i_youtube_2"></a>
+				<a class="btn i_zip_file" title="i_zip_file"></a>
+				<a class="btn i_zip_files" title="i_zip_files"></a>
+
+			</div>
+		</section><!-- end div #content -->
+		<footer>Copyright by revaxarts.com 2012</footer>
+</body>
+</html>
