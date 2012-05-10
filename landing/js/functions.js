@@ -3,22 +3,7 @@ function isCorrectMail(inm) {
 	return(reg.test(inm));
 } 
 
-function addMail() { 
-	var mail = $('#mail').val(); 
-	if ( isCorrectMail(mail) ) {
-			$.ajax({
-			   type: "GET",
-			   url: "reg.php",
-			   data: "mail=" + escape(mail),
-			   success: function(){
-			     alert( "Email enregistré ! Merci :)"); 
-			   }
-			 });
-		}
-		else {
-			alert("Email est incorrect !")
-		}
-}
+
 
 function toto(){
 	return null;
@@ -26,5 +11,23 @@ function toto(){
 
 
 $(document).ready(function(){	
-	$('#submitbutton').click(addMail);
+	$('#addMail').submit(function(event) {
+			event.preventDefault();
+			var mail = $('#mail').val(); 
+			if ( isCorrectMail(mail) ) {
+					$.ajax({
+					   type: "GET",
+					   url: "reg.php",
+					   data: "mail=" + escape(mail),
+					   success: function(){
+					     alert( "Email enregistré ! Merci :)"); 
+					   }
+					 });
+				}
+				else {
+					alert("Email est incorrect !")
+				}
+		
+	});
+	
 });
