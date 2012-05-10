@@ -1,9 +1,8 @@
 (function($) {
 	var	aux		= {
 			// navigates left / right
-			navigate	: function( dir, $el, $wrapper, opts, cache ) {
-				
-				var scroll		= opts.scroll,
+			navigate	: function( dir, $el, $wrapper, opts, cache ) { 
+				var scroll		= false,
 					factor		= 1,
 					idxClicked	= 0;
 					
