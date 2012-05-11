@@ -1,0 +1,1 @@
+À intégrer :   lors de la rencontre avec aribbe le jeudi 10 Mai, il nous a demandé de fournir à l'utilisateur la possibilité de supprimer (vraiment supprimer, pas uniquement cacher)  ses informations de notre base.
