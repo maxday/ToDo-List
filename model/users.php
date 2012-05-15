@@ -1,40 +1,56 @@
 <?php
+
+include("../helper/utils.php");
+
 function createUser($login) {
-	$sql = "INSERT INTO MYTODO_USER(login, dateCreated) VALUES (?, NOW())";
-	$array = array($login);
-	
+	$sql = "INSERT INTO MYTODO_USER(uuid, login, dateCreated) VALUES (?, ?, NOW())";
+	$uniqid = (uniqid("",true));
+	$array = array($uniqid, $login);
 	launchQuery($sql, $array);
+	return $uniqid;
 }
 	
-function securizeAccount($uiid) {
+function securizeAccount($uuid, $pwd) {
 	$sql = "UPDATE MYTODO_USER SET pwd=? WHERE uuid=?";
-	$array = array($pwd, $uiid);
+	$array = array($pwd, $uuid);
 
 	launchQuery($sql, $array);
 }
 	
+/*
 function deleteUser($uuid) {
-	$vConnect = new Connect;
-	$vConnect->mConnect();
+	$vConnect = connect();
+	try {
+		$sql = "DELETE MYTODO_PROTECT WHERE uuid=?";
+		$prepared_statement = $vConnect->prepare($sql);
+		$prepared_statement->execute(array($uuid));	
+			
+	} catch(Exception $e) {
+		
+		echo 'Erreur : '.$e->getMessage().'<br />';
+		echo 'N° : '.$e->getCode();
+	}
+
 	
 	$sql = "DELETE MYTODO_TAG WHERE user=?";
 	$prepared_statement = $vConnect->prepare($sql);
-	$prepared_statement->execute(array($uuid);
+	$prepared_statement->execute(array($uuid));
 	
 	$sql = "DELETE MYTODO_TASK WHERE user=?";
 	$prepared_statement = $vConnect->prepare($sql);
-	$prepared_statement->execute(array($uuid);
+	$prepared_statement->execute(array($uuid));
 	
 	$sql = "DELETE MYTODO_USER WHERE uuid=?";
-	$requete_preparee = $vConnect->prepare($sql);
-	$requete_prepare->execute(array($uuid);
+	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($uuid));
 	
-	$vConnect->mClose();
+	close($vConnect);
 }
+*/	
 	
-function updateEmail($email) {
+function updateEmail($uuid, $email) {
 	$sql = "UPDATE MYTODO_USER SET email=? WHERE uuid=?";
-	$array = array($email, $uiid);
+	$array = array($email, $uuid);
 	
 	launchQuery($sql, $array);
 }
@@ -55,7 +71,7 @@ function updateAdvanced($uuid) {
 
 function isProtected($uuid) {
 	$sql = "SELECT isProtected FROM MYTODO_PROTECT WHERE uuid=?";
-	$vConnect = new Connect;
+	$vConnect = new Connect();
 	$vConnect->mConnect();
 	
 	$prepared_statement = $vConnect->prepare($sql);
@@ -65,4 +81,12 @@ function isProtected($uuid) {
 	$vConnect->mClose();
 	return $line->identifiant;
 }
+
+
+/*$uniqid = createUser("testDelete");
+securizeAccount($uniqid, "proute");
+securizeAccount($uniqid, "");*/
+
+updateEmail("4fb2ac817c62b3.98435945","coucou@foiof.com");
+
 ?>
