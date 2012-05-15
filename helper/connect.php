@@ -34,7 +34,7 @@ class Connect{
 }
 
 /*
-$vConnect = new Connect;
+$vConnect = new Connect();
 $vConnect->mConnect();
 
 
@@ -51,12 +51,11 @@ $vConnect->mClose();
 */
 
 function launchQuery($sql, $array) {
-	$vConnect = new Connect;
+	$vConnect = new Connect();
 	$vConnect->mConnect();
 	
 	$prepared_statement = $vConnect->prepare($sql);
 	$prepared_statement->execute($array);
 	$vConnect->mClose();
 }
-
 ?>

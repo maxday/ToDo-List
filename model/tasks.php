@@ -7,7 +7,7 @@ function createTask($title, $dueDate, $priority, $isImportant, $tag, $user) {
 }
 
 function verifyTask($uuid, $user) {
-	$vConnect = new Connect;
+	$vConnect = new Connect();
 	$vConnect->mConnect();
 
 	$sql = "SELECT title FROM MYTODO_TASK WHERE uiid=? AND user=?";
@@ -23,36 +23,61 @@ function verifyTask($uuid, $user) {
 
 function deleteTask($uuid, $user) {
 	if (verifyTask($uuid, $user)) {
-		$vConnect = new Connect;
-		$vConnect->mConnect();
-
-	  	$sql = "DELETE MYTODO_TASK WHERE uuid=?";
-		$prepared_statement = $vConnect->prepare($sql);
-		$prepared_statement->execute(array($uuid);
+	  	$sql = "UPDATE MYTODO_TASK SET dateDeleted=NOW() WHERE uuid=?";
+		$array = array($uuid);
+		launchQuery($sql, $array);
 	}
 	else
 		echo("Alerte");
 }
 
-function updateTask($uuid, $user) {
+function completeTask($uuid, $user) {
 	if (verifyTask($uuid, $user)) {
-		$vConnect = new Connect;
-		$vConnect->mConnect();
-
-	  	$sql = "UPDATE MYTODO_TASK SET WHERE uuid=?";
-		$prepared_statement = $vConnect->prepare($sql);
-		$prepared_statement->execute(array($uuid);
+	  	$sql = "UPDATE MYTODO_TASK SET dateCompleted=NOW() WHERE uuid=?";
+		$array = array($uuid);
+		launchQuery($sql, $array);
 	}
 	else
 		echo("Alerte");
 }
 
-  `uuid` char(23) NOT NULL,
-  `dateCreated` date NOT NULL,
-  `dateCompleted` date DEFAULT NULL,
-  `dateDeleted` date DEFAULT NULL,
-  `title` varchar(30) NOT NULL,
-  `dueDate` date DEFAULT NULL,
-  `priority` char(2) DEFAULT NULL,
-  `isImportant` tinyint(1) DEFAULT NULL,
+function updateTaskTitle($uuid, $user, $title) {
+	if (verifyTask($uuid, $user)) {
+	  	$sql = "UPDATE MYTODO_TASK SET title=? WHERE uuid=?";
+		$array = array($title, $uuid);
+		launchQuery($sql, $array);
+	}
+	else
+		echo("Alerte");
+}
+
+function updateTaskDueDate($uuid, $user, $dueDate) {
+	if (verifyTask($uuid, $user)) {
+	  	$sql = "UPDATE MYTODO_TASK SET dueDate=? WHERE uuid=?";
+		$array = array($dueDate, $uuid);
+		launchQuery($sql, $array);
+	}
+	else
+		echo("Alerte");
+}
+
+function updateTaskPriority($uuid, $user, $priority) {
+	if (verifyTask($uuid, $user)) {
+	  	$sql = "UPDATE MYTODO_TASK SET priority=? WHERE uuid=?";
+		$array = array($title, $uuid);
+		launchQuery($sql, $array);
+	}
+	else
+		echo("Alerte");
+}
+
+function updateTaskImportant($uuid, $user, $isImportant) {
+	if (verifyTask($uuid, $user)) {
+	  	$sql = "UPDATE MYTODO_TASK SET isImportant=? WHERE uuid=?";
+		$array = array($isImportant, $uuid);
+		launchQuery($sql, $array);
+	}
+	else
+		echo("Alerte");
+}
 ?>
