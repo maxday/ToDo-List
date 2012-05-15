@@ -11,6 +11,14 @@
 -- 
 
 -- 
+-- Contenu de la table `MYTODO_USER`
+-- 
+
+INSERT INTO `MYTODO_USER` VALUES ('4fb2ac296cb276.69528154', '0cc175b9c0f1b6a831c399e269772661', NULL, 'a', 1, 0, '2012-05-15', 1);
+INSERT INTO `MYTODO_USER` VALUES ('4fb2ac817c62b3.98435945', NULL, 'tutu@tutu.com', 'b', 1, 1, '2012-05-15', 0);
+
+
+-- 
 -- Contenu de la table `MYTODO_TAG`
 -- 
 
@@ -28,9 +36,3 @@ INSERT INTO `MYTODO_TASK` VALUES ('4fb2ad8ff042c5.68498844', '2012-05-15', NULL,
 INSERT INTO `MYTODO_TASK` VALUES ('4fb2ae1bba5fa2.99991321', '2012-05-15', NULL, NULL, 'Première tâche de b (no tag)', NULL, '+2', 0, NULL, '4fb2ac817c62b3.98435945');
 INSERT INTO `MYTODO_TASK` VALUES ('4fb2ae739497f4.61444638', '2012-05-15', NULL, NULL, 'seconde tâche de b (with tag)', NULL, '+2', 1, '4fb2ade740cea7.17256240', '4fb2ac817c62b3.98435945');
 
--- 
--- Contenu de la table `MYTODO_USER`
--- 
-
-INSERT INTO `MYTODO_USER` VALUES ('4fb2ac296cb276.69528154', '0cc175b9c0f1b6a831c399e269772661', NULL, 'a', 1, 0, '2012-05-15', 1);
-INSERT INTO `MYTODO_USER` VALUES ('4fb2ac817c62b3.98435945', NULL, 'tutu@tutu.com', 'b', 1, 1, '2012-05-15', 0);

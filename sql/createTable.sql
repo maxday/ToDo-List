@@ -45,7 +45,7 @@ CREATE TABLE `MYTODO_TAG` (
 --
 -- Table structure for table `MYTODO_TASK`
 --
-DROP TABLE MYTODO_TASK;
+
 CREATE TABLE `MYTODO_TASK` (
   `uuid` char(23) NOT NULL,
   `dateCreated` date NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `MYTODO_TASK` (
   `priority` char(2) DEFAULT NULL,
   `isImportant` tinyint(1) DEFAULT NULL,
   `tag` char(23) DEFAULT NULL,
-  `user` char(23) DETAULT NULL,
+  `user` char(23) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
   KEY `tag` (`tag`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
