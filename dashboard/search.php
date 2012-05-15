@@ -10,7 +10,7 @@
 /* }
 /*----------------------------------------------------------------------*/
 
-	//only AJAX request is allowed
+	//only AJAX request is allowed 
 	if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])){
 		
 		$searchterm = trim($_POST['term']);
