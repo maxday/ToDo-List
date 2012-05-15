@@ -19,6 +19,12 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `MYTODO_TAG`
 --
 
+
+DROP TABLE `MYTODO_TAG`;
+DROP TABLE `MYTODO_USER`;
+DROP TABLE `MYTODO_TASK`;
+
+
 CREATE TABLE `MYTODO_TAG` (
   `uuid` char(23) NOT NULL,
   `title` varchar(10) NOT NULL,
@@ -39,7 +45,7 @@ CREATE TABLE `MYTODO_TAG` (
 --
 -- Table structure for table `MYTODO_TASK`
 --
-
+DROP TABLE MYTODO_TASK;
 CREATE TABLE `MYTODO_TASK` (
   `uuid` char(23) NOT NULL,
   `dateCreated` date NOT NULL,
@@ -48,8 +54,9 @@ CREATE TABLE `MYTODO_TASK` (
   `title` varchar(30) NOT NULL,
   `dueDate` date DEFAULT NULL,
   `priority` char(2) DEFAULT NULL,
-  `isImportant` tinyint(4) DEFAULT NULL,
+  `isImportant` tinyint(1) DEFAULT NULL,
   `tag` char(23) DEFAULT NULL,
+  `user` char(23) DETAULT NULL,
   PRIMARY KEY (`uuid`),
   KEY `tag` (`tag`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -70,10 +77,10 @@ CREATE TABLE `MYTODO_USER` (
   `pwd` char(32) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `login` varchar(50) NOT NULL,
-  `hideTips` tinyint(4) DEFAULT NULL,
-  `isAdvancedUser` tinyint(4) DEFAULT NULL,
+  `hideTips` tinyint(1) DEFAULT NULL,
+  `isAdvancedUser` tinyint(1) DEFAULT NULL,
   `dateCreated` date NOT NULL,
-  `isProtected` tinyint(4) DEFAULT NULL,
+  `isProtected` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -97,3 +104,5 @@ ALTER TABLE `MYTODO_TAG`
 --
 ALTER TABLE `MYTODO_TASK`
   ADD CONSTRAINT `MYTODO_TASK_ibfk_1` FOREIGN KEY (`tag`) REFERENCES `MYTODO_TAG` (`uuid`);
+ALTER TABLE `MYTODO_TASK`
+  ADD CONSTRAINT `MYTODO_TASK_ibfk_2` FOREIGN KEY (`user`) REFERENCES `MYTODO_USER` (`uuid`);
