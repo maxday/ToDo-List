@@ -23,6 +23,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 DROP TABLE `MYTODO_TAG`;
 DROP TABLE `MYTODO_USER`;
 DROP TABLE `MYTODO_TASK`;
+DROP TABLE `MYTODO_PROTECT`;
 
 
 CREATE TABLE `MYTODO_TAG` (
@@ -61,6 +62,24 @@ CREATE TABLE `MYTODO_TASK` (
   KEY `tag` (`tag`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+--
+-- Dumping data for table `MYTODO_PROTECT`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `MYTODO_PROTECT`
+--
+
+CREATE TABLE `MYTODO_PROTECT` (
+  `uuid` char(23) NOT NULL,
+  `isProtected` tinyint(1) NOT NULL,
+  PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Dumping data for table `MYTODO_TASK`
 --
@@ -80,7 +99,6 @@ CREATE TABLE `MYTODO_USER` (
   `hideTips` tinyint(1) DEFAULT NULL,
   `isAdvancedUser` tinyint(1) DEFAULT NULL,
   `dateCreated` date NOT NULL,
-  `isProtected` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -106,3 +124,9 @@ ALTER TABLE `MYTODO_TASK`
   ADD CONSTRAINT `MYTODO_TASK_ibfk_1` FOREIGN KEY (`tag`) REFERENCES `MYTODO_TAG` (`uuid`);
 ALTER TABLE `MYTODO_TASK`
   ADD CONSTRAINT `MYTODO_TASK_ibfk_2` FOREIGN KEY (`user`) REFERENCES `MYTODO_USER` (`uuid`);
+
+--
+-- Constraints for table `MYTODO_PROTECT`
+--
+ALTER TABLE `MYTODO_PROTECT`
+  ADD CONSTRAINT `MYTODO_PROTECT_ibfk_1` FOREIGN KEY (`uuid`) REFERENCES `MYTODO_USER` (`uuid`);
