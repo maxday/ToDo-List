@@ -13,12 +13,10 @@
 		}
 
 	}
-
 	
 	function close($pdo) {
 		$pdo = null;
 	}
-
 
 
 ?>
