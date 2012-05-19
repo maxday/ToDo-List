@@ -2,6 +2,7 @@
 
 include("../helper/utils.php");
 
+/* tested */
 function createTag($title, $user) {
 	$sql = "INSERT INTO MYTODO_TAG(uuid, title, dateCreated, user) VALUES (?, ?, NOW(), ?)"; 
 	$uniqid = (uniqid("",true));	
@@ -11,6 +12,7 @@ function createTag($title, $user) {
 	return $uniqid;
 }
 
+/* tested */
 /* PRIVATE */
 function isTagBelongsToUser($uuid, $user) {
 	$vConnect = connect();
@@ -24,6 +26,7 @@ function isTagBelongsToUser($uuid, $user) {
 	close($vConnect);
 }
 
+/* tested */
 function deleteTag($uuid, $user) {
 	if (isTagBelongsToUser($uuid, $user)) {
 	  	$sql = "UPDATE MYTODO_TAG SET dateDeleted=NOW() WHERE uuid=?";
@@ -34,6 +37,7 @@ function deleteTag($uuid, $user) {
 		echo("Alerte");
 }
 
+/* tested */
 function updateTagTitle($uuid, $user, $title) {
 	if (isTagBelongsToUser($uuid, $user)) {
 	  	$sql = "UPDATE MYTODO_TAG SET title=? WHERE uuid=?";
