@@ -18,7 +18,8 @@ function securizeAccount($uuid, $pwd) {
 
 	launchQuery($sql, $array);
 }
-	
+
+/* tested */
 function deleteUser($uuid) {
 	$vConnect = connect();
 	
@@ -56,6 +57,7 @@ function disableTips($uuid) {
 }
 
 /* PRIVATE */
+/* tested */
 function updateTips($uuid, $enable) {
 	$sql = "UPDATE MYTODO_USER SET hideTips=? WHERE uuid=?";
 	$array = array($enable, $uuid);
@@ -74,6 +76,7 @@ function disableAdvancedUser($uuid) {
 }
 	
 /* PRIVATE */
+/* tested */
 function updateAdvanced($uuid, $isAdvanced) {
 	$sql = "UPDATE MYTODO_USER SET isAdvancedUser=? WHERE uuid=?";
 	$array = array($isAdvanced, $uuid);
@@ -81,6 +84,7 @@ function updateAdvanced($uuid, $isAdvanced) {
 	launchQuery($sql, $array);
 }
 
+/* tested */
 function isProtected($uuid) {
 	$sql = "SELECT isProtected FROM MYTODO_PROTECT WHERE uuid=?";
 	$vConnect = connect();
