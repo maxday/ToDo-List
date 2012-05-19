@@ -55,7 +55,7 @@ CREATE TABLE `MYTODO_TASK` (
   `title` varchar(30) NOT NULL,
   `dueDate` date DEFAULT NULL,
   `priority` char(2) DEFAULT NULL,
-  `isImportant` tinyint(1) DEFAULT NULL,
+  `isImportant` tinyint(1) DEFAULT 0,
   `tag` char(23) DEFAULT NULL,
   `user` char(23) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
@@ -96,8 +96,8 @@ CREATE TABLE `MYTODO_USER` (
   `pwd` char(32) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `login` varchar(50) NOT NULL,
-  `hideTips` tinyint(1) DEFAULT NULL,
-  `isAdvancedUser` tinyint(1) DEFAULT NULL,
+  `hideTips` tinyint(1) DEFAULT 0,
+  `isAdvancedUser` tinyint(1) DEFAULT 0,
   `dateCreated` date NOT NULL,
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
