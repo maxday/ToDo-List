@@ -2,6 +2,7 @@
 
 include("../helper/utils.php");
 
+/* tested */
 function createUser($login) {
 	$sql = "INSERT INTO MYTODO_USER(uuid, login, dateCreated) VALUES (?, ?, NOW())";
 	$uniqid = (uniqid("",true));
@@ -10,6 +11,7 @@ function createUser($login) {
 	return $uniqid;
 }
 	
+/* tested */
 function securizeAccount($uuid, $pwd) {
 	$sql = "UPDATE MYTODO_USER SET pwd=? WHERE uuid=?";
 	$array = array($pwd, $uuid);
@@ -47,24 +49,47 @@ function deleteUser($uuid) {
 	close($vConnect);
 }
 */	
-	
+
+/* tested */
 function updateEmail($uuid, $email) {
 	$sql = "UPDATE MYTODO_USER SET email=? WHERE uuid=?";
 	$array = array($email, $uuid);
 	
 	launchQuery($sql, $array);
 }
-	
-function updateTips($uuid) {
-	$sql = "UPDATE MYTODO_USER SET hideTips=1 WHERE uuid=?";
-	$array = array($uiid);
+
+/* tested */
+function enableTips($uuid) {
+	return updateTips($uuid, 1);
+}
+
+/* tested */
+function disableTips($uuid) {
+	return updateTips($uuid, 0);
+}
+
+/* PRIVATE */
+function updateTips($uuid, $enable) {
+	$sql = "UPDATE MYTODO_USER SET hideTips=? WHERE uuid=?";
+	$array = array($enable, $uuid);
 	
 	launchQuery($sql, $array);
 }
+
+/* tested */
+function enableAdvancedUser($uuid) {
+	return updateAdvanced($uuid, 1);
+}
+
+/* tested */
+function disableAdvancedUser($uuid) {
+	return updateAdvanced($uuid, 0);
+}
 	
-function updateAdvanced($uuid) {
-	$sql = "UPDATE MYTODO_USER SET isAdvancedUser=1 WHERE uuid=?";
-	$array = array($uiid);
+/* PRIVATE */
+function updateAdvanced($uuid, $isAdvanced) {
+	$sql = "UPDATE MYTODO_USER SET isAdvancedUser=? WHERE uuid=?";
+	$array = array($isAdvanced, $uuid);
 	
 	launchQuery($sql, $array);
 }
@@ -82,11 +107,5 @@ function isProtected($uuid) {
 	return $line->identifiant;
 }
 
-
-/*$uniqid = createUser("testDelete");
-securizeAccount($uniqid, "proute");
-securizeAccount($uniqid, "");*/
-
-updateEmail("4fb2ac817c62b3.98435945","coucou@foiof.com");
 
 ?>
