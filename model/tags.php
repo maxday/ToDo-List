@@ -1,28 +1,31 @@
 <?php
+
+include("../helper/utils.php");
+
 function createTag($title, $user) {
-	$sql = "INSERT INTO MYTODO_TASK(title, dateCreated, user) VALUES (?, NOW(), ?)"; 
-	$array = array($title, $user));
+	$sql = "INSERT INTO MYTODO_TAG(uuid, title, dateCreated, user) VALUES (?, ?, NOW(), ?)"; 
+	$uniqid = (uniqid("",true));	
+	$array = array($uniqid, $title, $user);
 
 	launchQuery($sql, $array);
+	return $uniqid;
 }
 
-function verifyTag($uuid, $user) {
-	$vConnect = new Connect();
-	$vConnect->mConnect();
+/* PRIVATE */
+function isTagBelongsToUser($uuid, $user) {
+	$vConnect = connect();
 
-	$sql = "SELECT title FROM MYTODO_TAG WHERE uiid=? AND user=?";
+	$sql = "SELECT uuid FROM MYTODO_TAG WHERE uuid=? AND user=?";
 	$prepared_statement = $vConnect->prepare($sql);
 
-	if ($res = $prepared_statement->execute($uuid, $user);){
-	   if ($res->fetchColumn() > 0)
-		  	return true;
-		else
-			return false;
+	if ($prepared_statement->execute(array($uuid, $user)) == true) {
+		return $prepared_statement->rowCount();
 	}
+	close($vConnect);
 }
 
 function deleteTag($uuid, $user) {
-	if (verifyTag($uuid, $user)) {
+	if (isTagBelongsToUser($uuid, $user)) {
 	  	$sql = "UPDATE MYTODO_TAG SET dateDeleted=NOW() WHERE uuid=?";
 		$array = array($uuid);
 		launchQuery($sql, $array);
@@ -32,7 +35,7 @@ function deleteTag($uuid, $user) {
 }
 
 function updateTagTitle($uuid, $user, $title) {
-	if (verifyTask($uuid, $user)) {
+	if (isTagBelongsToUser($uuid, $user)) {
 	  	$sql = "UPDATE MYTODO_TAG SET title=? WHERE uuid=?";
 		$array = array($title, $uuid);
 		launchQuery($sql, $array);
@@ -40,5 +43,4 @@ function updateTagTitle($uuid, $user, $title) {
 	else
 		echo("Alerte");
 }
-
 ?>

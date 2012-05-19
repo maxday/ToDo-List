@@ -19,36 +19,23 @@ function securizeAccount($uuid, $pwd) {
 	launchQuery($sql, $array);
 }
 	
-/*
 function deleteUser($uuid) {
 	$vConnect = connect();
-	try {
-		$sql = "DELETE MYTODO_PROTECT WHERE uuid=?";
-		$prepared_statement = $vConnect->prepare($sql);
-		$prepared_statement->execute(array($uuid));	
-			
-	} catch(Exception $e) {
-		
-		echo 'Erreur : '.$e->getMessage().'<br />';
-		echo 'N° : '.$e->getCode();
-	}
+	
+	$sql = "DELETE FROM MYTODO_TASK WHERE user=?";
+	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($uuid));
 
-	
-	$sql = "DELETE MYTODO_TAG WHERE user=?";
+	$sql = "DELETE FROM MYTODO_TAG WHERE user=?";
 	$prepared_statement = $vConnect->prepare($sql);
 	$prepared_statement->execute(array($uuid));
 	
-	$sql = "DELETE MYTODO_TASK WHERE user=?";
-	$prepared_statement = $vConnect->prepare($sql);
-	$prepared_statement->execute(array($uuid));
-	
-	$sql = "DELETE MYTODO_USER WHERE uuid=?";
+	$sql = "DELETE FROM MYTODO_USER WHERE uuid=?";
 	$prepared_statement = $vConnect->prepare($sql);
 	$prepared_statement->execute(array($uuid));
 	
 	close($vConnect);
 }
-*/	
 
 /* tested */
 function updateEmail($uuid, $email) {
@@ -96,16 +83,14 @@ function updateAdvanced($uuid, $isAdvanced) {
 
 function isProtected($uuid) {
 	$sql = "SELECT isProtected FROM MYTODO_PROTECT WHERE uuid=?";
-	$vConnect = new Connect();
-	$vConnect->mConnect();
+	$vConnect = connect();
 	
 	$prepared_statement = $vConnect->prepare($sql);
-	$prepared_statement->execute($uuid);
+	$prepared_statement->execute(array($uuid));
 
 	$line = $prepared_statement->fetch(PDO::FETCH_OBJ);
-	$vConnect->mClose();
-	return $line->identifiant;
+	close($vConnect);
+
+	return $line->isProtected;
 }
-
-
 ?>
