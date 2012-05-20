@@ -161,7 +161,7 @@ header{
 #logo, #logo a{
 	text-shadow:0 -1px 0 #999999;
 	color:#ffffff;
-	margin : 8px;
+	margin : 15px 20px 20px 20px;
 }
 #header ul li ul li{
 	border-color:#d7d7d7 #c2c2c2 #c2c2c2 #d7d7d7;
@@ -212,6 +212,7 @@ header{
 #header ul li ul li ul li{
 	border-color:#dddddd;
 }
+
 #searchbox{
 	border-color:#d7d7d7 #c2c2c2 #c2c2c2 #d7d7d7;
 	border : 0px;
@@ -265,6 +266,10 @@ ul#searchboxresult li a:hover{
 	background-color:#f1f1f1;
 }
 
+
+button {
+	width: 90px !important;
+}
 
 /*----------------------------------------------------------------------*/
 /* Navigation
@@ -580,7 +585,6 @@ select option{
 }
 form{
 	border-color:#cccccc #e7e7e7 #ffffff #e7e7e7;
-	background-image:url(images/paper_02.png);
 }
 form .wl_formstatus{
 	color:#990000;
@@ -771,9 +775,7 @@ button, a.btn, .button
 	box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 2px 5px rgba(255, 255, 255, 0.5), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 button.icon, a.btn.icon, .button.icon{
-}
-button{
-}
+} 
 a.btn{
 }
 button:hover, a.btn:hover, .button:hover,
@@ -825,7 +827,6 @@ button.purple, a.btn.purple, .button.purple{
 button.purple:hover, a.btn.purple:hover, .button.purple:hover{
 	background-color:#cfccf0;
 }
-
 
 /*----------------------------------------------------------------------*/
 /* Widgets
@@ -1303,3 +1304,4 @@ nav ul li.i_youtube a span, .i_youtube{ background-image: url(../images/icons/da
 nav ul li.i_youtube_2 a span, .i_youtube_2{ background-image: url(../images/icons/dark/youtube_2.png);}
 nav ul li.i_zip_file a span, .i_zip_file{ background-image: url(../images/icons/dark/zip_file.png);}
 nav ul li.i_zip_files a span, .i_zip_files{ background-image: url(../images/icons/dark/zip_files.png);}
+

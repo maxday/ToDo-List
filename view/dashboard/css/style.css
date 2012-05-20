@@ -299,11 +299,8 @@ header{
 	border:0;
 	-webkit-border-top-right-radius:4px; -moz-border-radius-topright:4px; border-top-right-radius:4px;
 }
-#header ul{
-	width:75%;
-	height:46px;
-	float:left;
-	margin:0;
+#header ul{ 
+	height:46px; 
 }
 #header ul li{
 	list-style:none;
@@ -419,6 +416,11 @@ form#searchform input::-webkit-search-cancel-button,
 form#searchform input::-webkit-search-results-button,
 form#searchform input::-webkit-search-results-decoration {
   display:none;
+}
+
+/* Boutons "Partager" et "Protéger" ma liste */
+.inline {
+	display: inline;
 }
 
  /* Live Search
@@ -571,6 +573,25 @@ nav ul li ul li a:active span, nav ul li ul li a.active span{
 	padding-bottom:6px;
 	padding-left:15px;
 }
+
+/*----------------------------------------------------------------------*/
+/* Formulaire d'ajout de nouvelle tâche
+/*----------------------------------------------------------------------*/
+
+#newTask {
+	background-color: #EEE;
+	border-color: #CCCCCC;
+}
+
+.titreTask {
+	border-bottom: 1px solid #777;
+	margin-bottom: 5px;
+}
+
+.optionLine {
+	vertical-align: top;
+}
+
 /*----------------------------------------------------------------------*/
 /* Content
 /*----------------------------------------------------------------------*/
@@ -909,8 +930,6 @@ a.btn.nt, button.nt, .button.nt{
 a.btn.small.nt, button.small.nt, .button.small.nt{
 	padding-left:12px;
 	padding-right:12px;
-}
-button{
 }
 a.btn{
 	line-height:18px;
