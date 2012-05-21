@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+
+	<title>Bobby's ToDo</title>
+
+	<meta name="description" content="">
+	<meta name="author" content="revaxarts.com">
+
+
+	<!-- Google Font and style definitions -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- include the skins (change to dark if you like) -->
+	<link rel="stylesheet" href="css/light/theme.css" id="themestyle">
+	<!-- <link rel="stylesheet" href="css/dark/theme.css" id="themestyle"> -->
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+
+	<!-- Apple iOS and Android stuff -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+	<!-- Apple iOS and Android stuff - don't remove! -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
+
+	<!-- some basic functions -->
+	<script src="js/functions.js"></script>
+
+	<!-- all Third Party Plugins and Whitelabel Plugins -->
+	<script src="js/plugins.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="js/calendar.js"></script>
+	<script src="js/flot.js"></script>
+	<script src="js/elfinder.js"></script>
+	<script src="js/datatables.js"></script>
+	<script src="js/wl_Alert.js"></script>
+	<script src="js/wl_Autocomplete.js"></script>
+	<script src="js/wl_Breadcrumb.js"></script>
+	<script src="js/wl_Calendar.js"></script>
+	<script src="js/wl_Chart.js"></script>
+	<script src="js/wl_Color.js"></script>
+	<script src="js/wl_Date.js"></script>
+	<script src="js/wl_Editor.js"></script>
+	<script src="js/wl_File.js"></script>
+	<script src="js/wl_Dialog.js"></script>
+	<script src="js/wl_Fileexplorer.js"></script>
+	<script src="js/wl_Form.js"></script>
+	<script src="js/wl_Gallery.js"></script>
+	<script src="js/wl_Multiselect.js"></script>
+	<script src="js/wl_Number.js"></script>
+	<script src="js/wl_Password.js"></script>
+	<script src="js/wl_Slider.js"></script>
+	<script src="js/wl_Store.js"></script>
+	<script src="js/wl_Time.js"></script>
+	<script src="js/wl_Valid.js"></script>
+	<script src="js/wl_Widget.js"></script>
+
+	<!-- configuration to overwrite settings -->
+	<script src="js/config.js"></script>
+
+	<!-- the script which handles all the access to plugins etc... -->
+	<script src="js/script.js"></script>
+
+
+</head>
+<body>
+	<!--<div id="pageoptions" style="">
+	<ul>
+	<li><a href="login.html">Logout</a></li>
+	<li><a href="#" id="wl_config">Configuration</a></li>
+	<li><a href="#">Settings</a></li>
+	</ul>
+	<div>-->
+
+		<header>
+			<div id="logo">
+				<a href="dashboard.html">Logo Here</a>
+			</div>
+			<div id="header">
+
+				<div id="searchbox">
+					<ul id="headernav">
+						<li>
+							<ul class="inline">
+								<li><a href="icons.html">Partager ! <img src="http://cdn1.iconfinder.com/data/icons/kids/32x32/apps/fileshare.png" /></a></li>
+							</ul>
+							<ul class="inline">
+								<li><a href="icons.html">Protéger ! <img src="http://cdn1.iconfinder.com/data/icons/fatcow/32x32_0540/lock_open.png" /></a></li>
+
+							</ul></li>
+						</ul>
+					</div>
+
+				</div>
+			</header>
+
+
+
+			<section id="content">
+				<div id="top" style="">
+					<div class="g10 nodrop">
+						<form id="newTask" action="submit.php" method="post" autocomplete="off" class="clearfix"> 
+							<section id="taskzone" class="inline">
+								<div class="g6" style="margin-top: 45px;">
+									<input type="text" id="text_field" class="taskUnFocus" name="text_field" style="" />
+									<br /> <br />
+									<button class="i_bended_arrow_down icon small" style="float:right;">GO</button></div>
+									<div class="g3">
+										<h5 class="titreTask">Catégories</h5>
+										<button class="pink">UTC</button>
+										<button class="blue">Courses</button>
+										<button class="i_plus icon purple">New</button>
+										<button class="i_plus icon purple">New</button>
+										<button class="i_plus icon purple">New</button>
+										<button class="i_plus icon purple">New</button>
+									</div>
+									<div class="g3">
+										<h5 class="titreTask">Options</h5>
+										<section>  
+											<img src="http://cdn1.iconfinder.com/data/icons/fatcow/32x32_0340/date.png" /> 	      
+											<input id="date" name="date" type="text" class="date optionLine"><br />
+											<img src="http://cdn1.iconfinder.com/data/icons/discovery/32x32/emblems/stock_mail-priority-high.png" alt="Importance ?"/> &nbsp;&nbsp;&nbsp;<input type="checkbox" name="checkimp" /><br />
+											Priorité &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lol <br />
+										</section>	
+									</div>
+								</section>  
+							</form>
+						</div>	
+
+
+						<div class="g2 widgets" style="float:right;">
+							<div class="widget" id="widget_collapsed" data-collapsed="false">
+								<h3 class="handle">Tris</h3>
+								<div>
+									<h3>Inchallah les tris!</h3>
+									<p>Img</p>
+								</div>
+							</div> 
+						</div>
+					</div>
+					<div style="clear: both; "></div> 
+					<div class="g3 widgets">
+
+						<div class="widget" id="widget_ajax" data-load="widget-content.php" data-reload="10" data-remove-content="false">
+							<h3 class="handle">AJAX Widget with autoreload</h3>
+							<div>
+								Liste de tâches en autoreload ?
+							</div>
+						</div>
+
+						<div class="widget" id="widget_info" style="float:right;">
+							<h3 class="handle">Do What you like!</h3>
+							<div>
+								<h3>Widgets can contain everything</h3>
+								<p>
+									Widgets are flexible, dragg-, sort-, and collapseable content boxes. Fill them with some html!
+								</p>
+								<p>
+									<a class="btn" href="widgets.html">Check out the Widget section</a>
+								</p>
+							</div>
+						</div>
+
+					</div>
+				</section>
+				<footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
+</body>
+</html>
