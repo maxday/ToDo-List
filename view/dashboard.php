@@ -85,12 +85,13 @@
 	</ul>
 	<div>-->
 
-	<header>
-		<div id="logo">
-			<a href="dashboard.html">Logo Here</a>
-		</div>
-		<div id="header">
-			<?php
+		<header>
+			<div id="logo">
+				<a href="dashboard.html">Logo Here</a>
+			</div>
+			<div id="header">
+
+				<?php
 			include('share_protect.php');
 			?>
 
@@ -100,48 +101,49 @@
 
 
 	<section id="content">
-		<div id="top">
+		<div id="top" style="">
 			<div class="g10 nodrop">
 				<?php
 			include('insertTask.php');
 			?>
-			</div>	
+		</div>	
 
 
-			<div class="g2 widgets" style="float:right;">
-				<div class="widget" id="widget_collapsed" data-collapsed="false">
-					<h3 class="handle">Tris</h3>
-					<div>
-						<h3>Inchallah les tris!</h3>
-						<p>Img</p>
-					</div>
-				</div> 
+		<div class="g2 widgets" style="float:right;">
+			<div class="widget" id="widget_collapsed" data-collapsed="false">
+				<h3 class="handle">Tris</h3>
+				<div>
+					<h3>Inchallah les tris!</h3>
+					<p>Img</p>
+				</div>
+			</div> 
+		</div>
+	</div>
+	<div style="clear: both; "></div> 
+	<div class="g3 widgets">
+
+		<div class="widget" id="widget_ajax" data-load="widget-content.php" data-reload="10" data-remove-content="false">
+			<h3 class="handle">AJAX Widget with autoreload</h3>
+			<div>
+				Liste de tâches en autoreload ?
 			</div>
 		</div>
-		<div style="clear: both; "></div> 
-		<div class="g3 widgets">
 
-			<div class="widget" id="widget_ajax" data-load="widget-content.php" data-reload="10" data-remove-content="false">
-				<h3 class="handle">AJAX Widget with autoreload</h3>
-				<div>
-					Liste de tâches en autoreload ?
-				</div>
-			</div>
-
-			<div class="widget" id="widget_info" style="float:right;">
-				<h3 class="handle">Do What you like!</h3>
-				<div>
-					<h3>Widgets can contain everything</h3>
-					<p>
-						Widgets are flexible, dragg-, sort-, and collapseable content boxes. Fill them with some html!
-					</p>
-					<p>
-						<a class="btn" href="widgets.html">Check out the Widget section</a>
-					</p>
-				</div>
+		<div class="widget" id="widget_info" style="float:right;">
+			<h3 class="handle">Do What you like!</h3>
+			<div>
+				<h3>Widgets can contain everything</h3>
+				<p>
+					Widgets are flexible, dragg-, sort-, and collapseable content boxes. Fill them with some html!
+				</p>
+				<p>
+					<a class="btn" href="widgets.html">Check out the Widget section</a>
+				</p>
 			</div>
 		</div>
-	</section>
-	<footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
+
+	</div>
+</section>
+<footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
 </body>
 </html>
