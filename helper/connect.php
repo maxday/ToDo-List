@@ -4,8 +4,15 @@
 
 
 	function connect() {
+
+		$dbtype = "mysql";
+		$host = "localhost";
+		$dbname = "todolist";
+		$login = "root";
+		$pass = "root";
+
 		try {
-			$pdo = new PDO("mysql:host=localhost;dbname=todolist", 'root', 'root');
+			$pdo = new PDO("$dbtype:host=$host;dbname=$dbname", $login, $pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return $pdo;
 		} catch(Exception $e) {
