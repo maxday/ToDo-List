@@ -12,8 +12,8 @@ nav{
 
 header{
 	filter:none !important;
-	background-image:url(images/header_bg.png) !important;
-	background-repeat:repeat-x;
+	/*background-image:url(images/header_bg.png) !important;
+	background-repeat:repeat-x;*/
 }
 #header ul li ul li ul li{
 	width:160px;
