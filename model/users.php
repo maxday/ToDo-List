@@ -100,34 +100,61 @@ function isProtected($uuid) {
 
 // à tester
 function doesUserExist($login) {
-	$vConnect = connect();
 	$sql = "SELECT uuid FROM MYTODO_USER WHERE login=?";
+	$vConnect = connect();
+	
 	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($login));
 
-	if($prepared_statement->execute(array($login)) == true) {
-		$res = $prepared_statement->fetchAll();
-		return $res[0]["uuid"];
-	}
+	$line = $prepared_statement->fetch(PDO::FETCH_OBJ);
+	close($vConnect);
+
+	return $line->uuid;
 }
 
 // à tester
 function checkUserStatus($login) {
 
-	$uuid = doesUserExist($login)
-
-	if ($uuid) {
-		if isProtected($uuid) {
-			return USER_PASS;
+	$uuid = doesUserExist($login); 
+	
+	if ($uuid != "") {
+		if ( isProtected($uuid) ) {
+			return array(USER_PASS, $uuid);
 		} else {
-			return USER_NOPASS
+			return array(USER_NOPASS, $uuid);
 		}
-	} else
-		return UNKNOWN_USER;
+	} 
+	else {
+		return array(UNKNOWN_USER);
+	}
 }
 
-// still todo
-function connectUser($login,$pass) {
-	return 1;
+// plus ou moins tested, initialise la session utilisateur
+function connectUser($uid) {
+	if ( !isset($_SESSION['uuid']) ) {
+		$_SESSION['uuid'] = $uid;
+		return RETURN_USER_CONNECTED;
+	}
 }
 
+// Verifie si le password est correct
+function checkPwd($uid, $pwd) {
+	$sql = "SELECT pwd FROM MYTODO_USER WHERE uuid=?";
+	$vConnect = connect();
+	
+	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($uid));
+
+	$line = $prepared_statement->fetch(PDO::FETCH_OBJ);
+	close($vConnect);
+
+	if ($line->pwd == md5($pwd) ) {
+		connectUser($uid);
+		return RETURN_USER_CONNECTED;
+	}
+	else {
+		return UNCORRECT_PWD;
+	}
+}
+ 
 ?>

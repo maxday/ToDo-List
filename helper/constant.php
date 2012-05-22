@@ -5,5 +5,7 @@
 	define("USER_PASS", 3);
 	define("RETURN_USER_CONNECTED",4);
 	define("DISPLAY_PASS_FIELD",5);
+	define("UNCORRECT_PWD",6);
+	
 
 ?>
