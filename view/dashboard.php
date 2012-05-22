@@ -30,8 +30,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
 
 	<!-- Use Google CDN for jQuery and jQuery UI -->
-	<script src="js/jquery-1.7.1.js"></script>
-	<script src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
 
 	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
 
