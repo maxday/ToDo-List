@@ -1,6 +1,7 @@
 <?php
 
 include("connect.php");
+include("constants.php");
 
 function launchQuery($sql, $array) {
 	$vConnect = connect();
