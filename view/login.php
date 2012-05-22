@@ -1,21 +1,27 @@
 <?php
+
+	include("../../model/users.php");
+
 	$login = $_POST["login"];
-	$test_existe = true;
+	$pass = $_POST["pass"];
 	
-	// s'il existe
-	if ($test_existe) {
-		// et qu'il n'a pas de pass
-		if ($login == "a") {
-			echo "1";
-		}
-		// il a un pass 
-		else {
-			echo "2";
-		}
-	// sinon
-	} else {
-		echo "3";
+	switch (checkUserStatus($login)) {
+	    case UNKNOWN_USER:
+	        createUser($login);
+					return connectUser($login, null);
+	        break;
+	    case USER_NOPASS:
+	        return connectUser($login, null);
+	        break;
+	    case USER_PASS:
+					if (isset($pass)) {
+						return connectUser($login,$pass);
+					} else {
+						return DISPLAY_PASS_FIELD;
+					}
+	        break;
+			default:
+					echo "ALLLLO";
 	}
 	
-	// s'il n'existe pas
 ?>

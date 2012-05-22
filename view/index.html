@@ -38,32 +38,55 @@
 		$(document).ready(function() {
 			$("a.example1").fancybox();
 			$("#loginForm").submit(function(event) {
-				if(prevent) {
-					event.preventDefault();
 
-					var $form = $(this),
-					login = $form.find('input[name="login"]').val(),
-					url = $form.attr('action');
+				event.preventDefault();
+
+				var $form = $(this),
+				login = $form.find('input[name="login"]').val(),
+				url = $form.attr('action');
+
+				if(prevent) {
 
 					if(login.length < 1) {
 						alert ("login non présent");
 						return false;
 					}
 					/* Send the data using post */
-					$.post( url, { login: login },
+					$.post(url, { login: login},
 						function (data) {
-							if(data == "2") {
+							if(data == "5") {
+								prevent = false;
 								$("#pwdHide").show();
 								$("#pwdField").focus();
 							} else {
-								alert("on va à la page suivante :)");
+								alert("on va à la page suivante :)  : "  + data);
 								window.location.href = "../dashboard/";
 							}
 						}
 					);
+				} else {
+					// la on un mdp
+					pass = $form.find('input[name="password"]').val();
+
+					// on revérifie le login et ensuite le pass
+
+					if(login.length < 1) {
+						alert ("login non présent");
+						return false;
+					}
+
+					if(pass.length < 1) {
+						alert ("pass non présent");
+						return false;
+					}
+
+					/* Send the data using post */
+					$.post(url, {login: login, pass: pass},
+						function (data) {
+							alert(data);
+						}
+					);
 				}
-				else
-					alert("ok");
 			});
 	});
 </script>

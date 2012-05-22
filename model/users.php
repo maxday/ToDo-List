@@ -97,4 +97,37 @@ function isProtected($uuid) {
 
 	return $line->isProtected;
 }
+
+// à tester
+function doesUserExist($login) {
+	$vConnect = connect();
+	$sql = "SELECT uuid FROM MYTODO_USER WHERE login=?";
+	$prepared_statement = $vConnect->prepare($sql);
+
+	if($prepared_statement->execute(array($login)) == true) {
+		$res = $prepared_statement->fetchAll();
+		return $res[0]["uuid"];
+	}
+}
+
+// à tester
+function checkUserStatus($login) {
+
+	$uuid = doesUserExist($login)
+
+	if ($uuid) {
+		if isProtected($uuid) {
+			return USER_PASS;
+		} else {
+			return USER_NOPASS
+		}
+	} else
+		return UNKNOWN_USER;
+}
+
+// still todo
+function connectUser($login,$pass) {
+	return 1;
+}
+
 ?>
