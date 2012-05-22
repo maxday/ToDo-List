@@ -119,19 +119,13 @@
 		</div>
 	</div>
 	<div style="clear: both; "></div> 
-	<div class="g3 widgets">
+	<div class="g10 widgets">
  
 
-		<div class="widget" id="widget_info" style="float:right;">
-			<h3 class="handle">Do What you like!</h3>
+		<div class="widget" id="widget_info">
+			<h3 class="handle">Liste des tâches</h3>
 			<div>
-				<h3>Widgets can contain everything</h3>
-				<p>
-					Widgets are flexible, dragg-, sort-, and collapseable content boxes. Fill them with some html!
-				</p>
-				<p>
-					<a class="btn" href="widgets.html">Check out the Widget section</a>
-				</p>
+				tache priority (...)
 			</div>
 		</div>
 
