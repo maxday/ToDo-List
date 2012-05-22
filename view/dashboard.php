@@ -112,7 +112,7 @@
 			<div class="widget" id="widget_collapsed" data-collapsed="false">
 				<h3 class="handle">Tris</h3>
 				<div>
-					<h3>Inchallah les tris!</h3>
+					<h3>Tris </h3>
 					<p>Img</p>
 				</div>
 			</div> 
@@ -120,13 +120,7 @@
 	</div>
 	<div style="clear: both; "></div> 
 	<div class="g3 widgets">
-
-		<div class="widget" id="widget_ajax" data-load="widget-content.php" data-reload="10" data-remove-content="false">
-			<h3 class="handle">AJAX Widget with autoreload</h3>
-			<div>
-				Liste de tâches en autoreload ?
-			</div>
-		</div>
+ 
 
 		<div class="widget" id="widget_info" style="float:right;">
 			<h3 class="handle">Do What you like!</h3>
