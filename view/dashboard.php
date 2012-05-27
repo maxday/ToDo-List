@@ -81,7 +81,8 @@
 	<!-- the script which handles all the access to plugins etc... -->
 	<script src="js/script.js"></script>
 
-
+	
+	<script type="text/javascript" src="js/todo-functions.js"></script>
 </head>
 <body>
 	<!--<div id="pageoptions" style="">

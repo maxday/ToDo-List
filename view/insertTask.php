@@ -1,7 +1,7 @@
 <form id="newTask" action="submit.php" method="post" autocomplete="off" class="clearfix"> 
 	<section id="taskzone" class="inline">
 		<div class="g6" style="margin-top: 45px;">
-			<input type="text" id="text_field" class="taskUnFocus" name="text_field" style="" />
+			<input type="text" id="text_field_task" class="taskUnFocus" name="text_field" style="" />
 			<br /> <br />
 			<button class="i_bended_arrow_down icon small" style="float:right;">GO</button></div>
 			<div class="g3">
