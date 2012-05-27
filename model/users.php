@@ -130,16 +130,15 @@ function checkUserStatus($login) {
 }
 
 // plus ou moins tested, initialise la session utilisateur
-function connectUser($uid) {
-	if ( !isset($_SESSION['uuid']) ) {
-		$_SESSION['uuid'] = $uid;
-		return RETURN_USER_CONNECTED;
-	}
+function connectUser($uid, $login) { 
+	$_SESSION['uuid'] = $uid;
+	$_SESSION['login'] = $login;
+	return RETURN_USER_CONNECTED; 
 }
 
 // Verifie si le password est correct
 function checkPwd($uid, $pwd) {
-	$sql = "SELECT pwd FROM MYTODO_USER WHERE uuid=?";
+	$sql = "SELECT login, pwd FROM MYTODO_USER WHERE uuid=?";
 	$vConnect = connect();
 	
 	$prepared_statement = $vConnect->prepare($sql);
@@ -149,7 +148,7 @@ function checkPwd($uid, $pwd) {
 	close($vConnect);
 
 	if ($line->pwd == md5($pwd) ) {
-		connectUser($uid);
+		connectUser($uid, $line->login);
 		return RETURN_USER_CONNECTED;
 	}
 	else {

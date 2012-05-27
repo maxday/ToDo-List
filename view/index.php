@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 
 <html class="no-js">
@@ -9,7 +12,7 @@
 <link rel="stylesheet" href="css/style_login.css">
 <link rel="alternate stylesheet" type="text/css" media="screen" title="minimal" href="style/minimal.css" />
 <link rel="alternate stylesheet" type="text/css" media="screen" title="dark" href="style/dark.css" />
-<link rel="alternate stylesheet" type="text/css" media="screen" title="image" href="style/wood.css" />
+<link rel="alternate stylesheet" type="text/css" media="screen" title="image" href="style/wood.css" /> 
 
 
 
@@ -46,7 +49,7 @@
 				if(prevent) {
 
 					if(login.length < 1) {
-						alert ("login non présent");
+						$form.append('<div class="alert warning">Login absent !!</div>');
 						return false;
 					}
 					/* Send the data using post */
@@ -68,12 +71,12 @@
 					// on revérifie le login et ensuite le pass
 
 					if(login.length < 1) {
-						alert ("login non présent");
+						$form.append('<div class="alert warning">Login absent !!</div>');
 						return false;
 					}
 
 					if(pass.length < 1) {
-						alert ("pass non présent");
+						$form.append('<div class="alert warning">Mot de passe absent !!</div>');
 						return false;
 					}
 
@@ -81,7 +84,7 @@
 					$.post(url, { login: login, pass: pass},
 						function (data) {
 							if(data == "6") {
-								alert("mauvais mdp noob");
+								$form.append('<div class="alert warning">Mot de passe incorrect !!</div>'); 
 								prevent = false;
 								$("#pwdHide").show();
 								$("#pwdField").focus();
@@ -154,4 +157,4 @@
 
 
 </body>
-</html>
+</html> 

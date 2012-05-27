@@ -934,6 +934,12 @@ footer{
 	}
 }
 
+/* Style pour le bouton "Bienvenue <login>"*/
+#howdy {
+	line-height: 30px;
+	padding: 0.60em;
+}
+
 /* iPhone and real small devicces */
 @media screen and (max-width:480px) {
 	nav ul li a:active span, nav ul li a.active span{

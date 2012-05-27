@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if ( !isset($_SESSION['login'])) {
+		echo print_r($_SESSION);
+		echo ":()";
+	}
+	else { 
+?>
 <!doctype html>
 <html lang="en-us">
 <head>
@@ -100,23 +108,30 @@
 
 
 	<section id="content">
-		<div id="top" style="">
+		<div id="top">
 			<div class="g10 nodrop">
 				<?php
 			include('insertTask.php');
 			?>
 		</div>	
 
-
 		<div class="g2 widgets" style="float:right;">
-			<div class="widget" id="widget_collapsed" data-collapsed="false">
-				<h3 class="handle">Tris</h3>
+			<div class="widget" id="widget">
+				<h3 class="handle">Tris</b></h3>
 				<div>
-					<h3>Tris </h3>
-					<p>Img</p>
+					Tris et images
 				</div>
 			</div> 
 		</div>
+		
+		
+
+		<div class="g2 widgets" style="float:right;">
+			<div class="widget" id="widget">
+				<h3 class="handle">Calendar!</b></h3>
+			</div> 
+		</div>
+
 	</div>
 	<div style="clear: both; "></div> 
 	<div class="g10 widgets">
@@ -134,3 +149,4 @@
 <footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
 </body>
 </html>
+<?php } ?>

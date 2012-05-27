@@ -8,11 +8,11 @@
 		switch ($status) {
 		    case UNKNOWN_USER:
 		        $uuid = createUser($login);
-				echo connectUser($uuid);
+				echo connectUser($uuid, $login);
 				break;
 		    case USER_NOPASS:
 				$uuid = $st[1];
-		        echo connectUser($uuid);
+		        echo connectUser($uuid, $login);
 				break;
 		    case USER_PASS:
 				$uuid = $st[1];
@@ -25,7 +25,7 @@
 					break;
 				}
 			default:
-				echo "ALLO";
+				echo "Error";
 				break;
 		}
 	}
