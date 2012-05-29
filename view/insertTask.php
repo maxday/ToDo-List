@@ -1,8 +1,8 @@
-<form id="newTask" action="submit.php" method="post" autocomplete="off" class="clearfix"> 
+<form id="newTask" method="post" autocomplete="off" class="clearfix"> 
 	<section id="taskzone" class="inline">
 		<div class="g6" style="margin-top: 45px;">
 			<input type="text" id="text_field_task" class="taskUnFocus" name="text_field" style="" />
-			<br /> <br />
+			<hr class="littleSpace" />
 			<button class="i_bended_arrow_down icon small" style="float:right;">GO</button></div>
 			<div class="g3">
 				<h5 class="titreTask">Catégories</h5>

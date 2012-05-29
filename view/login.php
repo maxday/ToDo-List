@@ -1,5 +1,7 @@
 <?php 
-	session_start();
+	if(empty($_SESSION)) {
+		session_start();
+	}
 	require("../model/users.php");
 	if ( isset($_POST["login"])) {
 		$login = $_POST["login"];

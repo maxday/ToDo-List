@@ -423,6 +423,12 @@ form#searchform input::-webkit-search-results-decoration {
 	display: inline;
 }
 
+/* Petit espace simulant deux <br> à la suite */
+.littleSpace {
+	border: 0;
+	height: 20px;
+}
+
  /* Live Search
  /*---------------------------------------------------------------------*/
 

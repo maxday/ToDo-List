@@ -1,10 +1,13 @@
 <?php
-	session_start();
-	include("../../model/tasks.php");
+	if(empty($_SESSION)) {
+		session_start();
+	}
+	require("../../model/tasks.php");
 	
 	extract($_POST);
 	if ( isset($_SESSION['uuid'])) {
-		createTask($title_task, "", "", "", "", $_SESSION['uuid']);
+		// Clé étrangère peut être nulle \o/
+		createTask($title_task, "", "", "", null, $_SESSION['uuid']);
 		echo "1";
 	}
 	else {

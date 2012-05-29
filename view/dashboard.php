@@ -1,5 +1,7 @@
 <?php
-	session_start();
+	if(empty($_SESSION)) {
+		session_start();
+	}
 	if ( !isset($_SESSION['login'])) {
 		echo print_r($_SESSION);
 		echo ":()";
