@@ -49,6 +49,7 @@ CREATE TABLE `MYTODO_TASK` (
   `dueDate` date DEFAULT NULL,
   `priority` char(2) DEFAULT NULL,
   `isImportant` tinyint(1) DEFAULT 0,
+  `rank` int(11) NOT NULL,
   `tag` char(23) DEFAULT NULL,
   `user` char(23) DEFAULT NULL,
   PRIMARY KEY (`uuid`),

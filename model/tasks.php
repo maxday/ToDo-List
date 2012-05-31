@@ -4,11 +4,20 @@ include_once('../helper/utils.php');
 
 /* tested */
 function createTask($title, $dueDate, $priority, $isImportant, $tag, $user) {
+	$vConnect = connect();
+	$prepared_statement = $vConnect->prepare("SELECT max(rank) as max FROM MYTODO_TASK WHERE user=?");
+	if ($prepared_statement->execute(array($user)) == true) {
+		$res = $prepared_statement->fetch();
+	}
+	close($vConnect);
+	
+	$rank = $res['max'] + 1;
+
 	if($dueDate=="")
 		$dueDate = null;
-	$sql = "INSERT INTO MYTODO_TASK(uuid, dateCreated, title, dueDate, priority, isImportant, tag, user) VALUES (?, NOW(), ?, ?, ?, ?, ?, ?)"; 
+	$sql = "INSERT INTO MYTODO_TASK(uuid, dateCreated, title, dueDate, priority, isImportant, rank, tag, user) VALUES (?, NOW(), ?, ?, ?, ?, ?, ?, ?)"; 
 	$uniqId = uniqid("",true);
-	$array = array($uniqId, $title, $dueDate, $priority, $isImportant, $tag, $user);
+	$array = array($uniqId, $title, $dueDate, $priority, $isImportant, $rank, $tag, $user);
 	
 	launchQuery($sql, $array);
 	return $uniqId;
@@ -145,7 +154,7 @@ function updateTaskImportant($uuid, $user, $isImportant) {
 function seeTasks($uuid) {
 	$vConnect = connect();
 	$returnArray = array();
-	$sql = "SELECT * FROM MYTODO_TASK WHERE user=?";
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user=? ORDER BY rank";
 	$prepared_statement = $vConnect->prepare($sql);
 	$tasks = array();
 	if($prepared_statement->execute(array($uuid)) == true) {
