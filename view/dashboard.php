@@ -25,6 +25,7 @@
 	<!-- include the skins (change to dark if you like) -->
 	<link rel="stylesheet" href="css/light/theme.css" id="themestyle">
 	<!-- <link rel="stylesheet" href="css/dark/theme.css" id="themestyle"> -->
+	<link rel="stylesheet" href="css/styleTasksList.css">
 
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

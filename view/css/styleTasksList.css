@@ -1,0 +1,29 @@
+.singleTitle{
+  border:1px solid black;
+  width:150px;
+  display: inline-block;
+}
+
+.singleDueDate{
+  border:1px solid black;
+  width:50px;
+  display: inline-block;
+}
+
+.singlePriority{
+  border:1px solid black;
+  width:10px;
+  display: inline-block;
+}
+
+.singleIsImportant{
+  border:1px solid black;
+  width:10px;
+  display: inline-block;
+}
+
+.singleTag{
+  border:1px solid black;
+  width:100px;
+  display: inline-block;
+}
