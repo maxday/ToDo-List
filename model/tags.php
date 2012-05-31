@@ -83,4 +83,16 @@ function countTag($user) {
 	return $res;
 }
 
+function getTagByUuid($uuid) {
+	$vConnect = connect();
+	$res = 0;
+	$sql = "SELECT title FROM MYTODO_TAG WHERE uuid=?";
+	$prepared_statement = $vConnect->prepare($sql);
+	if ($prepared_statement->execute(array($uuid)) == true) {
+		$res = $prepared_statement->fetch();
+	}
+	close($vConnect);
+	return $res['title'];
+}
+
 ?>
