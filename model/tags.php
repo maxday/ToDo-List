@@ -34,6 +34,10 @@ function deleteTag($uuid, $user) {
 	  	$sql = "UPDATE MYTODO_TAG SET dateDeleted=NOW() WHERE uuid=?";
 		$array = array($uuid);
 		launchQuery($sql, $array);
+
+		$sql = "UPDATE MYTODO_TASK SET tag=null WHERE tag=?";
+		$array = array($uuid);
+		launchQuery($sql, $array);
 	}
 	else
 		echo("Alerte");
