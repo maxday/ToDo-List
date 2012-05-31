@@ -1311,3 +1311,6 @@ nav ul li.i_youtube_2 a span, .i_youtube_2{ background-image: url(../images/icon
 nav ul li.i_zip_file a span, .i_zip_file{ background-image: url(../images/icons/dark/zip_file.png);}
 nav ul li.i_zip_files a span, .i_zip_files{ background-image: url(../images/icons/dark/zip_files.png);}
 
+.buttonPushed {
+	border : 2px solid;
+}

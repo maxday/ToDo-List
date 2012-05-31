@@ -8,10 +8,14 @@ var lastTagClicked = null;
 var priority = -2;
 var isImportant = false;
 
+
 $(document).ready(function () {
 	
 	$("#newTask").bind("submit", function(event){  
 
+		var title = $('#text_field_task').val();
+		if(title=="")
+			return;
         if($("#checkimp").attr('checked')) {
 			isImportant = true;
 		}
@@ -19,20 +23,16 @@ $(document).ready(function () {
 			isImportant = false;
 
 		var lastDateChosen = $("#date").val();
-		var title = $('#text_field_task').val();
 		var url = './../ws/addTask.php';
-
-		
 		var complexTask = computeTask(title, lastTagClicked, priority, isImportant, lastDateChosen);
 		
-		alert(complexTask);
-
-		
+		//alert(complexTask);
 
 		$.post(url, { title_task: title},
 			function (data) {
 				if(data == "1") {
-					alert("rafraichir div liste de taches");
+					;
+					//alert("rafraichir div liste de taches");
 				} else { 
 					alert(data + "message error");
 				}
@@ -43,8 +43,25 @@ $(document).ready(function () {
 	/* SAVE TAG */
 	$(".tagButton").bind("click", function(event){
 	    lastTagClicked = $(this).attr("value");
+	    $(".tagButton").removeClass("buttonPushed");
+	    $(this).addClass("buttonPushed");
 		event.preventDefault();
 	});
+	
+	$("#text_field_task").bind("keyup", function(event){
+		if($(this).val()=="")
+			$(this).removeClass("buttonPushed");
+		else
+			$(this).attr("class", "buttonPushed");
+	});
+	
+	$("#date").bind("change", function(event){
+		if($(this).val() == "")
+			$(this).removeClass("buttonPushed");
+		else
+			$(this).addClass("buttonPushed");
+	});
+	
 	
 });
  
@@ -65,12 +82,12 @@ function computeTask(title, lastTagClicked, priority, isImportant, lastDateChose
 
 function computePriorityPrefix(priority) {
 	if(priority == '-2')
-		return "-pp";
+		return "--p";
 	if(priority == '-1')
 		return "-p";
 	if(priority == '+1')
 		return "+p";
 	if(priority == '+2')
-		return "+pp";	
+		return "++p";	
 	return "";	
 }
