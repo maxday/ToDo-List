@@ -1,7 +1,7 @@
 <?php
-	require('../model/tasks.php');
+	require_once('../model/tasks.php');
 
-	$array = seeTasks($_SESSION['login']);
+	$array = seeTasks($_SESSION['uuid']);
 	
   for($i = 0; $i < count($array); $i++){
 	  echo "<li>";
