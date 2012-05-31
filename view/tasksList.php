@@ -6,7 +6,8 @@
 
   echo "<ul id='taskSortList'>";	
   for($i = 0; $i < count($array); $i++){
-		  echo "<li><span class='singleTitle'>"; echo($array[$i] -> title); echo "</span>";
+	      $uuid = $array[$i] -> uuid;
+		  echo "<li id=$uuid><span class='singleTitle'>"; echo($array[$i] -> title); echo "</span>";
 		  echo "<span class='singleDueDate'>"; echo($array[$i] -> dueDate); echo "</span>";
 		  echo "<span class='singlePriority'>"; echo($array[$i] -> priority); echo "</span>";
 		  echo "<span class='singleIsImportant'>"; echo($array[$i] -> isImportant); echo "</span>";
