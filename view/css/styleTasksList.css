@@ -27,3 +27,10 @@
   width:100px;
   display: inline-block;
 }
+
+#taskListRefresh ul li {
+	border : 1px solid;
+	padding-bottom : 5px;
+	margin-bottom : 5px;
+	list-style : none;
+}
