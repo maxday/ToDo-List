@@ -9,16 +9,16 @@
 				<button class="tagButton pink" value="UTC">UTC</button>
 				<button class="tagButton blue" value="Courses">Courses</button>
 
-				<button target="#new_label_input_1" class="new_label i_plus icon purple">New</button>
+				<button target="#new_label_input_1" class="new_label i_plus icon purple">Nouveau</button>
 				<input type="text" id="new_label_input_1" class="new_label_input">
 
-				<button target="#new_label_input_2" class="new_label i_plus icon purple">New</button>
+				<button target="#new_label_input_2" class="new_label i_plus icon purple">Nouveau</button>
 				<input type="text" id="new_label_input_2" class="new_label_input">
 
-				<button target="#new_label_input_3" class="new_label i_plus icon purple">New</button>
+				<button target="#new_label_input_3" class="new_label i_plus icon purple">Nouveau</button>
 				<input type="text" id="new_label_input_3" class="new_label_input">
 
-				<button target="#new_label_input_4" class="new_label i_plus icon purple">New</button>
+				<button target="#new_label_input_4" class="new_label i_plus icon purple">Nouveau</button>
 				<input type="text" id="new_label_input_4" class="new_label_input">
 			</div>
 			<div class="g3">
