@@ -41,7 +41,7 @@ $(document).ready(function () {
 	});
 	
 	/* SAVE TAG */
-	$(".tagButton").bind("click", function(event){
+	$(".tagButton").live("click", function(event){
 	    lastTagClicked = $(this).attr("value");
 	    $(".tagButton").removeClass("buttonPushed");
 	    $(this).addClass("buttonPushed");
@@ -62,40 +62,37 @@ $(document).ready(function () {
 			$(this).addClass("buttonPushed");
 	});
 	
+        $(".new_label").live("click", function(event){
 
-	$(".new_label").on("click", function(event){
+                event.preventDefault();
+                $(this).addClass('inactive');
 
-	        event.preventDefault();
+                var id = $(this).attr("target");
+                $(id).show();
+                $(id).addClass("active");
+                $(id).focus();
+        });
 
-	        var id = $(this).attr("target");
-	        $(this).addClass('inactive');
-	        $(id).show();
-	        //$(id).addClass('active');
-	        $(id).focus();
-	});
+        $(".new_label_input").live("blur",function(){
+                var label = $('.new_label.inactive');
 
-	$(".new_label_input").on("blur",function(){
-	        //alert("coucou");
+                label.text($(this).val());
+                label.attr("class","tagButton");
 
-	        var label = $('.new_label.inactive');
-	        label.text($(this).val());
-                label.removeClass('icon');
-                label.removeClass('i_plus');
-                label.removeClass('inactive');
-                label.addClass('tagButton');
-	        label.show();
-	        $(this).hide();
-	});
-/*
-	$('.new_label_input.active').bind('keypress', function(e) {
+                $(this).hide();
+        });
+
+
+	$('.new_label_input.active').live('keypress', function(e) {
 	        if (e.keyCode==13) {
-	                console.log("on va blurer mon gros");
-	                $(".new_label_input").blur();
+	                $(this).blur();
 	        }
 	})
-*/
+
 
 });
+
+
 
 
 function computeTask(title, lastTagClicked, priority, isImportant, lastDateChosen) {
