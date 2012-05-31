@@ -13,7 +13,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Bobby's ToDo</title>
+	<title><?php echo $_SESSION['login']."'s ToDo"; ?></title>
 
 	<meta name="description" content="">
 	<meta name="author" content="revaxarts.com">
