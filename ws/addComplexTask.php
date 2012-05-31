@@ -23,8 +23,7 @@
 			}
 		} 
 	}
-	echo "le tag sera = ".$uuidTag;
 	
-	echo " la tache sera = ".createTask($array[0], $array[3], $array[2], $array[1], $uuidTag, $_SESSION['uuid']);
-
+	createTask($array[0], $array[3], $array[2], $array[1], $uuidTag, $_SESSION['uuid']);
+	print_r(seeTasks($_SESSION['uuid']));
 ?>

@@ -30,7 +30,7 @@ $(document).ready(function () {
 
 		$.post(url, { complexeTask: complexeTask},
 			function (data) {
-					alert(data);
+					$("#taskListRefresh").html(data);
 			}
 		); 
 	});

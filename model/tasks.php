@@ -142,19 +142,17 @@ function updateTaskImportant($uuid, $user, $isImportant) {
 }
 
 /* tested */
-function seeTasks($user) {
-	if ( isset($_SESSION['uuid']) && isset($_SESSION['login']) ) { 
-		$vConnect = connect();
-		$returnArray = array();
-		$sql = "SELECT * FROM MYTODO_TASK WHERE user=?";
-		$prepared_statement = $vConnect->prepare($sql);
-		$tasks = array();
-		if($prepared_statement->execute(array($_SESSION['uuid'])) == true) {
-			while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
-		    	array_push($returnArray, $line);
-		  	}
-		}	
-		return $returnArray;
-	}
+function seeTasks($uuid) {
+	$vConnect = connect();
+	$returnArray = array();
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user=?";
+	$prepared_statement = $vConnect->prepare($sql);
+	$tasks = array();
+	if($prepared_statement->execute(array($uuid)) == true) {
+		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
+	    	array_push($returnArray, $line);
+	  	}
+	}	
+	return $returnArray;
 }
 ?>
