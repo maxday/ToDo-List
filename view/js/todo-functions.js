@@ -7,6 +7,7 @@
 var lastTagClicked = null;
 var priority = -2;
 var isImportant = false;
+var lastBlured = null;
 
 
 $(document).ready(function () {
@@ -71,16 +72,31 @@ $(document).ready(function () {
                 $(id).focus();
         });
 
+
+
         $(".new_label_input").live("blur",function(){
-                var label = $('.new_label.inactive');
 
-                label.text($(this).val());
-                label.attr("class","tagButton");
+           var label = $('.new_label.inactive');
+           var new_tag_name = $(this).val();
 
-                $(this).hide();
+           if (new_tag_name == "") {
+              label.removeClass("inactive");
+           } else {
+              if ( lastBlured == null ) {
+                 launchAjaxNewTag($(this),label,new_tag_name);
+              } else {
+                 if ( lastBlured.attr("id") != $(this).attr("id") ) {
+                    launchAjaxNewTag($(this),label,new_tag_name);
+                 }
+
+              }
+           }
+
+           $(this).hide();
         });
 
 
+        // TODO cette version est peut être pas assez cross browser
 	$('.new_label_input.active').live('keypress', function(e) {
 	        if (e.keyCode==13) {
 	                $(this).blur();
@@ -90,7 +106,22 @@ $(document).ready(function () {
 
 });
 
+function launchAjaxNewTag(input, tag, tag_value) {
+        lastBlured = input;
+        tag.text(tag_value);
 
+        tag.removeClass("new_label");
+        tag.removeClass("i_plus");
+        tag.removeClass("icon");
+        tag.removeClass("inactive");
+        tag.addClass("tagButton");
+        // appel ajax pour créer le tag :)
+        var url = "../ws/addTag.php";
+        // il faudra ensuite vérifier peut être qu'on a bien recup un uuid, et si non... que faire?
+        $.post(url, { tag: tag_value }, function (data) {
+           console.log(data);
+        });
+}
 
 
 function computeTask(title, lastTagClicked, priority, isImportant, lastDateChosen) {

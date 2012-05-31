@@ -2339,9 +2339,37 @@ body#error #content h2{
         display: none;
 }
 
+.new_label {
+        background-color: #AEA8F0 !important;
+}
+
 .new_label_input {
-        background-color: blue;
+        background-color: #AEA8F0;
         width:85px;
         display:none;
 }
 
+
+.tagButton1, .tagButton1:hover {
+        background-color : #78B3C3;
+}
+
+.tagButton2, .tagButton2:hover {
+        background-color : #DF9496;
+}
+
+.tagButton3, .tagButton3:hover {
+        background-color : #F6F4DA;
+}
+
+.tagButton4, .tagButton4:hover {
+        background-color : #F4F3EE;
+}
+
+.tagButton5, .tagButton5:hover {
+        background-color : #D9E2E1;
+}
+
+.tagButton6, .tagButton6:hover {
+        background-color : #A2ADBC;
+}

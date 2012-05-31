@@ -6,19 +6,20 @@
 			<button class="i_bended_arrow_down icon small" style="float:right;">GO</button></div>
 			<div class="g3">
 				<h5 class="titreTask">Catégories</h5>
-				<button class="tagButton pink" value="UTC">UTC</button>
-				<button class="tagButton blue" value="Courses">Courses</button>
+				<button class="tagButton tagButton1" value="UTC">UTC</button>
+				<button class="tagButton tagButton2" value="Courses">Courses</button>
 
-				<button target="#new_label_input_1" class="new_label i_plus icon purple">Nouveau</button>
+				<button target="#new_label_input_1" class="new_label i_plus icon tagButton3">Nouveau</button>
 				<input type="text" id="new_label_input_1" class="new_label_input">
 
-				<button target="#new_label_input_2" class="new_label i_plus icon purple">Nouveau</button>
+				<button target="#new_label_input_2" class="new_label i_plus icon tagButton4">Nouveau</button>
 				<input type="text" id="new_label_input_2" class="new_label_input">
 
-				<button target="#new_label_input_3" class="new_label i_plus icon purple">Nouveau</button>
+				<button target="#new_label_input_3" class="new_label i_plus icon tagButton5">Nouveau</button>
 				<input type="text" id="new_label_input_3" class="new_label_input">
 
-				<button target="#new_label_input_4" class="new_label i_plus icon purple">Nouveau</button>
+				<button target="#new_label_input_4" class="new_label i_plus icon tagButton6">Nouveau</button>
+
 				<input type="text" id="new_label_input_4" class="new_label_input">
 			</div>
 			<div class="g3">
