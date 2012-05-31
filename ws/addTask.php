@@ -3,7 +3,7 @@
 		session_start();
 	}
 	
-	require("../../model/tasks.php");
+	require("../model/tasks.php");
 	
 	extract($_POST);
 	if ( isset($_SESSION['uuid'])) {

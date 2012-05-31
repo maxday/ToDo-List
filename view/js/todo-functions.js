@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 		var lastDateChosen = $("#date").val();
 		var title = $('#text_field_task').val();
-		var url = './ws/addTask.php';
+		var url = './../ws/addTask.php';
 		$.post(url, { title_task: title},
 			function (data) {
 				if(data == "1") {
@@ -31,4 +31,9 @@ $(document).ready(function () {
 	});
 	
 });
+ 
+/* sauvegarde du tag */
 
+$(".tagButton").bind("click", function(event){
+	alert("kikoo");  
+}); 

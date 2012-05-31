@@ -1,6 +1,6 @@
 <?php
 
-include('../../helper/utils.php');
+include('../helper/utils.php');
 
 /* tested */
 function createTask($title, $dueDate, $priority, $isImportant, $tag, $user) {
@@ -87,5 +87,23 @@ function updateTaskImportant($uuid, $user, $isImportant) {
 	}
 	else
 		echo("Alerte");
+}
+
+/* tested */
+function seeTasks($user) {
+	if ( isset($_SESSION['uuid']) && isset($_SESSION['login']) ) { 
+		$i = 0;
+		$vConnect = connect();
+		$sql = "SELECT title FROM MYTODO_TASK WHERE user=?";
+		$prepared_statement = $vConnect->prepare($sql);
+		$tasks = array();
+		if($prepared_statement->execute(array($_SESSION['uuid'])) == true) {
+			while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
+		    	$tasks[$i] = $line->title;
+				$i++;
+		  	}
+		}	
+		return $tasks;
+	}
 }
 ?>
