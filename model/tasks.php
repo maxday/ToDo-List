@@ -164,4 +164,16 @@ function seeTasks($uuid) {
 	}	
 	return $returnArray;
 }
+
+
+function reOrderTask($arrayTask) {
+	$vConnect = connect();
+	$i=0;
+	foreach($arrayTask as $singleTask) {
+		$sql = "UPDATE MYTODO_TASK SET rank = ? WHERE uuid=?";
+		$prepared_statement = $vConnect->prepare($sql);
+		$prepared_statement->execute(array($i, $singleTask));
+		$i++;
+	}
+}
 ?>
