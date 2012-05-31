@@ -1,3 +1,4 @@
+<?php require("../model/tags.php"); ?>
 <form id="newTask" method="post" autocomplete="off" class="clearfix"> 
 	<section id="taskzone" class="inline">
 		<div class="g6" style="margin-top: 45px;">
@@ -6,21 +7,12 @@
 			<button class="i_bended_arrow_down icon small" style="float:right;">GO</button></div>
 			<div class="g3">
 				<h5 class="titreTask">Catégories</h5>
-				<button class="tagButton tagButton1" value="UTC">UTC</button>
-				<button class="tagButton tagButton2" value="Courses">Courses</button>
+				
+				<?php 
+					echo computeHtmlFromTags(getTagsFromUuid($_SESSION['uuid']));
+				?>
 
-				<button target="#new_label_input_1" class="new_label i_plus icon tagButton3">Nouveau</button>
-				<input type="text" id="new_label_input_1" class="new_label_input">
-
-				<button target="#new_label_input_2" class="new_label i_plus icon tagButton4">Nouveau</button>
-				<input type="text" id="new_label_input_2" class="new_label_input">
-
-				<button target="#new_label_input_3" class="new_label i_plus icon tagButton5">Nouveau</button>
-				<input type="text" id="new_label_input_3" class="new_label_input">
-
-				<button target="#new_label_input_4" class="new_label i_plus icon tagButton6">Nouveau</button>
-
-				<input type="text" id="new_label_input_4" class="new_label_input">
+				
 			</div>
 			<div class="g3">
 				<h5 class="titreTask">Options</h5>

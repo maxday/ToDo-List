@@ -95,4 +95,47 @@ function getTagByUuid($uuid) {
 	return $res['title'];
 }
 
+function getTagsFromUuid($uuid) {
+	$vConnect = connect();
+	$res = 0;
+	$sql = "SELECT title FROM MYTODO_TAG WHERE user=?";
+	$prepared_statement = $vConnect->prepare($sql);
+	if ($prepared_statement->execute(array($uuid)) == true) {
+		$res = $prepared_statement->fetchAll(PDO::FETCH_COLUMN, 0);
+	}
+	close($vConnect);
+	return $res;
+}
+
+function computeHtmlFromTags($tagsArray) {
+	$retour = "";
+	$i=0;
+	foreach($tagsArray as $singleTag) {
+		$i++;
+		$retour = $retour."<button class='tagButton tagButton".$i."' value=".$singleTag.">".$singleTag."</button>";
+	}
+	$suite = $i;
+	$suiteInd = 0;
+	for($j=$i; $j<6; ++$j) {
+		$suite++;
+		$suiteInd++;
+		$retour = $retour . "<button target='#new_label_input_".$suiteInd."' class='new_label i_plus icon tagButton".$suite."'>Nouveau</button>";
+		$retour = $retour . "<input type='text' id='new_label_input_".$suiteInd."' class='new_label_input'>";
+	}
+
+	return $retour;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
