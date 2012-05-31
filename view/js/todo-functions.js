@@ -11,6 +11,9 @@ var isImportant = false;
 
 $(document).ready(function () {
 	
+	$("#taskSortList").sortable();
+	$("#taskSortList").disableSelection();
+			
 	$("#newTask").bind("submit", function(event){  
 
 		var title = $('#text_field_task').val();
