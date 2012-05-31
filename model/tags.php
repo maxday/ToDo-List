@@ -16,14 +16,16 @@ function createTag($title, $user) {
 /* PRIVATE */
 function isTagBelongsToUser($uuid, $user) {
 	$vConnect = connect();
+	$res = 0;
 
 	$sql = "SELECT uuid FROM MYTODO_TAG WHERE uuid=? AND user=?";
 	$prepared_statement = $vConnect->prepare($sql);
 
 	if ($prepared_statement->execute(array($uuid, $user)) == true) {
-		return $prepared_statement->rowCount();
+		$res = $prepared_statement->rowCount();
 	}
 	close($vConnect);
+	return $res;
 }
 
 /* tested */
@@ -46,5 +48,22 @@ function updateTagTitle($uuid, $user, $title) {
 	}
 	else
 		echo("Alerte");
+}
+
+$res = seekTag("UTC", "4fb2ac296cb276.69528154");
+print_r($res);
+
+function seekTag($title, $user) {
+	$vConnect = connect();
+	$res = 0;
+
+	$sql = "SELECT uuid FROM MYTODO_TAG WHERE title=? AND user=?";
+	$prepared_statement = $vConnect->prepare($sql);
+
+	if ($prepared_statement->execute(array($title, $user)) == true) {
+		$res = $prepared_statement->fetchAll();
+	}
+	close($vConnect);
+	return $res[0]['uuid'];
 }
 ?>
