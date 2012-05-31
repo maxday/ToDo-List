@@ -135,9 +135,6 @@ table{
 table td, table th{
 	border-color:#dddddd #e7e7e7 #dddddd #e7e7e7;
 }
-table thead tr,table tfoot tr, table th{
-	background-image:url(images/paper_02.png);
-}
 table th{
 	text-shadow:0 -1px 0 #ffffff;
 }
