@@ -1,6 +1,6 @@
 <?php
 
-include("../helper/utils.php");
+include_once("../helper/utils.php");
 
 /* tested */
 function createTag($title, $user) {
@@ -50,9 +50,7 @@ function updateTagTitle($uuid, $user, $title) {
 		echo("Alerte");
 }
 
-$res = seekTag("UTC", "4fb2ac296cb276.69528154");
-print_r($res);
-
+/* tested */
 function seekTag($title, $user) {
 	$vConnect = connect();
 	$res = 0;
@@ -64,6 +62,25 @@ function seekTag($title, $user) {
 		$res = $prepared_statement->fetchAll();
 	}
 	close($vConnect);
-	return $res[0]['uuid'];
+	if(isset($res[0]))
+		return $res[0]['uuid'];
+	return null;
 }
+
+function hasNotReachedMaxTag($user) {
+	return countTag($user) < 6;
+}
+
+function countTag($user) {
+	$vConnect = connect();
+	$res = 0;
+	$sql = "SELECT uuid FROM MYTODO_TAG WHERE user=?";
+	$prepared_statement = $vConnect->prepare($sql);
+	if ($prepared_statement->execute(array($user)) == true) {
+		$res = $prepared_statement->rowCount();
+	}
+	close($vConnect);
+	return $res;
+}
+
 ?>

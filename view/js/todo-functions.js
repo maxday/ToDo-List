@@ -23,19 +23,14 @@ $(document).ready(function () {
 			isImportant = false;
 
 		var lastDateChosen = $("#date").val();
-		var url = './../ws/addTask.php';
-		var complexTask = computeTask(title, lastTagClicked, priority, isImportant, lastDateChosen);
+		var url = './../ws/addComplexTask.php';
+		var complexeTask = computeTask(title, lastTagClicked, priority, isImportant, lastDateChosen);
 		
 		//alert(complexTask);
 
-		$.post(url, { title_task: title},
+		$.post(url, { complexeTask: complexeTask},
 			function (data) {
-				if(data == "1") {
-					;
-					//alert("rafraichir div liste de taches");
-				} else { 
-					alert(data + "message error");
-				}
+					alert(data);
 			}
 		); 
 	});
