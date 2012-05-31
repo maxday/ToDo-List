@@ -154,7 +154,7 @@ function updateTaskImportant($uuid, $user, $isImportant) {
 function seeTasks($uuid) {
 	$vConnect = connect();
 	$returnArray = array();
-	$sql = "SELECT * FROM MYTODO_TASK WHERE user=? ORDER BY rank";
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user=? ORDER BY rank DESC";
 	$prepared_statement = $vConnect->prepare($sql);
 	$tasks = array();
 	if($prepared_statement->execute(array($uuid)) == true) {
@@ -173,7 +173,7 @@ function reOrderTask($arrayTask) {
 		$sql = "UPDATE MYTODO_TASK SET rank = ? WHERE uuid=?";
 		$prepared_statement = $vConnect->prepare($sql);
 		$prepared_statement->execute(array($i, $singleTask));
-		$i++;
+		$i--;
 	}
 }
 ?>
