@@ -2335,3 +2335,13 @@ body#error #content h2{
 	border-radius:4px !important;
 }
 
+.inactive {
+        display: none;
+}
+
+.new_label_input {
+        background-color: blue;
+        width:85px;
+        display:none;
+}
+
