@@ -15,9 +15,7 @@
 <link rel="alternate stylesheet" type="text/css" media="screen" title="minimal" href="style/minimal.css" />
 <link rel="alternate stylesheet" type="text/css" media="screen" title="dark" href="style/dark.css" />
 <link rel="alternate stylesheet" type="text/css" media="screen" title="image" href="style/wood.css" /> 
-
-
-
+ 
 
 
 

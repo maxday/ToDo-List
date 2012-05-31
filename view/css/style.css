@@ -1003,7 +1003,7 @@ select option{
 	border:1px solid;
 	padding:3px;
 }
-input[type=submit], input[type=checkbox], input[type=radio], input[type=button], button{
+input[type=submit], input[type=checkbox], input[type=button], button{
 	width:auto !important;
 }
 
@@ -1215,7 +1215,7 @@ input.color{
 /*----------------------------------------------------------------------*/
 /* jQuery Checkbox
 /*----------------------------------------------------------------------*/
-
+/*
 .jquery-checkbox, .jquery-checkbox span  { display: inline; font-size: 16px; line-height: 16px; cursor: pointer;}
 
 .jquery-checkbox span.checkboxplaceholder { 
@@ -1282,7 +1282,7 @@ input.color{
 .jquery-checkbox.radio.checked .disabled span.checkboxplaceholder{
 	background-position: -26px -179px !important;
 	cursor:auto;
-}
+}*/
 
 /*----------------------------------------------------------------------*/
 /* File Upload

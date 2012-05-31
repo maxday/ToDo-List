@@ -85,6 +85,13 @@
 	<script src="js/script.js"></script>
 
 	
+
+	<!-- Priorités -->
+	<link rel="stylesheet" type="text/css" href="./css/light/jRating.jquery.css" media="screen" /> 
+	<!-- jQuery files --> 
+	<script type="text/javascript" src="./js/jRating.jquery.js"></script>
+	
+	
 	<script type="text/javascript" src="js/todo-functions.js"></script>
 </head>
 <body>
