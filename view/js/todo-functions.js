@@ -48,6 +48,7 @@ $(document).ready(function () {
 
 		$.post(url, { complexeTask: complexeTask},
 			function (data) {
+			                $('#text_field_task').val("");
 					$("#taskListRefresh").html(data);
 			}
 		); 
