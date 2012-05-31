@@ -38,7 +38,7 @@
 <script type="text/javascript">
 		
 		var prevent = true;
-		
+
 		$(document).ready(function() { 
 			$("#loginForm").submit(function(event) {
 
@@ -51,7 +51,7 @@
 				if(prevent) {
 
 					if(login.length < 1) {
-						$form.append('<div class="alert warning">Login absent !!</div>');
+						$(".errorLogin").html('<div class="alert warning">Login absent !!</div>');
 						return false;
 					}
 					/* Send the data using post */
@@ -73,12 +73,12 @@
 					// on revérifie le login et ensuite le pass
 
 					if(login.length < 1) {
-						$form.append('<div class="alert warning">Login absent !!</div>');
+						$(".errorLogin").html('<div class="alert warning">Login absent !!</div>');
 						return false;
 					}
 
 					if(pass.length < 1) {
-						$form.append('<div class="alert warning">Mot de passe absent !!</div>');
+						$(".errorLogin").html('<div class="alert warning">Mot de passe absent !!</div>');
 						return false;
 					}
 
@@ -86,7 +86,7 @@
 					$.post(url, { login: login, pass: pass},
 						function (data) {
 							if(data == "6") {
-								$form.append('<div class="alert warning">Mot de passe incorrect !!</div>'); 
+								$(".errorLogin").html('<div class="alert warning">Mot de passe incorrect !!</div>'); 
 								prevent = false;
 								$("#pwdHide").show();
 								$("#pwdField").focus();
@@ -152,6 +152,7 @@
 			<div class="lineForm">
 				<input type="submit" class="submit" id="submit_button" value="Envoyer">
 			</div>
+			<div class="errorLogin"></div>
 		</form>
 	</div>
 </section>

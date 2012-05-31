@@ -6,12 +6,12 @@
 			<button class="i_bended_arrow_down icon small" style="float:right;">GO</button></div>
 			<div class="g3">
 				<h5 class="titreTask">Catégories</h5>
-				<button class="pink">UTC</button>
-				<button class="blue">Courses</button>
-				<button class="i_plus icon purple">New</button>
-				<button class="i_plus icon purple">New</button>
-				<button class="i_plus icon purple">New</button>
-				<button class="i_plus icon purple">New</button>
+				<button class="tagButton pink">UTC</button>
+				<button class="tagButton blue">Courses</button>
+				<button class="tagButton i_plus icon purple">New</button>
+				<button class="tagButton i_plus icon purple">New</button>
+				<button class="tagButton i_plus icon purple">New</button>
+				<button class="tagButton i_plus icon purple">New</button>
 			</div>
 			<div class="g3">
 				<h5 class="titreTask">Options</h5>

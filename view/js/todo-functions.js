@@ -14,9 +14,15 @@ $(document).ready(function () {
 				if(data == "1") {
 					alert("rafraichir div liste de taches");
 				} else { 
-					alert("message error");
+					alert(data + "message error");
 				}
 			}
 		); 
 	});
 });
+
+/* sauvegarde du tag */
+
+$(".tagButton").bind("click", function(event){
+	alert("kikoo");  
+}
