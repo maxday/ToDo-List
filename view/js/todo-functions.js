@@ -4,9 +4,13 @@
 /* Methodes relatives a l'ajout de taches
 /*----------------------------------------------------------------------*/
 
+var lastTagClicked = null;
+var priority = -2;
+
 $(document).ready(function () {
 	$("#newTask").bind("submit", function(event){  
-		// Touche entree 
+
+		var lastDateChosen = $("#date").val();
 		var title = $('#text_field_task').val();
 		var url = './ws/addTask.php';
 		$.post(url, { title_task: title},
@@ -19,10 +23,12 @@ $(document).ready(function () {
 			}
 		); 
 	});
+	/* SAVE TAG */
+	$(".tagButton").bind("click", function(event){
+	    lastTagClicked = $(this).attr("value");
+		alert("Dernier tag clické = " + lastTagClicked);
+		event.preventDefault();
+	});
+	
 });
 
-/* sauvegarde du tag */
-
-$(".tagButton").bind("click", function(event){
-	alert("kikoo");  
-}
