@@ -8,7 +8,8 @@
 	require("../model/tasks.php");
 
 	extract($_POST);	
-	$array = analyzeLineTask($_POST['complexeTask']);
+	// add space to avoid regex bug
+	$array = analyzeLineTask($_POST['complexeTask']." ");
 
 	if($array[4] == "")
 		$uuidTag = null;
