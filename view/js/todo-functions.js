@@ -122,11 +122,13 @@ $(document).ready(function () {
 
 	// Etoiles pour les priorités
 	// more complex jRating call 
-	$(".basic").jRating(
-		{ step:true, 
-			length : 3, // nb of stars 
-			onSuccess : function(){ alert('priorite'); } 
-		});
+	$(".basic").jRating({ 
+	        step:true, 
+		length : 3, // nb of stars 
+		onSuccess : function(){
+		        alert('priorite');
+		} 
+	});
 
 });
 
