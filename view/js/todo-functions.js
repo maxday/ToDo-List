@@ -142,6 +142,7 @@ function launchAjaxNewTag(input, tag, tag_value) {
         // il faudra ensuite vérifier peut être qu'on a bien recup un uuid, et si non... que faire?
         $.post(url, { tag: tag_value }, function (data) {
            console.log(data);
+		   tag.attr("value", tag_value);
         });
 }
 
