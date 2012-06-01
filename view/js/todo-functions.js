@@ -150,6 +150,7 @@ function launchAjaxNewTag(input, tag, tag_value) {
 
 
 function computeTask(title, lastTagClicked, priority, isImportant, lastDateChosen) {
+        // il faut vérifier que l'utilisateur est avancé ou non, complex
 	var toReturn = title;
 	if(lastTagClicked != null)
 		toReturn += " -l " + lastTagClicked;
