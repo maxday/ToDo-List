@@ -1,8 +1,11 @@
-<?php
-	require_once('../model/tasks.php');
-	require_once('../model/tags.php');
+<script type="text/javascript" src="./js/todo-sortableList.js"></script>
 
-	$array = seeTasks($_SESSION['uuid']);
+<?php
+
+  require_once('../model/tasks.php');
+  require_once('../model/tags.php');
+
+  $array = seeTasks($_SESSION['uuid']);
 
   echo "<ul id='taskSortList'>";	
   for($i = 0; $i < count($array); $i++){
@@ -14,4 +17,5 @@
 		  echo "<span class='singleTag'>"; echo getTagByUuid($array[$i]->tag); echo "</span></li>";
   }
   echo "</ul>";
+
 ?>
