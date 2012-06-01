@@ -11,6 +11,8 @@ var lastBlured = null;
 
 
 $(document).ready(function () {
+
+        $("#text_field_task").focus();
 	
 	$("#taskSortList").sortable({ 
 		update: function(event, ui) {
