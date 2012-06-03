@@ -88,54 +88,47 @@
 			$(this).css({width: widthRatingContainer,overflow:'hidden',zIndex:1,position:'relative'});
 
 			if(!jDisabled)
-			$(this).bind({
-				mouseenter : function(e){ 
-					var realOffsetLeft = findRealLeft(this);
-					var relativeX = e.pageX - realOffsetLeft;
-					if (opts.showRateInfo)
-					var tooltip = 
-					$('<p>',{
-						'class' : 'jRatingInfos',
-						html : ' <span class="maxRate"> '+ getPriority(newWidth) +' </span>', 
-						css : {
-							top: (e.pageY + opts.rateInfosY),
+				$(this).bind({
+					mouseenter : function(e){
+						var realOffsetLeft = findRealLeft(this);
+						var relativeX = e.pageX - realOffsetLeft;
+						if (opts.showRateInfo)
+							var tooltip =
+							$('<p>',{
+								'class' : 'jRatingInfos',
+								html : ' <span class="maxRate"> '+ getPriority(newWidth) +' </span>',
+								css : {
+									top: (e.pageY + opts.rateInfosY),
+									left: (e.pageX + opts.rateInfosX)
+								}
+							}).appendTo('body').show();
+					},
+					mouseover : function(e){ $(this).css('cursor','pointer'); },
+					mouseout : function(e){
+						$(this).css('cursor','default');
+						var realOffsetLeft = findRealLeft(this);
+						var relativeX = e.pageX - realOffsetLeft;
+					},
+					mousemove : function(e){
+						var realOffsetLeft = findRealLeft(this);
+						var relativeX = e.pageX - realOffsetLeft;
+						if(opts.step) newWidth = Math.floor(relativeX/starWidth)*starWidth + starWidth;
+						else newWidth = relativeX;
+						average.width(newWidth);
+						if (opts.showRateInfo)
+						$("p.jRatingInfos").css({
 							left: (e.pageX + opts.rateInfosX)
-						}
-					}).appendTo('body').show();
-				},
-				mouseover : function(e){ 
-					$(this).css('cursor','pointer');	
-				},
-				mouseout : function(){ 
-					$(this).css('cursor','default');
-					average.width(0);
-				},
-				mousemove : function(e){
-					var realOffsetLeft = findRealLeft(this);
-					var relativeX = e.pageX - realOffsetLeft;
-					if(opts.step) newWidth = Math.floor(relativeX/starWidth)*starWidth + starWidth;
-					else newWidth = relativeX;
-					average.width(newWidth);					
-					if (opts.showRateInfo)
-					$("p.jRatingInfos")
-					.css({
-						left: (e.pageX + opts.rateInfosX)
-					})
-					.html( ' <span class="maxRate"> '+ getPriority(newWidth) +' </span>');
-				},
-				mouseleave : function(){
-					$("p.jRatingInfos").remove();
-				},
-				click : function(e){ 
-					$(this).unbind().css('cursor','default');
-					if (opts.showRateInfo) {$("p.jRatingInfos").fadeOut('fast',function(){$(this).remove();});
-					alert("lol");
-					}
-					//e.preventDefault(); 
-					alert(getPriorityLevel(newWidth) + " salut");
-						 
+						}).html( ' <span class="maxRate"> '+ getPriority(newWidth) +' </span>');
+					},
+					mouseleave : function(){ $("p.jRatingInfos").remove();},
+					click : function(e){
+						var realOffsetLeft = findRealLeft(this);
+						var relativeX = e.pageX - realOffsetLeft;
+						if (opts.showRateInfo) {$("p.jRatingInfos").fadeOut('fast',function(){$(this).remove();});
+						alert(getPriorityLevel(newWidth) + " a sauvegarder qque part");
+					} 
 				}
-			});
+				});
  
 			function getStarWidth(){
 				switch(opts.type) {
@@ -171,7 +164,7 @@
 				var prio;
 				switch (width) {
 					case 23:
-					prio = "Lol";
+					prio = "Normal";
 					break;
 					case 46:
 					prio = "Urgent";
