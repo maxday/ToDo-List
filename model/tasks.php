@@ -154,7 +154,7 @@ function updateTaskImportant($uuid, $user, $isImportant) {
 function seeTasks($uuid) {
 	$vConnect = connect();
 	$returnArray = array();
-	$sql = "SELECT * FROM MYTODO_TASK WHERE user=? ORDER BY rank DESC";
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user=? AND dateCompleted IS NULL ORDER BY rank DESC";
 	$prepared_statement = $vConnect->prepare($sql);
 	$tasks = array();
 	if($prepared_statement->execute(array($uuid)) == true) {
