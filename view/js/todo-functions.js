@@ -128,6 +128,24 @@ $(document).ready(function () {
 			length : 3 // nb of stars  
 		}); 
 
+
+   // tâche completée
+	$('li.task').live("click",function(e) {
+
+		var url = './../ws/completeTask.php';
+		var dom_id = $(this).attr("id");
+		var bdd_id = $(this).attr("bdd_id");
+
+		$.post(url, { task: bdd_id},
+			function (data) {
+			        if (data != "Alerte") {
+                    //console.log("salut c'est delete " + bdd_id);
+                    $("#" + dom_id).hide("slow");
+                 }
+			}
+		);
+	});
+
 });
 
 function launchAjaxNewTag(input, tag, tag_value) {
