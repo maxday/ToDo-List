@@ -16,6 +16,7 @@ function securizeAccount($uuid, $pwd) {
 	$sql = "UPDATE MYTODO_USER SET pwd=? WHERE uuid=?";
 	$array = array($pwd, $uuid);
 
+	// il faut rajouter la ligne dans la table protection !
 	launchQuery($sql, $array);
 }
 
