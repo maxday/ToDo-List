@@ -2373,3 +2373,12 @@ body#error #content h2{
 .tagButton6, .tagButton6:hover {
         background-color : #A2ADBC;
 }
+
+
+span.deleteTask {
+   background-color: blue;
+   display: inline-block;
+   height: 25px;
+   position: absolute;
+   width: 25px;
+}

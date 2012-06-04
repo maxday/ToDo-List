@@ -129,18 +129,21 @@ $(document).ready(function () {
 		}); 
 
 
+
    // tâche completée
-	$('li.task').live("click",function(e) {
+	$('span.deleteTask').live("click",function(e) {
 
 		var url = './../ws/completeTask.php';
-		var dom_id = $(this).attr("id");
-		var bdd_id = $(this).attr("bdd_id");
+		var _this = $(this);
+		var mother_node = $(this).parent();
+		var dom_id = mother_node.attr("id");
+		var bdd_id = mother_node.attr("bdd_id");
 
 		$.post(url, { task: bdd_id},
 			function (data) {
 			        if (data != "Alerte") {
-                    //console.log("salut c'est delete " + bdd_id);
-                    $("#" + dom_id).hide("slow");
+			           _this.hide();
+                    mother_node.hide("slow");
                  }
 			}
 		);
