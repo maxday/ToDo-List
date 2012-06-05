@@ -4,11 +4,10 @@
 /* Methodes relatives a l'ajout de taches
 /*----------------------------------------------------------------------*/
 
-var lastTagClicked = null;
-var priority = -2;
+var lastTagClicked = null; 
 var isImportant = false;
 var lastBlured = null;
-
+// Attention: Priorite memorisee par le plugin jRating > Variable SelectedPriority initialisee dans le fichier jRating.jquery.js ... :/
 
 $(document).ready(function () {
 
@@ -44,7 +43,10 @@ $(document).ready(function () {
 
 		var lastDateChosen = $("#date").val();
 		var url = './../ws/addComplexTask.php';
-		var complexeTask = computeTask(title, lastTagClicked, priority, isImportant, lastDateChosen);
+		if ( typeof(SelectedPriority) == "undefined") {
+			SelectedPriority = 1; // Valeur par défaut ?
+		}
+		var complexeTask = computeTask(title, lastTagClicked, SelectedPriority, isImportant, lastDateChosen);
 		
 		//alert(complexTask);
 
@@ -213,13 +215,11 @@ function computeTask(title, lastTagClicked, priority, isImportant, lastDateChose
 }
 
 function computePriorityPrefix(priority) {
-	if(priority == '-2')
+	if(priority == '1')
 		return "--p";
-	if(priority == '-1')
+	if(priority == '2')
 		return "-p";
-	if(priority == '+1')
-		return "+p";
-	if(priority == '+2')
-		return "++p";	
+	if(priority == '3')
+		return "+p"; 	
 	return "";	
 }

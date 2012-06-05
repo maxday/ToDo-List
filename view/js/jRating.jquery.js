@@ -8,6 +8,10 @@
  
 **************************************************************************
 *************************************************************************/
+
+
+if ( typeof(SelectedPriority) == 'undefined' ) SelectedPriority = 1;
+
 (function($) {
 	$.fn.jRating = function(op) {
 		var defaults = {
@@ -125,7 +129,8 @@
 						var realOffsetLeft = findRealLeft(this);
 						var relativeX = e.pageX - realOffsetLeft;
 						if (opts.showRateInfo) {$("p.jRatingInfos").fadeOut('fast',function(){$(this).remove();});
-						alert(getPriorityLevel(newWidth) + " a sauvegarder qque part");
+						SelectedPriority = getPriorityLevel(newWidth);
+						alert(SelectedPriority + " a sauvegarder qque part");
 					} 
 				}
 				});
