@@ -12,7 +12,6 @@ function createTask($title, $dueDate, $priority, $isImportant, $tag, $user) {
 	close($vConnect);
 	
 	$rank = $res['max'] + 1;
-
 	if($dueDate=="")
 		$dueDate = null;
 	$sql = "INSERT INTO MYTODO_TASK(uuid, dateCreated, title, dueDate, priority, isImportant, rank, tag, user) VALUES (?, NOW(), ?, ?, ?, ?, ?, ?, ?)"; 
@@ -104,15 +103,14 @@ function analyzeLineTask($line){
 	}
 	else
 		$priority = 1;
-	// Ne fonctionne pas
-	pattern = '/\s-d\s([0-9]{8}|[0-9]{2}-[0-9]{2}-[0-9]{4}|[0-9]{2}\/[0-9]{2}\/[0-9]{4})/'; 
+
+	$pattern = '/\s-d\s([0-9]{8}|[0-9]{2}-[0-9]{2}-[0-9]{4}|[0-9]{2}\/[0-9]{2}\/[0-9]{4})/'; 
 	preg_match($pattern, $subject, $d);
 	if(isset($d[0])) {
-		$date = $d[1];
-		$date = "02-04-1991";
+		$date = $d[1];   
 	}
 	else
-		$date = "04-02-1991";
+		$date = "";
 
 	$pattern = '/\s-l\s([a-zA-Z]+)/';
 	preg_match($pattern, $subject, $l);
@@ -121,10 +119,12 @@ function analyzeLineTask($line){
 	else
 		$tag = "";
 	
-	if(isset($name[1]))
+	if(isset($name[1])) { 
 		return array($name[1], $important, $priority, $date, $tag);
-	else
+	}
+	else { 
 		return array($line, 0, 2, "", "");
+		}
 }
 
 
@@ -156,12 +156,13 @@ function seeTasks($uuid) {
 	$returnArray = array();
 	$sql = "SELECT * FROM MYTODO_TASK WHERE user=? AND dateCompleted IS NULL ORDER BY rank DESC";
 	$prepared_statement = $vConnect->prepare($sql);
-	$tasks = array();
+
 	if($prepared_statement->execute(array($uuid)) == true) {
 		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
 	    	array_push($returnArray, $line);
 	  	}
-	}	
+	}
+	close($vConnect);	
 	return $returnArray;
 }
 
@@ -175,6 +176,7 @@ function reOrderTask($arrayTask) {
 		$prepared_statement->execute(array($i, $singleTask));
 		$i--;
 	}
+	close($vConnect);
 }
 
 /*
@@ -183,19 +185,19 @@ function reOrderTask($arrayTask) {
 function sortTasksByDate($date, $uuid) {
 	$vConnect = connect();
 	$returnArray = array();
-	if ( empty($date) ) {
-		$sql = "SELECT * FROM MYTODO_TASK WHERE user=? ORDER BY dueDate DESC";
+	if ( empty($date) ) { 
+		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? ORDER BY dueDate DESC"; 
 	}
 	else {
 		$sql = "SELECT * FROM MYTODO_TASK WHERE user=? AND dueDate = " . $date;
 	}
-	$prepared_statement = $vConnect->prepare($sql);
-	$tasks = array();
+	$prepared_statement = $vConnect->prepare($sql); 
 	if($prepared_statement->execute(array($uuid)) == true) {
 		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
 	    	array_push($returnArray, $line);
 	  	}
 	}	
+	close($vConnect);
 	return $returnArray;
 }
 ?>
