@@ -14,7 +14,7 @@ function createUser($login) {
 /* tested */
 function securizeAccount($uuid, $pwd) {
 	$sql = "UPDATE MYTODO_USER SET pwd=? WHERE uuid=?";
-	$array = array($pwd, $uuid);
+	$array = array(md5($pwd), $uuid);
 
 	launchQuery($sql, $array);
 	addProtectRow($uuid);
