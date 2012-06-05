@@ -96,23 +96,23 @@ function analyzeLineTask($line){
 
 	if(isset($p[0])){
 		if($p[0] == "--p")
-			$priority = 0;
-		elseif($p[0] == "-p")
 			$priority = 1;
+		elseif($p[0] == "-p")
+			$priority = 2;
 		elseif($p[0] == "+p")
-			$priority = 3;
-		elseif($p[0] == "++p")
-			$priority = 4;
+			$priority = 3; 
 	}
 	else
-		$priority = 2;
-
-	$pattern = '/\s-d\s([0-9]{8}|[0-9]{2}-[0-9]{2}-[0-9]{4}|[0-9]{2}\/[0-9]{2}\/[0-9]{4})/';
+		$priority = 1;
+	// Ne fonctionne pas
+	pattern = '/\s-d\s([0-9]{8}|[0-9]{2}-[0-9]{2}-[0-9]{4}|[0-9]{2}\/[0-9]{2}\/[0-9]{4})/'; 
 	preg_match($pattern, $subject, $d);
-	if(isset($d[0]))
+	if(isset($d[0])) {
 		$date = $d[1];
+		$date = "02-04-1991";
+	}
 	else
-		$date = "";
+		$date = "04-02-1991";
 
 	$pattern = '/\s-l\s([a-zA-Z]+)/';
 	preg_match($pattern, $subject, $l);
@@ -175,5 +175,27 @@ function reOrderTask($arrayTask) {
 		$prepared_statement->execute(array($i, $singleTask));
 		$i--;
 	}
+}
+
+/*
+* Trie les tâches par date
+*/
+function sortTasksByDate($date, $uuid) {
+	$vConnect = connect();
+	$returnArray = array();
+	if ( empty($date) ) {
+		$sql = "SELECT * FROM MYTODO_TASK WHERE user=? ORDER BY dueDate DESC";
+	}
+	else {
+		$sql = "SELECT * FROM MYTODO_TASK WHERE user=? AND dueDate = " . $date;
+	}
+	$prepared_statement = $vConnect->prepare($sql);
+	$tasks = array();
+	if($prepared_statement->execute(array($uuid)) == true) {
+		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
+	    	array_push($returnArray, $line);
+	  	}
+	}	
+	return $returnArray;
 }
 ?>

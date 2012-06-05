@@ -1,36 +1,36 @@
-.singleTitle{
-  border:1px solid black;
+.taskcolumn {
+	margin-left: 50px;
+}
+
+.singleTitle{ 
   width:150px;
+  font-weight:bold;
   display: inline-block;
 }
 
-.singleDueDate{
-  border:1px solid black;
+.singleDueDate{ 
   width:50px;
   display: inline-block;
 }
 
-.singlePriority{
-  border:1px solid black;
+.singlePriority{ 
+  width:60px;
+  display: inline-block;
+}
+
+.singleIsImportant{ 
   width:20px;
   display: inline-block;
 }
 
-.singleIsImportant{
-  border:1px solid black;
-  width:20px;
-  display: inline-block;
-}
-
-.singleTag{
-  border:1px solid black;
+.singleTag{ 
   width:100px;
   display: inline-block;
 }
 
 #taskListRefresh ul li {
 	border : 1px solid;
-	padding-bottom : 5px;
+	padding : 5px;
 	margin-bottom : 5px;
 	list-style : none;
 }

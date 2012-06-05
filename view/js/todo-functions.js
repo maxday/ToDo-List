@@ -210,7 +210,7 @@ function computeTask(title, lastTagClicked, priority, isImportant, lastDateChose
 	if(isImportant)
 		toReturn += " -i";
 	if(lastDateChosen != "")
-		toReturn += " -d " + lastDateChosen;
+		toReturn += " -d " + lastDateChosen.replace(/\//g, '-');
 	return toReturn;
 }
 

@@ -848,7 +848,7 @@ button.purple:hover, a.btn.purple:hover, .button.purple:hover{
 	-moz-box-shadow:0px 5px 6px rgba(0, 0, 0, 0.6);
 	box-shadow:0px 5px 6px rgba(0, 0, 0, 0.6);
 }
-.widget h3.handle{
+.widget h3.handle, #leila{
 	color:#444444;
 	text-shadow:0 0 1px #ffffff;
 	border-top-color:#ffffff;

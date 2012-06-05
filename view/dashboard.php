@@ -122,18 +122,19 @@
 
 	<section id="content">
 		<div id="top">
-			<div class="g10 nodrop">
+			<div class="g10 nodrop"> 
+				<h3 class="handle" id="leila">Ajouter tache</h3>
 				<?php
-			include('insertTask.php');
-			?>
-		</div>	
+					include('insertTask.php');
+				?> 
+			</div>	
 
 		<div class="g2 widgets" style="float:right;">
 			<div class="widget" id="widget">
 				<h3 class="handle">Tris</b></h3>
-				<div>
-					Tris et images
-				</div>
+				<?php
+					include('sortView.php');
+				?>
 			</div> 
 		</div>
 		
