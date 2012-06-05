@@ -148,6 +148,34 @@ $(document).ready(function () {
 			}
 		);
 	});
+	
+	
+	$("a#trigger_protect").fancybox({
+   		//'hideOnContentClick': true
+   });
+   	
+   $('#form_protect').live("submit",function(e) {
+      e.preventDefault();
+      //console.log($('#form_protect_input').val());
+      var passChosen = $('#form_protect_input').val();
+      
+      if (passChosen.length < 1) {
+         // faire un affichage 
+         return;
+      }
+      
+		var url = '../ws/setProtection.php';
+
+		$.post(url, { pass: passChosen},
+			function (data) {
+		      $.fancybox.close();
+		      // montrer que c'est protégé,  changer l'icone? empecher de changer le pass?
+			}
+		);
+      
+      
+      
+   });
 
 });
 

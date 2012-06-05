@@ -2382,3 +2382,45 @@ span.deleteTask {
    position: absolute;
    width: 25px;
 }
+
+
+#hidden {
+   display:none;
+}
+
+.fancy_content{
+   width: 450px;
+   height: 300px;
+}
+
+.fancy_content .box {
+   background-image: url("../img/patter_c.png");
+   background-position: center center;
+   background-repeat: no-repeat;
+   height: 103px;
+   margin: 0 auto;
+   padding: 0;
+   width: 450px;
+}
+
+.fancy_content .box .title {
+   display:block;
+   height: 103px;
+}
+
+.fancy_content .box .title h1 {
+   color: #DCDEE0;
+   float: left;
+   font-family: "BebasRegular",Arial,sans-serif;
+   font-size: 36px;
+   font-style: normal;
+   font-variant: normal;
+   font-weight: normal;
+   line-height: normal;
+   margin: 27px 0 0 25px;
+   padding: 0;
+   text-decoration: none;
+   text-shadow: 0 1px 0 #1A2427;
+   text-transform: uppercase;
+}
+

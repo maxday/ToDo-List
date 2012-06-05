@@ -90,6 +90,8 @@
 	<link rel="stylesheet" type="text/css" href="./css/light/jRating.jquery.css" media="screen" /> 
 	<!-- jQuery files --> 
 	<script type="text/javascript" src="./js/jRating.jquery.js"></script>
+	<script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 	
 	
 	<script type="text/javascript" src="js/todo-functions.js"></script>
@@ -135,7 +137,6 @@
 			</div> 
 		</div>
 		
-		
 
 		<div class="g2 widgets" style="float:right;">
 			<div class="widget" id="widget">
@@ -160,6 +161,33 @@
 	</div>
 </section>
 <footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
+
+<div id="#hidden">
+	
+	<div class="fancy_content" id="protect_form">
+		<section class="box">
+			<div class="title">
+				<h1>Protège moi</h1>
+			</div>
+			
+			<div>
+				<p>
+					Veuillez enter un mot de passe pour protéger votre liste
+				</p>
+				
+				<form method="post" autocomplete="off" class="clearfix" id="form_protect">
+					<input id="form_protect_input" type="text">  
+					<input type="submit" value="Go">
+				</form>
+				
+			</div>
+			
+		</section>
+	</div>
+	
+</div>
+
+
 </body>
 </html>
 <?php } ?>

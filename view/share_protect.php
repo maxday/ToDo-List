@@ -8,7 +8,7 @@
 				<li><a href="icons.html">Partager ! <img src="img/fileshare.png" /></a></li>
 			</ul>
 			<ul class="inline">
-				<li><a href="icons.html">Protéger ! <img src="img/lock_open.png" /></a></li>
+				<li><a id="trigger_protect" href="#protect_form">Protéger ! <img src="img/lock_open.png" /></a></li>
 
 			</ul>
 		 </li>
