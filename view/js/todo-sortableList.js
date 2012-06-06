@@ -25,6 +25,8 @@ $('#sortByDate').bind('click', function() {
 
     $.post(url, { date: date},
 		function (data) {
+			// Désactiver les tris actifs
+			$('.sortTagButton').removeClass('buttonPushed');
 			$("#taskListRefresh").html(data);
 		}
 	);	
@@ -36,16 +38,20 @@ $('#sortByImportance').bind('click', function() {
 	var important = 1; // Trouver un moyen de choper une checkbox
     $.post(url, { importance : important},
 		function (data) {
+			// Désactiver les tris actifs
+			$('.sortTagButton').removeClass('buttonPushed');
 			$("#taskListRefresh").html(data);
 		}
 	);	
 });
 
-/* Tri par priorite - Methode appellee par le plugin jRating */ 
+/* Tri par priorite - Methode appelee par le plugin jRating */ 
 function sortByPriority(priority) {
 	var url = "./../ws/sortTasksByParameters.php";
     $.post(url, { priority : priority},
-		function (data) {
+		function (data) { 
+			// Désactiver les tris actifs
+			$('.sortTagButton').removeClass('buttonPushed');
 			$("#taskListRefresh").html(data);
 		}
 	);
