@@ -120,7 +120,7 @@ function computeHtmlFromTags($tagsArray, $sort) {
 			$retour = $retour."<button id='sortCateg".$i."' class='sortTagButton tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button>";
 		}
 		else {
-			$retour = $retour."<button class='tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button>";
+			$retour = $retour."<button class='tagButton tagButton".$i."' value=".$singleTag['title'].">".$singleTag['title']."</button>";
 		}
 		
 	}
