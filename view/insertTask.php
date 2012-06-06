@@ -18,8 +18,10 @@
 				<h5 class="titreTask">Options</h5>
 				<section>  
 					<img src="img/date.png" /> 	      
-					<input id="date" name="date" type="text" class="date optionLine"><br />
-					<img src="img/stock_mail-priority-high.png" alt="Importance ?"/> &nbsp;&nbsp;&nbsp;<input type="checkbox" id="checkimp" name="checkimp" /><br />
+					<input id="date" name="date" type="text" class="date optionLine">
+					<hr />
+					<img src="img/stock_mail-priority-high.png" alt="Importance ?"/> &nbsp;&nbsp;&nbsp;<input type="checkbox" id="checkimp" name="checkimp" />
+					<hr />
 					Priorité <!-- basic exemple -->  <div class="basic" id="insertPriority"></div>  
 				
 				</section>	

@@ -196,11 +196,17 @@ function launchAjaxNewTag(input, tag, tag_value) {
         tag.addClass("tagButton");
         // appel ajax pour créer le tag :)
         var url = "../ws/addTag.php";
+		var url_sort = "../view/sortView.php";
         // il faudra ensuite vérifier peut être qu'on a bien recup un uuid, et si non... que faire?
         $.post(url, { tag: tag_value }, function (data) {
            console.log(data);
 		   tag.attr("value", tag_value);
         });
+
+		// On rafraichit la liste des tris
+		$.post(url_sort, function (data) {
+		   $("#sortOptions").html(data);
+        });	
 }
 
 
