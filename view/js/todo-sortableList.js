@@ -39,7 +39,8 @@ $('#sortByDate').bind('click', function() {
 		function (data) {
 			// Désactiver les tris actifs
 			$('.sortTagButton').removeClass('buttonPushed');
-			$("#taskListRefresh").html(data);
+			$("#taskListRefresh").html(data); 
+			addBluebox("Date", date);
 		}
 	);	
 });
@@ -53,6 +54,7 @@ $('#sortByImportance').bind('click', function() {
 			// Désactiver les tris actifs
 			$('.sortTagButton').removeClass('buttonPushed');
 			$("#taskListRefresh").html(data);
+			addBluebox("Importance", important);
 		}
 	);	
 });
@@ -65,6 +67,7 @@ function sortByPriority(priority) {
 			// Désactiver les tris actifs
 			$('.sortTagButton').removeClass('buttonPushed');
 			$("#taskListRefresh").html(data);
+			addBluebox("Priority", priority);
 		}
 	);
 }

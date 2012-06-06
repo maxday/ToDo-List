@@ -69,7 +69,7 @@ $(document).ready(function () {
 		if ( this.id != '') {
 			// Provient des tris >> Tri par categorie
 			sortByCategory(this.value); 
-			addBlueBox(this.value, this.textContent);
+			addBluebox(this.value, this.textContent);
 		}
 		event.preventDefault();
 	});
@@ -279,27 +279,65 @@ function computePriorityPrefix(priority) {
 	return "";	
 }
 
-function addBlueBox(category, lblCat) { 
+function getLibelleForBluebox(identifier, val) {
+	if ( identifier == "Priority") {
+		return "+" + val;
+	}
+	if ( identifier == "Importance") {
+		if ( val == 1 ) {
+			return "Important";
+		}
+		return "Pas important";
+	}
+	if ( identifier == "Date") {
+		if ( val == "" )
+			return "Date décroissante"; 
+	}
+	return val;
+}
+
+function addBluebox(identifier, lblCat) { 
 	var activeFilters = $('#activeSorts'); 
-	category = category.replace('.', '_');
-	var divId = "selected" + category;
-	
+	identifier = identifier.replace('.', '_');
+	var divId = "selected" + identifier; 
+	lblCat = getLibelleForBluebox(identifier, lblCat);
 	if ( $('#' + divId).length == 0 ) {
 		jQuery("<div>", {
 	 		id: divId,
+			class: 'cat',
 	 		html: '<b>' + lblCat + '</b>',
 	    	css: {
 	        	height: "25px",
 				borderRadius: "3px white",
+				marginLeft : "10px",
 				fontSize : "16px",
 				paddingLeft: "15px",
+				paddingRight : "15px",
 				lineHeight: "20px",
 	        	width: "70px",
 	        	color: "#f1f3ff",
-	        	backgroundColor: "#7894e5"
+	        	backgroundColor: "#7894e5",
+				display : "inline"
 	    	},
 	    	click: function() {
-	       		$(this).css("backgroundColor", "red");
+	       		$(this).remove();
+				// On rafraichit la liste avec les filtres selectionnes
+				var selectedFilters = $('#activeSorts .cat');
+				var serializedSt = "";
+				var date, priority, importance;
+				for ( var i = 0 ; i < selectedFilters.length ; i++) {
+					serializedSt += '&&' + selectedFilters[i].id;
+				}
+				if ( $('#selectedDate').length != 0 ) {
+					date = $('#selectedDate').text();
+				}
+				if ( $('#selectedImportance').length != 0 ) {
+					importance = $('#selectedImportance').text();
+				}
+				if ( $('#selectedPriority').length != 0 ) {
+					priority = $('#selectedPriority').text();
+				}
+				console.log(date + " categories " + serializedSt + " pr " + priority + " importance " + importance);
 	    	}
 		}).appendTo(activeFilters);
 	}
