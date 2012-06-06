@@ -2,8 +2,8 @@
 	<ul id="headernav">
 		<li>
 			<ul class="inline">
-				<li id="howdy">  
-					<a href="./deco.php">Me déconnecter ?</a>
+				<li>
+					<a href="./deco.php">Quitter ! <img src="img/logout.png" style="width:32px;height:32px;"> </a>
 				</li>
 			</ul>
 			<ul class="inline">
