@@ -187,7 +187,7 @@ function sortTasksByDate($date, $uuid) {
 	$vConnect = connect();
 	$returnArray = array();
 	if ( empty($date) ) { 
-		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? ORDER BY dueDate"; 
+		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? ORDER BY dueDate DESC"; 
 	}
 	else {
 		$sql = "SELECT * FROM MYTODO_TASK WHERE user=? AND dueDate = " . $date;
