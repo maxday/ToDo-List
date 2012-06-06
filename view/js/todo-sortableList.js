@@ -65,6 +65,8 @@ $('#reset').bind('click', function() {
 	var url = './tasksList.php'; 
     $.post(url,
 		function (data) {
+			// Désactiver les tris actifs
+			$('.sortTagButton').removeClass('buttonPushed');
 			$("#taskListRefresh").html(data);
 		}
 	);	
