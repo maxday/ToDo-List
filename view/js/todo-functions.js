@@ -19,9 +19,10 @@ $(document).ready(function () {
 			var url = "./../ws/reOrder.php";
 			var orderTask = $(this).sortable('toArray').toString();
 			
+			
 		    $.post(url, { order: orderTask},
 				function (data) {
-					;
+					console.log(data);
 				}
 			);
 		}
@@ -138,8 +139,7 @@ $(document).ready(function () {
 		var url = './../ws/completeTask.php';
 		var _this = $(this);
 		var mother_node = $(this).parent();
-		var dom_id = mother_node.attr("id");
-		var bdd_id = mother_node.attr("bdd_id");
+		var bdd_id = mother_node.attr("id");
 
 		$.post(url, { task: bdd_id},
 			function (data) {
