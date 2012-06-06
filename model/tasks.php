@@ -17,7 +17,7 @@ function createTask($title, $dueDate, $priority, $isImportant, $tag, $user) {
 
 	$sql = "INSERT INTO MYTODO_TASK(uuid, dateCreated, title, dueDate, priority, isImportant, rank, tag, user) VALUES (?, NOW(), ?, ?, ?, ?, ?, ?, ?)"; 
 	$uniqId = uniqid("",true);
-	$array = array($uniqId, $title, datefr($dueDate), $priority, $isImportant, $rank, $tag, $user);
+	$array = array($uniqId, $title, dateen($dueDate), $priority, $isImportant, $rank, $tag, $user);
 	
 	launchQuery($sql, $array);
 	return $uniqId;

@@ -87,7 +87,7 @@ if($.fn.wl_Date) $.fn.wl_Date.defaults = {
 	prevText: 'prev',
 	currentText: 'Today',
 	showWeek: true,
-	dateFormat: 'mm/dd/yy'
+	dateFormat: 'dd/mm/yy'
 };
 
 

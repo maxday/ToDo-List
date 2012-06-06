@@ -19,4 +19,12 @@ function datefr($date) {
 	return "$jour"."-"."$mois"."-"."$annee"; 
 }
 
+function dateen($date) { 
+	$split = preg_split("!-!",$date); 
+	$jour = $split[0]; 
+	$mois = $split[1]; 
+	$annee = $split[2]; 
+	return "$annee"."-"."$mois"."-"."$jour"; 
+}
+
 ?>
