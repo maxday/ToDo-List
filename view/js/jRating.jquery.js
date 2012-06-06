@@ -128,9 +128,15 @@ if ( typeof(SelectedPriority) == 'undefined' ) SelectedPriority = 1;
 					click : function(e){
 						var realOffsetLeft = findRealLeft(this);
 						var relativeX = e.pageX - realOffsetLeft;
-						if (opts.showRateInfo) {$("p.jRatingInfos").fadeOut('fast',function(){$(this).remove();});
-						SelectedPriority = getPriorityLevel(newWidth);
-						alert(SelectedPriority + " a sauvegarder qque part");
+						if (opts.showRateInfo) {$("p.jRatingInfos").fadeOut('fast',function(){$(this).remove();}); 
+						// Pas sur que ce soit tres hallal tout ca ... 
+						if ( this.id == 'sortByPriority') {
+							var selectedSortPriority = getPriorityLevel(newWidth); 
+							sortByPriority(selectedSortPriority);
+						}
+						else {
+							SelectedPriority = getPriorityLevel(newWidth);
+						} 
 					} 
 				}
 				});

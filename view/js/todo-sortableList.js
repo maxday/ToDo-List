@@ -40,3 +40,13 @@ $('#sortByImportance').bind('click', function() {
 		}
 	);	
 });
+
+/* Tri par priorite - Methode appellee par le plugin jRating */ 
+function sortByPriority(priority) {
+	var url = "./../ws/sortTasksByParameters.php";
+    $.post(url, { priority : priority},
+		function (data) {
+			$("#taskListRefresh").html(data);
+		}
+	);
+}

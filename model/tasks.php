@@ -207,10 +207,8 @@ function sortTasksByDate($date, $uuid) {
 */
 function sortTasksByImportance($importance, $uuid) {
 	$vConnect = connect();
-	$returnArray = array();
-	if ( empty($date) ) { 
-		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND isImportant = ?"; 
-	} 
+	$returnArray = array(); 
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND isImportant = ?";  
 	$prepared_statement = $vConnect->prepare($sql);  
 	if($prepared_statement->execute(array($uuid, $importance)) == true) { 
 		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
@@ -220,6 +218,24 @@ function sortTasksByImportance($importance, $uuid) {
 	close($vConnect);
 	return $returnArray;
 }
+
+/*
+* Trie les tâches par priorité choisie
+*/
+function sortTasksByPriority($selPriority, $uuid) {
+	$vConnect = connect();
+	$returnArray = array(); 
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND priority = ?"; 
+	$prepared_statement = $vConnect->prepare($sql);  
+	if($prepared_statement->execute(array($uuid, $selPriority)) == true) { 
+		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
+	    	array_push($returnArray, $line); 
+	  	}
+	} 
+	close($vConnect);
+	return $returnArray;
+}
+
 
 function formatTaskList($array) {
   echo "<ul id='taskSortList'>";	

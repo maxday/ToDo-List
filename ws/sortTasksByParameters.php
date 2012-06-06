@@ -17,5 +17,11 @@
 		$array = sortTasksByImportance($importance, $_SESSION['uuid']);
 		formatTaskList($array);
 	}
+	
+	// Tri sur la priorite
+	if ( isset($priority) ) { 
+		$array = sortTasksByPriority($priority, $_SESSION['uuid']);
+		formatTaskList($array);
+	}	
 
 ?>

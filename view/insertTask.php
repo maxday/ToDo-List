@@ -20,7 +20,7 @@
 					<img src="img/date.png" /> 	      
 					<input id="date" name="date" type="text" class="date optionLine"><br />
 					<img src="img/stock_mail-priority-high.png" alt="Importance ?"/> &nbsp;&nbsp;&nbsp;<input type="checkbox" id="checkimp" name="checkimp" /><br />
-					Priorité <!-- basic exemple -->  <div class="basic" id="p1"></div>  
+					Priorité <!-- basic exemple -->  <div class="basic" id="insertPriority"></div>  
 				
 				</section>	
 			</div>
