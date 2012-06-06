@@ -244,7 +244,12 @@ function formatTaskList($array) {
 	      $uuid = str_replace('.','',$bdd_uuid);
 
 		  echo "<li class='task' bdd_id=$uuid id=$bdd_uuid><span class='singleTitle taskcolumn'>"; echo($array[$i] -> title); echo "</span>";
-		  echo "<span class='singleDueDate taskcolumn'>"; echo(datefr($array[$i] -> dueDate)); echo "</span>";
+		 
+		  if($array[$i] -> dueDate == '0000-00-00')
+		  	$fDueDate = "";
+		  else
+		    $fDueDate = datefr($array[$i] -> dueDate);
+		  echo "<span class='singleDueDate taskcolumn'>"; echo $fDueDate; echo "</span>";
 		  echo "<span class='singlePriority taskcolumn'>"; 
 		  $nbImg = '';
 		  for ( $j = 0 ; $j < $array[$i] -> priority ; $j++) {
