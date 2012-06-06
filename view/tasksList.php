@@ -13,7 +13,7 @@ tiens ton id : <?php echo $_SESSION['uuid'] ?>
 	      $uuid = str_replace('.','',$bdd_uuid);
 
 		  echo "<li class='task' id=$uuid bdd_id=$bdd_uuid><span class='singleTitle taskcolumn'>"; echo($array[$i] -> title); echo "</span>";
-		  echo "<span class='singleDueDate taskcolumn'>"; echo($array[$i] -> dueDate); echo "</span>";
+		  echo "<span class='singleDueDate taskcolumn'>"; echo(datefr($array[$i] -> dueDate)); echo "</span>";
 		  echo "<span class='singlePriority taskcolumn'>"; 
 		  $nbImg = '';
 		  for ( $j = 0 ; $j < $array[$i] -> priority ; $j++) {
