@@ -122,14 +122,14 @@
 
 	<section id="content">
 		<div id="top">
-			<div class="g10 nodrop"> 
+			<div class="g9 nodrop"> 
 				<h3 class="handle" id="leila">Ajouter tache</h3>
 				<?php
 					include('insertTask.php');
 				?> 
 			</div>	
 
-		<div class="g2 widgets" style="float:right;">
+		<div class="g3 widgets" style="float:right;">
 			<div class="widget" id="widget">
 				<h3 class="handle">Tris</b></h3>
 				<?php
@@ -139,15 +139,16 @@
 		</div>
 		
 
-		<div class="g2 widgets" style="float:right;">
+		<div class="g3 widgets" style="float:right;">
 			<div class="widget" id="widget">
 				<h3 class="handle">Calendar!</b></h3>
+				<div class="calendar"></div>
 			</div> 
 		</div>
 
 	</div>
 	<!-- <div style="clear: both; "></div> --> 
-	<div class="g10 widgets">
+	<div class="g9 widgets">
  
 
 		<div class="widget" id="widget_info">
