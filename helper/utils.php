@@ -12,18 +12,28 @@ function launchQuery($sql, $array) {
 }
 
 function datefr($date) { 
-	$split = preg_split("!-!",$date); 
-	$annee = $split[0]; 
-	$mois = $split[1]; 
-	$jour = $split[2]; 
+	if ( !empty($date)) {
+		$split = preg_split("!-!",$date); 
+		$annee = $split[0]; 
+		$mois = $split[1]; 
+		$jour = $split[2]; 
+	}
+	else {
+		$annee = '0000'; $mois = '00' ; $jour = '00';
+	}
 	return "$jour"."-"."$mois"."-"."$annee"; 
 }
 
 function dateen($date) { 
-	$split = preg_split("!-!",$date); 
-	$jour = $split[0]; 
-	$mois = $split[1]; 
-	$annee = $split[2]; 
+	if ( !empty($date)) {	
+		$split = preg_split("!-!",$date); 
+		$jour = $split[0]; 
+		$mois = $split[1]; 
+		$annee = $split[2]; 
+	}
+	else {
+		$annee = '0000'; $mois = '00' ; $jour = '00';
+	}
 	return "$annee"."-"."$mois"."-"."$jour"; 
 }
 

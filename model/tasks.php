@@ -187,18 +187,47 @@ function sortTasksByDate($date, $uuid) {
 	$vConnect = connect();
 	$returnArray = array();
 	if ( empty($date) ) { 
-		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? ORDER BY dueDate DESC"; 
+		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? ORDER BY dueDate"; 
 	}
 	else {
 		$sql = "SELECT * FROM MYTODO_TASK WHERE user=? AND dueDate = " . $date;
 	}
-	$prepared_statement = $vConnect->prepare($sql); 
-	if($prepared_statement->execute(array($uuid)) == true) {
+	$prepared_statement = $vConnect->prepare($sql);  
+	if($prepared_statement->execute(array($uuid)) == true) { 
 		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
-	    	array_push($returnArray, $line);
+	    	array_push($returnArray, $line); 
 	  	}
-	}	
+	}
+	else {
+		die("non");
+	}
 	close($vConnect);
 	return $returnArray;
+}
+
+function formatTaskList($array) {
+  echo "<ul id='taskSortList'>";	
+  for($i = 0; $i < count($array); $i++){
+	      $bdd_uuid = $array[$i] -> uuid;
+	      $uuid = str_replace('.','',$bdd_uuid);
+
+		  echo "<li class='task' id=$uuid bdd_id=$bdd_uuid><span class='singleTitle taskcolumn'>"; echo($array[$i] -> title); echo "</span>";
+		  echo "<span class='singleDueDate taskcolumn'>"; echo(datefr($array[$i] -> dueDate)); echo "</span>";
+		  echo "<span class='singlePriority taskcolumn'>"; 
+		  $nbImg = '';
+		  for ( $j = 0 ; $j < $array[$i] -> priority ; $j++) {
+		     $nbImg .= "<img src='./img/star.png' />&nbsp;";
+		  } 
+		  echo $nbImg;
+		  echo "</span>";
+		  echo "<span class='singleIsImportant taskcolumn'>";
+		  if ( $array[$i] -> isImportant == 1 ) {
+			echo "<img src='./img/priority.png' />";
+		  }
+		  echo "</span>";
+		  echo "<span class='singleTag taskcolumn'>"; echo getTagByUuid($array[$i]->tag); echo "</span>";
+		  echo "<span class='deleteTask taskcolumn'> </span></li>";
+  }
+  echo "</ul>";
 }
 ?>
