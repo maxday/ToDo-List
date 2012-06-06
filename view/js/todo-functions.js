@@ -226,10 +226,10 @@ function computeTask(title, lastTagClicked, priority, isImportant, lastDateChose
 
 function computePriorityPrefix(priority) {
 	if(priority == '1')
-		return "--p";
-	if(priority == '2')
 		return "-p";
+	if(priority == '2')
+		return "-q";
 	if(priority == '3')
-		return "+p"; 	
+		return "-r"; 	
 	return "";	
 }

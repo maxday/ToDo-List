@@ -4,6 +4,7 @@ include_once('../helper/utils.php');
 
 /* tested */
 function createTask($title, $dueDate, $priority, $isImportant, $tag, $user) {
+	//die($title . "|" . $dueDate . "|" . $priority . "|" . $isImportant . "|" . $tag . "|" . $user); 
 	$vConnect = connect();
 	$prepared_statement = $vConnect->prepare("SELECT max(rank) as max FROM MYTODO_TASK WHERE user=?");
 	if ($prepared_statement->execute(array($user)) == true) {
@@ -91,15 +92,15 @@ function analyzeLineTask($line){
 	else
 		$important = 0;
 
-	$pattern = '/\+p|-p|--p/';
+	$pattern = '/\-p|-q|-r/';
 	preg_match($pattern, $subject, $p);
 
 	if(isset($p[0])){
-		if($p[0] == "--p")
+		if($p[0] == "-p")
 			$priority = 1;
-		elseif($p[0] == "-p")
+		elseif($p[0] == "-q")
 			$priority = 2;
-		elseif($p[0] == "+p")
+		elseif($p[0] == "-r")
 			$priority = 3; 
 	}
 	else {
@@ -120,7 +121,8 @@ function analyzeLineTask($line){
 	else
 		$tag = "";
 	 
-	if(isset($name[1])) { 
+	if(isset($name[1])) {
+		//die($name[1] . "|" . $important . "|" . $priority . "|" . $date . "|" . $tag);
 		return array($name[1], $important, $priority, $date, $tag);
 	}
 	else { 

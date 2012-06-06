@@ -22,9 +22,9 @@
 			else {
 				$uuidTag = null;
 			}
-		} 
+		}
 	}
-	
+	//die($array[3] . "|" . $array[2] . "|" . $array[1] . "|" . $array[0]); 
 	createTask($array[0], $array[3], $array[2], $array[1], $uuidTag, $_SESSION['uuid']);
 	
 	include("../view/tasksList.php");
