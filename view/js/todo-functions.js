@@ -210,7 +210,7 @@ function maxDhandler( event, ui ) {
   console.log("Tu mets le tag uuid = " + draggable.attr('value') +  "sur la tache" + $(this).attr('id'));
   var url = "../ws/addTagToTask.php";
   var task_value = $(this).attr('id');
-  var tag_value = draggable.attr('value') ;
+  var tag_value = draggable.attr('dragNdrop') ;
   $.post(url, { task: task_value, tag: tag_value }, function (data) {
 		console.log(data);
   });
@@ -245,7 +245,8 @@ function launchAjaxNewTag(input, tag, tag_value) {
 		var url_sort = "../view/sortView.php";
         // il faudra ensuite vérifier peut être qu'on a bien recup un uuid, et si non... que faire?
         $.post(url, { tag: tag_value }, function (data) {
-		   tag.attr("value", data);
+		   tag.attr("value", tag_value);
+		   tag.attr("dragNdrop", data);
         });
 
 		// On rafraichit la liste des tris
