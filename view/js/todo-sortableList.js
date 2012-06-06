@@ -50,3 +50,13 @@ function sortByPriority(priority) {
 		}
 	);
 }
+
+/* Desactiver les tris actifs */
+$('#reset').bind('click', function() {
+	var url = './tasksList.php'; 
+    $.post(url,
+		function (data) {
+			$("#taskListRefresh").html(data);
+		}
+	);	
+});

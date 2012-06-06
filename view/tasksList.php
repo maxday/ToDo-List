@@ -1,3 +1,8 @@
+<?php
+	if(empty($_SESSION)) {
+		session_start();
+	}
+?>
 <script type="text/javascript" src="./js/todo-sortableList.js"></script>
 tiens ton id : <?php echo $_SESSION['uuid'] ?>
 <?php
