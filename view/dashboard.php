@@ -129,6 +129,7 @@
 				?> 
 			</div>	
 
+
 		<div class="g3 widgets" style="float:right;">
 			<div class="widget" id="widget">
 				<h3 class="handle">Tris</b></h3>
@@ -137,7 +138,7 @@
 				?>
 			</div> 
 		</div>
-		
+
 
 		<div class="g3 widgets" style="float:right;">
 			<div class="widget" id="widget">
@@ -164,7 +165,7 @@
 </section>
 <footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
 
-<div id="hidden">
+<div class="hidden">
 	
 	<div class="fancy_content" id="protect_form">
 		<section class="box">

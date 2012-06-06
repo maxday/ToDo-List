@@ -2386,7 +2386,7 @@ span.deleteTask {
 }
 
 
-#hidden {
+.hidden {
    display:none;
 }
 
