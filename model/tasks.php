@@ -197,10 +197,26 @@ function sortTasksByDate($date, $uuid) {
 		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
 	    	array_push($returnArray, $line); 
 	  	}
-	}
-	else {
-		die("non");
-	}
+	} 
+	close($vConnect);
+	return $returnArray;
+}
+
+/*
+* Trie les tâches par importance
+*/
+function sortTasksByImportance($importance, $uuid) {
+	$vConnect = connect();
+	$returnArray = array();
+	if ( empty($date) ) { 
+		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND isImportant = ?"; 
+	} 
+	$prepared_statement = $vConnect->prepare($sql);  
+	if($prepared_statement->execute(array($uuid, $importance)) == true) { 
+		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
+	    	array_push($returnArray, $line); 
+	  	}
+	} 
 	close($vConnect);
 	return $returnArray;
 }

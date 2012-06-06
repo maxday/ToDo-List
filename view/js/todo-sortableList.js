@@ -21,9 +21,20 @@ $("#taskSortList").disableSelection();
 /* Tri par date */
 $('#sortByDate').bind('click', function() {
 	var url = "./../ws/sortTasksByParameters.php";
-	var date = "";
+	var date = ""; //choper ici une valeur qui aurait pu etre selectionnee dans le futur calendrier
 
     $.post(url, { date: date},
+		function (data) {
+			$("#taskListRefresh").html(data);
+		}
+	);	
+});
+
+/* Tri par importance */
+$('#sortByImportance').bind('click', function() {
+	var url = "./../ws/sortTasksByParameters.php"; 
+	var important = 1; // Trouver un moyen de choper une checkbox
+    $.post(url, { importance : important},
 		function (data) {
 			$("#taskListRefresh").html(data);
 		}
