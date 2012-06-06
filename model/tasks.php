@@ -91,7 +91,7 @@ function analyzeLineTask($line){
 	else
 		$important = 0;
 
-	$pattern = '/\+p|\+\+p|-p|--p/';
+	$pattern = '/\+p|-p|--p/';
 	preg_match($pattern, $subject, $p);
 
 	if(isset($p[0])){
@@ -102,9 +102,9 @@ function analyzeLineTask($line){
 		elseif($p[0] == "+p")
 			$priority = 3; 
 	}
-	else
+	else {
 		$priority = 1;
-
+	}
 	$pattern = '/\s-d\s([0-9]{8}|[0-9]{2}-[0-9]{2}-[0-9]{4}|[0-9]{2}\/[0-9]{2}\/[0-9]{4})/'; 
 	preg_match($pattern, $subject, $d);
 	if(isset($d[0])) {
@@ -119,12 +119,12 @@ function analyzeLineTask($line){
 		$tag = $l[1];
 	else
 		$tag = "";
-	
+	 
 	if(isset($name[1])) { 
 		return array($name[1], $important, $priority, $date, $tag);
 	}
 	else { 
-		return array($line, 0, 2, "", "");
+		return array($line, 0, $priority, "", "");
 		}
 }
 
