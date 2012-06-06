@@ -255,6 +255,20 @@ function sortTasksByCategory($cat, $uuid) {
 	return $returnArray;
 }
 
+
+
+function updateTaskWithTag($uuidTask, $uuidTag) {
+	$vConnect = connect();
+	$returnArray = array(); 
+	$sql = "UPDATE MYTODO_TASK SET tag = ? WHERE uuid = ?"; 
+	$prepared_statement = $vConnect->prepare($sql);  
+	if($prepared_statement->execute(array($uuidTag, $uuidTask)) == true) 
+		return "KIKOO CA MARCHE";
+	close($vConnect);
+}
+
+
+
 function formatTaskList($array) {
   echo "<ul id='taskSortList'>";	
   for($i = 0; $i < count($array); $i++){

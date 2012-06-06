@@ -4,7 +4,7 @@
 	}
 ?>
 <script type="text/javascript" src="./js/todo-sortableList.js"></script>
-tiens ton id : <?php echo $_SESSION['uuid'] ?>
+
 <?php
 
   require_once('../model/tasks.php');

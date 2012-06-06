@@ -11,6 +11,8 @@ var lastBlured = null;
 
 $(document).ready(function () {
 
+
+
         $("#text_field_task").focus();
 	
 	$("#taskSortList").sortable({ 
@@ -183,7 +185,43 @@ $(document).ready(function () {
       
    });
 
+
+   $('.tagButton').draggable({
+	cancel:false,
+	//containment:"#newTask",
+	helper:maxDhelper
+	});
+
+	$('.task').droppable( {
+	    drop: maxDhandler
+	});
+  
+
+
 });
+ 
+function maxDhelper( event ) {
+  return '<div id="draggableHelper">Déplacer ce tag sur une tâche</div>';
+}
+
+function maxDhandler( event, ui ) {
+  var draggable = ui.draggable;
+  console.log("Tu mets le tag uuid = " + draggable.attr('value') +  "sur la tache" + $(this).attr('id'));
+  var url = "../ws/addTagToTask.php";
+  var task_value = $(this).attr('id');
+  var tag_value = draggable.attr('value') ;
+  $.post(url, { task: task_value, tag: tag_value }, function (data) {
+		console.log(data);
+  });
+
+  url = './tasksList.php'; 
+  $.post(url,
+		function (data) {
+			$("#taskListRefresh").html(data);
+		}
+	);
+}
+
 
 function launchAjaxNewTag(input, tag, tag_value) {
         lastBlured = input;
@@ -194,13 +232,19 @@ function launchAjaxNewTag(input, tag, tag_value) {
         tag.removeClass("icon");
         tag.removeClass("inactive");
         tag.addClass("tagButton");
+
+		tag.draggable({
+			cancel:false,
+			//containment:"#newTask",
+			helper:maxDhelper
+		});
+		
         // appel ajax pour créer le tag :)
         var url = "../ws/addTag.php";
 		var url_sort = "../view/sortView.php";
         // il faudra ensuite vérifier peut être qu'on a bien recup un uuid, et si non... que faire?
         $.post(url, { tag: tag_value }, function (data) {
-           console.log(data);
-		   tag.attr("value", tag_value);
+		   tag.attr("value", data);
         });
 
 		// On rafraichit la liste des tris
