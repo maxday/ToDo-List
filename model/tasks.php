@@ -236,6 +236,22 @@ function sortTasksByPriority($selPriority, $uuid) {
 	return $returnArray;
 }
 
+/*
+* Trie les tâches par catégorie choisie
+*/
+function sortTasksByCategory($cat, $uuid) {
+	$vConnect = connect();
+	$returnArray = array(); 
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND tag = ?"; 
+	$prepared_statement = $vConnect->prepare($sql);  
+	if($prepared_statement->execute(array($uuid, $cat)) == true) { 
+		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
+	    	array_push($returnArray, $line); 
+	  	}
+	} 
+	close($vConnect);
+	return $returnArray;
+}
 
 function formatTaskList($array) {
   echo "<ul id='taskSortList'>";	

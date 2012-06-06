@@ -102,21 +102,30 @@ function getTagByUuid($uuid) {
 function getTagsFromUuid($uuid) {
 	$vConnect = connect();
 	$res = 0;
-	$sql = "SELECT title FROM MYTODO_TAG WHERE user=?";
+	$sql = "SELECT uuid, title FROM MYTODO_TAG WHERE user=?";
 	$prepared_statement = $vConnect->prepare($sql);
 	if ($prepared_statement->execute(array($uuid)) == true) {
-		$res = $prepared_statement->fetchAll(PDO::FETCH_COLUMN, 0);
+		$res = $prepared_statement->fetchAll(); 
 	}
 	close($vConnect);
 	return $res;
 }
 
-function computeHtmlFromTags($tagsArray) {
+function computeHtmlFromTags($tagsArray, $sort) {
 	$retour = "";
-	$i=0;
+	$i=0; 
 	foreach($tagsArray as $singleTag) {
-		$i++;
-		$retour = $retour."<button class='tagButton tagButton".$i."' value=".$singleTag.">".$singleTag."</button>";
+		$i++; 
+		if ( $sort == true ) {
+			$retour = $retour."<button id='sortCateg".$i."' class='tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button>";
+		}
+		else {
+			$retour = $retour."<button class='tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button>";
+		}
+		
+	}
+	if ( $sort == true ) {
+		return $retour;
 	}
 	$suite = $i;
 	$suiteInd = 0;

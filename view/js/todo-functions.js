@@ -64,6 +64,10 @@ $(document).ready(function () {
 	    lastTagClicked = $(this).attr("value");
 	    $(".tagButton").removeClass("buttonPushed");
 	    $(this).addClass("buttonPushed");
+		if ( this.id != '') {
+			// Provient des tris >> Tri par categorie
+			sortByCategory(this.value);
+		}
 		event.preventDefault();
 	});
 

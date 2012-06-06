@@ -146,7 +146,7 @@
 		</div>
 
 	</div>
-	<div style="clear: both; "></div> 
+	<!-- <div style="clear: both; "></div> --> 
 	<div class="g10 widgets">
  
 

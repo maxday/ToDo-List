@@ -9,7 +9,7 @@
 				<h5 class="titreTask">Catégories</h5>
 				
 				<?php 
-					echo computeHtmlFromTags(getTagsFromUuid($_SESSION['uuid']));
+					echo computeHtmlFromTags(getTagsFromUuid($_SESSION['uuid']), false);
 				?>
 
 				

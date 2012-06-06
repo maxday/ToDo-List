@@ -51,6 +51,15 @@ function sortByPriority(priority) {
 	);
 }
 
+function sortByCategory(category) {
+	var url = "./../ws/sortTasksByParameters.php";
+    $.post(url, { category : category},
+		function (data) {
+			$("#taskListRefresh").html(data);
+		}
+	);	
+}
+
 /* Desactiver les tris actifs */
 $('#reset').bind('click', function() {
 	var url = './tasksList.php'; 

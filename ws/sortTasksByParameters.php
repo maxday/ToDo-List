@@ -8,20 +8,23 @@
 	
 	// Tri sur la date uniquement
 	if ( isset($date) ) { 
-		$array = sortTasksByDate($date, $_SESSION['uuid']);
-		formatTaskList($array);
+		$array = sortTasksByDate($date, $_SESSION['uuid']); 
 	}
 	
 	// Tri sur l'importance
 	if ( isset($importance) ) { 
-		$array = sortTasksByImportance($importance, $_SESSION['uuid']);
-		formatTaskList($array);
+		$array = sortTasksByImportance($importance, $_SESSION['uuid']); 
 	}
 	
 	// Tri sur la priorite
 	if ( isset($priority) ) { 
-		$array = sortTasksByPriority($priority, $_SESSION['uuid']);
-		formatTaskList($array);
+		$array = sortTasksByPriority($priority, $_SESSION['uuid']); 
 	}	
+	
+	if ( isset($category) ) {
+		$array = sortTasksByCategory($category, $_SESSION['uuid']);
+	}
+	
+	formatTaskList($array);
 
 ?>
