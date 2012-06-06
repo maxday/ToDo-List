@@ -11,4 +11,12 @@ function launchQuery($sql, $array) {
 	close($vConnect);
 }
 
+function datefr($date) { 
+	$split = preg_split("!-!",$date); 
+	$annee = $split[0]; 
+	$mois = $split[1]; 
+	$jour = $split[2]; 
+	return "$jour"."-"."$mois"."-"."$annee"; 
+}
+
 ?>
