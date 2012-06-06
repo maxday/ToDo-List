@@ -1,7 +1,13 @@
 <?php
+
 	if(empty($_SESSION)) {
 		session_start();
 	}
+
+	if (isset ($_SESSION["uuid"])) {
+		header('Location: dashboard.php');
+	}
+
 ?>
 <!doctype html>
 
