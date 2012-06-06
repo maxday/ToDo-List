@@ -163,7 +163,7 @@
 </section>
 <footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
 
-<div id="#hidden">
+<div id="hidden">
 	
 	<div class="fancy_content" id="protect_form">
 		<section class="box">
