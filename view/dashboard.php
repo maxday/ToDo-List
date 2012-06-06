@@ -154,6 +154,8 @@
 
 		<div class="widget" id="widget_info">
 			<h3 class="handle">Liste des tâches</h3>
+			<div id="activeSorts">
+			</div>
 			<div id="taskListRefresh">
 				<?php
 					include('tasksList.php')

@@ -68,7 +68,8 @@ $(document).ready(function () {
 	    $(this).addClass("buttonPushed");
 		if ( this.id != '') {
 			// Provient des tris >> Tri par categorie
-			sortByCategory(this.value);
+			sortByCategory(this.value); 
+			addBlueBox(this.value, this.textContent);
 		}
 		event.preventDefault();
 	});
@@ -276,4 +277,30 @@ function computePriorityPrefix(priority) {
 	if(priority == '3')
 		return "-r"; 	
 	return "";	
+}
+
+function addBlueBox(category, lblCat) { 
+	var activeFilters = $('#activeSorts'); 
+	category = category.replace('.', '_');
+	var divId = "selected" + category;
+	
+	if ( $('#' + divId).length == 0 ) {
+		jQuery("<div>", {
+	 		id: divId,
+	 		html: '<b>' + lblCat + '</b>',
+	    	css: {
+	        	height: "25px",
+				borderRadius: "3px white",
+				fontSize : "16px",
+				paddingLeft: "15px",
+				lineHeight: "20px",
+	        	width: "70px",
+	        	color: "#f1f3ff",
+	        	backgroundColor: "#7894e5"
+	    	},
+	    	click: function() {
+	       		$(this).css("backgroundColor", "red");
+	    	}
+		}).appendTo(activeFilters);
+	}
 }
