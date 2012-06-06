@@ -107,37 +107,13 @@ $(document).ready(function() {
 		/*----------------------------------------------------------------------*/
 		
 		$content.find('div.calendar').wl_Calendar({
-			eventSources: [
-					{
-						url: 'http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic'
-					},{
-						events: [ // put the array in the `events` property
-							{
-								title  : 'Fixed Event',
-								start  : '2012-02-01'
-							},
-							{
-								title  : 'long fixed Event',
-								start  : '2012-02-06',
-								end    : '2012-02-14'
-							}
-						],
-						color: '#f0a8a8',     // an option!
-						textColor: '#ffffff' // an option!
-					},{
-						events: [ // put the array in the `events` property
-							{
-								title  : 'Editable',
-								start  : '2012-02-09 12:30:00'
-							}
-						],
-						editable:true,
-						color: '#a2e8a2',     // an option!
-						textColor: '#ffffff' // an option!
-					}		
-					// any other event sources...
-			
-				]
+			eventSources:[
+			{
+				url: '/ToDo-List/view/myfeed.php',
+				color: 'yellow',
+				textColor: 'black'
+			}
+			]
 			});
 		
 		/*----------------------------------------------------------------------*/

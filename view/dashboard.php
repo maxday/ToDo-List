@@ -104,7 +104,6 @@
 	<li><a href="#">Settings</a></li>
 	</ul>
 	<div>-->
-
 		<header>
 			<div id="logo">
 				<a href="dashboard.html">Logo Here</a>
@@ -117,8 +116,6 @@
 
 		</div>
 	</header>
-
-
 
 	<section id="content">
 		<div id="top">
