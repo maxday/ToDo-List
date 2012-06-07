@@ -21,7 +21,22 @@ function securizeAccount($uuid, $pwd) {
 }
 
 function addProtectRow($uuid) {
-	$sql = "INSERT INTO MYTODO_PROTECT(uuid,isProtected) VALUES (?, 1)";
+	$sql = "INSERT INTO MYTODO_PROTECT(uuid, isProtected) VALUES (?, 1)";
+	$array = array($uuid);
+
+	launchQuery($sql, $array);
+}
+
+function unSecurizeAccount($uuid) {
+	$sql = "UPDATE MYTODO_USER SET pwd=null WHERE uuid=?";
+	$array = array($uuid);
+
+	launchQuery($sql, $array);
+	unProtectRow($uuid);
+}
+
+function unProtectRow($uuid) {
+	$sql = "UPDATE MYTODO_PROTECT SET isProtected=0 WHERE uuid=?";
 	$array = array($uuid);
 
 	launchQuery($sql, $array);
