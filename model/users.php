@@ -20,6 +20,13 @@ function securizeAccount($uuid, $pwd) {
 	addProtectRow($uuid);
 }
 
+function changePassword($uuid, $pwd) {
+	$sql = "UPDATE MYTODO_USER SET pwd=? WHERE uuid=?";
+	$array = array(md5($pwd), $uuid);
+
+	launchQuery($sql, $array);
+}
+
 function addProtectRow($uuid) {
 	$sql = "INSERT INTO MYTODO_PROTECT(uuid, isProtected) VALUES (?, 1)";
 	$array = array($uuid);
@@ -152,6 +159,22 @@ function checkUserStatus($login) {
 	}
 }
 
+function isPasswordCorrect($uid, $pwd) {
+	$sql = "SELECT login, pwd FROM MYTODO_USER WHERE uuid=?";
+	$vConnect = connect();
+	
+	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($uid));
+
+	$line = $prepared_statement->fetch(PDO::FETCH_OBJ);
+	close($vConnect);
+
+	if ($line->pwd == md5($pwd) )
+		return 1;
+	else
+		return 0;
+}
+
 // plus ou moins tested, initialise la session utilisateur
 function connectUser($uid, $login) { 
 	$_SESSION['uuid'] = $uid;
@@ -159,7 +182,7 @@ function connectUser($uid, $login) {
 	return RETURN_USER_CONNECTED; 
 }
 
-// Verifie si le password est correct
+// Verifie si le password est correct et lance la session
 function checkPwd($uid, $pwd) {
 	$sql = "SELECT login, pwd FROM MYTODO_USER WHERE uuid=?";
 	$vConnect = connect();

@@ -3,10 +3,11 @@
 		session_start();
 	}
 	if ( !isset($_SESSION['login'])) {
-		echo print_r($_SESSION);
-		echo ":()";
+		header('location:index.php');
 	}
 	else { 
+
+	include_once("../model/users.php");
 ?>
 <!doctype html>
 <html lang="en-us">
@@ -172,6 +173,20 @@
 				<h1>Protège moi</h1>
 			</div>
 			
+			<?php if(isProtected($_SESSION['uuid'])){ ?>
+			<div>
+				<p>
+					Vous avez déjà protégé votre liste !
+					Mais vous pouvez changer votre mot de passe.
+				</p>
+				<span id="errorLogin"></span>
+				<form method="post" autocomplete="off" class="clearfix" id="form_change_password">
+					<input id="form_change_password_old" type="password">
+					<input id="form_change_password_input" type="password"> 
+					<input id="submit_button" type="submit" class="submit" value="Changer le mot de passe">
+				</form>
+			</div>
+			<?php } else { ?>
 			<div>
 				<p>
 					Veuillez enter un mot de passe pour protéger votre liste
@@ -179,11 +194,10 @@
 				
 				<form method="post" autocomplete="off" class="clearfix" id="form_protect">
 					<input id="form_protect_input" type="text">  
-					<input type="submit" value="Go">
+					<input id="submit_button" type="submit" class="submit" value="Protéger mon compte">
 				</form>
-				
 			</div>
-			
+			<?php } ?>
 		</section>
 	</div>
 	

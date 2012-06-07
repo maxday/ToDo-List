@@ -10,10 +10,7 @@ var lastBlured = null;
 // Attention: Priorite memorisee par le plugin jRating > Variable SelectedPriority initialisee dans le fichier jRating.jquery.js ... :/
 
 $(document).ready(function () {
-
-
-
-        $("#text_field_task").focus();
+	$("#text_field_task").focus();
 	
 	$("#taskSortList").sortable({ 
 		update: function(event, ui) {
@@ -161,29 +158,58 @@ $(document).ready(function () {
 	
 	$("a#trigger_protect").fancybox({
    		//'hideOnContentClick': true
+   		'onClose': function() {
+			console.log("tot");
+		}
    });
    	
    $('#form_protect').live("submit",function(e) {
-      e.preventDefault();
-      //console.log($('#form_protect_input').val());
-      var passChosen = $('#form_protect_input').val();
-      
-      if (passChosen.length < 1) {
-         // faire un affichage 
-         return;
-      }
+		e.preventDefault();
+		//console.log($('#form_protect_input').val());
+		var passChosen = $('#form_protect_input').val();
+		
+		if (passChosen.length < 1) {
+		  // faire un affichage 
+		  return;
+		}
       
 		var url = '../ws/setProtection.php';
 
-		$.post(url, { pass: passChosen},
+		$.post(url, { pass: passChosen },
 			function (data) {
-		      $.fancybox.close();
-		      // montrer que c'est protégé,  changer l'icone? empecher de changer le pass?
+			  $.fancybox.close();
+			  // montrer que c'est protégé,  changer l'icone? empecher de changer le pass?
 			}
 		);
+   });
+   
+	$('#form_change_password').live("submit",function(e) {
+      e.preventDefault();
+      //console.log($('#form_protect_input').val());
+	  var oldPass = $('#form_change_password_old').val();
+      var passChosen = $('#form_change_password_input').val();
       
+      if (passChosen.length < 1 || oldPass.length < 1) {
+         $("#errorLogin").html('<div class="alert warning">Remplissez tous les champs !</div>');
+		 parent.$("#fancybox-content").width($(document).width());
+         return;
+      }
       
-      
+		var url = '../ws/changePassword.php';
+		$.post(url, { pass: passChosen, old: oldPass},
+			function (data) {
+			  console.log(data);
+				if(data == "2"){
+					$("#errorLogin").html('<div class="alert warning">Mot de passe incorrect !!</div>');
+					parent.$("#fancybox-content").width(500);
+
+				}
+				else
+					$.fancybox.close();
+			}
+		);
+		$("#form_change_password_old").val("");
+		$("#form_change_password_input").val("");
    });
 
 
