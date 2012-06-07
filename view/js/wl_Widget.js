@@ -51,9 +51,9 @@ $.fn.wl_Widget = function (method) {
 				}
 				
 				//if sortable add a class
-				if (_opts.sortable) {
-					$widget.addClass('sortable');
-				}
+				//if (_opts.sortable) {
+				//	$widget.addClass('sortable');
+				//}
 				
 				//if collapsible
 				if(_opts.collapsible){
