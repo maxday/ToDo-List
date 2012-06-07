@@ -113,7 +113,42 @@ $(document).ready(function() {
 				color: 'yellow',
 				textColor: 'black'
 			}
-			]
+			],
+			eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+				alert(
+					event.title + " was moved " +
+					dayDelta + " days and " +
+					minuteDelta + " minutes."
+				);
+
+				if (allDay) {
+					alert("Event is now all-day");
+				}else{
+					alert("Event has a time-of-day");
+				}
+
+				if (!confirm("Are you sure about this change?")) {
+					revertFunc();
+				}
+
+			},
+			drop: function (date, allDay)
+                { // this function is called when something is dropped
+
+                    // retrieve the dropped element's stored Event Object
+                    var originalEventObject = $(this).data('eventObject');
+
+                    // we need to copy it, so that multiple events don't have a reference to the same object
+                    var copiedEventObject = $.extend({}, originalEventObject);
+
+                    // assign it the date that was reported
+                    copiedEventObject.start = date;
+                    copiedEventObject.allDay = allDay;
+
+                    // render the event on the calendar
+                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                    $('calendar').fullCalendar('renderEvent', copiedEventObject, true);
+                }
 			});
 		
 		/*----------------------------------------------------------------------*/

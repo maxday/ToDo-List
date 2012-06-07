@@ -31,9 +31,10 @@ $(document).ready(function () {
 		weekends: true,
 		
 		// editing
-		//editable: false,
-		//disableDragging: false,
-		//disableResizing: false,
+		editable: true,
+		droppable: true,
+		disableDragging: false,
+		disableResizing: true,
 		
 		allDayDefault: true,
 		ignoreTimezone: true,
