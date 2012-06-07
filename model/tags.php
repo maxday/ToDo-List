@@ -117,7 +117,7 @@ function computeHtmlFromTags($tagsArray, $sort) {
 	foreach($tagsArray as $singleTag) {
 		$i++; 
 		if ( $sort == true ) {
-			$retour = $retour."<span class='forDelete'><button id='sortCateg".$i."' class='sortTagButton tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button><span class='tagButton deleteTag'><a fakeId='".str_replace(".", "", $singleTag['uuid'])."' id='".$singleTag['uuid']."' href=#>[X]</a></span></span>";
+			$retour = $retour."<span class='forDelete'><button id='sortCateg".$i."' class='sortTagButton tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button><span class='tagButton dontDisplayX deleteTag'><a fakeId='".str_replace(".", "", $singleTag['uuid'])."' id='".$singleTag['uuid']."' href=#>[X]</a></span></span>";
 		}
 		else {
 			$retour = $retour."<span class='forDelete'><button dragNdrop=".$singleTag['uuid']." class='tagButton tagButton".$i."' value=".$singleTag['title'].">".$singleTag['title']."</button><span class='tagButton deleteTag'><a fakeId='".str_replace(".", "", $singleTag['uuid'])."' id='".$singleTag['uuid']."'  href=#>[X]</a></span></span>";

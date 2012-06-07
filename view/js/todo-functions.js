@@ -198,8 +198,10 @@ $(document).ready(function () {
 		
 		var tab = $("span.tagButton").children();
 		for(j=0;j<tab.length;j++)
-			if(id && $(tab[j]).attr("fakeId") && $(tab[j]).attr("fakeId") == id.replace(".",""))
-				$(tab[j]).parent().show();
+			if(id && $(tab[j]).attr("fakeId") && $(tab[j]).attr("fakeId") == id.replace(".","")) {
+				if($(tab[j]).parent().attr("class").indexOf("dontDisplayX") == -1)
+					$(tab[j]).parent().show();
+			}
 	});
 
 	
