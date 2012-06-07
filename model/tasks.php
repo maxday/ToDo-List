@@ -268,9 +268,44 @@ function updateTaskWithTag($uuidTask, $uuidTag) {
 }
 
 
+function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid) {
+	$vConnect = connect();
+	$returnArray = array(); 
+	$paramarray = array();
+	if ( $date != "undefined") {
+		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND dueDate = ?"; 	
+		array_push($paramarray, $uuid);
+		array_push($paramarray, $date);
+	}
+	if ( $importance != "undefined") {
+		if ( $sql != "" )
+			$sql .= "INTERSECT ";
+		$sql .= "SELECT * FROM MYTODO_TASK WHERE user = ? AND isImportant = ?";
+		array_push($paramarray, $uuid);
+		array_push($paramarray, $importance);
+	}
+	if ( $priority != "undefined" ) {
+		if ( $sql != "" )
+			$sql .= "INTERSECT ";
+		$sql .= "SELECT * FROM MYTODO_TASK WHERE user = ? AND priority = ?";
+		array_push($paramarray, $uuid);
+		array_push($paramarray, $priority);
+	} 
+	$prepared_statement = $vConnect->prepare($sql);  
+	if($prepared_statement->execute($paramarray) == true) { 
+		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
+	    	array_push($returnArray, $line); 
+	  	}
+	} 
+	close($vConnect);
+	return $returnArray;
+}
+
 
 function formatTaskList($array) {
-  echo "<ul id='taskSortList'>";	
+  echo "<ul id='taskSortList'>";
+	// Colonne entete
+  echo "<li id='header_tab' class='task'><span class='singleTitle taskcolumn'>Intitulé</span><span class='singleDueDate taskcolumn'> Date </span> <span class='singlePriority taskcolumn'> Priorité</span> <span class='singleIsImportant taskcolumn'> importance</span> <span class='singleTag taskcolumn'> Categorie</span> <span class='taskcolumn'> Fini ?</span></li>";
   for($i = 0; $i < count($array); $i++){
 	      $bdd_uuid = $array[$i] -> uuid;
 	      $uuid = str_replace('.','',$bdd_uuid);
