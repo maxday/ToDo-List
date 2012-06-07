@@ -244,6 +244,9 @@ function maxDhelper( event ) {
 
 function maxDhandler( event, ui ) {
   var draggable = ui.draggable;
+  if(draggable.attr("class").indexOf("task")==0)
+		return;
+
   console.log("Tu mets le tag uuid = " + draggable.attr('value') +  "sur la tache" + $(this).attr('id'));
   var url = "../ws/addTagToTask.php";
   var task_value = $(this).attr('id');
