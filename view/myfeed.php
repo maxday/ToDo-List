@@ -1,5 +1,10 @@
 <?php
-	include("../helper/utils.php");
+
+	if(empty($_SESSION)) {
+		session_start();
+	}
+
+	include_once("../helper/utils.php");
 
 	function sortTasksByCategory($uuid) {
 		$vConnect = connect();
@@ -15,7 +20,7 @@
 		return $returnArray;
 	}
 	
-	$arrayFromSQL = sortTasksByCategory("4fb2ac296cb276.69528154");
+	$arrayFromSQL = sortTasksByCategory($_SESSION['uuid']);
 	$arrayToJSON = array(); 
 	
 	for ($j = 0 ; $j < count($arrayFromSQL) ; $j++) {
