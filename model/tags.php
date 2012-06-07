@@ -90,7 +90,7 @@ function countTag($user) {
 function getTagByUuid($uuid) {
 	$vConnect = connect();
 	$res = 0;
-	$sql = "SELECT title FROM MYTODO_TAG WHERE uuid=?";
+	$sql = "SELECT title FROM MYTODO_TAG WHERE uuid=? AND dateDeleted IS NULL";
 	$prepared_statement = $vConnect->prepare($sql);
 	if ($prepared_statement->execute(array($uuid)) == true) {
 		$res = $prepared_statement->fetch();
@@ -102,7 +102,7 @@ function getTagByUuid($uuid) {
 function getTagsFromUuid($uuid) {
 	$vConnect = connect();
 	$res = 0;
-	$sql = "SELECT uuid, title FROM MYTODO_TAG WHERE user=?";
+	$sql = "SELECT uuid, title FROM MYTODO_TAG WHERE user=? AND dateDeleted IS NULL";
 	$prepared_statement = $vConnect->prepare($sql);
 	if ($prepared_statement->execute(array($uuid)) == true) {
 		$res = $prepared_statement->fetchAll(); 
@@ -117,10 +117,10 @@ function computeHtmlFromTags($tagsArray, $sort) {
 	foreach($tagsArray as $singleTag) {
 		$i++; 
 		if ( $sort == true ) {
-			$retour = $retour."<button id='sortCateg".$i."' class='sortTagButton tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button>";
+			$retour = $retour."<span class='forDelete'><button id='sortCateg".$i."' class='sortTagButton tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button><span class='tagButton deleteTag'><a fakeId='".str_replace(".", "", $singleTag['uuid'])."' id='".$singleTag['uuid']."' href=#>[X]</a></span></span>";
 		}
 		else {
-			$retour = $retour."<button dragNdrop=".$singleTag['uuid']." class='tagButton tagButton".$i."' value=".$singleTag['title'].">".$singleTag['title']."</button>";
+			$retour = $retour."<span class='forDelete'><button dragNdrop=".$singleTag['uuid']." class='tagButton tagButton".$i."' value=".$singleTag['title'].">".$singleTag['title']."</button><span class='tagButton deleteTag'><a fakeId='".str_replace(".", "", $singleTag['uuid'])."' id='".$singleTag['uuid']."'  href=#>[X]</a></span></span>";
 		}
 		
 	}
@@ -132,7 +132,7 @@ function computeHtmlFromTags($tagsArray, $sort) {
 	for($j=$i; $j<6; ++$j) {
 		$suite++;
 		$suiteInd++;
-		$retour = $retour . "<button target='#new_label_input_".$suiteInd."' class='new_label i_plus icon tagButton".$suite."'>Nouveau</button>";
+		$retour = $retour . "<span class='forDelete'><button target='#new_label_input_".$suiteInd."' class='new_label i_plus icon tagButton".$suite."'>Nouveau</button><span class='tagButton deleteTag'><a href=#>[X]</a></span></span>";
 		$retour = $retour . "<input type='text' id='new_label_input_".$suiteInd."' class='new_label_input'>";
 	}
 

@@ -193,10 +193,47 @@ $(document).ready(function () {
 	helper:maxDhelper
 	});
 
+  	$('.tagButton').live("mouseenter",function(e) {
+		var id = $(this).attr("dragNdrop");
+		
+		var tab = $("span.tagButton").children();
+		for(j=0;j<tab.length;j++)
+			if(id && $(tab[j]).attr("fakeId") && $(tab[j]).attr("fakeId") == id.replace(".",""))
+				$(tab[j]).parent().show();
+	});
+
+	
+
+	
+	$('.tagButton').live("mouseleave",function(e) {
+	    $(".deleteTag").hide();
+	});
+	
+	$('.tagButton a').live("click",function(e) {
+	    
+		var uuidTagToDelete = $(this).attr("id");
+		console.log(uuidTagToDelete);
+		var url = '../ws/deleteTag.php';
+		$.post(url, { tag: uuidTagToDelete},
+			function (data) {
+				console.log(data);
+            }
+		);
+	
+	    var rank=Math.floor(Math.random()*1001);
+		var rank2=Math.floor(Math.random()*1001);
+
+	    $(this).parent().parent().replaceWith("<span class='forDelete'><button target='#new_label_input_"+rank+"' class='new_label i_plus icon tagButton"+rank2+"'>Nouveau</button><input type='text' id='new_label_input_"+rank+"' class='new_label_input'><span class='tagButton deleteTag'><a href=#>[X]</a></span></span>");
+	});
+	
+
+	
 	$('.task').droppable( {
 	    drop: maxDhandler
 	});
-  
+	
+	
+
 
 
 });
@@ -247,7 +284,13 @@ function launchAjaxNewTag(input, tag, tag_value) {
         $.post(url, { tag: tag_value }, function (data) {
 		   tag.attr("value", tag_value);
 		   tag.attr("dragNdrop", data);
+		   tag.next().next().children().attr("id",data);
+		   tag.next().next().children().attr("fakeId",data.replace(".",""));
         });
+
+
+
+
 
 		// On rafraichit la liste des tris
 		$.post(url_sort, function (data) {

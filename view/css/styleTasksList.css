@@ -34,3 +34,15 @@
 	margin-bottom : 5px;
 	list-style : none;
 }
+
+.deleteTag {
+	display : none;
+	position : relative;
+	left : -18px;
+	top : -9px;
+}
+
+.deleteTag a, .deleteTag a:hover, .deleteTag a:visited {
+	border : 0px;
+	text-decoration : none;
+}
