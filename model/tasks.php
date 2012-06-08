@@ -268,6 +268,17 @@ function updateTaskWithTag($uuidTask, $uuidTag) {
 }
 
 
+function updateTaskWithDate($uuidTask, $date) {
+	$vConnect = connect();
+	$returnArray = array(); 
+	$sql = "UPDATE MYTODO_TASK SET dueDate = ? WHERE uuid = ?"; 
+	$prepared_statement = $vConnect->prepare($sql);  
+	if($prepared_statement->execute(array($date, $uuidTask)) == true) 
+		return "KIKOO CA MARCHE";
+	close($vConnect);
+}
+
+
 function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid) {
 	$vConnect = connect();
 	$returnArray = array(); 

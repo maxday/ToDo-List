@@ -1,11 +1,11 @@
 <?php require("../model/tags.php"); ?>
 <form id="newTask" method="post" autocomplete="off" class="clearfix"> 
 	<section id="taskzone" class="inline">
-		<div class="g6" style="margin-top: 45px;">
+		<div class="g5" style="margin-top: 45px;">
 			<input type="text" id="text_field_task" class="taskUnFocus" name="text_field" style="" />
 			<hr class="littleSpace" />
 			<button class="i_bended_arrow_down icon small" style="float:right;">GO</button></div>
-			<div class="g3">
+			<div class="g4">
 				<h5 class="titreTask">Catégories</h5>
 				
 				<?php 

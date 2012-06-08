@@ -46,3 +46,8 @@
 	border : 0px;
 	text-decoration : none;
 }
+
+#draggableHelper {
+	border : 2px solid;
+	z-index : 200 !important;
+}

@@ -272,8 +272,30 @@ function maxDhelper( event ) {
 
 function maxDhandler( event, ui ) {
   var draggable = ui.draggable;
+
+
+//si reorder 
   if(draggable.attr("class").indexOf("task")==0)
 		return;
+
+//si date
+  if(draggable.attr("class").indexOf("fc-day-number")!=-1) {
+		var day = draggable.html();
+		var month = $('.calendar').fullCalendar('getDate').getMonth()+1;
+		var year = $('.calendar').fullCalendar('getDate').getYear()+1900;
+		var url = "../ws/addDateToTask.php";
+		var task_value = $(this).attr('id');
+		$.post(url, { dateD: day, dateM: month, dateY:year, taskId : task_value }, function (data) {
+				console.log(data);
+		  });
+		url = './tasksList.php'; 
+		  $.post(url,
+				function (data) {
+					$("#taskListRefresh").html(data);
+				}
+			);
+		return;
+  }
 
   console.log("Tu mets le tag uuid = " + draggable.attr('value') +  "sur la tache" + $(this).attr('id'));
   var url = "../ws/addTagToTask.php";

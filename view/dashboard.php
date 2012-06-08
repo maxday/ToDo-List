@@ -96,6 +96,7 @@
 	
 	
 	<script type="text/javascript" src="js/todo-functions.js"></script>
+	<script type="text/javascript" src="js/todo-dragDropDate.js"></script>
 </head>
 <body>
 	<!--<div id="pageoptions" style="">
@@ -137,7 +138,7 @@
 			</div> 
 		</div>
 
-
+<div style = "clear : both;"></div>
 		<div class="g3 widgets" style="float:right;">
 			<div class="widget" id="widget">
 				<h3 class="handle">Calendar!</b></h3>
