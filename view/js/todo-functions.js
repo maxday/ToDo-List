@@ -44,7 +44,7 @@ $(document).ready(function () {
 		var lastDateChosen = $("#date").val();
 		var url = './../ws/addComplexTask.php';
 		if ( typeof(SelectedPriority) == "undefined") {
-			SelectedPriority = 1; // Valeur par défaut ?
+			SelectedPriority = 0; // Valeur par défaut ?
 		}
 		var complexeTask = computeTask(title, lastTagClicked, SelectedPriority, isImportant, lastDateChosen);
 		
@@ -393,15 +393,74 @@ function getLibelleForBluebox(identifier, val) {
 	return val;
 }
 
-function addBluebox(identifier, lblCat) { 
+function getClass(identifier) {
+	if ( identifier == 'Date' || identifier == 'Importance' || identifier == 'Priority' ) {
+		return "sortableItem";
+	}
+	else {
+		return "cat";
+	}
+	
+} 
+
+function launchMultiCritQuery(sender) {
+	var selectedFilters = $('#sortOptions .buttonPushed');
+	var serializedSt = "";
+	var date, priority, importance;
+	
+	// Parse des catégories
+	for ( var i = 0 ; i < selectedFilters.length ; i++) {
+		if ( selectedFilters[i].value != "undefined")
+			serializedSt += '&&' + selectedFilters[i].value;
+	}
+	
+	// Parse de la date
+	if ( $('#sortOptions .selectedDate').length != 0 ) {
+		date = "2012-06-07"; // Ce sera dynamique avant le 15 juin inchallah !
+	}
+	
+	// Parse de l'importance
+	if ( $('#sortOptions .selectedImportance').length != 0 ) {
+		importance = 1;
+	}
+	else {
+		importance = 0;
+	}
+	
+	// Parse de la priorité
+	if ( $('#sortByPriority').length != 0 ) {
+		priority = $('#sortByPriority').attr('selectedPriority'); 
+	}
+	// Requete Multi-critères 
+	console.log(date + " - " + importance + " - " + priority + " - " + serializedSt );
+	var url = './../ws/sortTasksByParameters.php';
+	$.post(url, { date: date, importance: importance, priority: priority, category : serializedSt}, function (data) {
+		$("#taskListRefresh").html(data); 
+		if ( sender == "importance" ) {
+			$('.sortTagButton').removeClass('buttonPushed');
+			addBluebox("Importance", important);
+		}
+		if ( sender == "priority") {
+			$('.sortTagButton').removeClass('buttonPushed'); 
+			addBluebox("Priority", priority);
+		}
+		if ( sender == "date") {
+			$('.sortTagButton').removeClass('buttonPushed'); 
+			addBluebox("Date", date);
+		}
+    });	
+}
+
+function addBluebox(identifier, value) { 
 	var activeFilters = $('#activeSorts'); 
 	identifier = identifier.replace('.', '_');
 	var divId = "selected" + identifier; 
-	lblCat = getLibelleForBluebox(identifier, lblCat);
+	var lblCat = getLibelleForBluebox(identifier, value);
+	var divClass = getClass(identifier);
 	if ( $('#' + divId).length == 0 ) {
 		jQuery("<div>", {
 	 		id: divId,
-			class: 'cat',
+			class: divClass,
 	 		html: '<b>' + lblCat + '</b>',
 	    	css: {
 	        	height: "25px",
@@ -416,25 +475,11 @@ function addBluebox(identifier, lblCat) {
 	        	backgroundColor: "#7894e5",
 				display : "inline"
 	    	},
+			realValue : value,
 	    	click: function() {
 	       		$(this).remove();
 				// On rafraichit la liste avec les filtres selectionnes
-				var selectedFilters = $('#activeSorts .cat');
-				var serializedSt = "";
-				var date, priority, importance;
-				for ( var i = 0 ; i < selectedFilters.length ; i++) {
-					serializedSt += '&&' + selectedFilters[i].id;
-				}
-				if ( $('#selectedDate').length != 0 ) {
-					date = $('#selectedDate').text();
-				}
-				if ( $('#selectedImportance').length != 0 ) {
-					importance = $('#selectedImportance').text();
-				}
-				if ( $('#selectedPriority').length != 0 ) {
-					priority = $('#selectedPriority').text();
-				}
-				console.log(date + " categories " + serializedSt + " pr " + priority + " importance " + importance);
+				launchMultiCritQuery();
 	    	}
 		}).appendTo(activeFilters);
 	}

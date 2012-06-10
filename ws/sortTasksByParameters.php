@@ -3,27 +3,27 @@
 		session_start();
 	}		
 	require("../model/tags.php");
-	require("../model/tasks.php");
-	extract($_POST);
-	
-	// Tri sur la date uniquement
-	if ( isset($date) ) { 
-		$array = sortTasksByDate($date, $_SESSION['uuid']); 
+	require("../model/tasks.php"); 
+	extract($_POST); 
+	 
+	if ( !isset($date) ) { $date = "undefined"; }
+	if ( !isset($importance) ) { $importance = "undefined"; }
+	if ( !isset($priority) ) { $priority = "undefined"; }
+	if ( !isset($category) ) { 
+		$cat = "undefined"; 
 	}
-	
-	// Tri sur l'importance
-	if ( isset($importance) ) { 
-		$array = sortTasksByImportance($importance, $_SESSION['uuid']); 
-	}
-	
-	// Tri sur la priorite
-	if ( isset($priority) ) { 
-		$array = sortTasksByPriority($priority, $_SESSION['uuid']); 
-	}	
-	
-	if ( isset($category) ) {
-		$array = sortTasksByCategory($category, $_SESSION['uuid']);
-	}
+	else {  
+		$category = preg_split('!&&!', $category); 
+		if ( isset($category[1]) ) {
+			$cat = $category[1];
+		}
+		else {
+			$cat = "undefined";
+		}
+	} 
+	// Lancement de la requete
+	$array = sortTasksByMultiCrits($date, $importance, $priority, $cat, $_SESSION['uuid']);
+
 	
 	formatTaskList($array);
 

@@ -283,27 +283,30 @@ function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid
 	$vConnect = connect();
 	$returnArray = array(); 
 	$paramarray = array();
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? ";
+	array_push($paramarray, $uuid);
+	
 	if ( $date != "undefined") {
-		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND dueDate = ?"; 	
-		array_push($paramarray, $uuid);
+		$sql .= "AND dueDate = ? "; 	
 		array_push($paramarray, $date);
 	}
-	if ( $importance != "undefined") {
-		if ( $sql != "" )
-			$sql .= "INTERSECT ";
-		$sql .= "SELECT * FROM MYTODO_TASK WHERE user = ? AND isImportant = ?";
-		array_push($paramarray, $uuid);
+	if ( $importance != "undefined") {  
+		$sql .= "AND isImportant = ? "; 
 		array_push($paramarray, $importance);
 	}
-	if ( $priority != "undefined" ) {
-		if ( $sql != "" )
-			$sql .= "INTERSECT ";
-		$sql .= "SELECT * FROM MYTODO_TASK WHERE user = ? AND priority = ?";
-		array_push($paramarray, $uuid);
+	if ( $priority != "undefined" ) { 
+		$sql .= "AND priority = ?"; 
 		array_push($paramarray, $priority);
 	} 
+	
+	if ( $categories != "undefined") { 
+		$sql .= "AND tag = ?";
+		array_push($paramarray, $categories);
+	}
+	
 	$prepared_statement = $vConnect->prepare($sql);  
-	if($prepared_statement->execute($paramarray) == true) { 
+	$res = $prepared_statement->execute($paramarray);
+	if( $res == true) { 
 		while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {
 	    	array_push($returnArray, $line); 
 	  	}
