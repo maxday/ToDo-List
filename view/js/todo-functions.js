@@ -431,27 +431,27 @@ function launchMultiCritQuery(sender) {
 	if ( $('#sortByPriority').length != 0 ) {
 		priority = $('#sortByPriority').attr('selectedPriority'); 
 	}
+	var senderF = sender;
 	// Requete Multi-critères 
 	console.log(date + " - " + importance + " - " + priority + " - " + serializedSt );
 	var url = './../ws/sortTasksByParameters.php';
 	$.post(url, { date: date, importance: importance, priority: priority, category : serializedSt}, function (data) {
 		$("#taskListRefresh").html(data); 
-		if ( sender == "importance" ) {
-			$('.sortTagButton').removeClass('buttonPushed');
-			addBluebox("Importance", important);
+		console.log("l'arnaque : " + senderF);
+		if ( sender == "importance" ) { 
+			addBluebox("Importance", importance);
 		}
-		if ( sender == "priority") {
-			$('.sortTagButton').removeClass('buttonPushed'); 
+		if ( sender == "priority") { 
 			addBluebox("Priority", priority);
 		}
-		if ( sender == "date") {
-			$('.sortTagButton').removeClass('buttonPushed'); 
+		if ( sender == "date") { 
 			addBluebox("Date", date);
-		}
+		} 
     });	
 }
 
 function addBluebox(identifier, value) { 
+	alert("bluebox " + identifier + " v " + value);
 	var activeFilters = $('#activeSorts'); 
 	identifier = identifier.replace('.', '_');
 	var divId = "selected" + identifier; 
@@ -478,8 +478,32 @@ function addBluebox(identifier, value) {
 			realValue : value,
 	    	click: function() {
 	       		$(this).remove();
-				// On rafraichit la liste avec les filtres selectionnes
-				launchMultiCritQuery();
+				if ( $('#activeSorts').children().size() == 0 ) {
+					$('#sortByImportance').removeClass("buttonPushed selectedImportance");
+					$('#sortByDate').removeClass("buttonPushed selectedDate");
+					$('#sortByPriority').removeAttr('selectedPriority');
+					$('.sortTagButton').removeClass('buttonPushed');
+					launchMultiCritQuery(sender);	
+				}
+				else {			
+					var sender = "undefined";
+					if ( identifier == "Date") {
+						$('#sortByDate').removeClass("buttonPushed selectedDate");
+					}
+					if ( identifier == "Priority") {
+						$('#sortByPriority').removeAttr('selectedPriority');
+					}
+					if ( identifier == "Importance") {
+						$('#sortByImportance').removeClass("buttonPushed selectedImportance");
+					}
+					if ( identifier.indexOf('.') > 0 ) {
+						// Categorie
+						$('.sortTagButton').removeClass('buttonPushed');
+					}
+					// On rafraichit la liste avec les filtres selectionnes
+					launchMultiCritQuery(sender);
+				}
+				
 	    	}
 		}).appendTo(activeFilters);
 	}

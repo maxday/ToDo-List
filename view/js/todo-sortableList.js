@@ -33,23 +33,23 @@ $("#taskSortList").disableSelection();
 /* Tri par date */
 $('#sortByDate').bind('click', function() {
 	$('#sortByDate').addClass("buttonPushed selectedDate");
-	launchMultiCritQuery();
+	launchMultiCritQuery("date");
 });
 
 /* Tri par importance */
 $('#sortByImportance').bind('click', function() {
 	$('#sortByImportance').addClass("buttonPushed selectedImportance");
-	launchMultiCritQuery();  
+	launchMultiCritQuery("importance");  
 });
 
 /* Tri par priorite - Methode appelee par le plugin jRating */ 
 function sortByPriority(priority) {
 	$('#sortByPriority').attr('selectedPriority', priority);
-	launchMultiCritQuery(); 
+	launchMultiCritQuery("priority"); 
 }
 
 function sortByCategory(category) {
-	launchMultiCritQuery();
+	launchMultiCritQuery("category");
 }
 
 /* Desactiver les tris actifs */
