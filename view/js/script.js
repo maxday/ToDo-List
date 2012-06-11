@@ -109,7 +109,7 @@ $(document).ready(function() {
 		$content.find('div.calendar').wl_Calendar({
 			eventSources:[
 			{
-				url: '/ToDo-List/view/myfeed.php',
+				url: 'myfeed.php',
 				color: 'yellow',
 				textColor: 'black'
 			}
