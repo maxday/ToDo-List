@@ -120,50 +120,58 @@
 	</header>
 
 	<section id="content">
-		<div id="top">
-			<div class="g9 nodrop"> 
-				<h3 class="handle" id="leila">Ajouter tache</h3>
+		
+		
+		<!-- PARTIE GAUCHE-->
+		<div id="left_part" class="g9" style="float:left;">
+			<div class="nodrop widget"> 
+				<h3 class="handle">Ajouter tache</h3>
 				<?php
 					include('insertTask.php');
 				?> 
-			</div>	
-
-
-		<div class="g3 widgets" style="float:right;">
-			<div class="widget" id="widget">
-				<h3 class="handle">Tris</b></h3>
-				<?php
-					include('sortView.php');
-				?>
-			</div> 
-		</div>
-
-<div style = "clear : both;"></div>
-		<div class="g3 widgets" style="float:right;">
-			<div class="widget" id="widget">
-				<h3 class="handle">Calendar!</b></h3>
-				<div class="calendar"></div>
-			</div> 
-		</div>
-
-	</div>
-	<!-- <div style="clear: both; "></div> --> 
-	<div class="g9 widgets">
- 
-
-		<div class="widget" id="widget_info">
-			<h3 class="handle">Liste des tâches</h3>
-			<div id="activeSorts">
 			</div>
-			<div id="taskListRefresh">
-				<?php
-					include('tasksList.php')
-				?>
+			
+			<div class="widgets">
+				<div class="widget" id="widget_info">
+					<h3 class="handle">Liste des tâches</h3>
+					<div id="activeSorts">
+					</div>
+					<div id="taskListRefresh">
+						<?php
+							include('tasksList.php')
+						?>
+					</div>
+				</div>
 			</div>
 		</div>
+		<!-- FIN PARTIE GAUCHE-->
+		
 
-	</div>
-</section>
+		
+		<!-- PARTIE DROITE-->
+		<div id="right_part" class="g3" style="float:left;">
+			<div class="widgets">
+				<div class="widget" id="widget">
+					<h3 class="handle">Tris</b></h3>
+					<?php
+						include('sortView.php');
+					?>
+				</div> 
+			</div>
+
+			<div class="widgets">
+				<div class="widget" id="widget">
+					<h3 class="handle">Calendar!</b></h3>
+					<div class="calendar"></div>
+				</div> 
+			</div>
+		</div>
+		<!-- FIN PARTIE DROITE-->
+		
+		<!-- un clear both pour nettoyer les float-->
+		<div style="clear:both"> </div>
+	</section>
+	
 <footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
 
 <div class="hidden">
@@ -171,7 +179,7 @@
 	<div class="fancy_content" id="protect_form">
 		<section class="box">
 			<div class="title">
-				<h1>Protège moi</h1>
+				<h1>Protection</h1>
 			</div>
 			
 			<?php if(isProtected($_SESSION['uuid'])){ ?>
