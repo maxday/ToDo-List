@@ -1,6 +1,6 @@
 <?php
 
-include("../helper/utils.php");
+include_once("../helper/utils.php");
 
 /* tested */
 function createUser($login) {
@@ -8,6 +8,7 @@ function createUser($login) {
 	$uniqid = (uniqid("",true));
 	$array = array($uniqid, $login);
 	launchQuery($sql, $array);
+	createDefaultTagForUser($uniqid);
 	return $uniqid;
 }
 	
@@ -201,5 +202,26 @@ function checkPwd($uid, $pwd) {
 		return UNCORRECT_PWD;
 	}
 }
- 
+
+// devrait normalement faire appel à une méthode située dans le model tag,  ou au moins utiliser le créer tag de tags.php, mais
+// lorsque je veux faire un include_once("tags.php") dans ce fichier,  tout plante et je ne sais aps pourquoi. surement 
+// problème de double inclusion ou je sais pas trop
+// dégueulasse, mais ca marche
+function createDefaultTagForUser($user_uuid) {
+	
+	$sql = "INSERT INTO MYTODO_TAG(uuid, title, dateCreated, user) VALUES (?, ?, NOW(), ?)"; 
+	$uniqid = (uniqid("",true));	
+	$array = array($uniqid, "Travail", $user_uuid);
+
+	launchQuery($sql, $array);
+	
+	$sql = "INSERT INTO MYTODO_TAG(uuid, title, dateCreated, user) VALUES (?, ?, NOW(), ?)"; 
+	$uniqid = (uniqid("",true));	
+	$array = array($uniqid, "Courses", $user_uuid);
+
+	launchQuery($sql, $array);
+	
+}
+
+
 ?>
