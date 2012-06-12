@@ -223,5 +223,63 @@ function createDefaultTagForUser($user_uuid) {
 	
 }
 
+/* tested */
+function isDisplayFilters($uuid) {
+	$sql = "SELECT displayFilters FROM MYTODO_USER WHERE uuid=?";
+	$vConnect = connect();
+	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($uuid));
+	$line = $prepared_statement->fetch(PDO::FETCH_OBJ);
+	close($vConnect);
+	return $line->displayFilters;
+}
+
+/* tested */
+function isDisplayCalendar($uuid) {
+	$sql = "SELECT displayCalendar FROM MYTODO_USER WHERE uuid=?";
+	$vConnect = connect();
+	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($uuid));
+	$line = $prepared_statement->fetch(PDO::FETCH_OBJ);
+	close($vConnect);
+	return $line->displayCalendar;
+}
+
+/* tested */
+function displayCalendar($uuid) {
+	return updateCalendar($uuid, 1);
+}
+
+/* tested */
+function hideCalendar($uuid) {
+	return updateCalendar($uuid, 0);
+}
+
+/* tested */	
+function displayFilters($uuid) {
+	return updateFilters($uuid, 1);
+}
+
+/* tested */
+function hideFilters($uuid) {
+	return updateFilters($uuid, 0);
+}
+
+/* PRIVATE */
+/* tested */
+function updateCalendar($uuid, $isDisplayed) {
+	$sql = "UPDATE MYTODO_USER SET displayCalendar=? WHERE uuid=?";
+	$array = array($isDisplayed, $uuid);
+	launchQuery($sql, $array);
+}
+
+/* PRIVATE */
+/* tested */
+function updateFilters($uuid, $isDisplayed) {
+	$sql = "UPDATE MYTODO_USER SET displayFilters=? WHERE uuid=?";
+	$array = array($isDisplayed, $uuid);
+	launchQuery($sql, $array);
+}
+
 
 ?>
