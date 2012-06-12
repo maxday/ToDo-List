@@ -59,11 +59,11 @@ $(document).ready(function () {
 		else {
 			$.post(url, { complexeTask: complexeTask},
 			function (data) {
-			                $('#text_field_task').val("");
-					$("#taskListRefresh").html(data);
-				}
-			); 
-		}
+				$('#text_field_task').val("");
+				$("#taskListRefresh").html(data);
+			}
+		);
+		$('.calendar').fullCalendar( 'refetchEvents' );
 	});
 	
 	/* SAVE TAG */
@@ -303,6 +303,7 @@ function maxDhandler( event, ui ) {
 					$("#taskListRefresh").html(data);
 				}
 			);
+		 $('.calendar').fullCalendar( 'refetchEvents' )
 		return;
   }
 
