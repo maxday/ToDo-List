@@ -112,56 +112,89 @@
 </head>
 <body>
 <div id="gradient">
-	<header class="header">
-		<div class="logo">
-			<a href="#" title=""><img alt="logo" src="img/logo.png"></a>
+	
+	<div id="main_panel" style="">
+	
+		<div id="description_panel">
+		
+			<section class="box" style="width:300px;">
+				<div class="title">
+					<h1>Salut</h1>
+				</div>
+			</section>
+			
+			<div id="wrapper2">
+
+				<div class="conten2">
+					
+					SAlut ca va? 
+					
+				</div>
+
+			</div>
+		
 		</div>
-	</header>
+	
+	
+	
+	
+		<div style="float:left;">
+	
+			<header class="header">
+				<div class="logo">
+					<a href="#" title=""><img alt="logo" src="img/logo.png"></a>
+				</div>
+			</header>
 
 
 
-<section class="box">
-	<div class="title">
-		<h1>Bienvenue</h1>
+			<section class="box">
+				<div class="title">
+					<h1>Bienvenue</h1>
+				</div>
+			</section>
+
+
+
+
+
+			<div id="wrapper">
+
+				<div class="conten">
+
+					<div class="container">
+					</div>
+
+					<section class="subscribe">
+						<div class="sub-conten">
+							<form id="loginForm" method="post" action="login.php">
+								<div class="lineForm">
+									<span class="labelForm">Login :</span>
+									<span class="fieldForm">
+										<input name="login" placeholder="">
+									</span>
+								</div>
+								<div id="pwdHide" class="lineForm invisible">
+									<span class="labelForm">Mot de passe :</span>	
+									<span class="fieldForm">	
+										<input id="pwdField" name="password" type="password" placeholder="">
+									</span>
+								</div>
+								<div class="lineForm">
+									<input type="submit" class="submit" id="submit_button" value="Envoyer">
+								</div>
+								<div class="errorLogin">
+					
+								</div>
+							</form>
+						</div>
+					</section>
+				</div>
+
+			</div>
+		
+		
+		</div>
 	</div>
-</section>
-
-
-
-
-
-<div id="wrapper">
-
-<div class="conten">
-
-
-<div class="container">
-</div>
-
-<section class="subscribe">
-	<div class="sub-conten">
-		<form id="loginForm" method="post" action="login.php">
-			<div class="lineForm">
-				<span class="labelForm">Login :</span>
-				<span class="fieldForm">
-					<input name="login" placeholder="">
-				</span>
-			</div>
-			<div id="pwdHide" class="lineForm invisible">
-				<span class="labelForm">Mot de passe :</span>	
-				<span class="fieldForm">	
-					<input id="pwdField" name="password" type="password" placeholder="">
-				</span>
-			</div>
-			<div class="lineForm">
-				<input type="submit" class="submit" id="submit_button" value="Envoyer">
-			</div>
-			<div class="errorLogin"></div>
-		</form>
-	</div>
-</section>
-</div>
-
-
 </body>
 </html> 

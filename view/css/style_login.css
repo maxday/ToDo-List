@@ -113,7 +113,6 @@ header, section, article, aside, nav, footer {
 	overflow: hidden;
 	position: relative;
 	margin: 20px auto 20px;
-	text-align: center;
 }
 
 
@@ -175,6 +174,14 @@ header, section, article, aside, nav, footer {
 	height: 210px;
 	width: 612px;
 	margin: 0px;
+}
+
+.conten2 {
+	padding: 10px;
+	height: 210px;
+	width: 280px;
+	margin: 0px;
+	color: black;
 }
 
 
@@ -357,6 +364,19 @@ header, section, article, aside, nav, footer {
 	background-repeat: no-repeat;
 	background-position: center top;
 }		
+
+#wrapper2 {
+	height: 335px;
+	width: 300px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+	background-image: url(../img/wrapp2.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+}		
+
 		
 		
 /* Circular Content Carousel Style */
@@ -713,4 +733,23 @@ header, section, article, aside, nav, footer {
 
 .invisible {
 	display : none;
+}
+
+
+
+#main_panel {
+   margin : auto; 
+   display:block; 
+   width : 980px;
+   height : 1000px;
+}
+
+#description_panel {
+   float:left;
+   display:block;
+   width:300px;height: 500px;
+   margin-top:165px;
+   margin-right: 50px;
+   color:white;
+   font-size : 32px;
 }
