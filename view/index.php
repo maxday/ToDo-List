@@ -81,7 +81,9 @@
 						return false;
 					}
 
-					if(pass.length < 1) {
+					if(pass.length < 1) { 
+						$("#pwdHide").show();
+						$("#pwdField").focus();
 						$(".errorLogin").html('<div class="alert warning">Mot de passe absent !!</div>');
 						return false;
 					}
@@ -90,16 +92,26 @@
 					$.post(url, { login: login, pass: pass},
 						function (data) {
 							if(data == "6") {
+							$("#pwdHide").show();
+							$("#pwdField").focus();
 								$(".errorLogin").html('<div class="alert warning">Mot de passe incorrect !!</div>'); 
 								prevent = false;
-								$("#pwdHide").show();
-								$("#pwdField").focus();
 							} else { 
 								window.location.href = "dashboard.php";
 							}
 						}
 					);
 				}
+			});
+			
+			$('#loginField').bind("focus", function() {  
+				if ( $('#pwdHide').is(':visible')) {
+					prevent = true;
+					$('.error').remove();
+					$('#pwdField').val('');
+					$('#pwdHide').hide();
+					$('#pwdField').focus();
+				} 
 			});
 	});
 </script>
@@ -180,7 +192,7 @@
 								<div class="lineForm">
 									<span class="labelForm">Login :</span>
 									<span class="fieldForm">
-										<input name="login" placeholder="">
+										<input id="loginField" name="login" placeholder="">
 									</span>
 								</div>
 								<div id="pwdHide" class="lineForm invisible">

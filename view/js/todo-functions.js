@@ -442,12 +442,10 @@ function launchMultiCritQuery(sender) {
 		priority = $('#sortByPriority').attr('selectedPriority'); 
 	}
 	var senderF = sender;
-	// Requete Multi-critères 
-	console.log(date + " - " + importance + " - " + priority + " - " + serializedSt );
+	// Requete Multi-critères  
 	var url = './../ws/sortTasksByParameters.php';
 	$.post(url, { date: date, importance: importance, priority: priority, category : serializedSt}, function (data) {
-		$("#taskListRefresh").html(data); 
-		console.log("l'arnaque : " + senderF);
+		$("#taskListRefresh").html(data);  
 		if ( sender == "importance" ) { 
 			addBluebox("Importance", importance);
 		}
