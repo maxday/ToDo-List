@@ -51,3 +51,11 @@
 	border : 2px solid;
 	z-index : 200 !important;
 }
+
+#activeSorts {
+   display: block;
+   margin-left: 120px;
+   margin-top: -19px;
+   position: absolute;
+   z-index: 10;
+}
