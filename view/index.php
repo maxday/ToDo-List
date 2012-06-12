@@ -164,7 +164,9 @@
 
 					<div class="container">
 					</div>
-
+					<section id="fondWelcomeTxt" class="subscribe">
+						Connectez-vous ou saisissez un login pour créer votre compte !
+					</section>
 					<section class="subscribe">
 						<div class="sub-conten">
 							<form id="loginForm" method="post" action="login.php">

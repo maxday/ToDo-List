@@ -16,6 +16,18 @@
 
 }
 
+#fondWelcomeTxt {
+	-webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px;
+	text-align:center;
+	color: #212325;
+	font-weight: bold;
+	background-color: #FFFF00;
+	margin: 15px auto;
+	padding-top: 15px;
+	padding-left: 15px; 
+	text-shadow:0 1px 0 rgba(255,255,255,0.4); 
+}
+
 div.alert{
 	border-color:#c7c7c7 #b2b2b2 #b2b2b2 #c7c7c7;
 	text-shadow:0 1px 0 rgba(255,255,255,0.4);
@@ -188,7 +200,7 @@ header, section, article, aside, nav, footer {
 .title h1{
 	color: #dcdee0;
 	font-family: "BebasRegular", Arial, sans-serif;
-	font-size: 36px;
+	font-size: 32px;
 	padding: 0px;
 	margin-top: 27px;
 	margin-right: 0px;
