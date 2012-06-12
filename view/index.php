@@ -119,7 +119,7 @@
 		
 			<section class="box" style="width:300px;">
 				<div class="title">
-					<h1>Salut</h1>
+					<h1>My ToDoList</h1>
 				</div>
 			</section>
 			
@@ -127,7 +127,14 @@
 
 				<div class="conten2">
 					
-					SAlut ca va? 
+					Gérez votre liste de tâches plus efficacement avec MyToDo !<br/><br/>
+					<ul class="description_home">
+					<li>N'oubliez plus rien d'important</li>
+					<li>Ordonnez vos tâches et retrouvez-les facilement</li>
+					<br/>
+					<li>Une interface fluide et intuitive</li>
+					<li>Les toutes dernières technologies du Web à votre service</li>
+					</ul>
 					
 				</div>
 
