@@ -196,24 +196,26 @@ $.fn.wl_Widget = function (method) {
 
 						var _widget = $('#' + widget);
 						
+						if (_widget.length > 0) {
 
-						//widget should be collpased
-						(options.collapsed && _widget.data('wl_Widget').collapsible) ? _widget.addClass('collapsed').find('div').eq(0).hide().data('wl_Widget', {
-							collapsed: true
-						}) : _widget.removeClass('collapsed').find('div').eq(0).show().data('wl_Widget', {
-							collapsed: false
-						});
+   						//widget should be collpased
+   						(options.collapsed && _widget.data('wl_Widget').collapsible) ? _widget.addClass('collapsed').find('div').eq(0).hide().data('wl_Widget', {
+   							collapsed: true
+   						}) : _widget.removeClass('collapsed').find('div').eq(0).show().data('wl_Widget', {
+   							collapsed: false
+   						});
 
-						//position handling
-						if (_widget.length && (_widget.prevAll('div').length != options.position || _widget.parent()[0] !== $cont[0])) {
-							children = $cont.children('div.widget');
-							if (children.eq(options.position).length) {
-								_widget.insertBefore(children.eq(options.position));
-							} else if (children.length) {
-								_widget.insertAfter(children.eq(options.position - 1));
-							} else {
-								_widget.appendTo($cont);
-							}
+   						//position handling
+   						if (_widget.length && (_widget.prevAll('div').length != options.position || _widget.parent()[0] !== $cont[0])) {
+   							children = $cont.children('div.widget');
+   							if (children.eq(options.position).length) {
+   								_widget.insertBefore(children.eq(options.position));
+   							} else if (children.length) {
+   								_widget.insertAfter(children.eq(options.position - 1));
+   							} else {
+   								_widget.appendTo($cont);
+   							}
+   						}
 						}
 					});
 				});
