@@ -3,7 +3,6 @@
 		session_start();
 	}
 ?>
-<script type="text/javascript" src="./js/todo-sortableList.js"></script>
 
 <?php
 

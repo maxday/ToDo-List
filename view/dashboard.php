@@ -98,8 +98,9 @@
 	<link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 	
 	
-	<script type="text/javascript" src="js/todo-functions.js"></script>
-	<script type="text/javascript" src="js/todo-dragDropDate.js"></script>
+	<script type="text/javascript" src="./js/todo-sortableList.js"></script>
+	<script type="text/javascript" src="./js/todo-functions.js"></script>
+	<script type="text/javascript" src="./js/todo-dragDropDate.js"></script>
 </head>
 <body>
 	<!--<div id="pageoptions" style="">

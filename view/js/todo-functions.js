@@ -270,7 +270,35 @@ $(document).ready(function () {
 	    drop: maxDhandler
 	});
 	
+	/* Tri par date */
+	$('#sortByDate').bind('click', function() {
+		console.log("alalalal");
+		$('#sortByDate').addClass("buttonPushed selectedDate");
+		launchMultiCritQuery("date");
+	});
+
+	/* Tri par importance */
+	$('#sortByImportance').bind('click', function() {
+		$('#sortByImportance').addClass("buttonPushed selectedImportance");
+		launchMultiCritQuery("importance");  
+	});
 	
+	/* Desactiver les tris actifs */
+	$('#reset').bind('click', function() {
+		console.log("allo");
+		var url = './tasksList.php'; 
+		$('#sortByImportance').removeClass("buttonPushed selectedImportance");
+		$('#sortByDate').removeClass("buttonPushed selectedDate");
+		$('#sortByPriority').removeAttr('selectedPriority');
+	    $.post(url,
+			function (data) {
+				// Désactiver les tris actifs
+				$('.sortTagButton').removeClass('buttonPushed');
+				$('#activeSorts').empty();
+				$("#taskListRefresh").html(data);
+			}
+		);	
+	});
 
 
 
@@ -413,6 +441,18 @@ function getClass(identifier) {
 	
 } 
 
+
+/* Tri par priorite - Methode appelee par le plugin jRating */ 
+function sortByPriority(priority) {
+	$('#sortByPriority').attr('selectedPriority', priority);
+	launchMultiCritQuery("priority"); 
+}
+
+function sortByCategory(category) {
+	$('.cat').remove();
+	launchMultiCritQuery("category");
+}
+
 function launchMultiCritQuery(sender) {
 	var selectedFilters = $('#sortOptions .buttonPushed');
 	var serializedSt = "";
@@ -445,6 +485,9 @@ function launchMultiCritQuery(sender) {
 	// Requete Multi-critères  
 	var url = './../ws/sortTasksByParameters.php';
 	$.post(url, { date: date, importance: importance, priority: priority, category : serializedSt}, function (data) {
+		if ( data == "" ) {
+			data = "Pas de tâches correspondant à ces critères. Ajoutez une tâche en utilisant le panel juste au-dessus !";
+		}
 		$("#taskListRefresh").html(data);  
 		if ( sender == "importance" ) { 
 			addBluebox("Importance", importance);
@@ -459,6 +502,7 @@ function launchMultiCritQuery(sender) {
 }
 
 function addBluebox(identifier, value) {  
+	console.log(identifier + " hello " + value);
 	var activeFilters = $('#activeSorts'); 
 	identifier = identifier.replace('.', '_');
 	var divId = "selected" + identifier; 
@@ -484,6 +528,7 @@ function addBluebox(identifier, value) {
 	    	},
 			realValue : value,
 	    	click: function() {
+			console.log(identifier + " hello " + value);
 	       		$(this).remove();
 				if ( $('#activeSorts').children().size() == 0 ) {
 					$('#sortByImportance').removeClass("buttonPushed selectedImportance");
@@ -503,8 +548,9 @@ function addBluebox(identifier, value) {
 					if ( identifier == "Importance") {
 						$('#sortByImportance').removeClass("buttonPushed selectedImportance");
 					}
-					if ( identifier.indexOf('.') > 0 ) {
+					if ( identifier.indexOf('_') > 0 ) {
 						// Categorie
+						console.log("lol removeeee");
 						$('.sortTagButton').removeClass('buttonPushed');
 					}
 					// On rafraichit la liste avec les filtres selectionnes
