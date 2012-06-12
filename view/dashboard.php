@@ -155,7 +155,7 @@
 		<!-- PARTIE DROITE-->
 		<div id="right_part" class="g3" style="float:left;">
 			<div class="widgets">
-				<div class="widget" >
+				<div resource="filter" class="widget" <?php if(isDisplayFilters($_SESSION['uuid'])) echo "data-collapsed='false'"; else echo "data-collapsed='true'"; ?>>
 					<h3 class="handle">Filtres</b></h3>
 					<?php
 						include('sortView.php');
@@ -163,8 +163,8 @@
 				</div> 
 			</div>
 
-			<div class="widgets">
-				<div class="widget">
+			<div  class="widgets">
+				<div resource="calendar" class="widget" <?php if(isDisplayCalendar($_SESSION['uuid'])) echo "data-collapsed='false'"; else echo "data-collapsed='true'"; ?>>
 					<h3 class="handle">Calendar!</b></h3>
 					<div class="calendar"></div>
 				</div> 

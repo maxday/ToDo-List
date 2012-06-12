@@ -326,8 +326,24 @@ if($.fn.wl_Widget) $.fn.wl_Widget.defaults = {
 	},
 	onDrag: function () {},
 	onDrop: function () {},
-	onExpand: function () {},
-	onCollapse: function () {}
+	onExpand: function () { 
+		if($(this).attr("resource") != "calendar")
+			var url = "../ws/displayFilters.php"
+		else
+			var url = "../ws/displayCalendar.php"		
+		$.post(url, { show: 1}, function (data) {
+				console.log(data);
+		});
+	},
+	onCollapse: function () {
+		if($(this).attr("resource") != "calendar")
+			var url = "../ws/displayFilters.php"
+		else
+			var url = "../ws/displayCalendar.php"
+		$.post(url, { show: 0}, function (data) {
+				console.log(data);
+		});
+	}
 };
 
 
