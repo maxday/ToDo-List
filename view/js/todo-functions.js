@@ -303,7 +303,7 @@ function maxDhandler( event, ui ) {
 					$("#taskListRefresh").html(data);
 				}
 			);
-		 $('.calendar').fullCalendar( 'refetchEvents' )
+		 $('.calendar').fullCalendar( 'refetchEvents' );
 		return;
   }
 
