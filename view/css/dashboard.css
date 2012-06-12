@@ -1,0 +1,12 @@
+/* Haut du dashboard */
+
+#howdy_button {
+	background: -moz-linear-gradient(center top , #F1F1F1, #E8E8E8) repeat scroll 0 0 transparent;
+    border-top-color: #E8E8E8;
+    color: #353535;
+    text-shadow: 0 1px 0 #FFFFFF;padding: 15px 15px 10px 10px;
+}
+
+#lg_txt {
+	color: #353535;font-weight: none;
+}

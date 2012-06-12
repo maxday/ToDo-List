@@ -89,6 +89,7 @@
 
 	<!-- Priorités -->
 	<link rel="stylesheet" type="text/css" href="./css/light/jRating.jquery.css" media="screen" /> 
+	<link rel="stylesheet" type="text/css" href="./css/dashboard.css" media="screen" />
 	<!-- jQuery files --> 
 	<script type="text/javascript" src="./js/jRating.jquery.js"></script>
 	<script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
