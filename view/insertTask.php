@@ -4,8 +4,8 @@
 		<div class="g5" style="margin-top: 45px;">
 			<input type="text" id="text_field_task" class="taskUnFocus" name="text_field" style="" />
 			<hr class="littleSpace" />
-			<button class="i_bended_arrow_down icon small" style="float:right;">GO</button></div>
-			<div class="g4">
+			<button class="i_bended_arrow_down icon small">GO</button></div>
+			<div class="g4 fullOption hidden">
 				<h5 class="titreTask">Catégories</h5>
 				
 				<?php 
@@ -14,7 +14,7 @@
 
 				
 			</div>
-			<div class="g3">
+			<div class="g3 fullOption hidden">
 				<h5 class="titreTask">Options</h5>
 				<section>  
 					<img src="img/date.png" /> 	      
@@ -28,3 +28,5 @@
 			</div>
 		</section>  
 	</form>
+	
+	<div id="moreOption">Afficher PLUS</div>

@@ -426,7 +426,7 @@ form#searchform input::-webkit-search-results-decoration {
 /* Petit espace simulant deux <br> à la suite */
 .littleSpace {
 	border: 0;
-	height: 20px;
+	height: 0px;
 }
 
  /* Live Search
@@ -2430,3 +2430,6 @@ span.deleteTask {
 .pointer:hover {
    cursor: pointer;
 }
+
+
+

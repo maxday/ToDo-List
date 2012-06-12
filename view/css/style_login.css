@@ -747,8 +747,6 @@ header, section, article, aside, nav, footer {
 	display : none;
 }
 
-
-
 #main_panel {
    margin : auto; 
    display:block; 
@@ -765,3 +763,4 @@ header, section, article, aside, nav, footer {
    color:white;
    font-size : 32px;
 }
+

@@ -1,0 +1,15 @@
+#text_field_task {
+	border-width: 10px;
+	display: inline-block;
+	font-size: 3em;
+	opacity: 0.4;
+	width: 235%;
+}
+
+.i_bended_arrow_down {
+	text-align : center;
+	width : 300px !important;
+	margin-left: 78%;
+	display : inline-block;
+
+}
