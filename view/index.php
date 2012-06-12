@@ -147,7 +147,9 @@
 					<li>Une interface fluide et intuitive</li>
 					<li>Les toutes dernières technologies du Web à votre service</li>
 					</ul>
-					
+					<br /> <br />
+					<span style="position:relative; margin-left:50px; margin-top:-10px;">Suivez le guide !<span/>
+					<img id="christian" src="img/handArrow.png" width=200> 
 				</div>
 
 			</div>

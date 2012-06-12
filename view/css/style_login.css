@@ -672,6 +672,15 @@ header, section, article, aside, nav, footer {
 	margin-left: 5px;
 }
 
+#christian{
+  margin-left: 210px;
+  margin-top: -90px;
+  
+  z-index:3;
+  position:relative;
+  top:-15px;
+}
+
 #custom-box h1{
 	margin-bottom: 15px;
 	font-size: 12px;
