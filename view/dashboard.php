@@ -153,7 +153,7 @@
 		<div id="right_part" class="g3" style="float:left;">
 			<div class="widgets">
 				<div class="widget" >
-					<h3 class="handle">Tris</b></h3>
+					<h3 class="handle">Filtres</b></h3>
 					<?php
 						include('sortView.php');
 					?>
