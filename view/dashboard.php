@@ -135,7 +135,7 @@
 				<div class="widget" id="widget_info">
 					<h3 class="handle">
 						Liste des tâches
-						<div id="activeSorts"></div>
+						<span id="activeSorts"></span>
 					</h3>
 					<div id="taskListRefresh">
 						<?php
@@ -152,7 +152,7 @@
 		<!-- PARTIE DROITE-->
 		<div id="right_part" class="g3" style="float:left;">
 			<div class="widgets">
-				<div class="widget" id="widget">
+				<div class="widget" >
 					<h3 class="handle">Tris</b></h3>
 					<?php
 						include('sortView.php');
@@ -161,7 +161,7 @@
 			</div>
 
 			<div class="widgets">
-				<div class="widget" id="widget">
+				<div class="widget">
 					<h3 class="handle">Calendar!</b></h3>
 					<div class="calendar"></div>
 				</div> 
