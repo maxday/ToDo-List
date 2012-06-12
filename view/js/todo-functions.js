@@ -63,6 +63,7 @@ $(document).ready(function () {
 				$("#taskListRefresh").html(data);
 			}
 		);
+		}
 		$('.calendar').fullCalendar( 'refetchEvents' );
 	});
 	
