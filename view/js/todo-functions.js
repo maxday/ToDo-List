@@ -446,12 +446,11 @@ function launchMultiCritQuery(sender) {
 		}
 		if ( sender == "date") { 
 			addBluebox("Date", date);
-		} 
+		}  
     });	
 }
 
-function addBluebox(identifier, value) { 
-	alert("bluebox " + identifier + " v " + value);
+function addBluebox(identifier, value) {  
 	var activeFilters = $('#activeSorts'); 
 	identifier = identifier.replace('.', '_');
 	var divId = "selected" + identifier; 

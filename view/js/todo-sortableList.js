@@ -49,6 +49,7 @@ function sortByPriority(priority) {
 }
 
 function sortByCategory(category) {
+	$('.cat').remove();
 	launchMultiCritQuery("category");
 }
 
