@@ -7,6 +7,8 @@
 var lastTagClicked = null; 
 var isImportant = false;
 var lastBlured = null;
+
+var isCreatingNewTag = false;
 // Attention: Priorite memorisee par le plugin jRating > Variable SelectedPriority initialisee dans le fichier jRating.jquery.js ... :/
 
 $(document).ready(function () {
@@ -49,13 +51,19 @@ $(document).ready(function () {
 		var complexeTask = computeTask(title, lastTagClicked, SelectedPriority, isImportant, lastDateChosen);
 		
 		//alert(complexTask);
-
-		$.post(url, { complexeTask: complexeTask},
+		//console.log("this is my newtask: " + isCreatingNewTag);
+		if ( isCreatingNewTag == true ) { 
+			isCreatingNewTag = false; 
+			event.preventDefault();
+		}
+		else {
+			$.post(url, { complexeTask: complexeTask},
 			function (data) {
 			                $('#text_field_task').val("");
 					$("#taskListRefresh").html(data);
-			}
-		); 
+				}
+			); 
+		}
 	});
 	
 	/* SAVE TAG */
@@ -98,7 +106,7 @@ $(document).ready(function () {
 
 
 
-        $(".new_label_input").live("blur",function(){
+        $(".new_label_input").live("blur",function(e){
 
            var label = $('.new_label.inactive');
            var new_tag_name = $(this).val();
@@ -107,6 +115,7 @@ $(document).ready(function () {
               label.removeClass("inactive");
            } else {
               if ( lastBlured == null ) {
+				 isCreatingNewTag = true;
                  launchAjaxNewTag($(this),label,new_tag_name);
               } else {
                  if ( lastBlured.attr("id") != $(this).attr("id") ) {
@@ -125,7 +134,7 @@ $(document).ready(function () {
 	        if (e.keyCode==13) {
 	                $(this).blur();
 	        }
-	})
+	});
 
 	// Etoiles pour les priorités
 	// more complex jRating call 
@@ -314,9 +323,9 @@ function maxDhandler( event, ui ) {
 }
 
 
-function launchAjaxNewTag(input, tag, tag_value) {
+function launchAjaxNewTag(input, tag, tag_value) { 
         lastBlured = input;
-        tag.text(tag_value);
+        tag.text(tag_value); 
 
         tag.removeClass("new_label");
         tag.removeClass("i_plus");
@@ -340,7 +349,6 @@ function launchAjaxNewTag(input, tag, tag_value) {
 		   tag.next().next().children().attr("id",data);
 		   tag.next().next().children().attr("fakeId",data.replace(".",""));
         });
-
 
 
 
