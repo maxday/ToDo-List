@@ -67,6 +67,9 @@ $(document).ready(function () {
 		);
 		}
 		$('.calendar').fullCalendar( 'refetchEvents' );
+		$('.task').droppable( {
+		    drop: maxDhandler
+		});
 	});
 	
 	/* SAVE TAG */
@@ -318,7 +321,6 @@ function maxDhelper( event ) {
 function maxDhandler( event, ui ) {
   var draggable = ui.draggable;
 
-
 //si reorder 
   if(draggable.attr("class").indexOf("task")==0)
 		return;
@@ -340,6 +342,7 @@ function maxDhandler( event, ui ) {
 				}
 			);
 		 $('.calendar').fullCalendar( 'refetchEvents' );
+		 
 		return;
   }
 
@@ -518,7 +521,7 @@ function addBluebox(identifier, value) {
 	if ( $('#' + divId).length == 0 ) {
 		jQuery("<div>", {
 	 		id: divId,
-			class: divClass,
+			//class: divClass,
 	 		html: '<b>' + lblCat + '</b>',
 	    	css: {
 	        	height: "25px",
@@ -566,5 +569,6 @@ function addBluebox(identifier, value) {
 				
 	    	}
 		}).appendTo(activeFilters);
+		$("#" + divId).addClass(divClass);
 	}
 }
