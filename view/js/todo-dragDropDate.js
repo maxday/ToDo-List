@@ -3,14 +3,12 @@ var isMoreOptionAreDisplayed = false;
 
 $(document).ready(function () {
 	$('.fc-day-number').draggable({
-		helper:maxDhelper
+		helper:handlerDragDate
 	});
 });
 
 
-function maxDhelper( event ) {
-	return '<div id="draggableHelper">Déplacer ce tag sur une tâche</div>';
-}
+
 
 
 $('#moreOption').live("click", function(event){

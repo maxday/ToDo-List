@@ -12,68 +12,41 @@ var isCreatingNewTag = false;
 // Attention: Priorite memorisee par le plugin jRating > Variable SelectedPriority initialisee dans le fichier jRating.jquery.js ... :/
 
 $(document).ready(function () {
+	
+	//mettre le focus sur le champ de tache au démarrage
 	$("#text_field_task").focus();
-	
 
-	$("#taskSortList").sortable({ 
-	   items: 'li:not(#header_tab)',
-		update: function(event, ui) {
-			
-			var url = "./../ws/reOrder.php";
-			var orderTask = $(this).sortable('toArray').toString();
-			
-			
-		    $.post(url, { order: orderTask},
-				function (data) {
-					console.log(data);
-				}
-			);
-		}
-		
-		
+	//script étoile pour priorité des taches
+	$(".basic").jRating({ step:true, 
+		length : 3 // nb of stars  
 	});
-	$("#taskSortList").disableSelection();
-			
-	$("#newTask").bind("submit", function(event){  
-
-		var title = $('#text_field_task').val();
-		if(title=="")
-			return;
-        if($("#checkimp").attr('checked')) {
-			isImportant = true;
-		}
+	
+	//effet bordure noire si du texte est present dans le champ d'ajout de tache
+	$("#text_field_task").bind("keyup", function(event){
+		if($(this).val()=="")
+			$(this).removeClass("buttonPushed");
 		else
-			isImportant = false;
-
-		var lastDateChosen = $("#date").val();
-		var url = './../ws/addComplexTask.php';
-		if ( typeof(SelectedPriority) == "undefined") {
-			SelectedPriority = 0; // Valeur par défaut ?
-		}
-		var complexeTask = computeTask(title, lastTagClicked, SelectedPriority, isImportant, lastDateChosen);
-		
-		//alert(complexTask);
-		//console.log("this is my newtask: " + isCreatingNewTag);
-		if ( isCreatingNewTag == true ) { 
-			isCreatingNewTag = false; 
-			event.preventDefault();
-		}
-		else {
-			$.post(url, { complexeTask: complexeTask},
-			function (data) {
-				$('#text_field_task').val("");
-				$("#taskListRefresh").html(data);
-			}
-		);
-		}
-		$('.calendar').fullCalendar( 'refetchEvents' );
-		$('.task').droppable( {
-		    drop: maxDhandler
-		});
+			$(this).attr("class", "buttonPushed");
 	});
 	
-	/* SAVE TAG */
+	//effet bordure noire si du texte est present dans le champ de date
+	$("#date").bind("change", function(event){
+		if($(this).val() == "")
+			$(this).removeClass("buttonPushed");
+		else
+			$(this).addClass("buttonPushed");
+	});
+	
+	
+	
+	makeListSortable();
+			
+	bindAddTask();
+	
+	/* TODO PROBLEME ICI */
+	/* SAVE TAG */ 
 	$(".tagButton").live("click", function(event){
+		console.log("kikoo");
 	    lastTagClicked = $(this).attr("value");
 	    $(".tagButton").removeClass("buttonPushed");
 	    $(this).addClass("buttonPushed");
@@ -85,240 +58,29 @@ $(document).ready(function () {
 		event.preventDefault();
 	});
 
-	$("#text_field_task").bind("keyup", function(event){
-		if($(this).val()=="")
-			$(this).removeClass("buttonPushed");
-		else
-			$(this).attr("class", "buttonPushed");
-	});
-	
-	$("#date").bind("change", function(event){
-		if($(this).val() == "")
-			$(this).removeClass("buttonPushed");
-		else
-			$(this).addClass("buttonPushed");
-	});
-	
-        $(".new_label").live("click", function(event){
 
-                event.preventDefault();
-                $(this).addClass('inactive');
-
-                var id = $(this).attr("target");
-                $(id).show();
-                $(id).addClass("active");
-                $(id).focus();
-        });
-
-
-
-        $(".new_label_input").live("blur",function(e){
-
-           var label = $('.new_label.inactive');
-           var new_tag_name = $(this).val();
-
-           if (new_tag_name == "") {
-              label.removeClass("inactive");
-           } else {
-              if ( lastBlured == null ) {
-				 isCreatingNewTag = true;
-                 launchAjaxNewTag($(this),label,new_tag_name);
-              } else {
-                 if ( lastBlured.attr("id") != $(this).attr("id") ) {
-                    launchAjaxNewTag($(this),label,new_tag_name);
-                 }
-
-              }
-           }
-
-           $(this).hide();
-        });
-
-
-        // TODO cette version est peut être pas assez cross browser
-	$('.new_label_input.active').live('keypress', function(e) {
-	        if (e.keyCode==13) {
-	                $(this).blur();
-	        }
-	});
-
-	// Etoiles pour les priorités
-	// more complex jRating call 
-
-	$(".basic").jRating(
-		{ step:true, 
-			length : 3 // nb of stars  
-		}); 
-
-
-
-   // tâche completée
-	$('span.deleteTask').live("click",function(e) {
-
-		var url = './../ws/completeTask.php';
-		var _this = $(this);
-		var mother_node = $(this).parent();
-		var bdd_id = mother_node.attr("id");
-
-		$.post(url, { task: bdd_id},
-			function (data) {
-			        if (data != "Alerte") {
-			           _this.hide();
-                    mother_node.hide("slow");
-                 }
-			}
-		);
-	});
-	
-	
-	$("a#trigger_protect").fancybox({
-   		//'hideOnContentClick': true
-   		'onClose': function() {
-			console.log("tot");
-		}
-   });
-   	
-   $('#form_protect').live("submit",function(e) {
-		e.preventDefault();
-		//console.log($('#form_protect_input').val());
-		var passChosen = $('#form_protect_input').val();
-		
-		if (passChosen.length < 1) {
-		  // faire un affichage 
-		  return;
-		}
-      
-		var url = '../ws/setProtection.php';
-
-		$.post(url, { pass: passChosen },
-			function (data) {
-			  $.fancybox.close();
-			  // montrer que c'est protégé,  changer l'icone? empecher de changer le pass?
-			}
-		);
-   });
-   
-	$('#form_change_password').live("submit",function(e) {
-      e.preventDefault();
-      //console.log($('#form_protect_input').val());
-	  var oldPass = $('#form_change_password_old').val();
-      var passChosen = $('#form_change_password_input').val();
-      
-      if (passChosen.length < 1 || oldPass.length < 1) {
-         $("#errorLogin").html('<div class="alert warning">Remplissez tous les champs !</div>');
-		 parent.$("#fancybox-content").width($(document).width());
-         return;
-      }
-      
-		var url = '../ws/changePassword.php';
-		$.post(url, { pass: passChosen, old: oldPass},
-			function (data) {
-			  console.log(data);
-				if(data == "2"){
-					$("#errorLogin").html('<div class="alert warning">Mot de passe incorrect !!</div>');
-					parent.$("#fancybox-content").width(500);
-
-				}
-				else
-					$.fancybox.close();
-			}
-		);
-		$("#form_change_password_old").val("");
-		$("#form_change_password_input").val("");
-   });
-
-
-   $('.tagButton').draggable({
-	cancel:false,
-	//containment:"#newTask",
-	helper:maxDhelper
-	});
-
-  	$('.tagButton').live("mouseenter",function(e) {
-		var id = $(this).attr("dragNdrop");
-		
-		var tab = $("span.tagButton").children();
-		for(j=0;j<tab.length;j++)
-			if(id && $(tab[j]).attr("fakeId") && $(tab[j]).attr("fakeId") == id.replace(".","")) {
-				if($(tab[j]).parent().attr("class").indexOf("dontDisplayX") == -1)
-					$(tab[j]).parent().show();
-			}
-	});
-
-	
-
-	
-	$('.tagButton').live("mouseleave",function(e) {
-	    $(".deleteTag").hide();
-	});
-	
-	$('.tagButton a').live("click",function(e) {
-	    
-		var uuidTagToDelete = $(this).attr("id");
-		console.log(uuidTagToDelete);
-		var url = '../ws/deleteTag.php';
-		$.post(url, { tag: uuidTagToDelete},
-			function (data) {
-				console.log(data);
-				var url_sort = "../view/sortView.php";
-				// On rafraichit la liste des tris
-				$.post(url_sort, function (data) {
-				   $("#sortOptions").html(data);
-		        });
-            }
-		);
-	
-	    var rank=Math.floor(Math.random()*1001);
-		var rank2=Math.floor(Math.random()*1001);
-
-	    $(this).parent().parent().replaceWith("<span class='forDelete'><button target='#new_label_input_"+rank+"' class='new_label i_plus icon tagButton"+rank2+"'>Nouveau</button><input type='text' id='new_label_input_"+rank+"' class='new_label_input'><span class='tagButton deleteTag'><a href=#>[X]</a></span></span>");
-	});
-	
-
-	
-	$('.task').droppable( {
-	    drop: maxDhandler
-	});
-	
-	/* Tri par date */
-	$('#sortByDate').bind('click', function() {
-		console.log("alalalal");
-		$('#sortByDate').addClass("buttonPushed selectedDate");
-		launchMultiCritQuery("date");
-	});
-
-	/* Tri par importance */
-	$('#sortByImportance').bind('click', function() {
-		$('#sortByImportance').addClass("buttonPushed selectedImportance");
-		launchMultiCritQuery("importance");  
-	});
-	
-	/* Desactiver les tris actifs */
-	$('#reset').bind('click', function() {
-		console.log("allo");
-		var url = './tasksList.php'; 
-		$('#sortByImportance').removeClass("buttonPushed selectedImportance");
-		$('#sortByDate').removeClass("buttonPushed selectedDate");
-		$('#sortByPriority').removeAttr('selectedPriority');
-	    $.post(url,
-			function (data) {
-				// Désactiver les tris actifs
-				$('.sortTagButton').removeClass('buttonPushed');
-				$('#activeSorts').empty();
-				$("#taskListRefresh").html(data);
-			}
-		);	
-	});
-
+	bindCreateNewLabel();
+	bindDeleteTask();
+	bindCreateProtectForm();
+	bindDragTag();
+	bindDisplayXOnTagButton();
+  	bindHideXOnTagButton();
+	bindDeleteTag();
+	bindTaskListAsDroppable();
+	bindSort();
 
 
 });
  
-function maxDhelper( event ) {
+function handlerDragTask( event ) {
   return '<div id="draggableHelper">Déplacer ce tag sur une tâche</div>';
 }
 
-function maxDhandler( event, ui ) {
+function handlerDragDate( event ) {
+  return '<div id="draggableHelper">Déplacer cette date sur une tâche</div>';
+}
+
+function handlerDropItemOnList( event, ui ) {
   var draggable = ui.draggable;
 
 //si reorder 
@@ -333,33 +95,20 @@ function maxDhandler( event, ui ) {
 		var url = "../ws/addDateToTask.php";
 		var task_value = $(this).attr('id');
 		$.post(url, { dateD: day, dateM: month, dateY:year, taskId : task_value }, function (data) {
-				console.log(data);
+				;
 		  });
-		url = './tasksList.php'; 
-		  $.post(url,
-				function (data) {
-					$("#taskListRefresh").html(data);
-				}
-			);
-		 $('.calendar').fullCalendar( 'refetchEvents' );
-		 
+		// XXX REFRESH XXX
 		return;
   }
 
-  console.log("Tu mets le tag uuid = " + draggable.attr('value') +  "sur la tache" + $(this).attr('id'));
+//si tag 
   var url = "../ws/addTagToTask.php";
   var task_value = $(this).attr('id');
   var tag_value = draggable.attr('dragNdrop') ;
   $.post(url, { task: task_value, tag: tag_value }, function (data) {
-		console.log(data);
+		;
   });
-
-  url = './tasksList.php'; 
-  $.post(url,
-		function (data) {
-			$("#taskListRefresh").html(data);
-		}
-	);
+  // XXX REFRESH XXX
 }
 
 
@@ -376,7 +125,7 @@ function launchAjaxNewTag(input, tag, tag_value) {
 		tag.draggable({
 			cancel:false,
 			//containment:"#newTask",
-			helper:maxDhelper
+			helper:handlerDragTask
 		});
 		
         // appel ajax pour créer le tag :)
