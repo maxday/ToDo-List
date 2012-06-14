@@ -9,6 +9,7 @@ function createUser($login) {
 	$array = array($uniqid, $login);
 	launchQuery($sql, $array);
 	createDefaultTagForUser($uniqid);
+	addProtectRow($uniqid, 0);
 	return $uniqid;
 }
 	
@@ -18,7 +19,7 @@ function securizeAccount($uuid, $pwd) {
 	$array = array(md5($pwd), $uuid);
 
 	launchQuery($sql, $array);
-	addProtectRow($uuid);
+	protectionOfARow($uuid, 1);
 }
 
 function changePassword($uuid, $pwd) {
@@ -28,10 +29,9 @@ function changePassword($uuid, $pwd) {
 	launchQuery($sql, $array);
 }
 
-function addProtectRow($uuid) {
-	$sql = "INSERT INTO MYTODO_PROTECT(uuid, isProtected) VALUES (?, 1)";
-	$array = array($uuid);
-
+function addProtectRow($uuid, $value) {
+	$sql = "INSERT INTO MYTODO_PROTECT(uuid, isProtected) VALUES (?, ?)";
+	$array = array($uuid, $value);
 	launchQuery($sql, $array);
 }
 
@@ -40,12 +40,12 @@ function unSecurizeAccount($uuid) {
 	$array = array($uuid);
 
 	launchQuery($sql, $array);
-	unProtectRow($uuid);
+	protectionOfARow($uuid, 0);
 }
 
-function unProtectRow($uuid) {
-	$sql = "UPDATE MYTODO_PROTECT SET isProtected=0 WHERE uuid=?";
-	$array = array($uuid);
+function protectionOfARow($uuid, $value) {
+	$sql = "UPDATE MYTODO_PROTECT SET isProtected=? WHERE uuid=?";
+	$array = array($value, $uuid);
 
 	launchQuery($sql, $array);
 }

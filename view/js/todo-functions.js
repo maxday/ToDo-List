@@ -37,8 +37,6 @@ $(document).ready(function () {
 			$(this).addClass("buttonPushed");
 	});
 	
-	
-	
 	makeListSortable();
 			
 	bindAddTask();

@@ -10,3 +10,15 @@
 #lg_txt {
 	color: #353535;font-weight: none;
 }
+
+.textAlignCenter{
+	text-align:center;
+}
+
+.textAlignRight{
+	text-align:right;
+}
+
+input.passwordInput{
+	width:99%;
+}

@@ -185,33 +185,48 @@
 <div class="hidden">
 	
 	<div class="fancy_content" id="protect_form">
-		<section class="box">
+		<section class="box">			
+			<?php if(isProtected($_SESSION['uuid'])){ ?>
+			
 			<div class="title">
-				<h1>Protection</h1>
+				<h1>Gérer mot de passe</h1>
 			</div>
 			
-			<?php if(isProtected($_SESSION['uuid'])){ ?>
 			<div>
 				<p>
-					Vous avez déjà protégé votre liste !
-					Mais vous pouvez changer votre mot de passe.
+					Vous avez déjà protégé votre liste ! <br />
+					Mais vous pouvez changer votre mot de passe:
 				</p>
 				<span id="errorLogin"></span>
 				<form method="post" autocomplete="off" class="clearfix" id="form_change_password">
-					<input id="form_change_password_old" type="password">
-					<input id="form_change_password_input" type="password"> 
-					<input id="submit_button" type="submit" class="submit" value="Changer le mot de passe">
+					Ancien mot de passe:&nbsp;&nbsp;&nbsp;
+					<input class="passwordInput" id="form_change_password_old" type="password"> <br />
+					Nouveau mot de passe:
+					<input class="passwordInput" id="form_change_password_input" type="password"> 
+					<div class="littleSpace"> <br />
+						<div class="textAlignRight" > <input id="submit_button" type="submit" class="submit" value="Changer le mot de passe"> </div>
+					</div>
 				</form>
 			</div>
 			<?php } else { ?>
+			
+			<div class="title">
+				<h1>Protéger la liste</h1>
+			</div>
+			
 			<div>
+				<div class="littleSpace"> </div> <br />
 				<p>
 					Veuillez enter un mot de passe pour protéger votre liste
 				</p>
 				
 				<form method="post" autocomplete="off" class="clearfix" id="form_protect">
-					<input id="form_protect_input" type="text">  
-					<input id="submit_button" type="submit" class="submit" value="Protéger mon compte">
+					Nouveau mot de passe :
+					<div class="littleSpace"> </div> <br />
+					<input class="passwordInput" id="form_protect_input" type="password"> </div>
+					<div class="littleSpace"> <br />
+						<div class="textAlignCenter" > <input id="submit_button" type="submit" class="submit" value="Protéger mon compte"> </div>
+					</div>
 				</form>
 			</div>
 			<?php } ?>

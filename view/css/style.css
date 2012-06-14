@@ -1178,9 +1178,7 @@ textarea{
 input.date{
 	width:80px;
 }
-input[type=password], input.password{
-	width:150px;
-}
+
 div.passwordstrength{
 	font-size:12px;
 	padding:5px 3px;
