@@ -257,6 +257,11 @@ $(document).ready(function () {
 		$.post(url, { tag: uuidTagToDelete},
 			function (data) {
 				console.log(data);
+				var url_sort = "../view/sortView.php";
+				// On rafraichit la liste des tris
+				$.post(url_sort, function (data) {
+				   $("#sortOptions").html(data);
+		        });
             }
 		);
 	
