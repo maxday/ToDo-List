@@ -470,8 +470,8 @@ function launchMultiCritQuery(sender) {
 	
 	// Parse des catégories
 	for ( var i = 0 ; i < selectedFilters.length ; i++) {
-		if ( selectedFilters[i].html() != "undefined")
-			serializedSt += '&&' + selectedFilters[i].html();
+		if ( selectedFilters[i].value != "undefined")
+			serializedSt += '&&' + selectedFilters[i].value;
 	}
 	
 	// Parse de la date
