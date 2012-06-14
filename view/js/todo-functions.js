@@ -467,8 +467,8 @@ function launchMultiCritQuery(sender) {
 	
 	// Parse des catégories
 	for ( var i = 0 ; i < selectedFilters.length ; i++) {
-		if ( selectedFilters[i].value != "undefined")
-			serializedSt += '&&' + selectedFilters[i].value;
+		if ( selectedFilters[i].html() != "undefined")
+			serializedSt += '&&' + selectedFilters[i].html();
 	}
 	
 	// Parse de la date
