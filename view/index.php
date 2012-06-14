@@ -42,8 +42,11 @@
 <script type="text/javascript">
 		
 		var prevent = true;
-
+		
 		$(document).ready(function() { 
+			<?php
+				if(isset($_GET['user'])) echo "prevent = false; $('#pwdField').focus(); ";		
+			?>
 			$("#loginForm").submit(function(event) {
 
 				event.preventDefault();
@@ -194,10 +197,10 @@
 								<div class="lineForm">
 									<span class="labelForm">Login :</span>
 									<span class="fieldForm">
-										<input id="loginField" name="login" placeholder="">
+										<input id="loginField" value="<?php if(isset($_GET['user'])) echo $_GET['user']; ?>" name="login" placeholder="">
 									</span>
 								</div>
-								<div id="pwdHide" class="lineForm invisible">
+								<div id="pwdHide" class="lineForm <?php if(!isset($_GET['user'])) echo "invisible"; ?>">
 									<span class="labelForm">Mot de passe :</span>	
 									<span class="fieldForm">	
 										<input id="pwdField" name="password" type="password" placeholder="">

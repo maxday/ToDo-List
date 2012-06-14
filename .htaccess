@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^([^/]+)$ http://127.0.0.1:8888/ToDo-List/htaccess/test.php?user=$1  [L]
