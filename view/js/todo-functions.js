@@ -14,7 +14,9 @@ var isCreatingNewTag = false;
 $(document).ready(function () {
 	$("#text_field_task").focus();
 	
+
 	$("#taskSortList").sortable({ 
+	   items: 'li:not(#header_tab)',
 		update: function(event, ui) {
 			
 			var url = "./../ws/reOrder.php";
