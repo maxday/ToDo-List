@@ -470,7 +470,7 @@ function launchMultiCritQuery(sender) {
 	
 	// Parse des catégories
 	for ( var i = 0 ; i < selectedFilters.length ; i++) {
-		if ( selectedFilters[i].value != "undefined")
+		if ( selectedFilters[i].innerHTML != "undefined")
 			serializedSt += '&&' + selectedFilters[i].value;
 	}
 	
