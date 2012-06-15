@@ -106,7 +106,10 @@ function handlerDropItemOnList( event, ui ) {
 		$.post(url, { dateD: day, dateM: month, dateY:year, taskId : task_value }, function (data) {
 				;
 		  });
-		// XXX REFRESH XXX
+		//refresh calendar
+		$('.calendar').fullCalendar( 'refetchEvents' );
+		//refresh list
+		refreshList();
 		return;
   }
 
@@ -117,7 +120,8 @@ function handlerDropItemOnList( event, ui ) {
   $.post(url, { task: task_value, tag: tag_value }, function (data) {
 		;
   });
-  // XXX REFRESH XXX
+  //refresh list
+  refreshList();
 }
 
 
@@ -330,4 +334,17 @@ function addBluebox(identifier, value) {
 		}).appendTo(activeFilters);
 		$("#" + divId).addClass(divClass);
 	}
+}
+
+
+function refreshList() {
+	url = './tasksList.php'; 
+	$.post(url,
+		function (data) {
+			$("#taskListRefresh").html(data);
+			bindTaskListAsDroppable();
+			makeListSortable();
+		}
+	);
+
 }

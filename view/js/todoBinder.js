@@ -31,9 +31,8 @@ function bindAddTask() {
 		);
 		}
 		$('.calendar').fullCalendar( 'refetchEvents' );
-		$('.task').droppable( {
-		    drop: handlerDragTask
-		});
+		refreshList();
+		
 	});
 	
 }
@@ -107,12 +106,7 @@ function bindHideXOnTagButton() {
 }
 function bindCreateProtectForm() {
 	// fancyBox pour securize account
-   $("a#trigger_protect").fancybox({
-		'width':450,
-		'height':375,
-		'autoScale':false,
-		'autoDimensions':false,
-  });
+   $("a#trigger_protect").fancybox();
 
    // soumission du form pour proteger le passwword
    $('#form_protect').live("submit",function(e) {
@@ -120,7 +114,7 @@ function bindCreateProtectForm() {
 		var passChosen = $('#form_protect_input').val();
 
 		if (passChosen.length < 1) {
-		  $("#errorLogin").html('<div class="alert warning">Le mot de passe est vide !</div>');
+		  // faire un affichage 
 		  return;
 		}
 
@@ -143,6 +137,7 @@ function bindCreateProtectForm() {
 
 		if (passChosen.length < 1 || oldPass.length < 1) {
 			$("#errorLogin").html('<div class="alert warning">Remplissez tous les champs !</div>');
+			parent.$("#fancybox-content").width($(document).width());
 			return;
 		}
 
@@ -151,6 +146,8 @@ function bindCreateProtectForm() {
 			function (data) {
 				if(data == "2"){
 					$("#errorLogin").html('<div class="alert warning">Mot de passe incorrect !!</div>');
+					parent.$("#fancybox-content").width(500);
+
 				}
 				else
 				$.fancybox.close();
