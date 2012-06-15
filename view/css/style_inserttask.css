@@ -1,0 +1,19 @@
+.moreoptions {
+    background-image: url("../img/displaymore.png");
+    background-position: 86% 0;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    padding-right: 2em;
+    text-align: right;
+    width: 240%;
+}
+
+.lessoptions {
+	background-image: url("../img/minus.png");
+	background-position: 62% 0;
+	background-repeat: no-repeat;
+    margin-top: 10px;
+	padding-right: 2em;
+	text-align: right;
+	width: 95%;
+}

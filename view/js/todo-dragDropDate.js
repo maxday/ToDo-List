@@ -26,7 +26,12 @@ $('#moreOption').live("click", function(event){
 		
 		
 		
-		$(this).html("Afficher PLUS");
+		$(this).html("Plus d'options");
+		if ( $(this).hasClass('lessoptions') ) {
+			// L'user s'est amuse a faire (afficher plus / afficher moins)*
+			$(this).removeClass('lessoptions');
+		}
+		$(this).addClass("moreoptions");
 		isMoreOptionAreDisplayed = false;
 	}
 	else {
@@ -38,7 +43,12 @@ $('#moreOption').live("click", function(event){
 		  }, 200 );
 		$(".i_bended_arrow_down").css("margin-left", "10px");
 		$(".fullOption").show();
-		$(this).html("Afficher MOINS");	
+		$(this).html("Moins d'options");	
+		if ( $(this).hasClass('moreoptions') ) {
+			// L'user s'est amuse a faire (afficher plus / afficher moins)*
+			$(this).removeClass('moreoptions');
+		}
+		$(this).addClass("lessoptions");
 		isMoreOptionAreDisplayed = true;	
 	}
 });
