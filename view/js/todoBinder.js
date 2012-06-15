@@ -170,12 +170,8 @@ function bindDeleteTag() {
 		$.post(url, { tag: uuidTagToDelete},
 			function (data) {
 				console.log(data);
-				var url_sort = "../view/sortView.php";
-				// On rafraichit la liste des tris
-				$.post(url_sort, function (data) {
-				   $("#sortOptions").html(data);
-				   refreshList();
-		        });
+				// Rafraichir le panel de tris de droite avec le nouveau tag crée
+				refreshRightSortPanel();
             }
 		);
 	
@@ -219,6 +215,7 @@ function bindDraggableCalendar() {
 
 
 function bindSort() {
+	
 	/* Tri par date */
 	$('#sortByDate').bind('click', function() {
 		console.log("alalalal");

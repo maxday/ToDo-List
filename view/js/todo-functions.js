@@ -157,7 +157,6 @@ function launchAjaxNewTag(input, tag, tag_value) {
 		
         // appel ajax pour créer le tag :)
         var url = "../ws/addTag.php";
-		var url_sort = "../view/sortView.php";
         // il faudra ensuite vérifier peut être qu'on a bien recup un uuid, et si non... que faire?
         $.post(url, { tag: tag_value }, function (data) {
 		   tag.attr("value", tag_value);
@@ -165,14 +164,8 @@ function launchAjaxNewTag(input, tag, tag_value) {
 		   tag.next().children().attr("id",data);
 		   tag.next().children().attr("fakeId",data.replace(".",""));
         });
-
-
-
-
-		// On rafraichit la liste des tris
-		$.post(url_sort, function (data) {
-		   $("#sortOptions").html(data);
-        });	
+		// Rafraichir le panel de tris de droite avec le nouveau tag crée
+		refreshRightSortPanel();
 }
 
 
@@ -241,6 +234,7 @@ function sortByCategory(category) {
 }
 
 function launchMultiCritQuery(sender) {
+	console.log("kikooo c leila");
 	var selectedFilters = $('#sortOptions .buttonPushed');
 	var serializedSt = "";
 	var date, priority, importance;
@@ -275,8 +269,7 @@ function launchMultiCritQuery(sender) {
 	$.post(url, { date: date, importance: importance, priority: priority, category : serializedSt}, function (data) {
 		if ( data == "" ) {
 			data = "Pas de tâches correspondant à ces critères. Ajoutez une tâche en utilisant le panel juste au-dessus !";
-		}
-		$("#taskListRefresh").html(data); 
+		} 
 		//bindList(); 
 		if ( sender == "importance" ) { 
 			addBluebox("Importance", importance);
@@ -286,7 +279,8 @@ function launchMultiCritQuery(sender) {
 		}
 		if ( sender == "date") { 
 			addBluebox("Date", date);
-		}  
+		}   
+		$("#taskListRefresh").html(data);
     });	
 }
 
@@ -362,6 +356,16 @@ function refreshList() {
 		}
 	);
 
+}
+
+
+
+function refreshRightSortPanel() {
+	var url_sort = "../view/sortView.php";
+	// On rafraichit la liste des tris
+	$.post(url_sort, function (data) {
+	   $("#sortOptions").html(data);
+    });
 }
 
 function bindList() {
