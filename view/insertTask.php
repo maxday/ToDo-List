@@ -3,7 +3,7 @@
 	<section id="taskzone" class="inline">
 		<div class="g5" style="margin-top: 45px;">
 			<input type="text" id="text_field_task" class="taskUnFocus" name="text_field" style="" />
-			<div id="moreOption" class="moreoptions">Plus d'options'</div>
+			<div id="moreOption" class="moreoptions"><span id="txtOptions">Plus d'options</span></div>
 			<hr class="littleSpace" />
 			<button class="i_bended_arrow_down icon small">GO</button></div>
 			<div class="g4 fullOption hidden">

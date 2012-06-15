@@ -19,3 +19,7 @@
 	text-align: right;
 	width: 95%;
 }
+
+#txtOptions {
+	cursor: pointer !important;
+}

@@ -23,7 +23,7 @@ $('#moreOption').live("click", function(event){
 		
 		
 		
-		$(this).html("Plus d'options");
+		$(this).html("<span id='txtOptions'>Plus d'options</span>");
 		if ( $(this).hasClass('lessoptions') ) {
 			// L'user s'est amuse a faire (afficher plus / afficher moins)*
 			$(this).removeClass('lessoptions');
@@ -40,7 +40,7 @@ $('#moreOption').live("click", function(event){
 		  }, 200 );
 		$(".i_bended_arrow_down").css("margin-left", "10px");
 		$(".fullOption").show();
-		$(this).html("Moins d'options");	
+		$(this).html("<span id='txtOptions'>Moins d'options</span>");	
 		if ( $(this).hasClass('moreoptions') ) {
 			// L'user s'est amuse a faire (afficher plus / afficher moins)*
 			$(this).removeClass('moreoptions');
