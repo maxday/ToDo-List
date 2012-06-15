@@ -19,3 +19,12 @@
 	height : 22px;
 	width : 100px;
 }
+
+.ui-widget-content {
+	cursor : pointer;
+}
+
+.xCross {
+	width : 0px !important;
+	display : inline-block !important;
+}

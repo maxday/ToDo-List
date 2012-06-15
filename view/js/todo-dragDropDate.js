@@ -2,7 +2,7 @@ var isMoreOptionAreDisplayed = false;
 
 
 $(document).ready(function () {
-	$('.fc-day-number').draggable({
+	$('.ui-widget-content').draggable({
 		helper:handlerDragDate,
 		stop:function(){
 			$(".singleDueDate").css("border","0px");

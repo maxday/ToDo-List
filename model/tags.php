@@ -117,10 +117,10 @@ function computeHtmlFromTags($tagsArray, $sort) {
 	foreach($tagsArray as $singleTag) {
 		$i++; 
 		if ( $sort == true ) {
-			$retour = $retour."<span class='forDelete'><button id='sortCateg".$i."' class='sortTagButton tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button><span class='tagButton dontDisplayX deleteTag'><a fakeId='".str_replace(".", "", $singleTag['uuid'])."' id='".$singleTag['uuid']."' href=#>[X]</a></span></span>";
+			$retour = $retour."<span class='forDelete'><button id='sortCateg".$i."' class='sortTagButton tagButton tagButton".$i."' value=".$singleTag['uuid'].">".$singleTag['title']."</button><span class='tagButton dontDisplayX deleteTag'><a class='xCross' fakeId='".str_replace(".", "", $singleTag['uuid'])."' id='".$singleTag['uuid']."' href=#>[X]</a></span></span>";
 		}
 		else {
-			$retour = $retour."<span class='forDelete'><button dragNdrop=".$singleTag['uuid']." class='tagButton tagButton".$i."' value=".$singleTag['title'].">".$singleTag['title']."</button><span class='tagButton deleteTag'><a fakeId='".str_replace(".", "", $singleTag['uuid'])."' id='".$singleTag['uuid']."'  href=#>[X]</a></span></span>";
+			$retour = $retour."<span class='forDelete'><button dragNdrop=".$singleTag['uuid']." class='tagButton tagButton".$i."' value=".$singleTag['title'].">".$singleTag['title']."</button><span class='tagButton deleteTag'><a fakeId='".str_replace(".", "", $singleTag['uuid'])."' class='xCross' id='".$singleTag['uuid']."'  href=#>[X]</a></span></span>";
 		}
 		
 	}
@@ -132,7 +132,7 @@ function computeHtmlFromTags($tagsArray, $sort) {
 	for($j=$i; $j<6; ++$j) {
 		$suite++;
 		$suiteInd++;
-		$retour = $retour . "<span class='forDelete'><button target='#new_label_input_".$suiteInd."' class='new_label i_plus icon tagButton".$suite."'>Nouveau</button><span class='tagButton deleteTag'><a href=#>[X]</a></span></span>";
+		$retour = $retour . "<span class='forDelete'><button target='#new_label_input_".$suiteInd."' class='new_label i_plus icon tagButton".$suite."'>Nouveau</button><span class='tagButton deleteTag'><a class='xCross' href=#>[X]</a></span></span>";
 		$retour = $retour . "<input type='text' id='new_label_input_".$suiteInd."' class='new_label_input'>";
 	}
 

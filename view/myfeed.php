@@ -9,7 +9,7 @@
 	function sortTasksByCategory($uuid) {
 		$vConnect = connect();
 		$returnArray = array(); 
-		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND dueDate NOT LIKE '0000-00-00%'"; 
+		$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND dueDate <> '0000-00-00' AND dateCompleted IS NULL"; 
 		$prepared_statement = $vConnect->prepare($sql);  
 		if($prepared_statement->execute(array($uuid)) == true) { 
 			while ( $line = $prepared_statement->fetch(PDO::FETCH_OBJ) ) {

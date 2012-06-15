@@ -109,9 +109,9 @@ function handlerDropItemOnList( event, ui ) {
 		return;
 
 //si date
-  if(draggable.attr("class").indexOf("fc-day-number")!=-1) {
-	    console.log($(this).children().eq(1));
-		var day = draggable.html();
+  var realDate = draggable.children().eq(0).children().eq(0);
+  if(realDate.attr("class").indexOf("fc-day-number")!=-1) {
+		var day = realDate.html();
 		var month = $('.calendar').fullCalendar('getDate').getMonth()+1;
 		var year = $('.calendar').fullCalendar('getDate').getYear()+1900;
 		var url = "../ws/addDateToTask.php";
