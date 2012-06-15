@@ -221,7 +221,7 @@ function bindSort() {
 				// Désactiver les tris actifs
 				$('.sortTagButton').removeClass('buttonPushed');
 				$('#activeSorts').empty();
-				$("#taskListRefresh").html(data);
+				refreshList();
 			}
 		);	
 	});
