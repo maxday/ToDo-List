@@ -220,7 +220,7 @@
 				<p>
 					Veuillez enter un mot de passe pour protéger votre liste
 				</p>
-				
+				<span id="errorLogin"></span>
 				<form method="post" autocomplete="off" class="clearfix" id="form_protect">
 					Nouveau mot de passe :
 					<div class="littleSpace"> </div> <br />

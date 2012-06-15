@@ -2388,11 +2388,6 @@ span.deleteTask {
    display:none;
 }
 
-.fancy_content{
-   width: 450px;
-   height: 300px;
-}
-
 .fancy_content .box {
    background-image: url("../img/patter_c.png");
    background-position: center center;
