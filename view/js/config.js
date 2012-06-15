@@ -328,18 +328,21 @@ if($.fn.wl_Widget) $.fn.wl_Widget.defaults = {
 	onDrop: function () {},
 	onExpand: function () { 
 		if($(this).attr("resource") != "calendar")
-			var url = "../ws/displayFilters.php"
-		else
-			var url = "../ws/displayCalendar.php"		
+			var url = "../ws/displayFilters.php";
+		else {
+			var url = "../ws/displayCalendar.php";
+			console.log("kikko CAL");
+		}	
 		$.post(url, { show: 1}, function (data) {
 				console.log(data);
+				bindDraggableCalendar();
 		});
 	},
 	onCollapse: function () {
 		if($(this).attr("resource") != "calendar")
-			var url = "../ws/displayFilters.php"
+			var url = "../ws/displayFilters.php";
 		else
-			var url = "../ws/displayCalendar.php"
+			var url = "../ws/displayCalendar.php";
 		$.post(url, { show: 0}, function (data) {
 				console.log(data);
 		});

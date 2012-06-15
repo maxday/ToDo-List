@@ -27,11 +27,12 @@ function bindAddTask() {
 			function (data) {
 				$('#text_field_task').val("");
 				$("#taskListRefresh").html(data);
+				$('.calendar').fullCalendar( 'refetchEvents' );
+				refreshList();
 			}
 		);
 		}
-		$('.calendar').fullCalendar( 'refetchEvents' );
-		refreshList();
+		
 		
 	});
 	
@@ -188,8 +189,28 @@ function bindDeleteTag() {
 
 
 function bindTaskListAsDroppable() {
+	console.log("je dropable");
+	console.log("TOP");
+	console.log($('.task'));
 	$('.task').droppable( {
         drop: handlerDropItemOnList
+	});
+}
+
+
+
+function bindDraggableCalendar() {
+	console.log($('.ui-widget-content'));
+	$('.ui-widget-content').draggable({
+		helper:handlerDragDate,
+		stop:function(){
+			$(".singleDueDate").css("border","0px");
+			var tab = $(".singleDueDate");
+			for(var i=0; i<tab.length; ++i)
+				if(tab[i].innerHTML == "Drop moi !")
+					tab[i].innerHTML = "";
+			
+		}
 	});
 }
 
@@ -241,6 +262,7 @@ function bindDeleteTask() {
 			        if (data != "Alerte") {
 			           _this.hide();
                     mother_node.hide("slow");
+					$('.calendar').fullCalendar( 'refetchEvents' );
                  }
 			}
 		);

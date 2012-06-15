@@ -263,7 +263,6 @@ function updateTaskWithTag($uuidTask, $uuidTag) {
 	$sql = "UPDATE MYTODO_TASK SET tag = ? WHERE uuid = ?"; 
 	$prepared_statement = $vConnect->prepare($sql);  
 	if($prepared_statement->execute(array($uuidTag, $uuidTask)) == true) 
-		return "KIKOO CA MARCHE";
 	close($vConnect);
 }
 
@@ -274,7 +273,6 @@ function updateTaskWithDate($uuidTask, $date) {
 	$sql = "UPDATE MYTODO_TASK SET dueDate = ? WHERE uuid = ?"; 
 	$prepared_statement = $vConnect->prepare($sql);  
 	if($prepared_statement->execute(array($date, $uuidTask)) == true) 
-		return "KIKOO CA MARCHE";
 	close($vConnect);
 }
 

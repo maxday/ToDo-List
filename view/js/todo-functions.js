@@ -84,10 +84,11 @@ $(document).ready(function () {
 });
  
 function handlerDragTask( event ) {
-  return '<div id="draggableHelper">Déplacer ce tag sur une tâche</div>';
+  return '<div class="draggableHelper">Déplacer ce tag sur une tâche</div>';
 }
 
 function handlerDragDate( event ) {
+
   $(".singleDueDate").css("border","1px dashed");
   var tabDate = $(".singleDueDate");
   for(var i=0; i< tabDate.length; ++i) {
@@ -97,7 +98,7 @@ function handlerDragDate( event ) {
   }
  
 
-  return '<div id="draggableHelper">Déplacer cette date sur une tâche</div>';
+  return '<div class="draggableHelper">Déplacer cette date sur une tâche</div>';
 }
 
 function handlerDropItemOnList( event, ui ) {
@@ -116,8 +117,9 @@ function handlerDropItemOnList( event, ui ) {
 		var year = $('.calendar').fullCalendar('getDate').getYear()+1900;
 		var url = "../ws/addDateToTask.php";
 		var task_value = $(this).attr('id');
+		console.log("JE METS la date SUR" + task_value);
 		$.post(url, { dateD: day, dateM: month, dateY:year, taskId : task_value }, function (data) {
-				;
+			;	
 		  });
 		//refresh calendar
 		$('.calendar').fullCalendar( 'refetchEvents' );

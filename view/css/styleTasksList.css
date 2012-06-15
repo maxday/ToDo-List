@@ -47,8 +47,9 @@
 	text-decoration : none;
 }
 
-#draggableHelper {
+.draggableHelper {
 	border : 2px solid;
+	height : 30px;
 	z-index : 200 !important;
 }
 

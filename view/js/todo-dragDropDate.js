@@ -2,17 +2,7 @@ var isMoreOptionAreDisplayed = false;
 
 
 $(document).ready(function () {
-	$('.ui-widget-content').draggable({
-		helper:handlerDragDate,
-		stop:function(){
-			$(".singleDueDate").css("border","0px");
-			var tab = $(".singleDueDate");
-			for(var i=0; i<tab.length; ++i)
-				if(tab[i].innerHTML == "Drop moi !")
-					tab[i].innerHTML = "";
-			
-		}
-	});
+	bindDraggableCalendar();
 });
 
 
