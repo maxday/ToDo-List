@@ -45,14 +45,25 @@ $(document).ready(function () {
 	/* SAVE TAG */ 
 	$(".tagButton").live("click", function(event){
 		console.log("kikoo");
-	    lastTagClicked = $(this).attr("value");
-	    $(".tagButton").removeClass("buttonPushed");
-	    $(this).addClass("buttonPushed");
 		if ( this.id != '') {
 			// Provient des tris >> Tri par categorie
-			sortByCategory(this.value); 
 			addBluebox(this.value, this.textContent);
+			if ( $(this).hasClass('buttonPushed') ) {
+				$(this).removeClass("buttonPushed");
+				// Mise a jour des tris
+			}
+			else {
+			    $(this).addClass("buttonPushed");
+				//Mise a jour des tris
+			}
+			sortByCategory(this.value);
 		}
+		else {
+			// Tags de la div "InsertTache"
+	    	lastTagClicked = $(this).attr("value");
+	    	$(".tagButton").removeClass("buttonPushed");
+		    $(this).addClass("buttonPushed");
+	    }
 		event.preventDefault();
 	});
 
@@ -204,9 +215,10 @@ function sortByPriority(priority) {
 	$('#sortByPriority').attr('selectedPriority', priority);
 	launchMultiCritQuery("priority"); 
 }
-
+// Appelé ligne 50 
 function sortByCategory(category) {
 	$('.cat').remove();
+	addBluebox(category);
 	launchMultiCritQuery("category");
 }
 
@@ -240,6 +252,7 @@ function launchMultiCritQuery(sender) {
 	}
 	var senderF = sender;
 	// Requete Multi-critères  
+	console.log("Resultat serialization: " + serializedSt);
 	var url = './../ws/sortTasksByParameters.php';
 	$.post(url, { date: date, importance: importance, priority: priority, category : serializedSt}, function (data) {
 		if ( data == "" ) {
@@ -284,10 +297,10 @@ function addBluebox(identifier, value) {
 				display : "inline"
 	    	},
 			realValue : value,
-	    	click: function() {
-			console.log(identifier + " hello " + value);
+	    	click: function() { 
 	       		$(this).remove();
 				if ( $('#activeSorts').children().size() == 0 ) {
+					// On a désactivé tous les filtres
 					$('#sortByImportance').removeClass("buttonPushed selectedImportance");
 					$('#sortByDate').removeClass("buttonPushed selectedDate");
 					$('#sortByPriority').removeAttr('selectedPriority');
@@ -306,8 +319,7 @@ function addBluebox(identifier, value) {
 						$('#sortByImportance').removeClass("buttonPushed selectedImportance");
 					}
 					if ( identifier.indexOf('_') > 0 ) {
-						// Categorie
-						console.log("lol removeeee");
+						// Categorie 
 						$('.sortTagButton').removeClass('buttonPushed');
 					}
 					// On rafraichit la liste avec les filtres selectionnes

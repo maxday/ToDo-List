@@ -15,7 +15,7 @@
 	else {  
 		$category = preg_split('!&&!', $category); 
 		if ( isset($category[1]) ) {
-			$cat = $category[1];
+			$cat = $category; 
 		}
 		else {
 			$cat = "undefined";

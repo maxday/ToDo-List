@@ -300,10 +300,18 @@ function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid
 	} 
 	
 	if ( $categories != "undefined") { 
-		$sql .= "AND tag = ?";
-		array_push($paramarray, $categories);
+		$sql .= "AND tag IN (";
+		$selectedC = count($categories);
+		for ( $i=0 ; $i < $selectedC ; ++$i ) {
+			if ( $categories[$i] != "") {
+				$sql .= '?';
+				if ( $i+1 != $selectedC ) { $sql.= ','; }
+				array_push($paramarray, $categories[$i]);
+			}
+		}
+		$sql .= ')';
 	}
-	
+	 
 	$prepared_statement = $vConnect->prepare($sql);  
 	$res = $prepared_statement->execute($paramarray);
 	if( $res == true) { 
