@@ -327,7 +327,7 @@ function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid
 function formatTaskList($array) {
   echo "<ul id='taskSortList'>";
 	// Colonne entete
-  echo "<li id='header_tab' class='task'><span class='singleTitle taskcolumn'>Intitulé</span><span class='singleDueDate taskcolumn'> Date </span> <span class='singlePriority taskcolumn'> Priorité</span> <span class='singleIsImportant taskcolumn'> importance</span> <span class='singleTag taskcolumn'> Categorie</span> <span class='taskcolumn'> Fini ?</span></li>";
+  echo "<li id='header_tab' class='task'><span class='singleTitle taskcolumn'>Intitulé</span><span class='taskcolumn'> Date </span> <span class='singlePriority taskcolumn'> Priorité</span> <span class='singleIsImportant taskcolumn'> importance</span> <span class='singleTag taskcolumn'> Categorie</span> <span class='taskcolumn'> Fini ?</span></li>";
   for($i = 0; $i < count($array); $i++){
 	      $bdd_uuid = $array[$i] -> uuid;
 	      $uuid = str_replace('.','',$bdd_uuid);

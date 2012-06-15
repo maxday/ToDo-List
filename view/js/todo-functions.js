@@ -79,6 +79,8 @@ $(document).ready(function () {
 	bindSort();
 
 
+   $("#draggableHelper").mousedown(console.log("kkk"));
+
 });
  
 function handlerDragTask( event ) {
@@ -86,10 +88,20 @@ function handlerDragTask( event ) {
 }
 
 function handlerDragDate( event ) {
+  $(".singleDueDate").css("border","1px dashed");
+  var tabDate = $(".singleDueDate");
+  for(var i=0; i< tabDate.length; ++i) {
+		if(tabDate[i].innerHTML=="") {
+	 		tabDate[i].innerHTML = "Drop moi !";	
+		}	
+  }
+ 
+
   return '<div id="draggableHelper">Déplacer cette date sur une tâche</div>';
 }
 
 function handlerDropItemOnList( event, ui ) {
+  console.log("DROP");
   var draggable = ui.draggable;
 
 //si reorder 
@@ -98,6 +110,7 @@ function handlerDropItemOnList( event, ui ) {
 
 //si date
   if(draggable.attr("class").indexOf("fc-day-number")!=-1) {
+	    console.log($(this).children().eq(1));
 		var day = draggable.html();
 		var month = $('.calendar').fullCalendar('getDate').getMonth()+1;
 		var year = $('.calendar').fullCalendar('getDate').getYear()+1900;
