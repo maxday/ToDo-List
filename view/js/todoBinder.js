@@ -174,6 +174,7 @@ function bindDeleteTag() {
 				// On rafraichit la liste des tris
 				$.post(url_sort, function (data) {
 				   $("#sortOptions").html(data);
+				   refreshList();
 		        });
             }
 		);

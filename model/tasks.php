@@ -281,7 +281,7 @@ function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid
 	$vConnect = connect();
 	$returnArray = array(); 
 	$paramarray = array();
-	$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? ";
+	$sql = "SELECT * FROM MYTODO_TASK WHERE user = ? AND dateCompleted IS NOT NULL ";
 	array_push($paramarray, $uuid);
 	
 	if ( $date != "undefined") {

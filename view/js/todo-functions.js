@@ -111,7 +111,8 @@ function handlerDropItemOnList( event, ui ) {
 
 //si date
   var realDate = draggable.children().eq(0).children().eq(0);
-  if(realDate.attr("class").indexOf("fc-day-number")!=-1) {
+
+  if(realDate.length > 0 && realDate.attr("class").indexOf("fc-day-number")!=-1) {
 		var day = realDate.html();
 		var month = $('.calendar').fullCalendar('getDate').getMonth()+1;
 		var year = $('.calendar').fullCalendar('getDate').getYear()+1900;
@@ -119,12 +120,9 @@ function handlerDropItemOnList( event, ui ) {
 		var task_value = $(this).attr('id');
 		console.log("JE METS la date SUR" + task_value);
 		$.post(url, { dateD: day, dateM: month, dateY:year, taskId : task_value }, function (data) {
-			;	
-		  });
-		//refresh calendar
-		$('.calendar').fullCalendar( 'refetchEvents' );
-		//refresh list
-		refreshList();
+			$('.calendar').fullCalendar( 'refetchEvents' );
+			refreshList();
+		  });	
 		return;
   }
 
@@ -149,6 +147,7 @@ function launchAjaxNewTag(input, tag, tag_value) {
         tag.removeClass("icon");
         tag.removeClass("inactive");
         tag.addClass("tagButton");
+      
 
 		tag.draggable({
 			cancel:false,
@@ -163,8 +162,8 @@ function launchAjaxNewTag(input, tag, tag_value) {
         $.post(url, { tag: tag_value }, function (data) {
 		   tag.attr("value", tag_value);
 		   tag.attr("dragNdrop", data);
-		   tag.next().next().children().attr("id",data);
-		   tag.next().next().children().attr("fakeId",data.replace(".",""));
+		   tag.next().children().attr("id",data);
+		   tag.next().children().attr("fakeId",data.replace(".",""));
         });
 
 
@@ -277,7 +276,8 @@ function launchMultiCritQuery(sender) {
 		if ( data == "" ) {
 			data = "Pas de tâches correspondant à ces critères. Ajoutez une tâche en utilisant le panel juste au-dessus !";
 		}
-		$("#taskListRefresh").html(data);  
+		$("#taskListRefresh").html(data); 
+		//bindList(); 
 		if ( sender == "importance" ) { 
 			addBluebox("Importance", importance);
 		}
@@ -362,4 +362,9 @@ function refreshList() {
 		}
 	);
 
+}
+
+function bindList() {
+	bindTaskListAsDroppable();
+	makeListSortable();
 }
