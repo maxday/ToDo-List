@@ -44,27 +44,26 @@ $(document).ready(function () {
 	/* TODO PROBLEME ICI */
 	/* SAVE TAG */ 
 	$(".tagButton").live("click", function(event){
-		console.log("kikoo");
-		if ( this.id != '') {
-			// Provient des tris >> Tri par categorie
-			addBluebox(this.value, this.textContent);
-			if ( $(this).hasClass('buttonPushed') ) {
-				$(this).removeClass("buttonPushed");
-				// Mise a jour des tris
-			}
-			else {
-			    $(this).addClass("buttonPushed");
-				//Mise a jour des tris
-			}
-			sortByCategory(this.value);
+		// Tags de la div "InsertTache"
+	    lastTagClicked = $(this).attr("value");
+	    $(".tagButton").removeClass("buttonPushed");
+		$(this).addClass("buttonPushed");
+		event.preventDefault();
+	});
+	
+	// Evenements clic surchargé pour les boutons de tri (catégorie)
+	$(".sortTagButton").live("click", function(event) {
+		// Provient des tris >> Tri par categorie
+		if ( $(this).hasClass('buttonPushed') ) {
+			$(this).removeClass("buttonPushed");
+			// Mise a jour des tris
 		}
 		else {
-			// Tags de la div "InsertTache"
-	    	lastTagClicked = $(this).attr("value");
-	    	$(".tagButton").removeClass("buttonPushed");
-		    $(this).addClass("buttonPushed");
-	    }
-		event.preventDefault();
+		    $(this).addClass("buttonPushed"); 
+			//Mise a jour des tris
+		} 
+		sortByCategory(this.value, this.innerHTML);
+		event.preventDefault();	
 	});
 
 
@@ -227,14 +226,13 @@ function sortByPriority(priority) {
 	launchMultiCritQuery("priority"); 
 }
 // Appelé ligne 50 
-function sortByCategory(category) {
-	$('.cat').remove();
-	addBluebox(category);
+function sortByCategory(category, lblc) {
+	//$('.cat').remove(); 
+	manageBlueBox(category, lblc);
 	launchMultiCritQuery("category");
 }
 
 function launchMultiCritQuery(sender) {
-	console.log("kikooo c leila");
 	var selectedFilters = $('#sortOptions .buttonPushed');
 	var serializedSt = "";
 	var date, priority, importance;
@@ -263,8 +261,7 @@ function launchMultiCritQuery(sender) {
 		priority = $('#sortByPriority').attr('selectedPriority'); 
 	}
 	var senderF = sender;
-	// Requete Multi-critères  
-	console.log("Resultat serialization: " + serializedSt);
+	// Requete Multi-critères
 	var url = './../ws/sortTasksByParameters.php';
 	$.post(url, { date: date, importance: importance, priority: priority, category : serializedSt}, function (data) {
 		if ( data == "" ) {
@@ -272,25 +269,53 @@ function launchMultiCritQuery(sender) {
 		} 
 		//bindList(); 
 		if ( sender == "importance" ) { 
-			addBluebox("Importance", importance);
+			manageBlueBox("Importance", importance);
 		}
 		if ( sender == "priority") { 
-			addBluebox("Priority", priority);
+			manageBlueBox("Priority", priority);
 		}
 		if ( sender == "date") { 
-			addBluebox("Date", date);
+			manageBlueBox("Date", date);
 		}   
 		$("#taskListRefresh").html(data);
     });	
 }
 
-function addBluebox(identifier, value) {  
-	console.log(identifier + " hello " + value);
+function manageExistingBluebox(identifier, value) {
+	if ( identifier.indexOf('_') > 0 ) {
+		if ( $('#selected' + identifier).length == 1 ) {
+			$('#selected' + identifier).remove();
+			return -1;
+		}
+	}
+	if ( identifier == "Date") {
+		$('#sortByDate').removeClass("buttonPushed selectedDate");
+		$('#selectedImportance').remove();
+		return -1;
+	}
+	if ( identifier == "Priority") {
+		$('#sortByPriority').removeAttr('selectedPriority');
+		$('#selectedPriority').remove();
+		return -1;
+	}
+	if ( identifier == "Importance") {
+		$('#sortByImportance').removeClass("buttonPushed selectedImportance");
+		$('#selectedImportance').remove();
+		return -1;
+	}
+}
+
+function manageBlueBox(identifier, value) {   
 	var activeFilters = $('#activeSorts'); 
 	identifier = identifier.replace('.', '_');
 	var divId = "selected" + identifier; 
 	var lblCat = getLibelleForBluebox(identifier, value);
 	var divClass = getClass(identifier);
+
+	// Clic sur un bouton "Categorie" sélectionné: on doit supprimer la bluebox
+	var res = manageExistingBluebox(identifier, value);
+	if ( res == -1 ) { return; }
+	// On cree l'element s'il n'existe pas
 	if ( $('#' + divId).length == 0 ) {
 		jQuery("<div>", {
 	 		id: divId,
@@ -298,15 +323,15 @@ function addBluebox(identifier, value) {
 	 		html: '<b>' + lblCat + '</b>',
 	    	css: {
 	        	height: "25px",
-				borderRadius: "3px white",
-				marginLeft : "10px",
+				borderRadius: "3px solid white",
+				marginLeft : "35px",
 				fontSize : "16px",
 				paddingLeft: "15px",
 				paddingRight : "15px",
 				lineHeight: "20px",
 	        	width: "70px",
-	        	color: "#f1f3ff",
-	        	backgroundColor: "#7894e5",
+	        	color: "#FFFF00",
+	        	backgroundColor: "#466168",
 				display : "inline"
 	    	},
 			realValue : value,
@@ -332,8 +357,15 @@ function addBluebox(identifier, value) {
 						$('#sortByImportance').removeClass("buttonPushed selectedImportance");
 					}
 					if ( identifier.indexOf('_') > 0 ) {
-						// Categorie 
-						$('.sortTagButton').removeClass('buttonPushed');
+						// Categorie  - On clique sur une bluebox, on met a jout le panel de tris à droite
+						var array = $('.sortTagButton');
+						for ( var i=0; i < array.length ; ++i ) {
+							if ( array[i].value.replace('.', '_') == identifier ) { 
+								var item = $('#' + array[i].id);
+								item.removeClass('buttonPushed');
+								break;
+							} 
+						}
 					}
 					// On rafraichit la liste avec les filtres selectionnes
 					launchMultiCritQuery(sender);

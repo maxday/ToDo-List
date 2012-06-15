@@ -219,13 +219,23 @@ function bindSort() {
 	/* Tri par date */
 	$('#sortByDate').bind('click', function() {
 		console.log("alalalal");
-		$('#sortByDate').addClass("buttonPushed selectedDate");
+		if ( $('#sortByDate').hasClass("buttonPushed") ) {
+			$('#sortByDate').removeClass("buttonPushed selectedDate");
+		}
+		else {
+			$('#sortByDate').addClass("buttonPushed selectedDate");
+		}
 		launchMultiCritQuery("date");
 	});
 
 	/* Tri par importance */
 	$('#sortByImportance').bind('click', function() {
-		$('#sortByImportance').addClass("buttonPushed selectedImportance");
+		if ( $('#sortByImportance').hasClass("buttonPushed") ) {
+			$('#sortByImportance').removeClass("buttonPushed selectedImportance");
+		}
+		else {
+			$('#sortByImportance').addClass("buttonPushed selectedImportance");
+		} 
 		launchMultiCritQuery("importance");  
 	});
 	
