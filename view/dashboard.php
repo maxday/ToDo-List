@@ -133,7 +133,7 @@
 		<!-- PARTIE GAUCHE-->
 		<div id="left_part" class="g9" style="float:left;">
 			<div class="nodrop widget"> 
-				<h3 class="handle">Ajouter tache</h3>
+				<h3 class="handle">Ajout d'une tâche</h3>
 				<?php
 					include('insertTask.php');
 				?> 
