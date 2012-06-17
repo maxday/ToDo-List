@@ -88,6 +88,7 @@
 						$("#pwdHide").show();
 						$("#pwdField").focus();
 						$(".errorLogin").html('<div class="alert warning">Mot de passe absent !!</div>');
+						replace();
 						return false;
 					}
 
@@ -123,6 +124,7 @@
 	});
 		
 	function replace() {
+		$('#errorLogin2').css("display","inline-block");
 		$('#textLog').css("display","none");
 		$('#fondWelcomeTxt').css("background-color","#FFFFFF");
 	}
