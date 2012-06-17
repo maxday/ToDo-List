@@ -51,9 +51,14 @@ $(document).ready(function () {
 	/* SAVE TAG */ 
 	$(".tagButton").live("click", function(event){
 		// Tags de la div "InsertTache"
-	    lastTagClicked = $(this).attr("value");
-	    $(".tagButton").removeClass("buttonPushed");
-		$(this).addClass("buttonPushed");
+		if ($(this).attr("class").indexOf("buttonPushed") != -1) {
+		   lastTagClicked = null;
+		   $(this).removeClass("buttonPushed");
+		} else {
+	      lastTagClicked = $(this).attr("value");
+         $(".tagButton").removeClass("buttonPushed");
+		   $(this).addClass("buttonPushed");
+	   }
 		event.preventDefault();
 	});
 	
