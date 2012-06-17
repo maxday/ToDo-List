@@ -311,4 +311,15 @@ function updateFilters($uuid, $isDisplayed) {
 }
 
 
+function hasAtLeastOneTask($uuid) {
+	$sql = "SELECT count(uuid) as hasTask FROM MYTODO_TASK WHERE user=?";
+	$vConnect = connect();
+	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($uuid));
+	$line = $prepared_statement->fetch(PDO::FETCH_OBJ);
+	close($vConnect);
+	return ($line->hasTask != 0);
+}
+
+
 ?>

@@ -260,65 +260,68 @@
 	$(function () {
 
 		guidely.add ({
-			attachTo: '.tour_1'
-			, anchor: 'top-left'
-			, title: 'Kikoo lol'
-			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+			attachTo: '#text_field_task'
+			, anchor: 'bottom-left'
+			, title: 'Ajoutez une tache'
+			, text: "<strong>Saisissez</strong> simplement l'intitulé de la tâche dans la zone de texte."
 		});	
 		guidely.add ({
 			attachTo: '#guidedCat'
 			, anchor: 'top-middle'
-			, title: 'Kikoo lol'
-			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+			, title: 'Ajoutez une catégorie'
+			, text: '<strong>Associez</strong> une catégorie à une tâche. <br />Vous pouvez <strong>créer des catégories</strong> et les <strong>supprimer</strong> selon vos besoins.<br /><br /><strong>Glissez-déposez</strong> une catégorie sur une tâche afin de les associer'
 		});
 		guidely.add ({
 			attachTo: '#guidedOpt'
 			, anchor: 'top-middle'
-			, title: 'Kikoo lol'
-			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+			, title: 'Ajoutez des options'
+			, text: '<strong>Définissez</strong> une date butoir, <strong>signalez</strong> si une tâche est importante, <strong>fixez</strong> une priorité.'
 		});
 
 
+		
+		guidely.add ({
+			attachTo: '#guidedSort'
+			, anchor: 'top-left'
+			, title: 'Triez vos tâches'
+			, text: '<strong>Filtrez</strong> vos tâches selon leur catégorie, leur importance ou leur date butoir.'
+		});
 
 		guidely.add ({
 			attachTo: '#guidedCal'
-			, anchor: 'top-right'
-			, title: 'Kikoo lol'
-			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+			, anchor: 'top-left'
+			, title: 'Visualisez votre agenda'
+			, text: '<strong>Consultez</strong> rapidement vos tâches.<br /><br /><strong>Glissez-déposez</strong> une date sur une tâche afin de les associer'
 		});
 
-		guidely.add ({
-			attachTo: '#guidedSort'
-			, anchor: 'top-right'
-			, title: 'Kikoo lol'
-			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
-		});
+			
+	
 		
 		guidely.add ({
 			attachTo: '#guidedShared'
 			, anchor: 'top-right'
-			, title: 'Kikoo lol'
-			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+			, title: 'Partagez votre ToDo-List'
+			, text: '<strong>Récupérez</strong> l\'adresse de votre liste des tâches afin de la partager avec votre entourage.'
 		});
 			
 		guidely.add ({
 			attachTo: '#guidedProtected'
 			, anchor: 'top-right'
-			, title: 'Kikoo lol'
-			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+			, title: 'Protégez votre ToDo-List'
+			, text: '<strong>Sécurisez</strong> l\'accès à votre ToDo-List en ajoutant un mot de passe'
 		});
 		
 		guidely.add ({
 			attachTo: '#guidedList'
-			, anchor: 'top-right'
-			, title: 'Kikoo lol'
-			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+			, anchor: 'bottom-left'
+			, title: 'Visualisez vos tâches'
+			, text: '<strong>Consultez</strong> les tâches et leurs options et <strong>cliquez</strong> les tâches et leurs options et cliquez sur la corbeille pour terminer vos tâches'
 		});
 
-		guidely.init ({ welcome: true });
+		guidely.init ({ welcome: true, showOnStart : <?php if(hasAtLeastOneTask($_SESSION['uuid'])) echo "false"; else echo "true"; ?> });
 
 	});
-</script>>
+</script>
 </div>
 </body>
 </html>

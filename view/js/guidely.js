@@ -4,8 +4,8 @@ var guidely = (function(){
 		, _defaults: {
 			showOnStart: true
 			, welcome: true
-			, welcomeTitle: 'Kikoo titre d\'intro!'
-			, welcomeText: 'coucou, tu veux voir ma démo ?'
+			, welcomeTitle: 'Visite guidée'
+			, welcomeText: "C'est votre première fois ? Nous allons vous montrer comment utiliser myTodo en 30 secondes !"
 			, overlay: true
 			, startTrigger: true
 			, escClose: true
@@ -102,7 +102,7 @@ var guidely = (function(){
 			this.showOverlay ();
 			
 			startBtn = $('<button>', {
-				text: 'Go go go'
+				text: "C'est parti !"
 				, click: function () {			
 					expandAll();		
 					that.close ();
@@ -111,7 +111,7 @@ var guidely = (function(){
 			}).appendTo (controls);
 			
 			noBtn = $('<button>', {
-				text: 'Négatif !'
+				text: 'Non merci !'
 				, click: function () { that.close (); }
 			}).appendTo (controls);
 			
