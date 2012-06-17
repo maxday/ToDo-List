@@ -5,7 +5,7 @@
 			<input type="text" id="text_field_task" class="taskUnFocus" name="text_field" style="" />
 			<div id="moreOption" class="moreoptions"><span id="txtOptions">Plus d'options</span></div>
 			<hr class="littleSpace" />
-			<button class="i_bended_arrow_down icon small">GO</button></div>
+			<button class="i_bended_arrow_down icon small">Ajouter ma tâche</button></div>
 			<div class="g4 fullOption hidden">
 				<h5 class="titreTask">Catégories</h5>
 				<div id="categoriesList">
