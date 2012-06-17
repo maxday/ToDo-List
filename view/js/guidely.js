@@ -369,6 +369,7 @@ var guidely = (function(){
 			return $('<button>', {
 				text: 'Done'
 				, click: function (e) {
+					collapseAll();
 					e.preventDefault ();
 					that.close ();	
 				}
