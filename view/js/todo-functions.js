@@ -281,41 +281,18 @@ function launchMultiCritQuery(sender) {
     });	
 }
 
-function manageExistingBluebox(identifier, value) {
-	if ( identifier.indexOf('_') > 0 ) {
-		if ( $('#selected' + identifier).length == 1 ) {
-			$('#selected' + identifier).remove();
-			return -1;
-		}
-	}
-	if ( identifier == "Date") {
-		$('#sortByDate').removeClass("buttonPushed selectedDate");
-		$('#selectedImportance').remove();
-		return -1;
-	}
-	if ( identifier == "Priority") {
-		$('#sortByPriority').removeAttr('selectedPriority');
-		$('#selectedPriority').remove();
-		return -1;
-	}
-	if ( identifier == "Importance") {
-		$('#sortByImportance').removeClass("buttonPushed selectedImportance");
-		$('#selectedImportance').remove();
-		return -1;
-	}
-}
-
 function manageBlueBox(identifier, value) {   
 	var activeFilters = $('#activeSorts'); 
 	identifier = identifier.replace('.', '_');
 	var divId = "selected" + identifier; 
 	var lblCat = getLibelleForBluebox(identifier, value);
-	var divClass = getClass(identifier);
-
-	// Clic sur un bouton "Categorie" sélectionné: on doit supprimer la bluebox
-	var res = manageExistingBluebox(identifier, value);
-	if ( res == -1 ) { return; }
+	var divClass = getClass(identifier); 
 	// On cree l'element s'il n'existe pas
+	if ( $('#' + divId).length != 0 ) { 
+		$('#' + divId).remove();
+		if ( divId.indexOf("_") > 0 )
+			return;
+	}
 	if ( $('#' + divId).length == 0 ) {
 		jQuery("<div>", {
 	 		id: divId,
