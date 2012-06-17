@@ -267,7 +267,6 @@ function bindSort() {
 	});
 }
 
-
 function bindDeleteTask() {
 	$('span.deleteTask').live("click",function(e) {
 
@@ -285,5 +284,14 @@ function bindDeleteTask() {
                  }
 			}
 		);
+	});
+}
+
+function bindCloseTour() {
+	$('.guidely-close-trigger').live("click",function(e) {
+		collapseAll();
+	});
+	$('.bindGo').live("click",function(e) {
+		expandAll();
 	});
 }

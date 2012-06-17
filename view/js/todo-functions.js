@@ -13,7 +13,8 @@ var isCreatingNewTag = false;
 var clip;
 
 $(document).ready(function () {
-	
+	expandAll();
+	bindCloseTour();
 	//mettre le focus sur le champ de tache au démarrage
 	$("#text_field_task").focus();
 
@@ -431,4 +432,26 @@ function refreshRightSortPanel() {
 function bindList() {
 	bindTaskListAsDroppable();
 	makeListSortable();
+}
+
+function expandAll() {
+	if(!isMoreOptionAreDisplayed)
+		$("#moreOption").trigger("click");
+	var tab = $(".collapse");
+	for(var o = 0; o<tab.length; ++o) {
+		console.log($(".collapse").eq(o));
+		if($(".collapse").eq(o).attr("title") == "expand widget")
+			$(".collapse").eq(o).trigger("click");
+	}
+}
+
+function collapseAll() {
+	if(isMoreOptionAreDisplayed)
+		$("#moreOption").trigger("click");
+	var tab = $(".collapse");
+	for(var o = 0; o<tab.length; ++o) {
+		console.log($(".collapse").eq(o));
+		if($(".collapse").eq(o).parent().parent().attr("id") != "widget_info" && $(".collapse").eq(o).attr("title") == "collapse widget")
+			$(".collapse").eq(o).trigger("click");
+	}
 }

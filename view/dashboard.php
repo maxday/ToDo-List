@@ -95,6 +95,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/light/jRating.jquery.css" media="screen" /> 
 	<link rel="stylesheet" type="text/css" href="./css/dashboard.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="./css/style_inserttask.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="./css/guidely.css" media="screen" />
 	<!-- jQuery files --> 
 	<script type="text/javascript" src="./js/jRating.jquery.js"></script>
 	<script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
@@ -106,6 +107,9 @@
 	
 	<script type="text/javascript" src="./js/todoBinder.js"></script>
 	<script type="text/javascript" src="./js/todoTaskList.js"></script>
+
+	<script type="text/javascript" src="./js/guidely.js"></script>
+
 </head>
 <body>
 	<!--<div id="pageoptions" style="">
@@ -132,7 +136,7 @@
 		
 		
 		<!-- PARTIE GAUCHE-->
-		<div id="left_part" class="g9" style="float:left;">
+		<div id="left_part" class="tour_1 g9" style="float:left;">
 			<div class="nodrop widget"> 
 				<h3 class="handle">Ajout d'une tâche</h3>
 				<?php
@@ -140,7 +144,7 @@
 				?> 
 			</div>
 			
-			<div class="widgets">
+			<div id="guidedList" class="widgets tour_2">
 				<div class="widget" id="widget_info">
 					<h3 class="handle">
 						Liste des tâches
@@ -160,7 +164,7 @@
 		
 		<!-- PARTIE DROITE-->
 		<div id="right_part" class="g3" style="float:left;">
-			<div class="widgets">
+			<div id="guidedCal" class="widgets">
 				<div resource="filter" class="widget" <?php if(isDisplayFilters($_SESSION['uuid'])) echo "data-collapsed='false'"; else echo "data-collapsed='true'"; ?>>
 					<h3 class="handle">Filtres</b></h3>
 					<?php
@@ -169,7 +173,7 @@
 				</div> 
 			</div>
 
-			<div  class="widgets">
+			<div id="guidedSort" class="widgets">
 				<div resource="calendar" class="widget" <?php if(isDisplayCalendar($_SESSION['uuid'])) echo "data-collapsed='false'"; else echo "data-collapsed='true'"; ?>>
 					<h3 class="handle">Calendrier</b></h3>
 					<div class="calendar"></div>
@@ -252,10 +256,70 @@
 			<?php } ?>
 		</section>
 	</div>
-	
+<<script type="text/javascript" charset="utf-8">
+	$(function () {
+
+		guidely.add ({
+			attachTo: '.tour_1'
+			, anchor: 'top-left'
+			, title: 'Kikoo lol'
+			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+		});	
+		guidely.add ({
+			attachTo: '#guidedCat'
+			, anchor: 'top-middle'
+			, title: 'Kikoo lol'
+			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+		});
+		guidely.add ({
+			attachTo: '#guidedOpt'
+			, anchor: 'top-middle'
+			, title: 'Kikoo lol'
+			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+		});
+
+
+
+		guidely.add ({
+			attachTo: '#guidedCal'
+			, anchor: 'top-right'
+			, title: 'Kikoo lol'
+			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+		});
+
+		guidely.add ({
+			attachTo: '#guidedSort'
+			, anchor: 'top-right'
+			, title: 'Kikoo lol'
+			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+		});
+		
+		guidely.add ({
+			attachTo: '#guidedShared'
+			, anchor: 'top-right'
+			, title: 'Kikoo lol'
+			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+		});
+			
+		guidely.add ({
+			attachTo: '#guidedProtected'
+			, anchor: 'top-right'
+			, title: 'Kikoo lol'
+			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+		});
+		
+		guidely.add ({
+			attachTo: '#guidedList'
+			, anchor: 'top-right'
+			, title: 'Kikoo lol'
+			, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+		});
+
+		guidely.init ({ welcome: true });
+
+	});
+</script>>
 </div>
-
-
 </body>
 </html>
 <?php } ?>

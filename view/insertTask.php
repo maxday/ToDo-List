@@ -7,7 +7,7 @@
 			<hr class="littleSpace" />
 			<button class="i_bended_arrow_down icon small">Ajouter ma tâche</button></div>
 			<div class="g4 fullOption hidden">
-				<h5 class="titreTask">Catégories</h5>
+				<h5 id="guidedCat" class="titreTask">Catégories</h5>
 				<div id="categoriesList">
 				<?php 
 					echo computeHtmlFromTags(getTagsFromUuid($_SESSION['uuid']), false);
@@ -17,7 +17,7 @@
 				
 			</div>
 			<div class="g3 fullOption hidden">
-				<h5 class="titreTask">Options</h5>
+				<h5 id="guidedOpt" class="titreTask">Options</h5>
 				<section>  
 					<img src="img/date.png" /> 	      
 					<input id="date" name="date" type="text" class="date optionLine">
