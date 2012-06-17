@@ -214,6 +214,11 @@ function launchAjaxNewTag(input, tag, tag_value) {
 		   tag.attr("dragNdrop", data);
 		   tag.next().children().attr("id",data);
 		   tag.next().children().attr("fakeId",data.replace(".",""));
+		   
+		   $(".tagButton").removeClass("buttonPushed");
+		   tag.addClass("buttonPushed");
+		   lastTagClicked = tag_value;
+		   
         });
 		// Rafraichir le panel de tris de droite avec le nouveau tag crée
 		refreshRightSortPanel();
