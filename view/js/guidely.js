@@ -112,7 +112,7 @@ var guidely = (function(){
 			
 			noBtn = $('<button>', {
 				text: 'Non merci !'
-				, click: function () { that.close (); }
+				, click: function () { collapseAll(); that.close (); }
 			}).appendTo (controls);
 			
 			content.show ();
