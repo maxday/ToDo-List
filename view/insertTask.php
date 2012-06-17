@@ -8,10 +8,11 @@
 			<button class="i_bended_arrow_down icon small">GO</button></div>
 			<div class="g4 fullOption hidden">
 				<h5 class="titreTask">Catégories</h5>
-				
+				<div id="categoriesList">
 				<?php 
 					echo computeHtmlFromTags(getTagsFromUuid($_SESSION['uuid']), false);
 				?>
+				</div>
 
 				
 			</div>

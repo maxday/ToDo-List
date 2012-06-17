@@ -23,3 +23,7 @@
 #txtOptions {
 	cursor: pointer !important;
 }
+
+#categoriesList {
+	padding-left: 10%;
+}
