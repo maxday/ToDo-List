@@ -1227,6 +1227,7 @@ input.color{
 }
 .jquery-checkbox.checkbox span.checkboxplaceholder{
 	background-position: 0px 0px;
+	vertical-align: 10px;
 }
 .jquery-checkbox.checkbox .hover span.checkboxplaceholder{
 	background-position: 0px -26px;
