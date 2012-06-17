@@ -313,8 +313,8 @@ header{
 	padding:18px 0;
 	margin:0;
 }
-#header ul li ul li{
-	border:1px solid;
+#header ul li ul li.headerButton{
+	border:1px solid #CCCCCC;
 	position:relative;
 	float:left;
 	margin:0 10px 0 0;
