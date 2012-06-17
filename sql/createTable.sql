@@ -94,7 +94,8 @@ CREATE TABLE `MYTODO_USER` (
   `isAdvancedUser` tinyint(1) DEFAULT 0,
   `dateCreated` date NOT NULL,
   `displayFilters` tinyint(1) DEFAULT 0,  
-  `displayCalendar` tinyint(1) DEFAULT 0,  
+  `displayCalendar` tinyint(1) DEFAULT 0,
+  `displayFullOptions` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

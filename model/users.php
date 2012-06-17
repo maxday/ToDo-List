@@ -78,6 +78,35 @@ function updateEmail($uuid, $email) {
 }
 
 /* tested */
+function enableFullOptions($uuid) {
+	return updateFullOptions($uuid, 1);
+}
+
+/* tested */
+function disableFullOptions($uuid) {
+	return updateFullOptions($uuid, 0);
+}
+
+/* PRIVATE */
+/* tested */
+function updateFullOptions($uuid, $enable) {
+	$sql = "UPDATE MYTODO_USER SET displayFullOptions=? WHERE uuid=?";
+	$array = array($enable, $uuid);
+	
+	launchQuery($sql, $array);
+}
+
+function isFullOptions($uuid) {
+	$sql = "SELECT displayFullOptions FROM MYTODO_USER WHERE uuid=?";
+	$vConnect = connect();
+	$prepared_statement = $vConnect->prepare($sql);
+	$prepared_statement->execute(array($uuid));
+	$line = $prepared_statement->fetch(PDO::FETCH_OBJ);
+	close($vConnect);
+	return $line->displayFullOptions;
+}
+
+/* tested */
 function enableTips($uuid) {
 	return updateTips($uuid, 1);
 }

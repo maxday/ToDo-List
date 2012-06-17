@@ -10,6 +10,11 @@ $(document).ready(function () {
 
 $('#moreOption').live("click", function(event){
 	if(isMoreOptionAreDisplayed) {
+		var url = "../ws/displayFullOptions.php";
+		$.post(url, { show: 0}, function (data) {
+		  console.log(data);
+		});
+	  
 		$(".fullOption").hide();
 		
 		$("#text_field_task").animate({
@@ -32,6 +37,11 @@ $('#moreOption').live("click", function(event){
 		isMoreOptionAreDisplayed = false;
 	}
 	else {
+		var url = "../ws/displayFullOptions.php";
+		$.post(url, { show: 1}, function (data) {
+		   console.log(data);
+		});
+	  
 		$("#text_field_task").animate({
 		    width: "95%",
 		    opacity: 0.4,

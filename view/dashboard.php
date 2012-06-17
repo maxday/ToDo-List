@@ -9,11 +9,13 @@
 
 	include_once("../model/users.php");
 ?>
+
 <!doctype html>
 <html lang="en-us">
 <head>
 	<meta charset="utf-8">
-
+	
+	<script type="text/javascript"> var displayFullOptions = <?php echo isFullOptions($_SESSION['uuid']); ?>; console.log(displayFullOptions);</script>
 	<title><?php echo $_SESSION['login']."'s ToDo"; ?></title>
 
 	<meta name="description" content="">
@@ -103,8 +105,6 @@
 	
 	<script type="text/javascript" src="./js/todoBinder.js"></script>
 	<script type="text/javascript" src="./js/todoTaskList.js"></script>
-	
-	
 </head>
 <body>
 	<!--<div id="pageoptions" style="">

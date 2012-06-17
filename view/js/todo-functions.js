@@ -21,6 +21,11 @@ $(document).ready(function () {
 		length : 3 // nb of stars  
 	});
 	
+	// afficher les options completes si 
+	if (displayFullOptions) {
+	  $('#moreOption').trigger('click');
+	}
+	
 	//effet bordure noire si du texte est present dans le champ d'ajout de tache
 	$("#text_field_task").bind("keyup", function(event){
 		if($(this).val()=="")
