@@ -377,7 +377,7 @@ function manageBlueBox(identifier, value) {
 					$('#sortByDate').removeClass("buttonPushed selectedDate");
 					$('#sortByPriority').removeAttr('selectedPriority');
 					$('.sortTagButton').removeClass('buttonPushed');
-					launchMultiCritQuery(sender);	
+					refreshList();
 				}
 				else {			
 					var sender = "undefined";
