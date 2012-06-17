@@ -13,8 +13,13 @@
 				<li class="headerButton"><a href="icons.html">Partager ! <img src="img/fileshare.png" /></a></li>
 			</ul>
 			<ul class="inline">
-				<li class="headerButton"><a id="trigger_protect" href="#protect_form">Protéger ! <img src="img/lock_open.png" /></a></li>
-
+				<li class="headerButton"><a id="trigger_protect" href="#protect_form">
+					<?php 
+						if(!isProtected($_SESSION['uuid']))
+							echo '<div id="wordingProtect">Protéger !</div> <img width="32" src="img/unlocked.png" /></a></li>';
+						else
+							echo '<div id="wordingProtect">Protégé</div> <img width="32" src="img/locked.png" /></a></li>';
+					?>
 			</ul>
 			<ul class="inline">
 				<li class="headerButton">

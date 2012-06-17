@@ -129,7 +129,8 @@ function bindCreateProtectForm() {
 		$.post(url, { pass: passChosen },
 			function (data) {
 			  $.fancybox.close();
-			  // montrer que c'est protégé,  changer l'icone? empecher de changer le pass?
+			  $("#trigger_protect").children().eq(1).replaceWith("<img width='32' src='img/locked.png'>");
+			  $("#wordingProtect").html("Protégé");
 			}
 		);
    });

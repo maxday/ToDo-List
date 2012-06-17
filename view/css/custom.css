@@ -28,3 +28,8 @@
 	width : 0px !important;
 	display : inline-block !important;
 }
+
+#wordingProtect { 
+	display : inline;
+	/* can't use span :/*/
+}
