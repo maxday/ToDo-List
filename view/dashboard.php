@@ -99,7 +99,8 @@
 	<script type="text/javascript" src="./js/jRating.jquery.js"></script>
 	<script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 	<link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-	
+    <script type="text/javascript" src="./js/ZeroClipboard.js"></script>
+
 	<script type="text/javascript" src="./js/todo-functions.js"></script>
 	<script type="text/javascript" src="./js/todo-dragDropDate.js"></script>
 	
@@ -184,7 +185,28 @@
 <footer style="visibility : hidden;">(c) MyTodo.fr 2012</footer>
 
 <div class="hidden">
-	
+	<!-- Div associées aux Fancyboxes -->
+	<div class="fancy_content" id="share_list">
+		<section class="box">
+			<div class="title">
+				<h1>Partager ma liste</h1>
+			</div>
+			<div id="contentOfShareFancyBox" style="">
+				<p id="responseBoxShare">
+				<?php if(isProtected($_SESSION['uuid'])){ ?>
+					<div class="alert warning">Vous ne pouvez pas partager une liste protégée !</div>
+				<?php } else { ?>
+					Envoyez directement ce lien aux personnes avec qui vous souhaitez partager la liste
+					<input id="urlToShare" size="10" style="width: 50%;" readonly="readonly" value="http://www.mytodo.fr/<?php echo $_SESSION['login'] ?>">
+					<div id="d_clip_container" style="position:relative">
+					   <div id="d_clip_button">Copier dans le presse-papier</div>
+					</div>
+
+				<? } ?>
+				</p>
+			</div>
+		</section>
+	</div>
 	<div class="fancy_content" id="protect_form">
 		<section class="box">			
 			<?php if(isProtected($_SESSION['uuid'])){ ?>

@@ -114,6 +114,14 @@ function bindCreateProtectForm() {
 		'autoDimensions':false,
 	});
 
+	// fancyBox pour partager accès au compte
+	$("a#trigger_share").fancybox({
+		'width':450,
+		'height':375,
+		'autoScale':false,
+		'autoDimensions':false,
+	});
+
    // soumission du form pour proteger le passwword
    $('#form_protect').live("submit",function(e) {
 		e.preventDefault();

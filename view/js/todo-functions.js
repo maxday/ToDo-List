@@ -10,6 +10,7 @@ var lastBlured = null;
 
 var isCreatingNewTag = false;
 // Attention: Priorite memorisee par le plugin jRating > Variable SelectedPriority initialisee dans le fichier jRating.jquery.js ... :/
+var clip;
 
 $(document).ready(function () {
 	
@@ -69,8 +70,17 @@ $(document).ready(function () {
 		} 
 		sortByCategory(this.value, this.innerHTML);
 		event.preventDefault();	
+	});  
+	
+     clip = new ZeroClipboard.Client();
+	 $('#d_clip_button').bind("click", function(event) {
+			var textToCopy = $('#urlToShare').val();
+			clip.setHandCursor( true );
+            clip.setText( textToCopy );
+			clip.glue( 'd_clip_button', 'd_clip_container' );
+			console.log("je viens de faire un copier coller lol");
+			$('#contentOfShareFancyBox').append("<div class='alert success'>Le texte a été copié/collé</div>");
 	});
-
 
 	bindCreateNewLabel();
 	bindDeleteTask();
