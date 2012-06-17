@@ -57,6 +57,12 @@ function completeTask($uuid, $user) {
 		echo("Alerte");
 }
 
+function completeAllTask($user) {
+	$sql = "UPDATE MYTODO_TASK SET dateCompleted=NOW() WHERE user=?";
+	$array = array($user);
+	launchQuery($sql, $array);
+}
+
 /*tested*/
 function updateTaskTitle($uuid, $user, $title) {
 	if (isTaskBelongsToUser($uuid, $user)) {
@@ -323,7 +329,7 @@ function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid
 function formatTaskList($array) {
   echo "<ul id='taskSortList'>";
 	// Colonne entete
-  echo "<li id='header_tab' class='task'><span class='singleTitle taskcolumn'>Intitulé</span><span class='taskcolumn'> Date </span> <span class='singlePriority taskcolumn'> Priorité</span> <span class='singleIsImportant taskcolumn'> importance</span> <span class='singleTag taskcolumn'> Categorie</span> <span class='taskcolumn'> Fini ?</span></li>";
+  echo "<li id='header_tab' class='task'><span class='singleTitle taskcolumn'>Intitulé</span><span class='taskcolumn'> Date </span> <span class='singlePriority taskcolumn'> Priorité</span> <span class='singleIsImportant taskcolumn'> importance</span> <span class='singleTag taskcolumn'> Categorie</span> <span class='taskcolumn deleteTask' id='deleteAllTask'> </span></li>";
   for($i = 0; $i < count($array); $i++){
 	      $bdd_uuid = $array[$i] -> uuid;
 	      $uuid = str_replace('.','',$bdd_uuid);

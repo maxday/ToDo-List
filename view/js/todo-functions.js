@@ -86,6 +86,23 @@ $(document).ready(function () {
 			console.log("je viens de faire un copier coller lol");
 			$('#contentOfShareFancyBox').append("<div class='alert success'>Le texte a été copié/collé</div>");
 	});
+	
+	$('#deleteAllTask').live('click', function () {
+	   
+	   if ($('#taskSortList li.ui-droppable:not(#header_tab)').length > 0) {
+	   
+   	   var res_confirm = confirm("Voulez vous vraiment supprimer toutes les tâches ?");
+	   
+   	   if (res_confirm){
+      	   var url = "../ws/completeAllTask.php"
+      	   $.post(url, {},
+      			function (data) { 
+      				refreshList();
+      			}
+      		);
+   		}
+	   }
+	});
 
 	bindCreateNewLabel();
 	bindDeleteTask();
