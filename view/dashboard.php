@@ -192,21 +192,18 @@
 				<h1>Partager ma liste</h1>
 			</div>
 			<div id="contentOfShareFancyBox" style="">
-				<p id="responseBoxShare">
-				<?php if(isProtected($_SESSION['uuid'])){ ?>
-					<div class="alert warning">Vous ne pouvez pas partager une liste protégée !</div>
-				<?php } else { ?>
+				<p id="responseBoxShare"> 
 					Envoyez directement ce lien aux personnes avec qui vous souhaitez partager la liste
 					<input id="urlToShare" size="10" style="width: 50%;" readonly="readonly" value="http://www.mytodo.fr/<?php echo $_SESSION['login'] ?>">
 					<div id="d_clip_container" style="position:relative">
-					   <div id="d_clip_button">Copier dans le presse-papier</div>
+					   <button id="d_clip_button" style="width: 150px !important;">Copier dans le presse-papier</button>
 					</div>
-
-				<? } ?>
 				</p>
 			</div>
 		</section>
 	</div>
+	
+	
 	<div class="fancy_content" id="protect_form">
 		<section class="box">			
 			<?php if(isProtected($_SESSION['uuid'])){ ?>
