@@ -29,6 +29,7 @@ function bindAddTask() {
 				$("#taskListRefresh").html(data);
 				$('.calendar').fullCalendar( 'refetchEvents' );
 				refreshList();
+				desactiverTrisActif();
 			}
 		);
 		}
@@ -252,18 +253,7 @@ function bindSort() {
 	
 	/* Desactiver les tris actifs */
 	$('#reset').bind('click', function() {
-		var url = './tasksList.php'; 
-		$('#sortByImportance').removeClass("buttonPushed selectedImportance");
-		$('#sortByDate').removeClass("buttonPushed selectedDate");
-		$('#sortByPriority').removeAttr('selectedPriority');
-	    $.post(url,
-			function (data) {
-				// Désactiver les tris actifs
-				$('.sortTagButton').removeClass('buttonPushed');
-				$('#activeSorts').empty();
-				refreshList();
-			}
-		);	
+	   desactiverTrisActif();
 	});
 }
 
@@ -294,4 +284,19 @@ function bindCloseTour() {
 	$('.bindGo').live("click",function(e) {
 		expandAll();
 	});
+}
+
+function desactiverTrisActif() {
+   var url = './tasksList.php'; 
+	$('#sortByImportance').removeClass("buttonPushed selectedImportance");
+	$('#sortByDate').removeClass("buttonPushed selectedDate");
+	$('#sortByPriority').removeAttr('selectedPriority');
+    $.post(url,
+		function (data) {
+			// Désactiver les tris actifs
+			$('.sortTagButton').removeClass('buttonPushed');
+			$('#activeSorts').empty();
+			refreshList();
+		}
+	);
 }
