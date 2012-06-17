@@ -95,9 +95,10 @@
 					$.post(url, { login: login, pass: pass},
 						function (data) {
 							if(data == "6") {
-							$("#pwdHide").show();
-							$("#pwdField").focus();
+								$("#pwdHide").show();
+								$("#pwdField").focus();
 								$(".errorLogin").html('<div class="alert warning">Mot de passe incorrect !!</div>'); 
+								replace();
 								prevent = false;
 							} else { 
 								window.location.href = "dashboard.php";
@@ -114,9 +115,17 @@
 					$('#pwdField').val('');
 					$('#pwdHide').hide();
 					$('#pwdField').focus();
+					$('#textLog').css("display","inline-block");
+					$('#errorLogin2').css("display","none");
+					$('#fondWelcomeTxt').css("background-color","#FFFF70");
 				} 
 			});
 	});
+		
+	function replace() {
+		$('#textLog').css("display","none");
+		$('#fondWelcomeTxt').css("background-color","#FFFFFF");
+	}
 </script>
  
 
@@ -141,7 +150,6 @@
 			<div id="wrapper2">
 
 				<div class="conten2">
-					
 					Gérez votre liste de tâches plus efficacement avec MyToDo !<br/><br/>
 					<ul class="description_home">
 					<li>N'oubliez plus rien d'important</li>
@@ -178,10 +186,6 @@
 				</div>
 			</section>
 
-
-
-
-
 			<div id="wrapper">
 
 				<div class="conten">
@@ -189,7 +193,8 @@
 					<div class="container">
 					</div>
 					<section id="fondWelcomeTxt" class="subscribe">
-						Connectez-vous ou saisissez un login pour créer votre compte !
+						<div id="errorLogin2" class="errorLogin"></div>
+						<div id="textLog"> Connectez-vous ou saisissez un login pour créer votre compte !</div>
 					</section>
 					<section class="subscribe">
 						<div class="sub-conten">
@@ -209,17 +214,11 @@
 								<div class="lineForm">
 									<input type="submit" class="submit" id="submit_button" value="Envoyer">
 								</div>
-								<div class="errorLogin">
-					
-								</div>
 							</form>
 						</div>
 					</section>
 				</div>
-
 			</div>
-		
-		
 		</div>
 	</div>
 </body>
