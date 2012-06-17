@@ -27,3 +27,9 @@
 #categoriesList {
 	padding-left: 10%;
 }
+
+#reinit_crit {
+	line-height: 20px; margin-right: 10px;
+	    margin-top: 10px;
+	    float: right; font-size: 10pt; cursor: pointer;
+}

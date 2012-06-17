@@ -22,12 +22,15 @@
 					<img src="img/date.png" /> 	      
 					<input id="date" name="date" type="text" class="date optionLine">
 					<hr />
-					<img src="img/stock_mail-priority-high.png" alt="Importance ?"/> &nbsp;&nbsp;&nbsp;<input type="checkbox" id="checkimp" name="checkimp" />
+					<img src="./img/stock_mail-priority-high.png" alt="Importance ?"/> &nbsp;&nbsp;&nbsp;<input type="checkbox" id="checkimp" name="checkimp" />
 					<hr />
 					Priorité <!-- basic exemple -->  <div class="basic" id="insertPriority"></div>  
 				
 				</section>	
 			</div>
+			<span id="reinit_crit" class="fullOption hidden">
+				<img src="./img/resetcrit.png" width="12px" height="12px"/> Réinitialiser les critères ?
+			</span>
 		</section>  
 	</form>
 	

@@ -43,6 +43,20 @@ $(document).ready(function () {
 			$(this).addClass("buttonPushed");
 	});
 	
+	// Bouton reinitialiser les criteres
+	$('#reinit_crit').bind("click", function(event) {
+		var cats = $('#taskzone .buttonPushed');
+		for ( var i = 0 ; i < cats.size(); ++i ) {
+			cats.eq(i).removeClass("buttonPushed");
+		}
+		// Reinitialisation des criteres (23px, 20px chopés depuis jRating.jquery.js, lastTagClicked à nul)
+		SelectedPriority = 0;
+	  	$(".jRatingAverage").css("width","23px");
+	  	$(".jRatingAverage").css("top","-20px"); 
+		lastTagClicked = null;
+		$('#checkimp').attr('checked', false);
+		$('#date').val("");
+	});
 	makeListSortable();
 			
 	bindAddTask();
