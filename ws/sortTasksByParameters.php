@@ -12,13 +12,18 @@
 	if ( !isset($category) ) { 
 		$cat = "undefined"; 
 	}
-	else {  
-		$category = preg_split('!&&!', $category); 
-		if ( isset($category[1]) ) {
-			$cat = $category; 
+	else {   
+		if ( $category == "") {
+			$cat = "undefined";
 		}
 		else {
-			$cat = "undefined";
+			$category = preg_split('!&&!', $category); 
+			if ( isset($category[1]) ) {
+				$cat = $category; 
+			}
+			else {
+				$cat = "undefined";
+			}	
 		}
 	} 
 	// Lancement de la requete

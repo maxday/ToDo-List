@@ -295,13 +295,12 @@ function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid
 	if ( $priority != "undefined" ) { 
 		$sql .= "AND priority = ?"; 
 		array_push($paramarray, $priority);
-	} 
-	
+	}  
 	if ( $categories != "undefined") { 
 		$sql .= "AND tag IN (";
 		$selectedC = count($categories);
 		for ( $i=0 ; $i < $selectedC ; ++$i ) {
-			if ( $categories[$i] != "") {
+			if ( $categories[$i] != "" && $categories[$i] != "undefined") {
 				$sql .= '?';
 				if ( $i+1 != $selectedC ) { $sql.= ','; }
 				array_push($paramarray, $categories[$i]);
@@ -309,7 +308,6 @@ function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid
 		}
 		$sql .= ')';
 	}
-	 
 	$prepared_statement = $vConnect->prepare($sql);  
 	$res = $prepared_statement->execute($paramarray);
 	if( $res == true) { 
