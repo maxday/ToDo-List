@@ -1,0 +1,29 @@
+/*
+	Minimaxing 1.0 by nodethirtythree design
+	http://nodethirtythree.com | @nodethirtythree
+	Released under the Creative Commons Attribution 3.0 license (nodethirtythree.com/license)
+*/
+
+.button {
+	background-image: url('images/button.svg');
+}
+
+.button:hover {
+	background-image: url('images/button-hover.svg');
+}
+
+#header-wrapper {
+	background-image: url('images/header-wrapper.svg');
+}
+
+#header {
+	background-image: url('images/header.svg');
+}
+
+	#header nav a.current-page-item {
+		background-image: url('images/nav-a.svg');
+	}
+
+	#header nav a:hover {
+		background-image: url('images/nav-a-hover.svg');
+	}
