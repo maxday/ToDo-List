@@ -10,7 +10,7 @@
 				<li id="howdy_button"><h3 id="lg_text">Bonjour <?php echo $_SESSION['login'] ?> ! <img src="./img/smile.png" /></h3></li>
 			</ul>
 			<ul class="inline">
-				<li id="guidedShared" class="headerButton"><a href="icons.html">Partager ! <img src="img/fileshare.png" /></a></li>
+				<li id="guidedShared" class="headerButton"><a id="trigger_share" href="#share_list">Partager ! <img src="img/fileshare.png" /></a></li>
 			</ul>
 			<ul class="inline">
 				<li id="guidedProtected" class="headerButton"><a id="trigger_protect" href="#protect_form">
