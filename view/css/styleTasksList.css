@@ -1,38 +1,47 @@
 .taskcolumn {
-	margin-left: 50px;
+	margin-left: 40px;
 }
 
 .singleTitle{ 
-  width:150px;
-  font-weight:bold;
+  width:100px; 
   display: inline-block;
 }
 
 .singleDueDate{ 
-  width:70px;
+  width:50px;
   display: inline-block;
 }
 
 .singlePriority{ 
-  width:60px;
+  width:50px;
   display: inline-block;
 }
 
 .singleIsImportant{ 
-  width:20px;
+  width:45px;
   display: inline-block;
 }
 
 .singleTag{ 
-  width:100px;
+  width:50px;
   display: inline-block;
 }
 
 #taskListRefresh ul li {
 	border : 1px solid;
 	padding : 5px;
-	margin-bottom : 5px;
+	margin-bottom : 1px;
 	list-style : none;
+}
+
+.entete { 
+	background-color: #C9DAEA;
+	border-color: #C7C7C7 #B2B2B2 #B2B2B2 #C7C7C7 !important;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 2px 5px rgba(255, 255, 255, 0.5) inset, 0 -2px 5px rgba(0, 0, 0, 0.1) inset !important;
+	color: #555555 !important;
+	font-size: 14px;
+	margin-bottom:5px !important;
+	font-weight: bold !important;
 }
 
 .deleteTag {

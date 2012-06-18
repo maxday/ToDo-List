@@ -2383,6 +2383,8 @@ span.deleteTask {
    height: 25px;
    position: absolute;
    width: 25px;
+   border-left: 1px dotted black;
+   padding-left: 50px;
 }
 
 
