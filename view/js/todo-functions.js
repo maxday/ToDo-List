@@ -97,9 +97,8 @@ $(document).ready(function () {
 			var textToCopy = $('#urlToShare').val();
 			clip.setHandCursor( true );
             clip.setText( textToCopy );
-			clip.glue( 'd_clip_button', 'd_clip_container' );
-			console.log("je viens de faire un copier coller lol");
-			$('#contentOfShareFancyBox').append("<div class='alert success'>Le texte a été copié/collé</div>");
+			clip.glue( 'd_clip_button', 'd_clip_container' ); 
+			$('#contentOfShareFancyBox').append("<div class='alert success'>Le texte a été copié</div>");
 	});
 	
 	$('#deleteAllTask').live('click', function () {

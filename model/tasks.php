@@ -1,6 +1,6 @@
 <?php
 
-include_once('../helper/utils.php');
+include_once('../helper/utils.php'); 
 
 /* tested */
 function createTask($title, $dueDate, $priority, $isImportant, $tag, $user) {
@@ -325,6 +325,17 @@ function sortTasksByMultiCrits($date, $importance, $priority, $categories, $uuid
 	return $returnArray;
 }
 
+function computeColorForCategory($category) {
+	$tagsArray = getTagsFromUuid($_SESSION['uuid']); 
+	$i = 1;
+	foreach($tagsArray as $singleTag) {
+		if ( $category == $singleTag['title']) {
+			return $i;
+		}
+		$i++;
+	}
+	return -1;
+}
 
 function formatTaskList($array) {
   echo "<ul id='taskSortList'>";
@@ -354,7 +365,12 @@ function formatTaskList($array) {
 			echo "<img src='./img/priority.png' />";
 		  }
 		  echo "</span>";
-		  echo "<span class='singleTag taskcolumn'>"; echo getTagByUuid($array[$i]->tag); echo "</span>";
+		  echo "<span class='singleTag taskcolumn'>"; 
+		  $lblcat = getTagByUuid($array[$i]->tag);
+		  if ( $lblcat != "" ) {
+		  	echo "<button class='tagButton".computeColorForCategory($lblcat)." small'>".$lblcat."</button>" ; 
+		  }
+		  echo "</span>";
 		  echo "<span class='deleteTask taskcolumn'> </span></li>";
   }
   echo "</ul>";

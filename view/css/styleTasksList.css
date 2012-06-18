@@ -32,14 +32,15 @@
 	padding : 5px;
 	margin-bottom : 1px;
 	list-style : none;
+	background-color:white;
 }
 
 .entete { 
-	background-color: #C9DAEA;
+	background-color: #C9DAEA !important;
 	border-color: #C7C7C7 #B2B2B2 #B2B2B2 #C7C7C7 !important;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 2px 5px rgba(255, 255, 255, 0.5) inset, 0 -2px 5px rgba(0, 0, 0, 0.1) inset !important;
 	color: #555555 !important;
-	font-size: 14px;
+	font-size: 14px !important;
 	margin-bottom:5px !important;
 	font-weight: bold !important;
 }
