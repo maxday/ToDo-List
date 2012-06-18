@@ -129,7 +129,7 @@ $(document).ready(function () {
 	bindSort();
 
 
-   $("#draggableHelper").mousedown(console.log("kkk"));
+   $("#draggableHelper").mousedown();
 
 });
  
@@ -152,7 +152,7 @@ function handlerDragDate( event ) {
 }
 
 function handlerDropItemOnList( event, ui ) {
-  console.log("DROP");
+  //console.log("DROP");
   var draggable = ui.draggable;
 
 //si reorder 
@@ -168,7 +168,7 @@ function handlerDropItemOnList( event, ui ) {
 		var year = $('.calendar').fullCalendar('getDate').getYear()+1900;
 		var url = "../ws/addDateToTask.php";
 		var task_value = $(this).attr('id');
-		console.log("JE METS la date SUR" + task_value);
+		//console.log("JE METS la date SUR" + task_value);
 		$.post(url, { dateD: day, dateM: month, dateY:year, taskId : task_value }, function (data) {
 			$('.calendar').fullCalendar( 'refetchEvents' );
 			refreshList();
@@ -443,7 +443,7 @@ function expandAll() {
 		$("#moreOption").trigger("click");
 	var tab = $(".collapse");
 	for(var o = 0; o<tab.length; ++o) {
-		console.log($(".collapse").eq(o));
+		//console.log($(".collapse").eq(o));
 		if($(".collapse").eq(o).attr("title") == "expand widget")
 			$(".collapse").eq(o).trigger("click");
 	}
@@ -454,7 +454,7 @@ function collapseAll() {
 		$("#moreOption").trigger("click");
 	var tab = $(".collapse");
 	for(var o = 0; o<tab.length; ++o) {
-		console.log($(".collapse").eq(o));
+		//console.log($(".collapse").eq(o));
 		if($(".collapse").eq(o).parent().parent().attr("id") != "widget_info" && $(".collapse").eq(o).attr("title") == "collapse widget")
 			$(".collapse").eq(o).trigger("click");
 	}

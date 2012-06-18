@@ -58,7 +58,7 @@ $.fn.wl_Multiselect = function (method) {
 			.bind('keyup.wl_Multiselect', function(){
 				var term = new RegExp($(this).val(), 'i');
 				
-				console.log(opts.pool.find('li'));
+				//console.log(opts.pool.find('li'));
 				$.each(opts.pool.find('li').not('.used'), function(i, el){
 					var _el = $(el),
 						_val = _el.data('value')+_el.data('name');

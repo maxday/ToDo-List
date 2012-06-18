@@ -15,7 +15,9 @@
 <head>
 	<meta charset="utf-8">
 	
-	<script type="text/javascript"> var displayFullOptions = <?php echo isFullOptions($_SESSION['uuid']); ?>; console.log(displayFullOptions);</script>
+	<script type="text/javascript"> var displayFullOptions = <?php echo isFullOptions($_SESSION['uuid']); ?>; 
+	//console.log(displayFullOptions);
+	</script>
 	<title><?php echo $_SESSION['login']."'s ToDo"; ?></title>
 
 	<meta name="description" content="">

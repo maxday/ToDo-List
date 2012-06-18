@@ -147,7 +147,7 @@ function bindCreateProtectForm() {
 	// soumission du form pour changer le password
 	$('#form_change_password').live("submit",function(e) {
 		e.preventDefault();
-		//console.log($('#form_protect_input').val());
+		////console.log($('#form_protect_input').val());
 		var oldPass = $('#form_change_password_old').val();
 		var passChosen = $('#form_change_password_input').val();
 
@@ -177,11 +177,11 @@ function bindDeleteTag() {
 	$('.tagButton a').live("click",function(e) {
 	    
 		var uuidTagToDelete = $(this).attr("id");
-		console.log(uuidTagToDelete);
+		//console.log(uuidTagToDelete);
 		var url = '../ws/deleteTag.php';
 		$.post(url, { tag: uuidTagToDelete},
 			function (data) {
-				console.log(data);
+				//console.log(data);
 				// Rafraichir le panel de tris de droite avec le nouveau tag crée
 				refreshRightSortPanel();
             }
@@ -198,9 +198,9 @@ function bindDeleteTag() {
 
 
 function bindTaskListAsDroppable() {
-	console.log("je dropable");
-	console.log("TOP");
-	console.log($('.task'));
+	//console.log("je dropable");
+	//console.log("TOP");
+	//console.log($('.task'));
 	$('.task').droppable( {
         drop: handlerDropItemOnList
 	});
@@ -209,7 +209,7 @@ function bindTaskListAsDroppable() {
 
 
 function bindDraggableCalendar() {
-	console.log($('.ui-widget-content'));
+	//console.log($('.ui-widget-content'));
 	$('.ui-widget-content').draggable({
 		helper:handlerDragDate,
 		stop:function(){
@@ -230,7 +230,7 @@ function bindSort() {
 	
 	/* Tri par date */
 	$('#sortByDate').bind('click', function() {
-		console.log("alalalal");
+		//console.log("alalalal");
 		if ( $('#sortByDate').hasClass("buttonPushed") ) {
 			$('#sortByDate').removeClass("buttonPushed selectedDate");
 		}

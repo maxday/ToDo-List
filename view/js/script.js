@@ -474,8 +474,8 @@ $(document).ready(function() {
 			$content.find('form').wl_Form({
 				onSuccess: function(data, status){
 					if(window.console){
-						console.log(status);
-						console.log(data);
+						//console.log(status);
+						//console.log(data);
 					};
 					$.msg("Custom Callback on success\nDevelopers! Check your Console!");
 				},

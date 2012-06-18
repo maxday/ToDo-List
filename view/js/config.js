@@ -331,10 +331,10 @@ if($.fn.wl_Widget) $.fn.wl_Widget.defaults = {
 			var url = "../ws/displayFilters.php";
 		else {
 			var url = "../ws/displayCalendar.php";
-			console.log("kikko CAL");
+			//console.log("kikko CAL");
 		}	
 		$.post(url, { show: 1}, function (data) {
-				console.log(data);
+				//console.log(data);
 				bindDraggableCalendar();
 		});
 	},
@@ -344,7 +344,7 @@ if($.fn.wl_Widget) $.fn.wl_Widget.defaults = {
 		else
 			var url = "../ws/displayCalendar.php";
 		$.post(url, { show: 0}, function (data) {
-				console.log(data);
+				//console.log(data);
 		});
 	}
 };

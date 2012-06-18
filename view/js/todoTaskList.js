@@ -9,7 +9,7 @@ function makeListSortable() {
 
 		    $.post(url, { order: orderTask},
 				function (data) {
-					console.log(data);
+					//console.log(data);
 				}
 			);
 		}	

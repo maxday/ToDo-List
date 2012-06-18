@@ -12,7 +12,7 @@ $('#moreOption').live("click", function(event){
 	if(isMoreOptionAreDisplayed) {
 		var url = "../ws/displayFullOptions.php";
 		$.post(url, { show: 0}, function (data) {
-		  console.log(data);
+		  //console.log(data);
 		});
 	  
 		$(".fullOption").hide();
@@ -39,7 +39,7 @@ $('#moreOption').live("click", function(event){
 	else {
 		var url = "../ws/displayFullOptions.php";
 		$.post(url, { show: 1}, function (data) {
-		   console.log(data);
+		   //console.log(data);
 		});
 	  
 		$("#text_field_task").animate({
