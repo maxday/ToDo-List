@@ -315,7 +315,7 @@
 			attachTo: '#guidedList'
 			, anchor: 'bottom-left'
 			, title: 'Visualisez vos tâches'
-			, text: '<strong>Consultez</strong> les tâches et leurs options et <strong>cliquez</strong> les tâches et leurs options et cliquez sur la corbeille pour terminer vos tâches'
+			, text: '<strong>Consultez</strong> les tâches et leurs options, <strong>cliquez</strong> sur la corbeille pour terminer vos tâches, <strong>ordonnez</strong> vos tâches en les glissant-déposant.'
 		});
 
 		guidely.init ({ welcome: true, showOnStart : <?php if(hasAtLeastOneTask($_SESSION['uuid'])) echo "false"; else echo "true"; ?> });

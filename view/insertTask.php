@@ -19,12 +19,14 @@
 			<div class="g3 fullOption hidden">
 				<h5 id="guidedOpt" class="titreTask">Options</h5>
 				<section>  
+					Echéance ?<br />
 					<img src="img/date.png" /> 	      
 					<input id="date" name="date" type="text" class="date optionLine">
 					<hr />
+					Est-ce important ?<br />
 					<img src="./img/stock_mail-priority-high.png" alt="Importance ?"/> &nbsp;&nbsp;&nbsp;<input type="checkbox" id="checkimp" name="checkimp" />
 					<hr />
-					Priorité <!-- basic exemple -->  <div class="basic" id="insertPriority"></div>  
+					Quelle priorité ?<!-- basic exemple -->  <div class="basic" id="insertPriority"></div>  
 				
 				</section>	
 			</div>

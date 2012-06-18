@@ -13,7 +13,7 @@ var isCreatingNewTag = false;
 var clip;
 
 $(document).ready(function () {
-	expandAll();
+
 	bindCloseTour();
 	//mettre le focus sur le champ de tache au démarrage
 	$("#text_field_task").focus();
