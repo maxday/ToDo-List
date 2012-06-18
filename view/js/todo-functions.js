@@ -52,8 +52,8 @@ $(document).ready(function () {
 		}
 		// Reinitialisation des criteres (23px, 20px chopés depuis jRating.jquery.js, lastTagClicked à nul)
 		SelectedPriority = 0;
-	  	$(".jRatingAverage").css("width","23px");
-	  	$(".jRatingAverage").css("top","-20px"); 
+	  	$("#jRatingPriorityInserted").css("width","23px");
+	  	$("#jRatingPriorityInserted").css("top","-20px"); 
 		lastTagClicked = null;
 		$('#checkimp').attr('checked', false);
 		$('#date').val("");

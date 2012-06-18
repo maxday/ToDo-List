@@ -70,6 +70,7 @@ if ( typeof(SelectedPriority) == 'undefined' ) SelectedPriority = 1;
 			average = 
 			$('<div>', 
 			{
+				id: 'jRatingPriorityInserted',
 				'class' : 'jRatingAverage',
 				css:{
 					width:0,
