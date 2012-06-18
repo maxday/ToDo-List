@@ -87,7 +87,7 @@
 }
 
 	.guidely-controls button {
-		font-size: 11px;
+		font-size: 10px;
 		padding: 3px 8px;
 		*padding: 1px 4px;
 		cursor: pointer;
@@ -126,6 +126,7 @@
 }
 a.guidely-start-trigger, a:visited.guidely-start-trigger , a:hover.guidely-start-trigger {
 	color : #FFFFFF !important;
+	text-decoration: none !important;
 }
 .guidely-close-trigger {
 	font-family: arial, sans-serif;

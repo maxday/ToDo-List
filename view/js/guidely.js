@@ -310,7 +310,7 @@ var guidely = (function(){
 			$('<a>', {
 				'href': 'javascript:;'
 				, 'class': 'guidely-start-trigger'
-				, 'html': 'Aidez-moi !!!'
+				, 'html': 'Aidez-moi !<br />&nbsp;&nbsp;&nbsp;&nbsp;<img src="./img/help.png" />'
 				, 'click': function (e) {
 					e.preventDefault ();
 					
@@ -356,7 +356,7 @@ var guidely = (function(){
 		, _createNextButton: function () {	
 			var that = this;					
 			return $('<button>', {
-				text: 'Next'
+				text: 'Suivant'
 				, click: function () {
 					that.next ();				
 				}
@@ -367,7 +367,8 @@ var guidely = (function(){
 			var that = this;
 			
 			return $('<button>', {
-				text: 'Done'
+				text: 'C\'est à vous !'
+				, css: "width: 300px"
 				, click: function (e) {
 					collapseAll();
 					e.preventDefault ();
